@@ -171,8 +171,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 70618CC228FF31E900054A78 /* Build configuration list for PBXNativeTarget "GPSStyle" */;
 			buildPhases = (
-				70618CCB28FF35CF00054A78 /* ShellScript */,
 				A82A34CC0B6D646FC699E2B7 /* [CP] Check Pods Manifest.lock */,
+				70618CCB28FF35CF00054A78 /* ShellScript */,
 				70618C9428FF31E300054A78 /* Sources */,
 				70618C9528FF31E300054A78 /* Frameworks */,
 				70618C9628FF31E300054A78 /* Resources */,
