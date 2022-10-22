@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0457E6C18D1F9E86DD470F71 /* Pods_GPSStyleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13242142B07C9908B209D70B /* Pods_GPSStyleTests.framework */; };
+		702F8C4229042B29006B4DF1 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8C4129042B29006B4DF1 /* MainTabBarController.swift */; };
+		702F8C4529042C8A006B4DF1 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 702F8C4429042C8A006B4DF1 /* swiftgen.yml */; };
+		702F8C4C29042F45006B4DF1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8C4B29042F45006B4DF1 /* Strings.swift */; };
+		702F8C5D2904322D006B4DF1 /* en.strings in Resources */ = {isa = PBXBuildFile; fileRef = 702F8C5F2904322D006B4DF1 /* en.strings */; };
+		702F8C602904324D006B4DF1 /* ru.strings in Resources */ = {isa = PBXBuildFile; fileRef = 702F8C622904324D006B4DF1 /* ru.strings */; };
+		702F8C672904355D006B4DF1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8C662904355D006B4DF1 /* Colors.swift */; };
+		702F8C6929043CA7006B4DF1 /* TabBarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8C6829043CA7006B4DF1 /* TabBarModel.swift */; };
+		702F8C6C290441B3006B4DF1 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8C6B290441B3006B4DF1 /* Assets.swift */; };
 		70618C9C28FF31E300054A78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70618C9B28FF31E300054A78 /* AppDelegate.swift */; };
 		70618C9E28FF31E300054A78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70618C9D28FF31E300054A78 /* SceneDelegate.swift */; };
 		70618CA028FF31E300054A78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70618C9F28FF31E300054A78 /* ViewController.swift */; };
@@ -44,6 +52,15 @@
 		476F182ED4AB7CEC2F5FF946 /* Pods-GPSStyle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle.release.xcconfig"; path = "Target Support Files/Pods-GPSStyle/Pods-GPSStyle.release.xcconfig"; sourceTree = "<group>"; };
 		621ED99DA5CC9464462682CE /* Pods-GPSStyle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle.debug.xcconfig"; path = "Target Support Files/Pods-GPSStyle/Pods-GPSStyle.debug.xcconfig"; sourceTree = "<group>"; };
 		623CDAEEBDEA4DB8B1ACEDF8 /* Pods-GPSStyle-GPSStyleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle-GPSStyleUITests.release.xcconfig"; path = "Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		702F8C4129042B29006B4DF1 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		702F8C4429042C8A006B4DF1 /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		702F8C4B29042F45006B4DF1 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		702F8C5E2904322D006B4DF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/en.strings; sourceTree = "<group>"; };
+		702F8C612904324D006B4DF1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ru.strings; sourceTree = "<group>"; };
+		702F8C64290434D4006B4DF1 /* colors.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = colors.txt; sourceTree = "<group>"; };
+		702F8C662904355D006B4DF1 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		702F8C6829043CA7006B4DF1 /* TabBarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarModel.swift; sourceTree = "<group>"; };
+		702F8C6B290441B3006B4DF1 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		70618C9828FF31E300054A78 /* GPSStyle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSStyle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70618C9B28FF31E300054A78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70618C9D28FF31E300054A78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,9 +119,69 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		702F8C3F29042AC9006B4DF1 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				702F8C6A290441A0006B4DF1 /* Assets */,
+				702F8C6529043530006B4DF1 /* Colors */,
+				702F8C4329042B50006B4DF1 /* L10n */,
+				702F8C4029042AD4006B4DF1 /* MainTabBar */,
+				70618C9B28FF31E300054A78 /* AppDelegate.swift */,
+				70618C9D28FF31E300054A78 /* SceneDelegate.swift */,
+				70618C9F28FF31E300054A78 /* ViewController.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		702F8C4029042AD4006B4DF1 /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				702F8C4129042B29006B4DF1 /* MainTabBarController.swift */,
+				702F8C6829043CA7006B4DF1 /* TabBarModel.swift */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		702F8C4329042B50006B4DF1 /* L10n */ = {
+			isa = PBXGroup;
+			children = (
+				702F8C5F2904322D006B4DF1 /* en.strings */,
+				702F8C622904324D006B4DF1 /* ru.strings */,
+				702F8C4B29042F45006B4DF1 /* Strings.swift */,
+			);
+			path = L10n;
+			sourceTree = "<group>";
+		};
+		702F8C632904348C006B4DF1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				70618CA428FF31E800054A78 /* Assets.xcassets */,
+				70618CA628FF31E800054A78 /* LaunchScreen.storyboard */,
+				702F8C64290434D4006B4DF1 /* colors.txt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		702F8C6529043530006B4DF1 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				702F8C662904355D006B4DF1 /* Colors.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		702F8C6A290441A0006B4DF1 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				702F8C6B290441B3006B4DF1 /* Assets.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		70618C8F28FF31E300054A78 = {
 			isa = PBXGroup;
 			children = (
+				702F8C4429042C8A006B4DF1 /* swiftgen.yml */,
 				70618C9A28FF31E300054A78 /* GPSStyle */,
 				70618CB128FF31E900054A78 /* GPSStyleTests */,
 				70618CBB28FF31E900054A78 /* GPSStyleUITests */,
@@ -127,12 +204,9 @@
 		70618C9A28FF31E300054A78 /* GPSStyle */ = {
 			isa = PBXGroup;
 			children = (
-				70618C9B28FF31E300054A78 /* AppDelegate.swift */,
-				70618C9D28FF31E300054A78 /* SceneDelegate.swift */,
-				70618C9F28FF31E300054A78 /* ViewController.swift */,
-				70618CA428FF31E800054A78 /* Assets.xcassets */,
-				70618CA628FF31E800054A78 /* LaunchScreen.storyboard */,
 				70618CA928FF31E800054A78 /* Info.plist */,
+				702F8C632904348C006B4DF1 /* Resources */,
+				702F8C3F29042AC9006B4DF1 /* Source */,
 			);
 			path = GPSStyle;
 			sourceTree = "<group>";
@@ -172,7 +246,8 @@
 			buildConfigurationList = 70618CC228FF31E900054A78 /* Build configuration list for PBXNativeTarget "GPSStyle" */;
 			buildPhases = (
 				A82A34CC0B6D646FC699E2B7 /* [CP] Check Pods Manifest.lock */,
-				70618CCB28FF35CF00054A78 /* ShellScript */,
+				702F8C4E2904309A006B4DF1 /* SwiftGen */,
+				70618CCB28FF35CF00054A78 /* SwiftLint */,
 				70618C9428FF31E300054A78 /* Sources */,
 				70618C9528FF31E300054A78 /* Frameworks */,
 				70618C9628FF31E300054A78 /* Resources */,
@@ -256,6 +331,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 70618C8F28FF31E300054A78;
 			productRefGroup = 70618C9928FF31E300054A78 /* Products */;
@@ -275,7 +351,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				70618CA828FF31E800054A78 /* LaunchScreen.storyboard in Resources */,
+				702F8C602904324D006B4DF1 /* ru.strings in Resources */,
+				702F8C5D2904322D006B4DF1 /* en.strings in Resources */,
 				70618CA528FF31E800054A78 /* Assets.xcassets in Resources */,
+				702F8C4529042C8A006B4DF1 /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,7 +414,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		70618CCB28FF35CF00054A78 /* ShellScript */ = {
+		702F8C4E2904309A006B4DF1 /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -344,6 +423,25 @@
 			);
 			inputPaths = (
 			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n\"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\n";
+		};
+		70618CCB28FF35CF00054A78 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -421,7 +519,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				70618CA028FF31E300054A78 /* ViewController.swift in Sources */,
+				702F8C672904355D006B4DF1 /* Colors.swift in Sources */,
+				702F8C6C290441B3006B4DF1 /* Assets.swift in Sources */,
 				70618C9C28FF31E300054A78 /* AppDelegate.swift in Sources */,
+				702F8C4C29042F45006B4DF1 /* Strings.swift in Sources */,
+				702F8C4229042B29006B4DF1 /* MainTabBarController.swift in Sources */,
+				702F8C6929043CA7006B4DF1 /* TabBarModel.swift in Sources */,
 				70618C9E28FF31E300054A78 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +562,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		702F8C5F2904322D006B4DF1 /* en.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				702F8C5E2904322D006B4DF1 /* en */,
+			);
+			name = en.strings;
+			sourceTree = "<group>";
+		};
+		702F8C622904324D006B4DF1 /* ru.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				702F8C612904324D006B4DF1 /* ru */,
+			);
+			name = ru.strings;
+			sourceTree = "<group>";
+		};
 		70618CA628FF31E800054A78 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -474,6 +593,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -534,6 +654,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -597,8 +718,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -625,8 +746,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -8,6 +8,7 @@ target 'GPSStyle' do
   # Pods for GPSStyle
   pod 'SwiftLint'
   pod 'PinLayout'
+  pod 'SwiftGen', '~> 6.0'
 
   target 'GPSStyleTests' do
     inherit! :search_paths
