@@ -10,6 +10,6 @@ import UIKit
 class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red // [art] to detect loaded ViewController from SceneDelegate
+        view.backgroundColor = .white // [art] to detect loaded ViewController from SceneDelegate
     }
 }

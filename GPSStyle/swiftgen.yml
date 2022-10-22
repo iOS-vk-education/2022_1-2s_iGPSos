@@ -1,0 +1,15 @@
+strings:
+  inputs: GPSStyle/Source/L10n/ru.lproj/ru.strings
+  outputs:
+    templateName: structured-swift5
+    output: GPSStyle/Source/L10n/Strings.swift
+colors:
+  inputs: GPSStyle/Resources/colors.txt
+  outputs:
+    templateName: swift5
+    output: GPSStyle/Source/Colors/Colors.swift
+xcassets:
+  inputs: GPSStyle/Resources/Assets.xcassets
+  outputs:
+    templateName: swift5
+    output: GPSStyle/Source/Assets/Assets.swift
