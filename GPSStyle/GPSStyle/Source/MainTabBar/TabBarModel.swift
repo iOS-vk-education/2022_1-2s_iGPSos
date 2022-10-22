@@ -14,20 +14,30 @@ protocol TabBarModel: AnyObject {
 final class TabBarModelImpl: TabBarModel {
     func generateTabBars() -> [UIViewController] {
         [generateVC(
-            viewController: ViewController(),
+            viewController:
+                HomeContainer.assemble(with: HomeContext()).viewController,
             image: Asset.tabHome.image,
             selectedImage: Asset.tabHomeFilled.image
         ),
          generateVC(
-            viewController: ViewController(),
+            viewController:
+                ClothesListContainer.assemble(with: ClothesListContext()).viewController,
             image: UIImage(systemName: "person.fill"),
             selectedImage: UIImage(systemName: "house.fill")
         ),
          generateVC(
-            viewController: ViewController(),
+            viewController:
+                LooksListContainer.assemble(with: LooksListContext()).viewController,
+            image: UIImage(systemName: "person.fill"),
+            selectedImage: UIImage(systemName: "house.fill")
+        ),
+         generateVC(
+            viewController:
+                ProfileContainer.assemble(with: ProfileContext()).viewController,
             image: UIImage(systemName: "person.fill"),
             selectedImage: UIImage(systemName: "house.fill")
         )]
+        // TODO: Change Image and selectedImage To real Images
     }
     
     private func generateVC(viewController: UIViewController, image: UIImage?, selectedImage: UIImage?) -> UIViewController {
