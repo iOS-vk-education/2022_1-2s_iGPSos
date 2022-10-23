@@ -17,6 +17,7 @@ class MainTabBarController: UITabBarController {
         static let bottomInsets: CGFloat = 37.0
         static let shadowOpacity: Float = 0.25
         static let shadowRadius: CGFloat = 4.0
+        static let tabBarYMargin: CGFloat = 5.0
     }
     
     init(tabBarModel: TabBarModel?) {
@@ -49,13 +50,13 @@ class MainTabBarController: UITabBarController {
     }
 
     private func setupTabBarAppearance() {
-        let width = tabBar.bounds.width - Constants.positionOnX * 2
+        let width = tabBar.bounds.width - Constants.positionOnX
         let height = Constants.TabBarHeight
         
         let bezierPath = UIBezierPath(
             roundedRect: CGRect(
-                x: Constants.positionOnX,
-                y: tabBar.bounds.midY - height / 2 - 5,
+                x: Constants.positionOnX / 2,
+                y: tabBar.bounds.midY - height / 2 - Constants.tabBarYMargin,
                 width: width,
                 height: height
             ),
@@ -66,7 +67,7 @@ class MainTabBarController: UITabBarController {
         
         tabBar.layer.insertSublayer(roundLayer, at: 0)
         
-        tabBar.itemWidth = width / 5
+        tabBar.itemWidth = width / 7
         tabBar.itemPositioning = .centered
         additionalSafeAreaInsets.bottom = Constants.bottomInsets
     }
