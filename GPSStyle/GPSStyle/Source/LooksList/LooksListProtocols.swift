@@ -9,7 +9,7 @@
 import Foundation
 
 protocol LooksListModuleInput {
-	var moduleOutput: LooksListModuleOutput? { get }
+    var moduleOutput: LooksListModuleOutput? { get }
 }
 
 protocol LooksListModuleOutput: AnyObject {

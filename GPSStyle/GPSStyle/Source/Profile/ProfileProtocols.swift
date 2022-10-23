@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ProfileModuleInput {
-	var moduleOutput: ProfileModuleOutput? { get }
+    var moduleOutput: ProfileModuleOutput? { get }
 }
 
 protocol ProfileModuleOutput: AnyObject {

@@ -9,12 +9,12 @@
 import Foundation
 
 final class LooksListPresenter {
-	weak var view: LooksListViewInput?
+    weak var view: LooksListViewInput?
     weak var moduleOutput: LooksListModuleOutput?
-
-	private let router: LooksListRouterInput
-	private let interactor: LooksListInteractorInput
-
+    
+    private let router: LooksListRouterInput
+    private let interactor: LooksListInteractorInput
+    
     init(router: LooksListRouterInput, interactor: LooksListInteractorInput) {
         self.router = router
         self.interactor = interactor

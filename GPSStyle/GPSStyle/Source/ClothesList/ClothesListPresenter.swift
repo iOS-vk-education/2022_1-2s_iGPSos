@@ -9,12 +9,12 @@
 import Foundation
 
 final class ClothesListPresenter {
-	weak var view: ClothesListViewInput?
+    weak var view: ClothesListViewInput?
     weak var moduleOutput: ClothesListModuleOutput?
-
-	private let router: ClothesListRouterInput
-	private let interactor: ClothesListInteractorInput
-
+    
+    private let router: ClothesListRouterInput
+    private let interactor: ClothesListInteractorInput
+    
     init(router: ClothesListRouterInput, interactor: ClothesListInteractorInput) {
         self.router = router
         self.interactor = interactor

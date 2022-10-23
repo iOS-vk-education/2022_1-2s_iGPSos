@@ -9,7 +9,7 @@
 import Foundation
 
 final class ClothesListInteractor {
-	weak var output: ClothesListInteractorOutput?
+    weak var output: ClothesListInteractorOutput?
 }
 
 extension ClothesListInteractor: ClothesListInteractorInput {

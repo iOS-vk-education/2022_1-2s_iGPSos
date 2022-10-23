@@ -9,7 +9,7 @@
 import Foundation
 
 final class LooksListInteractor {
-	weak var output: LooksListInteractorOutput?
+    weak var output: LooksListInteractorOutput?
 }
 
 extension LooksListInteractor: LooksListInteractorInput {

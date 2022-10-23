@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ClothesListModuleInput {
-	var moduleOutput: ClothesListModuleOutput? { get }
+    var moduleOutput: ClothesListModuleOutput? { get }
 }
 
 protocol ClothesListModuleOutput: AnyObject {

@@ -42,7 +42,6 @@
 		702F8CA029044EFC006B4DF1 /* LooksListContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8C9A29044EFC006B4DF1 /* LooksListContainer.swift */; };
 		70618C9C28FF31E300054A78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70618C9B28FF31E300054A78 /* AppDelegate.swift */; };
 		70618C9E28FF31E300054A78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70618C9D28FF31E300054A78 /* SceneDelegate.swift */; };
-		70618CA028FF31E300054A78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70618C9F28FF31E300054A78 /* ViewController.swift */; };
 		70618CA528FF31E800054A78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70618CA428FF31E800054A78 /* Assets.xcassets */; };
 		70618CA828FF31E800054A78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70618CA628FF31E800054A78 /* LaunchScreen.storyboard */; };
 		70618CB328FF31E900054A78 /* GPSStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70618CB228FF31E900054A78 /* GPSStyleTests.swift */; };
@@ -112,7 +111,6 @@
 		70618C9828FF31E300054A78 /* GPSStyle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSStyle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70618C9B28FF31E300054A78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70618C9D28FF31E300054A78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		70618C9F28FF31E300054A78 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		70618CA428FF31E800054A78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		70618CA728FF31E800054A78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70618CA928FF31E800054A78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 				702F8C4029042AD4006B4DF1 /* MainTabBar */,
 				70618C9B28FF31E300054A78 /* AppDelegate.swift */,
 				70618C9D28FF31E300054A78 /* SceneDelegate.swift */,
-				70618C9F28FF31E300054A78 /* ViewController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -623,7 +620,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				702F8C9E29044EFC006B4DF1 /* LooksListProtocols.swift in Sources */,
-				70618CA028FF31E300054A78 /* ViewController.swift in Sources */,
 				702F8C8229044E97006B4DF1 /* ClothesListRouter.swift in Sources */,
 				702F8C9F29044EFC006B4DF1 /* LooksListInteractor.swift in Sources */,
 				702F8C672904355D006B4DF1 /* Colors.swift in Sources */,
