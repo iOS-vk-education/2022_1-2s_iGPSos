@@ -10,6 +10,9 @@ target 'GPSStyle' do
   pod 'PinLayout'
   pod 'SwiftGen', '~> 6.0'
 
+  #UI
+  pod 'SnapKit'
+
   # Api
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
