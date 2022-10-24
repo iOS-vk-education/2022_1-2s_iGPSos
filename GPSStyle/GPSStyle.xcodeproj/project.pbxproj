@@ -49,6 +49,7 @@
 		70618CBF28FF31E900054A78 /* GPSStyleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70618CBE28FF31E900054A78 /* GPSStyleUITestsLaunchTests.swift */; };
 		77120E79C9CE1C14F604AB82 /* Pods_GPSStyle_GPSStyleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB50EC33BFD932CBA8E2D83 /* Pods_GPSStyle_GPSStyleUITests.framework */; };
 		C32BBFF21AEB4B5BFFA68F88 /* Pods_GPSStyle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15EC9988C8C08A9F86895CB7 /* Pods_GPSStyle.framework */; };
+		DCDDBA3F2905585C00209C6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCDDBA3E2905585C00209C6B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		70618CBE28FF31E900054A78 /* GPSStyleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSStyleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8470EF11AC9981E312CD4064 /* Pods-GPSStyle-GPSStyleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; path = "Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9DB50EC33BFD932CBA8E2D83 /* Pods_GPSStyle_GPSStyleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPSStyle_GPSStyleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCDDBA3E2905585C00209C6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF47B501C23C104C059933F8 /* Pods-GPSStyleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyleTests.release.xcconfig"; path = "Target Support Files/Pods-GPSStyleTests/Pods-GPSStyleTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -306,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				70618CA928FF31E800054A78 /* Info.plist */,
+				DCDDBA3E2905585C00209C6B /* GoogleService-Info.plist */,
 				702F8C632904348C006B4DF1 /* Resources */,
 				702F8C3F29042AC9006B4DF1 /* Source */,
 			);
@@ -456,6 +459,7 @@
 				702F8C5D2904322D006B4DF1 /* en.strings in Resources */,
 				70618CA528FF31E800054A78 /* Assets.xcassets in Resources */,
 				702F8C4529042C8A006B4DF1 /* swiftgen.yml in Resources */,
+				DCDDBA3F2905585C00209C6B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
