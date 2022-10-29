@@ -47,6 +47,16 @@ final class TabBarModelImpl: TabBarModel {
             selectedImage: selectedImage
         )
         viewController.tabBarItem = icon
-        return viewController
+
+        let navigationController = UINavigationController(rootViewController: viewController)
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = ColorName.white.color
+        appearance.titleTextAttributes = [.foregroundColor: ColorName.black.color]
+        navigationController.navigationBar.tintColor = ColorName.black.color
+        navigationController.navigationBar.standardAppearance = appearance
+        navigationController.navigationBar.compactAppearance = appearance
+        navigationController.navigationBar.scrollEdgeAppearance = appearance
+        
+        return navigationController
     }
 }

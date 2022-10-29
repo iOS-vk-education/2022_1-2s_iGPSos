@@ -29,7 +29,7 @@ protocol HomeViewInput: AnyObject {
 protocol HomeViewOutput: AnyObject {
     var lookList: [HomeSection] { get }
     func viewDidLoad()
-    func dateDidChange(new date: Date)
+    func dateDidChange(with date: Date)
     func addButtonDidTap()
     func clothDidTap(with index: IndexPath)
     func configureCalendarTitle(date: Date) -> (String, String)

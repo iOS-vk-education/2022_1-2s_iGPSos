@@ -15,7 +15,7 @@ final class HomeViewController: UIViewController {
         static let calendarHorizontallyMargin: CGFloat = 35.0
         static let calendarHeight: CGFloat = 300.0
         static let addButtonSideSize: CGFloat = 80.0
-        static let addButtonmarginBottom: CGFloat = 13.0
+        static let addButtonMarginBottom: CGFloat = 13.0
         static let monthCount: Int = 12
         static let headerHeight: CGFloat = 28.0
     }
@@ -53,14 +53,14 @@ final class HomeViewController: UIViewController {
     override func viewDidLayoutSubviews() {
        super.viewDidLayoutSubviews()
         calendar.pin
-            .top(view.pin.safeArea + Constants.calendarTopMargin)
+            .top(view.pin.safeArea.top + Constants.calendarTopMargin)
             .horizontally(Constants.calendarHorizontallyMargin)
             .height(Constants.calendarHeight)
         if let tabBarController = tabBarController {
             addButton.pin
                 .above(of: tabBarController.tabBar, aligned: .center)
                 .size(Constants.addButtonSideSize)
-                .marginBottom(Constants.addButtonmarginBottom)
+                .marginBottom(Constants.addButtonMarginBottom)
         }
         tableView.pin
             .below(of: calendar)
@@ -96,21 +96,7 @@ final class HomeViewController: UIViewController {
     
     private func setupCalendar() {
         view.addSubview(calendar)
-        let style = CalendarView.Style()
-        style.cellSelectedColor = ColorName.mainPurple.color
-        style.cellSelectedTextColor = ColorName.white.color
-        style.cellTextColorToday = ColorName.black.color
-        style.cellSelectedBorderWidth = 0.0
-        style.cellShape = .round
-        style.cellColorDefault = .clear
-        style.weekdaysTextColor = ColorName.black.color
-        style.cellColorToday = .clear
-        style.cellTextColorDefault = ColorName.black.color
-        style.cellTextColorWeekend = ColorName.black.color
-        style.headerFont = FontFamily.Inter.regular.font(size: 18)
-        style.weekdaysFont = FontFamily.Inter.regular.font(size: 14)
-        style.cellFont = FontFamily.Inter.light.font(size: 14)
-        calendar.style = style
+        calendar.style = CalendarView.Style()
         calendar.dataSource = self
         calendar.delegate = self
         calendar.direction = .horizontal
@@ -164,7 +150,7 @@ extension HomeViewController: CalendarViewDelegate {
     }
 
     func calendar(_ calendar: CalendarView, didSelectDate date: Date, withEvents events: [CalendarEvent]) {
-        output.dateDidChange(new: date)
+        output.dateDidChange(with: date)
     }
 }
 

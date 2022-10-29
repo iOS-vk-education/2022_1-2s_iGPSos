@@ -119,7 +119,7 @@ extension HomePresenter: HomeViewOutput {
         // [art] Open new screen view cloth
     }
     
-    func dateDidChange(new date: Date) {
+    func dateDidChange(with date: Date) {
         view?.update(with: .isLoading)
         // [art] update data
         view?.update(with: .success)

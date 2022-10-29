@@ -18,6 +18,7 @@ class HomeTableViewCell: UITableViewCell {
         static let labelHeightPercent: CGFloat = 46.0
         static let labelmarginTopPercent: CGFloat = 8.0
         static let warningImageSideSize: CGFloat = 15.0
+        static let cellLeftMargin: CGFloat = 24.0
     }
     
     static let cellReuseIdentifier = "HomeTableViewCell"
@@ -25,33 +26,10 @@ class HomeTableViewCell: UITableViewCell {
     private let title = VerticalAlignLabel()
     private let subTitle = VerticalAlignLabel()
     private let warningImage = UIImageView(image: Asset.warning.image)
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        selectionStyle = .none
-        separatorInset = .zero
-        accessoryType = .disclosureIndicator
-    
-        contentView.addSubview(imageClothView)
-        contentView.addSubview(title)
-        contentView.addSubview(subTitle)
-        contentView.addSubview(warningImage)
-
-        title.verticalAlignment = .bottom
-        title.numberOfLines = 1
-        title.font = FontFamily.Inter.regular.font(size: 14)
-        subTitle.numberOfLines = 1
-        subTitle.font = FontFamily.Inter.regular.font(size: 14)
-        subTitle.textColor = ColorName.darkGrey.color
-
-        imageClothView.addoverlay()
-        imageClothView.layer.cornerRadius = Constants.imageCornerRadius
-        imageClothView.layer.masksToBounds = true
+        setup()
     }
     
     required init?(coder: NSCoder) {
@@ -68,18 +46,14 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     override func sizeThatFits(_ size: CGSize) -> CGSize {
-        contentView.pin.width(size.width)
-        layout()
-        return CGSize(
-            width: contentView.frame.width,
-            height: imageClothView.frame.maxY
-        )
+        return contentView.autoSizeThatFits(size, layoutClosure: layout)
     }
+
     override func prepareForReuse() {
         imageClothView.image = nil
     }
 
-    public func configure(model: HomeRow) {
+    func configure(model: HomeRow) {
         ImageLoader.shared.image(hash: model.hashValue, with: model.imageUrl) { [weak self] hash, image  in
             guard model.hashValue == hash else {
                 return
@@ -91,9 +65,11 @@ class HomeTableViewCell: UITableViewCell {
         title.text = model.title
         subTitle.text = model.stringSpecification
         warningImage.isHidden = !model.isWarning
+        setNeedsLayout()
     }
 
     private func layout() {
+        contentView.pin.all().marginRight(Constants.cellLeftMargin)
         imageClothView.pin
             .left(Constants.imageMargin)
             .vertically(Constants.imageClothVerticallyMargin)
@@ -116,5 +92,21 @@ class HomeTableViewCell: UITableViewCell {
             .right(Constants.imageMargin)
             .vCenter()
             .size(Constants.warningImageSideSize)
+    }
+    
+    private func setup() {
+        selectionStyle = .none
+        separatorInset = .zero
+        accessoryType = .disclosureIndicator
+    
+        contentView.addSubviews(imageClothView, title, subTitle, warningImage)
+        title.verticalAlignment = .bottom
+        title.font = FontFamily.Inter.regular.font(size: 14)
+        subTitle.font = FontFamily.Inter.regular.font(size: 14)
+        subTitle.textColor = ColorName.darkGrey.color
+
+        imageClothView.addOverlay()
+        imageClothView.layer.cornerRadius = Constants.imageCornerRadius
+        imageClothView.layer.masksToBounds = true
     }
 }
