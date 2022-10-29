@@ -76,6 +76,12 @@
 		77120E79C9CE1C14F604AB82 /* Pods_GPSStyle_GPSStyleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB50EC33BFD932CBA8E2D83 /* Pods_GPSStyle_GPSStyleUITests.framework */; };
 		C32BBFF21AEB4B5BFFA68F88 /* Pods_GPSStyle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15EC9988C8C08A9F86895CB7 /* Pods_GPSStyle.framework */; };
 		DCDDBA3F2905585C00209C6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCDDBA3E2905585C00209C6B /* GoogleService-Info.plist */; };
+		F5415CA3290D28590099C278 /* ClothesCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */; };
+		F5415CA5290D28D10099C278 /* ClothesCreateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */; };
+		F5415CA7290D290B0099C278 /* ClothesCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA6290D290B0099C278 /* ClothesCreateViewController.swift */; };
+		F5415CA9290D297C0099C278 /* ClothesCreateProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA8290D297C0099C278 /* ClothesCreateProtocols.swift */; };
+		F5415CAB290D29C30099C278 /* ClothesCreateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CAA290D29C30099C278 /* ClothesCreateInteractor.swift */; };
+		F5415CAD290D29E40099C278 /* ClothesCreateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CAC290D29E40099C278 /* ClothesCreateContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +182,12 @@
 		9DB50EC33BFD932CBA8E2D83 /* Pods_GPSStyle_GPSStyleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPSStyle_GPSStyleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCDDBA3E2905585C00209C6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF47B501C23C104C059933F8 /* Pods-GPSStyleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyleTests.release.xcconfig"; path = "Target Support Files/Pods-GPSStyleTests/Pods-GPSStyleTests.release.xcconfig"; sourceTree = "<group>"; };
+		F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreatePresenter.swift; sourceTree = "<group>"; };
+		F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateRouter.swift; sourceTree = "<group>"; };
+		F5415CA6290D290B0099C278 /* ClothesCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateViewController.swift; sourceTree = "<group>"; };
+		F5415CA8290D297C0099C278 /* ClothesCreateProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateProtocols.swift; sourceTree = "<group>"; };
+		F5415CAA290D29C30099C278 /* ClothesCreateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateInteractor.swift; sourceTree = "<group>"; };
+		F5415CAC290D29E40099C278 /* ClothesCreateContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +237,7 @@
 				702F8CE7290D3ADE006B4DF1 /* Fonts */,
 				702F8CC5290D2860006B4DF1 /* Utilities */,
 				702F8CC1290C93FA006B4DF1 /* UI */,
+				F5415C9F290D259E0099C278 /* ClothesCreate */,
 				702F8C9429044ECB006B4DF1 /* LooksList */,
 				702F8C8729044EB2006B4DF1 /* Profile */,
 				702F8C7A29044E69006B4DF1 /* ClothesList */,
@@ -490,6 +503,19 @@
 				13242142B07C9908B209D70B /* Pods_GPSStyleTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5415C9F290D259E0099C278 /* ClothesCreate */ = {
+			isa = PBXGroup;
+			children = (
+				F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */,
+				F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */,
+				F5415CA6290D290B0099C278 /* ClothesCreateViewController.swift */,
+				F5415CA8290D297C0099C278 /* ClothesCreateProtocols.swift */,
+				F5415CAA290D29C30099C278 /* ClothesCreateInteractor.swift */,
+				F5415CAC290D29E40099C278 /* ClothesCreateContainer.swift */,
+			);
+			path = ClothesCreate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -782,6 +808,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5415CA3290D28590099C278 /* ClothesCreatePresenter.swift in Sources */,
+				F5415CA5290D28D10099C278 /* ClothesCreateRouter.swift in Sources */,
+				F5415CA7290D290B0099C278 /* ClothesCreateViewController.swift in Sources */,
+				F5415CA9290D297C0099C278 /* ClothesCreateProtocols.swift in Sources */,
+				F5415CAB290D29C30099C278 /* ClothesCreateInteractor.swift in Sources */,
+				F5415CAD290D29E40099C278 /* ClothesCreateContainer.swift in Sources */,
 				702F8C9E29044EFC006B4DF1 /* LooksListProtocols.swift in Sources */,
 				702F8CBA290C85FB006B4DF1 /* CalendarView+Delegate.swift in Sources */,
 				702F8CC0290C8C35006B4DF1 /* HomeTableViewCell.swift in Sources */,
