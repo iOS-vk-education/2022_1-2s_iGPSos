@@ -16,6 +16,9 @@ target 'GPSStyle' do
   # Api
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
+  pod 'Firebase/Storage'
+  pod 'FirebaseFirestore'
+  pod 'Firebase/AnalyticsWithoutAdIdSupport'
 
   target 'GPSStyleTests' do
     inherit! :search_paths

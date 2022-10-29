@@ -8,4 +8,6 @@
 
 "main" = "Главная";
 "cloth" = "Одежда";
+"appName" = "GPSStyle";
+"calendarTitle" = "%@ %@ года";
 

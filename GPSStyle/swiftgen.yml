@@ -13,3 +13,8 @@ xcassets:
   outputs:
     templateName: swift5
     output: GPSStyle/Source/Assets/Assets.swift
+fonts:
+  inputs: GPSStyle/Resources/font/
+  outputs:
+    templateName: swift5
+    output: GPSStyle/Source/Fonts/Fonts.swift
