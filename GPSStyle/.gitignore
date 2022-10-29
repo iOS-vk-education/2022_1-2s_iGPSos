@@ -90,3 +90,11 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+# MacOS file system
+.DS_Store
+GPSStyle/GoogleService-Info.plist
+
+*.swp
+*.swo
+*.lock
