@@ -32,6 +32,7 @@ protocol HomeViewOutput: AnyObject {
     func dateDidChange(new date: Date)
     func addButtonDidTap()
     func clothDidTap(with index: IndexPath)
+    func configureCalendarTitle(date: Date) -> (String, String)
 }
 
 protocol HomeInteractorInput: AnyObject {

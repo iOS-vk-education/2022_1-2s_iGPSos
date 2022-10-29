@@ -37,16 +37,17 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = ColorName.white.color
         setupTitle()
         setupCalendar()
         setupButton()
         setupTableView()
-        view.backgroundColor = ColorName.white.color
         output.viewDidLoad()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        calendar.selectDate(Date()) // by default selected is now
     }
     
     override func viewDidLayoutSubviews() {
@@ -89,6 +90,7 @@ final class HomeViewController: UIViewController {
     private func setupTitle() {
         let title = UILabel()
         title.text = L10n.appName
+        title.font = FontFamily.Inter.medium.font(size: 22)
         navigationItem.titleView = title
     }
     
@@ -97,6 +99,7 @@ final class HomeViewController: UIViewController {
         let style = CalendarView.Style()
         style.cellSelectedColor = ColorName.mainPurple.color
         style.cellSelectedTextColor = ColorName.white.color
+        style.cellTextColorToday = ColorName.black.color
         style.cellSelectedBorderWidth = 0.0
         style.cellShape = .round
         style.cellColorDefault = .clear
@@ -104,6 +107,9 @@ final class HomeViewController: UIViewController {
         style.cellColorToday = .clear
         style.cellTextColorDefault = ColorName.black.color
         style.cellTextColorWeekend = ColorName.black.color
+        style.headerFont = FontFamily.Inter.regular.font(size: 18)
+        style.weekdaysFont = FontFamily.Inter.regular.font(size: 14)
+        style.cellFont = FontFamily.Inter.light.font(size: 14)
         calendar.style = style
         calendar.dataSource = self
         calendar.delegate = self
@@ -131,12 +137,8 @@ extension HomeViewController: HomeViewInput {
 
 extension HomeViewController: CalendarViewDataSource {
     func headerString(_ date: Date) -> String? {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy"
-        let year = formatter.string(from: date)
-        formatter.dateFormat = "MMM"
-        let month = formatter.string(from: date)
-        return L10n.calendarTitle(month, year)
+        let titleValues = output.configureCalendarTitle(date: date)
+        return L10n.calendarTitle(titleValues.0, titleValues.1)
     }
     
     func startDate() -> Date {
@@ -175,6 +177,7 @@ extension HomeViewController: UITableViewDelegate {
         let header = view as? UITableViewHeaderFooterView
         header?.textLabel?.font = FontFamily.Inter.medium.font(size: 18)
         header?.textLabel?.textColor = ColorName.black.color
+        header?.backgroundConfiguration = .listPlainCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

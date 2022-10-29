@@ -102,6 +102,15 @@ extension HomePresenter: HomeModuleInput {
 }
 
 extension HomePresenter: HomeViewOutput {
+    func configureCalendarTitle(date: Date) -> (String, String) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy"
+        let year = formatter.string(from: date)
+        formatter.dateFormat = "MMM"
+        let month = formatter.string(from: date)
+        return (month, year)
+    }
+    
     func addButtonDidTap() {
         // [art] Open new screen add event
     }
