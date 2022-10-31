@@ -29,6 +29,7 @@ protocol HomeViewInput: AnyObject {
 protocol HomeViewOutput: AnyObject {
     var lookList: [HomeSection] { get }
     func viewDidLoad()
+    func reload()
     func dateDidChange(with date: Date)
     func addButtonDidTap()
     func clothDidTap(with index: IndexPath)

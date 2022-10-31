@@ -10,4 +10,7 @@
 "cloth" = "Cloth";
 "appName" = "GPSStyle";
 "calendarTitle" = "%@ %@ year";
+"emptyHomeTitle" = "There is no look for today 😞\n👇 Create it👇";
+"errorHomeTitle" = "There was an error 😞\n👇 Try again👇";
+"reload" = "Reload";
 

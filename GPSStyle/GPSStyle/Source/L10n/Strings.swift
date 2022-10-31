@@ -18,11 +18,19 @@ internal enum L10n {
   }
   /// Одежда
   internal static let cloth = L10n.tr("ru", "cloth", fallback: "Одежда")
+  /// На сегодня образа нет 😞
+  /// 👇 Создайте его👇
+  internal static let emptyHomeTitle = L10n.tr("ru", "emptyHomeTitle", fallback: "На сегодня образа нет 😞\n👇 Создайте его👇")
+  /// Произошла ошибочка 😞
+  /// 👇 Попробуй еще раз👇
+  internal static let errorHomeTitle = L10n.tr("ru", "errorHomeTitle", fallback: "Произошла ошибочка 😞\n👇 Попробуй еще раз👇")
   /// Localizable.strings
   ///   GPSStyle
   /// 
   ///   Created by Ivan Gorshkov on 22.10.2022.
   internal static let main = L10n.tr("ru", "main", fallback: "Главная")
+  /// Перезагрузить
+  internal static let reload = L10n.tr("ru", "reload", fallback: "Перезагрузить")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

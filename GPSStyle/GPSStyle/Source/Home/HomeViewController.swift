@@ -18,12 +18,23 @@ final class HomeViewController: UIViewController {
         static let addButtonMarginBottom: CGFloat = 13.0
         static let monthCount: Int = 12
         static let headerHeight: CGFloat = 28.0
+        static let spinnerHeight: CGFloat = 56.0
+        static let titleTopMargin: CGFloat = 46.0
+        static let errorButtonTopMargin: CGFloat = 24.0
     }
 
     private let output: HomeViewOutput
     private let calendar = CalendarView()
     private let addButton = UIButton()
     private let tableView = UITableView()
+    private let emptyLabel = UILabel()
+    private let errorLabel = UILabel()
+    private let errorButton = UIButton()
+    private lazy var spinner: Spinner = {
+        let spinner = Spinner(squareLength: Constants.spinnerHeight)
+        return spinner
+    }()
+
     init(output: HomeViewOutput) {
         self.output = output
         
@@ -42,6 +53,10 @@ final class HomeViewController: UIViewController {
         setupCalendar()
         setupButton()
         setupTableView()
+        setupSpinner()
+        setup(label: emptyLabel, text: L10n.emptyHomeTitle)
+        setup(label: errorLabel, text: L10n.errorHomeTitle)
+        setupErrorButton()
         output.viewDidLoad()
     }
     
@@ -66,8 +81,39 @@ final class HomeViewController: UIViewController {
             .below(of: calendar)
             .bottom()
             .horizontally()
+        emptyLabel.pin
+            .below(of: calendar)
+            .marginTop(Constants.titleTopMargin)
+            .hCenter()
+            .sizeToFit()
+        errorLabel.pin
+            .below(of: calendar)
+            .marginTop(Constants.titleTopMargin)
+            .hCenter()
+            .sizeToFit()
+        errorButton.pin
+            .below(of: errorLabel)
+            .marginTop(Constants.errorButtonTopMargin)
+            .hCenter()
+            .width(265.0)
+            .height(45.0)
+        
+        errorButton.layer.cornerRadius = errorButton.frame.height / 2
     }
     
+    private func setup(label: UILabel, text: String) {
+        view.addSubview(label)
+        label.text = text
+        label.font = FontFamily.Inter.medium.font(size: 22)
+        label.textColor = ColorName.lightGrey.color
+        label.numberOfLines = 0
+        label.textAlignment = .center
+    }
+    
+    private func setupSpinner() {
+        view.addSubview(spinner)
+    }
+
     private func setupTableView() {
         view.addSubview(tableView)
         tableView.delegate = self
@@ -80,6 +126,20 @@ final class HomeViewController: UIViewController {
         view.addSubview(addButton)
         addButton.setImage(Asset.add.image, for: .normal)
         addButton.addTarget(self, action: #selector(addButtonDidTaped), for: .touchUpInside)
+    }
+    
+    private func setupErrorButton() {
+        view.addSubview(errorButton)
+        errorButton.setTitle(L10n.reload, for: .normal)
+        errorButton.setTitleColor(ColorName.white.color, for: .normal)
+        errorButton.backgroundColor = ColorName.mainPurple.color
+        errorButton.titleLabel?.font = FontFamily.Inter.semiBold.font(size: 20)
+        errorButton.addTarget(self, action: #selector(errorButtonDidTaped), for: .touchUpInside)
+    }
+
+    @objc
+    private func errorButtonDidTaped() {
+        output.reload()
     }
     
     @objc
@@ -110,13 +170,26 @@ extension HomeViewController: HomeViewInput {
     func update(with state: HomeState) {
         switch state {
         case .isLoading:
-            break // TODO: ADD Loader
+            emptyLabel.isHidden = true
+            errorLabel.isHidden = true
+            errorButton.isHidden = true
+            spinner.startAnimation()
         case .empty:
-            break // TODO: ADD EmptyView
+            emptyLabel.isHidden = false
+            errorLabel.isHidden = true
+            errorButton.isHidden = true
+            spinner.stopAnimation()
         case .success:
+            emptyLabel.isHidden = true
+            errorLabel.isHidden = true
+            errorButton.isHidden = true
+            spinner.stopAnimation()
             tableView.reloadData()
         case .faild:
-            break // TODO: ADD FAILD STATE
+            emptyLabel.isHidden = true
+            errorLabel.isHidden = false
+            errorButton.isHidden = false
+            spinner.stopAnimation()
         }
     }
 }

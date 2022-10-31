@@ -102,6 +102,10 @@ extension HomePresenter: HomeModuleInput {
 }
 
 extension HomePresenter: HomeViewOutput {
+    func reload() {
+        // [art] reload data
+    }
+    
     func configureCalendarTitle(date: Date) -> (String, String) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
