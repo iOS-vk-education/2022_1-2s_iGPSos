@@ -46,7 +46,17 @@ class MainTabBarController: UITabBarController {
             assertionFailure("Faild to get viewControllers")
             return
         }
-        viewControllers = tabBarModel.generateTabBars()
+        viewControllers = tabBarModel.generateTabBars().map({ viewController in
+            let navigationController = UINavigationController(rootViewController: viewController)
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = ColorName.white.color
+            appearance.titleTextAttributes = [.foregroundColor: ColorName.black.color]
+            navigationController.navigationBar.tintColor = ColorName.black.color
+            navigationController.navigationBar.standardAppearance = appearance
+            navigationController.navigationBar.compactAppearance = appearance
+            navigationController.navigationBar.scrollEdgeAppearance = appearance
+            return navigationController
+        })
     }
 
     private func setupTabBarAppearance() {

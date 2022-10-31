@@ -40,6 +40,31 @@
 		702F8C9E29044EFC006B4DF1 /* LooksListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8C9829044EFC006B4DF1 /* LooksListProtocols.swift */; };
 		702F8C9F29044EFC006B4DF1 /* LooksListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8C9929044EFC006B4DF1 /* LooksListInteractor.swift */; };
 		702F8CA029044EFC006B4DF1 /* LooksListContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8C9A29044EFC006B4DF1 /* LooksListContainer.swift */; };
+		702F8CB5290C85FB006B4DF1 /* CalendarFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8CAC290C85FA006B4DF1 /* CalendarFlowLayout.swift */; };
+		702F8CB6290C85FB006B4DF1 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8CAD290C85FA006B4DF1 /* CalendarHeaderView.swift */; };
+		702F8CB7290C85FB006B4DF1 /* CalendarView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8CAE290C85FA006B4DF1 /* CalendarView+Extensions.swift */; };
+		702F8CB8290C85FB006B4DF1 /* CalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8CAF290C85FA006B4DF1 /* CalendarDayCell.swift */; };
+		702F8CB9290C85FB006B4DF1 /* CalendarView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8CB0290C85FA006B4DF1 /* CalendarView+Style.swift */; };
+		702F8CBA290C85FB006B4DF1 /* CalendarView+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8CB1290C85FA006B4DF1 /* CalendarView+Delegate.swift */; };
+		702F8CBB290C85FB006B4DF1 /* EventsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8CB2290C85FA006B4DF1 /* EventsManager.swift */; };
+		702F8CBC290C85FB006B4DF1 /* CalendarView+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8CB3290C85FA006B4DF1 /* CalendarView+DataSource.swift */; };
+		702F8CBD290C85FB006B4DF1 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8CB4290C85FA006B4DF1 /* CalendarView.swift */; };
+		702F8CC0290C8C35006B4DF1 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8CBF290C8C34006B4DF1 /* HomeTableViewCell.swift */; };
+		702F8CC4290C940D006B4DF1 /* VerticalAlignLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8CC3290C940D006B4DF1 /* VerticalAlignLabel.swift */; };
+		702F8CC8290D2872006B4DF1 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8CC6290D2872006B4DF1 /* ImageCache.swift */; };
+		702F8CC9290D2872006B4DF1 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8CC7290D2872006B4DF1 /* ImageLoader.swift */; };
+		702F8CCB290D30F1006B4DF1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8CCA290D30F1006B4DF1 /* UIView+Extension.swift */; };
+		702F8CDC290D3AA8006B4DF1 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 702F8CD0290D3AA8006B4DF1 /* Inter-Medium.ttf */; };
+		702F8CDD290D3AA8006B4DF1 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 702F8CD1290D3AA8006B4DF1 /* Inter-Light.ttf */; };
+		702F8CDE290D3AA8006B4DF1 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 702F8CD2290D3AA8006B4DF1 /* Inter-Thin.ttf */; };
+		702F8CDF290D3AA8006B4DF1 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 702F8CD3290D3AA8006B4DF1 /* Inter-Bold.ttf */; };
+		702F8CE0290D3AA8006B4DF1 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 702F8CD4290D3AA8006B4DF1 /* Inter-Regular.ttf */; };
+		702F8CE1290D3AA8006B4DF1 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 702F8CD5290D3AA8006B4DF1 /* Inter-ExtraBold.ttf */; };
+		702F8CE2290D3AA8006B4DF1 /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 702F8CD6290D3AA8006B4DF1 /* Inter-ExtraLight.ttf */; };
+		702F8CE3290D3AA8006B4DF1 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 702F8CD7290D3AA8006B4DF1 /* Inter-Black.ttf */; };
+		702F8CE4290D3AA8006B4DF1 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 702F8CD8290D3AA8006B4DF1 /* Inter-SemiBold.ttf */; };
+		702F8CE9290D3B0A006B4DF1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8CE8290D3B0A006B4DF1 /* Fonts.swift */; };
+		702F8CEC290D404A006B4DF1 /* HomeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8CEB290D404A006B4DF1 /* HomeSection.swift */; };
 		70618C9C28FF31E300054A78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70618C9B28FF31E300054A78 /* AppDelegate.swift */; };
 		70618C9E28FF31E300054A78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70618C9D28FF31E300054A78 /* SceneDelegate.swift */; };
 		70618CA528FF31E800054A78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70618CA428FF31E800054A78 /* Assets.xcassets */; };
@@ -52,7 +77,7 @@
 		DCDDBA3F2905585C00209C6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCDDBA3E2905585C00209C6B /* GoogleService-Info.plist */; };
 		F5415CA3290D28590099C278 /* ClothesCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */; };
 		F5415CA5290D28D10099C278 /* ClothesCreateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */; };
-		F5415CA7290D290B0099C278 /* ClotheCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA6290D290B0099C278 /* ClotheCreateViewController.swift */; };
+		F5415CA7290D290B0099C278 /* ClothesCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA6290D290B0099C278 /* ClothesCreateViewController.swift */; };
 		F5415CA9290D297C0099C278 /* ClothesCreateProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA8290D297C0099C278 /* ClothesCreateProtocols.swift */; };
 		F5415CAB290D29C30099C278 /* ClothesCreateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CAA290D29C30099C278 /* ClothesCreateInteractor.swift */; };
 		F5415CAD290D29E40099C278 /* ClothesCreateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CAC290D29E40099C278 /* ClothesCreateContainer.swift */; };
@@ -115,6 +140,31 @@
 		702F8C9829044EFC006B4DF1 /* LooksListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LooksListProtocols.swift; sourceTree = "<group>"; };
 		702F8C9929044EFC006B4DF1 /* LooksListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LooksListInteractor.swift; sourceTree = "<group>"; };
 		702F8C9A29044EFC006B4DF1 /* LooksListContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LooksListContainer.swift; sourceTree = "<group>"; };
+		702F8CAC290C85FA006B4DF1 /* CalendarFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarFlowLayout.swift; sourceTree = "<group>"; };
+		702F8CAD290C85FA006B4DF1 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
+		702F8CAE290C85FA006B4DF1 /* CalendarView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+Extensions.swift"; sourceTree = "<group>"; };
+		702F8CAF290C85FA006B4DF1 /* CalendarDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCell.swift; sourceTree = "<group>"; };
+		702F8CB0290C85FA006B4DF1 /* CalendarView+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+Style.swift"; sourceTree = "<group>"; };
+		702F8CB1290C85FA006B4DF1 /* CalendarView+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+Delegate.swift"; sourceTree = "<group>"; };
+		702F8CB2290C85FA006B4DF1 /* EventsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsManager.swift; sourceTree = "<group>"; };
+		702F8CB3290C85FA006B4DF1 /* CalendarView+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+DataSource.swift"; sourceTree = "<group>"; };
+		702F8CB4290C85FA006B4DF1 /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		702F8CBF290C8C34006B4DF1 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		702F8CC3290C940D006B4DF1 /* VerticalAlignLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalAlignLabel.swift; sourceTree = "<group>"; };
+		702F8CC6290D2872006B4DF1 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		702F8CC7290D2872006B4DF1 /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		702F8CCA290D30F1006B4DF1 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		702F8CD0290D3AA8006B4DF1 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		702F8CD1290D3AA8006B4DF1 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
+		702F8CD2290D3AA8006B4DF1 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
+		702F8CD3290D3AA8006B4DF1 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		702F8CD4290D3AA8006B4DF1 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		702F8CD5290D3AA8006B4DF1 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
+		702F8CD6290D3AA8006B4DF1 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		702F8CD7290D3AA8006B4DF1 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
+		702F8CD8290D3AA8006B4DF1 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		702F8CE8290D3B0A006B4DF1 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		702F8CEB290D404A006B4DF1 /* HomeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSection.swift; sourceTree = "<group>"; };
 		70618C9828FF31E300054A78 /* GPSStyle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPSStyle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70618C9B28FF31E300054A78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70618C9D28FF31E300054A78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,7 +182,7 @@
 		DF47B501C23C104C059933F8 /* Pods-GPSStyleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyleTests.release.xcconfig"; path = "Target Support Files/Pods-GPSStyleTests/Pods-GPSStyleTests.release.xcconfig"; sourceTree = "<group>"; };
 		F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreatePresenter.swift; sourceTree = "<group>"; };
 		F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateRouter.swift; sourceTree = "<group>"; };
-		F5415CA6290D290B0099C278 /* ClotheCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClotheCreateViewController.swift; sourceTree = "<group>"; };
+		F5415CA6290D290B0099C278 /* ClothesCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateViewController.swift; sourceTree = "<group>"; };
 		F5415CA8290D297C0099C278 /* ClothesCreateProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateProtocols.swift; sourceTree = "<group>"; };
 		F5415CAA290D29C30099C278 /* ClothesCreateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateInteractor.swift; sourceTree = "<group>"; };
 		F5415CAC290D29E40099C278 /* ClothesCreateContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateContainer.swift; sourceTree = "<group>"; };
@@ -182,6 +232,9 @@
 		702F8C3F29042AC9006B4DF1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				702F8CE7290D3ADE006B4DF1 /* Fonts */,
+				702F8CC5290D2860006B4DF1 /* Utilities */,
+				702F8CC1290C93FA006B4DF1 /* UI */,
 				F5415C9F290D259E0099C278 /* ClothesCreate */,
 				702F8C9429044ECB006B4DF1 /* LooksList */,
 				702F8C8729044EB2006B4DF1 /* Profile */,
@@ -219,6 +272,7 @@
 		702F8C632904348C006B4DF1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				702F8CCC290D3A99006B4DF1 /* font */,
 				70618CA428FF31E800054A78 /* Assets.xcassets */,
 				70618CA628FF31E800054A78 /* LaunchScreen.storyboard */,
 				702F8C64290434D4006B4DF1 /* colors.txt */,
@@ -245,6 +299,8 @@
 		702F8C6D29044E45006B4DF1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				702F8CEA290D4035006B4DF1 /* Entity */,
+				702F8CBE290C8C0C006B4DF1 /* Subviews */,
 				702F8C6E29044E53006B4DF1 /* HomePresenter.swift */,
 				702F8C6F29044E53006B4DF1 /* HomeRouter.swift */,
 				702F8C7029044E53006B4DF1 /* HomeViewController.swift */,
@@ -292,6 +348,97 @@
 				702F8C9A29044EFC006B4DF1 /* LooksListContainer.swift */,
 			);
 			path = LooksList;
+			sourceTree = "<group>";
+		};
+		702F8CAB290C85FA006B4DF1 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				702F8CAC290C85FA006B4DF1 /* CalendarFlowLayout.swift */,
+				702F8CAD290C85FA006B4DF1 /* CalendarHeaderView.swift */,
+				702F8CAE290C85FA006B4DF1 /* CalendarView+Extensions.swift */,
+				702F8CAF290C85FA006B4DF1 /* CalendarDayCell.swift */,
+				702F8CB0290C85FA006B4DF1 /* CalendarView+Style.swift */,
+				702F8CB1290C85FA006B4DF1 /* CalendarView+Delegate.swift */,
+				702F8CB2290C85FA006B4DF1 /* EventsManager.swift */,
+				702F8CB3290C85FA006B4DF1 /* CalendarView+DataSource.swift */,
+				702F8CB4290C85FA006B4DF1 /* CalendarView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		702F8CBE290C8C0C006B4DF1 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				702F8CBF290C8C34006B4DF1 /* HomeTableViewCell.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		702F8CC1290C93FA006B4DF1 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				702F8CC2290C9401006B4DF1 /* VerticalAlignLabel */,
+				702F8CAB290C85FA006B4DF1 /* Calendar */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		702F8CC2290C9401006B4DF1 /* VerticalAlignLabel */ = {
+			isa = PBXGroup;
+			children = (
+				702F8CC3290C940D006B4DF1 /* VerticalAlignLabel.swift */,
+			);
+			path = VerticalAlignLabel;
+			sourceTree = "<group>";
+		};
+		702F8CC5290D2860006B4DF1 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				702F8CC6290D2872006B4DF1 /* ImageCache.swift */,
+				702F8CC7290D2872006B4DF1 /* ImageLoader.swift */,
+				702F8CCA290D30F1006B4DF1 /* UIView+Extension.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		702F8CCC290D3A99006B4DF1 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				702F8CCD290D3AA8006B4DF1 /* Inter */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
+		702F8CCD290D3AA8006B4DF1 /* Inter */ = {
+			isa = PBXGroup;
+			children = (
+				702F8CD0290D3AA8006B4DF1 /* Inter-Medium.ttf */,
+				702F8CD1290D3AA8006B4DF1 /* Inter-Light.ttf */,
+				702F8CD2290D3AA8006B4DF1 /* Inter-Thin.ttf */,
+				702F8CD3290D3AA8006B4DF1 /* Inter-Bold.ttf */,
+				702F8CD4290D3AA8006B4DF1 /* Inter-Regular.ttf */,
+				702F8CD5290D3AA8006B4DF1 /* Inter-ExtraBold.ttf */,
+				702F8CD6290D3AA8006B4DF1 /* Inter-ExtraLight.ttf */,
+				702F8CD7290D3AA8006B4DF1 /* Inter-Black.ttf */,
+				702F8CD8290D3AA8006B4DF1 /* Inter-SemiBold.ttf */,
+			);
+			path = Inter;
+			sourceTree = "<group>";
+		};
+		702F8CE7290D3ADE006B4DF1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				702F8CE8290D3B0A006B4DF1 /* Fonts.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		702F8CEA290D4035006B4DF1 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				702F8CEB290D404A006B4DF1 /* HomeSection.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		70618C8F28FF31E300054A78 = {
@@ -360,7 +507,7 @@
 			children = (
 				F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */,
 				F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */,
-				F5415CA6290D290B0099C278 /* ClotheCreateViewController.swift */,
+				F5415CA6290D290B0099C278 /* ClothesCreateViewController.swift */,
 				F5415CA8290D297C0099C278 /* ClothesCreateProtocols.swift */,
 				F5415CAA290D29C30099C278 /* ClothesCreateInteractor.swift */,
 				F5415CAC290D29E40099C278 /* ClothesCreateContainer.swift */,
@@ -481,10 +628,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				70618CA828FF31E800054A78 /* LaunchScreen.storyboard in Resources */,
+				702F8CE1290D3AA8006B4DF1 /* Inter-ExtraBold.ttf in Resources */,
+				702F8CDD290D3AA8006B4DF1 /* Inter-Light.ttf in Resources */,
+				702F8CE2290D3AA8006B4DF1 /* Inter-ExtraLight.ttf in Resources */,
+				702F8CDF290D3AA8006B4DF1 /* Inter-Bold.ttf in Resources */,
 				702F8C602904324D006B4DF1 /* ru.strings in Resources */,
+				702F8CE3290D3AA8006B4DF1 /* Inter-Black.ttf in Resources */,
 				702F8C5D2904322D006B4DF1 /* en.strings in Resources */,
+				702F8CDC290D3AA8006B4DF1 /* Inter-Medium.ttf in Resources */,
 				70618CA528FF31E800054A78 /* Assets.xcassets in Resources */,
 				702F8C4529042C8A006B4DF1 /* swiftgen.yml in Resources */,
+				702F8CE4290D3AA8006B4DF1 /* Inter-SemiBold.ttf in Resources */,
+				702F8CDE290D3AA8006B4DF1 /* Inter-Thin.ttf in Resources */,
+				702F8CE0290D3AA8006B4DF1 /* Inter-Regular.ttf in Resources */,
 				DCDDBA3F2905585C00209C6B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -649,43 +805,59 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5415CA3290D28590099C278 /* ClothesCreatePresenter.swift in Sources */,
+				F5415CA5290D28D10099C278 /* ClothesCreateRouter.swift in Sources */,
+				F5415CA7290D290B0099C278 /* ClothesCreateViewController.swift in Sources */,
+				F5415CA9290D297C0099C278 /* ClothesCreateProtocols.swift in Sources */,
+				F5415CAB290D29C30099C278 /* ClothesCreateInteractor.swift in Sources */,
+				F5415CAD290D29E40099C278 /* ClothesCreateContainer.swift in Sources */,
 				702F8C9E29044EFC006B4DF1 /* LooksListProtocols.swift in Sources */,
+				702F8CBA290C85FB006B4DF1 /* CalendarView+Delegate.swift in Sources */,
+				702F8CC0290C8C35006B4DF1 /* HomeTableViewCell.swift in Sources */,
 				702F8C8229044E97006B4DF1 /* ClothesListRouter.swift in Sources */,
+				702F8CC4290C940D006B4DF1 /* VerticalAlignLabel.swift in Sources */,
+				702F8CB7290C85FB006B4DF1 /* CalendarView+Extensions.swift in Sources */,
 				702F8C9F29044EFC006B4DF1 /* LooksListInteractor.swift in Sources */,
+				702F8CB5290C85FB006B4DF1 /* CalendarFlowLayout.swift in Sources */,
 				702F8C672904355D006B4DF1 /* Colors.swift in Sources */,
 				702F8C9329044EC2006B4DF1 /* ProfileContainer.swift in Sources */,
+				702F8CE9290D3B0A006B4DF1 /* Fonts.swift in Sources */,
 				702F8C6C290441B3006B4DF1 /* Assets.swift in Sources */,
 				702F8C8529044E97006B4DF1 /* ClothesListInteractor.swift in Sources */,
+				702F8CBD290C85FB006B4DF1 /* CalendarView.swift in Sources */,
 				70618C9C28FF31E300054A78 /* AppDelegate.swift in Sources */,
 				702F8C7729044E53006B4DF1 /* HomeProtocols.swift in Sources */,
 				702F8C9129044EC2006B4DF1 /* ProfileProtocols.swift in Sources */,
 				702F8C8329044E97006B4DF1 /* ClothesListViewController.swift in Sources */,
+				702F8CBB290C85FB006B4DF1 /* EventsManager.swift in Sources */,
 				702F8C4C29042F45006B4DF1 /* Strings.swift in Sources */,
-				F5415CA9290D297C0099C278 /* ClothesCreateProtocols.swift in Sources */,
-				F5415CAB290D29C30099C278 /* ClothesCreateInteractor.swift in Sources */,
-				F5415CA7290D290B0099C278 /* ClotheCreateViewController.swift in Sources */,
+				702F8CB8290C85FB006B4DF1 /* CalendarDayCell.swift in Sources */,
 				702F8C7929044E53006B4DF1 /* HomeContainer.swift in Sources */,
 				702F8C8F29044EC2006B4DF1 /* ProfileRouter.swift in Sources */,
-				F5415CAD290D29E40099C278 /* ClothesCreateContainer.swift in Sources */,
 				702F8C4229042B29006B4DF1 /* MainTabBarController.swift in Sources */,
+				702F8CB6290C85FB006B4DF1 /* CalendarHeaderView.swift in Sources */,
 				702F8C7829044E53006B4DF1 /* HomeInteractor.swift in Sources */,
-				F5415CA5290D28D10099C278 /* ClothesCreateRouter.swift in Sources */,
+				702F8CB9290C85FB006B4DF1 /* CalendarView+Style.swift in Sources */,
 				702F8C7429044E53006B4DF1 /* HomePresenter.swift in Sources */,
 				702F8C7629044E53006B4DF1 /* HomeViewController.swift in Sources */,
 				702F8C9C29044EFC006B4DF1 /* LooksListRouter.swift in Sources */,
 				702F8C9029044EC2006B4DF1 /* ProfileViewController.swift in Sources */,
 				702F8C9D29044EFC006B4DF1 /* LooksListViewController.swift in Sources */,
-				F5415CA3290D28590099C278 /* ClothesCreatePresenter.swift in Sources */,
 				702F8C6929043CA7006B4DF1 /* TabBarModel.swift in Sources */,
 				702F8C8429044E97006B4DF1 /* ClothesListProtocols.swift in Sources */,
 				70618C9E28FF31E300054A78 /* SceneDelegate.swift in Sources */,
 				702F8C9B29044EFC006B4DF1 /* LooksListPresenter.swift in Sources */,
 				702F8CA029044EFC006B4DF1 /* LooksListContainer.swift in Sources */,
 				702F8C8E29044EC2006B4DF1 /* ProfilePresenter.swift in Sources */,
+				702F8CCB290D30F1006B4DF1 /* UIView+Extension.swift in Sources */,
 				702F8C8129044E97006B4DF1 /* ClothesListPresenter.swift in Sources */,
+				702F8CEC290D404A006B4DF1 /* HomeSection.swift in Sources */,
+				702F8CC9290D2872006B4DF1 /* ImageLoader.swift in Sources */,
 				702F8C9229044EC2006B4DF1 /* ProfileInteractor.swift in Sources */,
 				702F8C8629044E97006B4DF1 /* ClothesListContainer.swift in Sources */,
+				702F8CBC290C85FB006B4DF1 /* CalendarView+DataSource.swift in Sources */,
 				702F8C7529044E53006B4DF1 /* HomeRouter.swift in Sources */,
+				702F8CC8290D2872006B4DF1 /* ImageCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

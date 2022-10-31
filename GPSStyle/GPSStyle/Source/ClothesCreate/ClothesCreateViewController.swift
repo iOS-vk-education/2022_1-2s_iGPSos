@@ -1,5 +1,5 @@
 //
-//  ClotheCreateViewController.swift
+//  ClothesCreateViewController.swift
 //  GPSStyle
 //
 //  Created by Алексей Шевченко on 29.10.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ClotheCreateViewController: UIViewController {
+final class ClothesCreateViewController: UIViewController {
     private let output: ClothesCreateViewOutput
     
     init(output: ClothesCreateViewOutput) {

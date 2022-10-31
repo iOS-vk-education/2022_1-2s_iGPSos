@@ -10,8 +10,12 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
-  /// GPStyle
-  internal static let appName = L10n.tr("ru", "app-name", fallback: "GPStyle")
+  /// GPSStyle
+  internal static let appName = L10n.tr("ru", "appName", fallback: "GPSStyle")
+  /// %@ %@ года
+  internal static func calendarTitle(_ p1: Any, _ p2: Any) -> String {
+    return L10n.tr("ru", "calendarTitle", String(describing: p1), String(describing: p2), fallback: "%@ %@ года")
+  }
   /// Одежда
   internal static let cloth = L10n.tr("ru", "cloth", fallback: "Одежда")
   /// Localizable.strings

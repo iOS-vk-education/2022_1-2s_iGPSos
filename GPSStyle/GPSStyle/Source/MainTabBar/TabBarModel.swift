@@ -47,6 +47,7 @@ final class TabBarModelImpl: TabBarModel {
             selectedImage: selectedImage
         )
         viewController.tabBarItem = icon
+        
         return viewController
     }
 }
