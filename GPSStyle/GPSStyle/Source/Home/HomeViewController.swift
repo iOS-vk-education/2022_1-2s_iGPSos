@@ -21,6 +21,8 @@ final class HomeViewController: UIViewController {
         static let spinnerHeight: CGFloat = 56.0
         static let titleTopMargin: CGFloat = 46.0
         static let errorButtonTopMargin: CGFloat = 24.0
+        static let errorButtonWidth: CGFloat = 265.0
+        static let errorButtonHeight: CGFloat = 45.0
     }
 
     private let output: HomeViewOutput
@@ -95,8 +97,8 @@ final class HomeViewController: UIViewController {
             .below(of: errorLabel)
             .marginTop(Constants.errorButtonTopMargin)
             .hCenter()
-            .width(265.0)
-            .height(45.0)
+            .width(Constants.errorButtonWidth)
+            .height(Constants.errorButtonHeight)
         
         errorButton.layer.cornerRadius = errorButton.frame.height / 2
     }
