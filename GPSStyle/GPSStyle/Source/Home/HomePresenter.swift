@@ -126,7 +126,7 @@ extension HomePresenter: HomeViewOutput {
     func dateDidChange(with date: Date) {
         view?.update(with: .isLoading)
         // [art] update data
-        view?.update(with: .success)
+        view?.update(with: .faild)
     }
     
     var lookList: [HomeSection] {

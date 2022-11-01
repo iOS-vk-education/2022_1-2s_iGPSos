@@ -23,6 +23,8 @@ final class HomeViewController: UIViewController {
         static let errorButtonTopMargin: CGFloat = 24.0
         static let errorButtonWidth: CGFloat = 265.0
         static let errorButtonHeight: CGFloat = 45.0
+        static let errorLabelHeight: CGFloat = 56.0
+        static let buttonCornerRadius = Constants.errorButtonHeight / 2
     }
 
     private let output: HomeViewOutput
@@ -62,11 +64,11 @@ final class HomeViewController: UIViewController {
         view.backgroundColor = ColorName.white.color
         setupTitle()
         setupCalendar()
-        setupButton()
         setupTableView()
         setupSpinner()
-        setup(label: errorLabel)
+        setupErrorLabel()
         setupErrorButton()
+        setupButton()
         output.viewDidLoad()
     }
     
@@ -94,24 +96,22 @@ final class HomeViewController: UIViewController {
         errorLabel.pin
             .below(of: calendar)
             .marginTop(Constants.titleTopMargin)
-            .hCenter()
-            .sizeToFit()
+            .horizontally()
+            .height(Constants.errorLabelHeight)
         errorButton.pin
             .below(of: errorLabel)
             .marginTop(Constants.errorButtonTopMargin)
             .hCenter()
             .width(Constants.errorButtonWidth)
             .height(Constants.errorButtonHeight)
-        
-        errorButton.layer.cornerRadius = errorButton.frame.height / 2
     }
     
-    private func setup(label: UILabel) {
-        view.addSubview(label)
-        label.font = FontFamily.Inter.medium.font(size: 22)
-        label.textColor = ColorName.lightGrey.color
-        label.numberOfLines = 0
-        label.textAlignment = .center
+    private func setupErrorLabel() {
+        view.addSubview(errorLabel)
+        errorLabel.font = FontFamily.Inter.medium.font(size: 22)
+        errorLabel.textColor = ColorName.lightGrey.color
+        errorLabel.numberOfLines = 0
+        errorLabel.textAlignment = .center
     }
     
     private func setupSpinner() {
@@ -134,6 +134,7 @@ final class HomeViewController: UIViewController {
     
     private func setupErrorButton() {
         view.addSubview(errorButton)
+        errorButton.layer.cornerRadius = Constants.buttonCornerRadius
         errorButton.setTitle(L10n.reload, for: .normal)
         errorButton.setTitleColor(ColorName.white.color, for: .normal)
         errorButton.backgroundColor = ColorName.mainPurple.color
