@@ -76,7 +76,9 @@
 		70F052AD29116D3C0074EDE5 /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F052AC29116D3C0074EDE5 /* HomeState.swift */; };
 		77120E79C9CE1C14F604AB82 /* Pods_GPSStyle_GPSStyleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB50EC33BFD932CBA8E2D83 /* Pods_GPSStyle_GPSStyleUITests.framework */; };
 		C32BBFF21AEB4B5BFFA68F88 /* Pods_GPSStyle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15EC9988C8C08A9F86895CB7 /* Pods_GPSStyle.framework */; };
-		DCDDBA3F2905585C00209C6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCDDBA3E2905585C00209C6B /* GoogleService-Info.plist */; };
+		DCF385CF2911B2F0008E3BBF /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF385CE2911B2F0008E3BBF /* WelcomeViewController.swift */; };
+		DCF385D22911B3AE008E3BBF /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF385D12911B3AE008E3BBF /* CreateAccountViewController.swift */; };
+		DCFD91972911A867009BCBD0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCFD91962911A867009BCBD0 /* GoogleService-Info.plist */; };
 		F5415CA3290D28590099C278 /* ClothesCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */; };
 		F5415CA5290D28D10099C278 /* ClothesCreateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */; };
 		F5415CA7290D290B0099C278 /* ClothesCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA6290D290B0099C278 /* ClothesCreateViewController.swift */; };
@@ -182,7 +184,9 @@
 		70F052AC29116D3C0074EDE5 /* HomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
 		8470EF11AC9981E312CD4064 /* Pods-GPSStyle-GPSStyleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; path = "Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9DB50EC33BFD932CBA8E2D83 /* Pods_GPSStyle_GPSStyleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPSStyle_GPSStyleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DCDDBA3E2905585C00209C6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DCF385CE2911B2F0008E3BBF /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		DCF385D12911B3AE008E3BBF /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		DCFD91962911A867009BCBD0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF47B501C23C104C059933F8 /* Pods-GPSStyleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyleTests.release.xcconfig"; path = "Target Support Files/Pods-GPSStyleTests/Pods-GPSStyleTests.release.xcconfig"; sourceTree = "<group>"; };
 		F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreatePresenter.swift; sourceTree = "<group>"; };
 		F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateRouter.swift; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 		702F8C3F29042AC9006B4DF1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				DCF385D02911B359008E3BBF /* CreateAccount */,
+				DCF385CD2911B2B0008E3BBF /* Welcome */,
 				702F8CE7290D3ADE006B4DF1 /* Fonts */,
 				702F8CC5290D2860006B4DF1 /* Utilities */,
 				702F8CC1290C93FA006B4DF1 /* UI */,
@@ -474,7 +480,7 @@
 			isa = PBXGroup;
 			children = (
 				70618CA928FF31E800054A78 /* Info.plist */,
-				DCDDBA3E2905585C00209C6B /* GoogleService-Info.plist */,
+				DCFD91962911A867009BCBD0 /* GoogleService-Info.plist */,
 				702F8C632904348C006B4DF1 /* Resources */,
 				702F8C3F29042AC9006B4DF1 /* Source */,
 			);
@@ -514,6 +520,22 @@
 				13242142B07C9908B209D70B /* Pods_GPSStyleTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DCF385CD2911B2B0008E3BBF /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				DCF385CE2911B2F0008E3BBF /* WelcomeViewController.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		DCF385D02911B359008E3BBF /* CreateAccount */ = {
+			isa = PBXGroup;
+			children = (
+				DCF385D12911B3AE008E3BBF /* CreateAccountViewController.swift */,
+			);
+			path = CreateAccount;
 			sourceTree = "<group>";
 		};
 		F5415C9F290D259E0099C278 /* ClothesCreate */ = {
@@ -650,12 +672,12 @@
 				702F8CE3290D3AA8006B4DF1 /* Inter-Black.ttf in Resources */,
 				702F8C5D2904322D006B4DF1 /* en.strings in Resources */,
 				702F8CDC290D3AA8006B4DF1 /* Inter-Medium.ttf in Resources */,
+				DCFD91972911A867009BCBD0 /* GoogleService-Info.plist in Resources */,
 				70618CA528FF31E800054A78 /* Assets.xcassets in Resources */,
 				702F8C4529042C8A006B4DF1 /* swiftgen.yml in Resources */,
 				702F8CE4290D3AA8006B4DF1 /* Inter-SemiBold.ttf in Resources */,
 				702F8CDE290D3AA8006B4DF1 /* Inter-Thin.ttf in Resources */,
 				702F8CE0290D3AA8006B4DF1 /* Inter-Regular.ttf in Resources */,
-				DCDDBA3F2905585C00209C6B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -845,8 +867,10 @@
 				702F8C9129044EC2006B4DF1 /* ProfileProtocols.swift in Sources */,
 				702F8C8329044E97006B4DF1 /* ClothesListViewController.swift in Sources */,
 				702F8CBB290C85FB006B4DF1 /* EventsManager.swift in Sources */,
+				DCF385D22911B3AE008E3BBF /* CreateAccountViewController.swift in Sources */,
 				702F8C4C29042F45006B4DF1 /* Strings.swift in Sources */,
 				702F8CB8290C85FB006B4DF1 /* CalendarDayCell.swift in Sources */,
+				DCF385CF2911B2F0008E3BBF /* WelcomeViewController.swift in Sources */,
 				702F8C7929044E53006B4DF1 /* HomeContainer.swift in Sources */,
 				702F8C8F29044EC2006B4DF1 /* ProfileRouter.swift in Sources */,
 				702F8C4229042B29006B4DF1 /* MainTabBarController.swift in Sources */,
