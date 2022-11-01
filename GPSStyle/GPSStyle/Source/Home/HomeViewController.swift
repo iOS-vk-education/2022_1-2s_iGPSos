@@ -29,12 +29,21 @@ final class HomeViewController: UIViewController {
     private let calendar = CalendarView()
     private let addButton = UIButton()
     private let tableView = UITableView()
-    private let emptyLabel = UILabel()
     private let errorLabel = UILabel()
     private let errorButton = UIButton()
     private lazy var spinner: Spinner = {
         let spinner = Spinner(squareLength: Constants.spinnerHeight)
         return spinner
+    }()
+    private lazy var homeState: HomeState = {
+        var homeState = HomeState { [weak self] in
+            self?.tableView.reloadData()
+        } startAnimation: { [weak self] in
+            self?.spinner.startAnimation()
+        } stopAnimation: { [weak self] in
+            self?.spinner.stopAnimation()
+        }
+        return homeState
     }()
 
     init(output: HomeViewOutput) {
@@ -56,8 +65,7 @@ final class HomeViewController: UIViewController {
         setupButton()
         setupTableView()
         setupSpinner()
-        setup(label: emptyLabel, text: L10n.emptyHomeTitle)
-        setup(label: errorLabel, text: L10n.errorHomeTitle)
+        setup(label: errorLabel)
         setupErrorButton()
         output.viewDidLoad()
     }
@@ -83,11 +91,6 @@ final class HomeViewController: UIViewController {
             .below(of: calendar)
             .bottom()
             .horizontally()
-        emptyLabel.pin
-            .below(of: calendar)
-            .marginTop(Constants.titleTopMargin)
-            .hCenter()
-            .sizeToFit()
         errorLabel.pin
             .below(of: calendar)
             .marginTop(Constants.titleTopMargin)
@@ -103,9 +106,8 @@ final class HomeViewController: UIViewController {
         errorButton.layer.cornerRadius = errorButton.frame.height / 2
     }
     
-    private func setup(label: UILabel, text: String) {
+    private func setup(label: UILabel) {
         view.addSubview(label)
-        label.text = text
         label.font = FontFamily.Inter.medium.font(size: 22)
         label.textColor = ColorName.lightGrey.color
         label.numberOfLines = 0
@@ -169,30 +171,13 @@ final class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomeViewInput {
-    func update(with state: HomeState) {
-        switch state {
-        case .isLoading:
-            emptyLabel.isHidden = true
-            errorLabel.isHidden = true
-            errorButton.isHidden = true
-            spinner.startAnimation()
-        case .empty:
-            emptyLabel.isHidden = false
-            errorLabel.isHidden = true
-            errorButton.isHidden = true
-            spinner.stopAnimation()
-        case .success:
-            emptyLabel.isHidden = true
-            errorLabel.isHidden = true
-            errorButton.isHidden = true
-            spinner.stopAnimation()
-            tableView.reloadData()
-        case .faild:
-            emptyLabel.isHidden = true
-            errorLabel.isHidden = false
-            errorButton.isHidden = false
-            spinner.stopAnimation()
-        }
+    func update(with state: HomeState.State) {
+        homeState.setNewState(state)
+        errorLabel.text = homeState.getErrorTitle
+        errorLabel.isHidden = !homeState.shouldShowErrorLabel
+        errorButton.isHidden = !homeState.shouldShowErrorButton
+        homeState.updateAnimation()
+        homeState.reloadIfNeeded()
     }
 }
 

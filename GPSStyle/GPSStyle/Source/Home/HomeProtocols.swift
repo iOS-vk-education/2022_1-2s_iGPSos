@@ -8,13 +8,6 @@
 
 import Foundation
 
-enum HomeState {
-    case isLoading
-    case empty
-    case success
-    case faild
-}
-
 protocol HomeModuleInput {
     var moduleOutput: HomeModuleOutput? { get }
 }
@@ -23,7 +16,7 @@ protocol HomeModuleOutput: AnyObject {
 }
 
 protocol HomeViewInput: AnyObject {
-    func update(with state: HomeState)
+    func update(with state: HomeState.State)
 }
 
 protocol HomeViewOutput: AnyObject {
