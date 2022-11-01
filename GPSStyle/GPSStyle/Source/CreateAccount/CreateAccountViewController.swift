@@ -106,8 +106,8 @@ class CreateAccountViewController: UIViewController {
     
     @objc
     private func didTapLoginButton() {
-        let from = LoginViewController()
-        present(from, animated: true, completion: nil)
+        let vc = LoginViewController()
+        present(vc, animated: true, completion: nil)
     }
     
     func setupViews(){

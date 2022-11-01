@@ -83,6 +83,10 @@
 		DCF385D92911B5C1008E3BBF /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF385D82911B5C1008E3BBF /* LoginPresenter.swift */; };
 		DCF385DB2911B5D5008E3BBF /* LoginProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF385DA2911B5D5008E3BBF /* LoginProtocols.swift */; };
 		DCF385DD2911B618008E3BBF /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF385DC2911B618008E3BBF /* LoginInteractor.swift */; };
+		DCF385E12911BC79008E3BBF /* CreateAccountRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF385E02911BC79008E3BBF /* CreateAccountRouter.swift */; };
+		DCF385E32911BCCC008E3BBF /* CreateAccountPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF385E22911BCCC008E3BBF /* CreateAccountPresenter.swift */; };
+		DCF385E52911BCEA008E3BBF /* CreateAccountProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF385E42911BCEA008E3BBF /* CreateAccountProtocols.swift */; };
+		DCF385E72911BD09008E3BBF /* CreateAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF385E62911BD09008E3BBF /* CreateAccountInteractor.swift */; };
 		DCFD91972911A867009BCBD0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCFD91962911A867009BCBD0 /* GoogleService-Info.plist */; };
 		F5415CA3290D28590099C278 /* ClothesCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */; };
 		F5415CA5290D28D10099C278 /* ClothesCreateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */; };
@@ -196,6 +200,10 @@
 		DCF385D82911B5C1008E3BBF /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		DCF385DA2911B5D5008E3BBF /* LoginProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProtocols.swift; sourceTree = "<group>"; };
 		DCF385DC2911B618008E3BBF /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		DCF385E02911BC79008E3BBF /* CreateAccountRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountRouter.swift; sourceTree = "<group>"; };
+		DCF385E22911BCCC008E3BBF /* CreateAccountPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountPresenter.swift; sourceTree = "<group>"; };
+		DCF385E42911BCEA008E3BBF /* CreateAccountProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountProtocols.swift; sourceTree = "<group>"; };
+		DCF385E62911BD09008E3BBF /* CreateAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountInteractor.swift; sourceTree = "<group>"; };
 		DCFD91962911A867009BCBD0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DF47B501C23C104C059933F8 /* Pods-GPSStyleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyleTests.release.xcconfig"; path = "Target Support Files/Pods-GPSStyleTests/Pods-GPSStyleTests.release.xcconfig"; sourceTree = "<group>"; };
 		F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreatePresenter.swift; sourceTree = "<group>"; };
@@ -545,6 +553,10 @@
 			isa = PBXGroup;
 			children = (
 				DCF385D12911B3AE008E3BBF /* CreateAccountViewController.swift */,
+				DCF385E02911BC79008E3BBF /* CreateAccountRouter.swift */,
+				DCF385E22911BCCC008E3BBF /* CreateAccountPresenter.swift */,
+				DCF385E42911BCEA008E3BBF /* CreateAccountProtocols.swift */,
+				DCF385E62911BD09008E3BBF /* CreateAccountInteractor.swift */,
 			);
 			path = CreateAccount;
 			sourceTree = "<group>";
@@ -877,6 +889,8 @@
 				702F8CC0290C8C35006B4DF1 /* HomeTableViewCell.swift in Sources */,
 				702F8C8229044E97006B4DF1 /* ClothesListRouter.swift in Sources */,
 				702F8CC4290C940D006B4DF1 /* VerticalAlignLabel.swift in Sources */,
+				DCF385E52911BCEA008E3BBF /* CreateAccountProtocols.swift in Sources */,
+				DCF385E32911BCCC008E3BBF /* CreateAccountPresenter.swift in Sources */,
 				702F8CB7290C85FB006B4DF1 /* CalendarView+Extensions.swift in Sources */,
 				702F8C9F29044EFC006B4DF1 /* LooksListInteractor.swift in Sources */,
 				702F8CB5290C85FB006B4DF1 /* CalendarFlowLayout.swift in Sources */,
@@ -893,6 +907,7 @@
 				702F8C9129044EC2006B4DF1 /* ProfileProtocols.swift in Sources */,
 				702F8C8329044E97006B4DF1 /* ClothesListViewController.swift in Sources */,
 				702F8CBB290C85FB006B4DF1 /* EventsManager.swift in Sources */,
+				DCF385E12911BC79008E3BBF /* CreateAccountRouter.swift in Sources */,
 				DCF385D22911B3AE008E3BBF /* CreateAccountViewController.swift in Sources */,
 				702F8C4C29042F45006B4DF1 /* Strings.swift in Sources */,
 				702F8CB8290C85FB006B4DF1 /* CalendarDayCell.swift in Sources */,
@@ -914,6 +929,7 @@
 				70618C9E28FF31E300054A78 /* SceneDelegate.swift in Sources */,
 				702F8C9B29044EFC006B4DF1 /* LooksListPresenter.swift in Sources */,
 				702F8CA029044EFC006B4DF1 /* LooksListContainer.swift in Sources */,
+				DCF385E72911BD09008E3BBF /* CreateAccountInteractor.swift in Sources */,
 				702F8C8E29044EC2006B4DF1 /* ProfilePresenter.swift in Sources */,
 				702F8CCB290D30F1006B4DF1 /* UIView+Extension.swift in Sources */,
 				702F8C8129044E97006B4DF1 /* ClothesListPresenter.swift in Sources */,
