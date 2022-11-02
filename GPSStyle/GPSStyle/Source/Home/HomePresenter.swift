@@ -102,7 +102,7 @@ extension HomePresenter: HomeModuleInput {
 }
 
 extension HomePresenter: HomeViewOutput {
-    func reload() {
+    func reloadData() {
         // [art] reload data
     }
     
@@ -124,9 +124,9 @@ extension HomePresenter: HomeViewOutput {
     }
     
     func dateDidChange(with date: Date) {
-        view?.update(with: .isLoading)
+        view?.update(with: HomeState(state: .isLoading))
         // [art] update data
-        view?.update(with: .faild)
+        view?.update(with: HomeState(state: .faild))
     }
     
     var lookList: [HomeSection] {
@@ -134,7 +134,7 @@ extension HomePresenter: HomeViewOutput {
     }
     
     func viewDidLoad() {
-        view?.update(with: .success)
+        view?.update(with: HomeState(state: .isLoading))
     }
 }
 

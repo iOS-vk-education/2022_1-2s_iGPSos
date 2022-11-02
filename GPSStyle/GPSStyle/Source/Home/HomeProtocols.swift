@@ -16,13 +16,13 @@ protocol HomeModuleOutput: AnyObject {
 }
 
 protocol HomeViewInput: AnyObject {
-    func update(with state: HomeState.State)
+    func update(with state: HomeState)
 }
 
 protocol HomeViewOutput: AnyObject {
     var lookList: [HomeSection] { get }
     func viewDidLoad()
-    func reload()
+    func reloadData()
     func dateDidChange(with date: Date)
     func addButtonDidTap()
     func clothDidTap(with index: IndexPath)

@@ -24,7 +24,7 @@ final class HomeViewController: UIViewController {
         static let errorButtonWidth: CGFloat = 265.0
         static let errorButtonHeight: CGFloat = 45.0
         static let errorLabelHeight: CGFloat = 56.0
-        static let buttonCornerRadius = Constants.errorButtonHeight / 2
+        static let buttonCornerRadius: CGFloat = Constants.errorButtonHeight / 2
     }
 
     private let output: HomeViewOutput
@@ -36,16 +36,6 @@ final class HomeViewController: UIViewController {
     private lazy var spinner: Spinner = {
         let spinner = Spinner(squareLength: Constants.spinnerHeight)
         return spinner
-    }()
-    private lazy var homeState: HomeState = {
-        var homeState = HomeState { [weak self] in
-            self?.tableView.reloadData()
-        } startAnimation: { [weak self] in
-            self?.spinner.startAnimation()
-        } stopAnimation: { [weak self] in
-            self?.spinner.stopAnimation()
-        }
-        return homeState
     }()
 
     init(output: HomeViewOutput) {
@@ -144,7 +134,7 @@ final class HomeViewController: UIViewController {
 
     @objc
     private func errorButtonDidTaped() {
-        output.reload()
+        output.reloadData()
     }
     
     @objc
@@ -172,13 +162,14 @@ final class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomeViewInput {
-    func update(with state: HomeState.State) {
-        homeState.setNewState(state)
-        errorLabel.text = homeState.getErrorTitle
-        errorLabel.isHidden = !homeState.shouldShowErrorLabel
-        errorButton.isHidden = !homeState.shouldShowErrorButton
-        homeState.updateAnimation()
-        homeState.reloadIfNeeded()
+    func update(with state: HomeState) {
+        errorLabel.text = state.getErrorTitle
+        errorLabel.isHidden = !state.shouldShowErrorLabel
+        errorButton.isHidden = !state.shouldShowErrorButton
+        state.isLoading ? spinner.startAnimation() : spinner.stopAnimation()
+        if state.isFinished {
+            tableView.reloadData()
+        }
     }
 }
 

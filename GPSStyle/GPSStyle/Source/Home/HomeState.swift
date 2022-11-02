@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class HomeState {
+struct HomeState {
     enum State {
         case isLoading
         case empty
@@ -15,88 +15,54 @@ final class HomeState {
         case faild
     }
 
-    private var state: State?
-    private var reloadData: (() -> Void)?
-    private var startAnimation: (() -> Void)?
-    private var stopAnimation: (() -> Void)?
-    
-    var shouldShowErrorLabel: Bool {
-        switch state {
-        case .isLoading:
-            return false
-        case .empty:
-            return true
-        case .success:
-            return false
-        case .faild:
-            return true
-        case .none:
-            return false
+    private var state: State? {
+        didSet {
+            shouldShowErrorLabel
+                = state == .faild || state == .empty ? true : false
+            shouldShowErrorButton
+                = state == .faild ? true : false
+            
+            switch state {
+            case .empty:
+                getErrorTitle = L10n.emptyHomeTitle
+                shouldShowErrorLabel = true
+                shouldShowErrorButton = false
+                isLoading = false
+                isFinished = false
+            case .faild:
+                getErrorTitle = L10n.errorHomeTitle
+                shouldShowErrorLabel = true
+                shouldShowErrorButton = true
+                isLoading = false
+                isFinished = false
+            case .success:
+                getErrorTitle = nil
+                shouldShowErrorLabel = false
+                shouldShowErrorButton = false
+                isLoading = false
+                isFinished = true
+            case .isLoading:
+                getErrorTitle = nil
+                shouldShowErrorLabel = false
+                shouldShowErrorButton = false
+                isLoading = true
+                isFinished = false
+            case .none:
+                getErrorTitle = nil
+                shouldShowErrorLabel = false
+                shouldShowErrorButton = false
+                isLoading = false
+                isFinished = false
+            }
         }
     }
-    
-    var shouldShowErrorButton: Bool {
-        switch state {
-        case .isLoading:
-            return false
-        case .empty:
-            return false
-        case .success:
-            return false
-        case .faild:
-            return true
-        case .none:
-            return false
-        }
-    }
-    
-    var getErrorTitle: String? {
-        switch state {
-        case .isLoading:
-            return nil
-        case .empty:
-            return L10n.emptyHomeTitle
-        case .success:
-            return nil
-        case .faild:
-            return L10n.errorHomeTitle
-        case .none:
-            return nil
-        }
-    }
-    
-    init(
-        reloadData: (() -> Void)?,
-        startAnimation: (() -> Void)?,
-        stopAnimation: (() -> Void)?
-    ) {
-        self.reloadData = reloadData
-        self.startAnimation = startAnimation
-        self.stopAnimation = stopAnimation
-    }
+    var getErrorTitle: String?
+    var shouldShowErrorLabel: Bool = false
+    var shouldShowErrorButton: Bool = false
+    var isLoading: Bool = false
+    var isFinished: Bool = false
 
-    func setNewState(_ state: HomeState.State) {
+    init(state: HomeState.State) {
         self.state = state
-    }
-    
-    func reloadIfNeeded() {
-        if state == .success {
-            reloadData?()
-        }
-    }
-    
-    func updateAnimation() {
-        switch state {
-        case .isLoading:
-            startAnimation?()
-        case .empty:
-            stopAnimation?()
-        case .success:
-            stopAnimation?()
-        case .faild:
-            stopAnimation?()
-        case .none:
-            stopAnimation?()
-        }
     }
 }
