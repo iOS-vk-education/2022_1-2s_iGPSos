@@ -72,6 +72,8 @@
 		70618CB328FF31E900054A78 /* GPSStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70618CB228FF31E900054A78 /* GPSStyleTests.swift */; };
 		70618CBD28FF31E900054A78 /* GPSStyleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70618CBC28FF31E900054A78 /* GPSStyleUITests.swift */; };
 		70618CBF28FF31E900054A78 /* GPSStyleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70618CBE28FF31E900054A78 /* GPSStyleUITestsLaunchTests.swift */; };
+		70F052AB2910539E0074EDE5 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F052AA2910539E0074EDE5 /* Spinner.swift */; };
+		70F052AD29116D3C0074EDE5 /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F052AC29116D3C0074EDE5 /* HomeState.swift */; };
 		77120E79C9CE1C14F604AB82 /* Pods_GPSStyle_GPSStyleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB50EC33BFD932CBA8E2D83 /* Pods_GPSStyle_GPSStyleUITests.framework */; };
 		C32BBFF21AEB4B5BFFA68F88 /* Pods_GPSStyle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15EC9988C8C08A9F86895CB7 /* Pods_GPSStyle.framework */; };
 		DCDDBA3F2905585C00209C6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCDDBA3E2905585C00209C6B /* GoogleService-Info.plist */; };
@@ -176,6 +178,8 @@
 		70618CB828FF31E900054A78 /* GPSStyleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPSStyleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		70618CBC28FF31E900054A78 /* GPSStyleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSStyleUITests.swift; sourceTree = "<group>"; };
 		70618CBE28FF31E900054A78 /* GPSStyleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSStyleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		70F052AA2910539E0074EDE5 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		70F052AC29116D3C0074EDE5 /* HomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
 		8470EF11AC9981E312CD4064 /* Pods-GPSStyle-GPSStyleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; path = "Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9DB50EC33BFD932CBA8E2D83 /* Pods_GPSStyle_GPSStyleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPSStyle_GPSStyleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCDDBA3E2905585C00209C6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -307,6 +311,7 @@
 				702F8C7129044E53006B4DF1 /* HomeProtocols.swift */,
 				702F8C7229044E53006B4DF1 /* HomeInteractor.swift */,
 				702F8C7329044E53006B4DF1 /* HomeContainer.swift */,
+				70F052AC29116D3C0074EDE5 /* HomeState.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 		702F8CC1290C93FA006B4DF1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				70F052A92910537B0074EDE5 /* Spinner */,
 				702F8CC2290C9401006B4DF1 /* VerticalAlignLabel */,
 				702F8CAB290C85FA006B4DF1 /* Calendar */,
 			);
@@ -490,6 +496,14 @@
 				70618CBE28FF31E900054A78 /* GPSStyleUITestsLaunchTests.swift */,
 			);
 			path = GPSStyleUITests;
+			sourceTree = "<group>";
+		};
+		70F052A92910537B0074EDE5 /* Spinner */ = {
+			isa = PBXGroup;
+			children = (
+				70F052AA2910539E0074EDE5 /* Spinner.swift */,
+			);
+			path = Spinner;
 			sourceTree = "<group>";
 		};
 		C52CE417B896E94126BFFA4C /* Frameworks */ = {
@@ -806,6 +820,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5415CA3290D28590099C278 /* ClothesCreatePresenter.swift in Sources */,
+				70F052AB2910539E0074EDE5 /* Spinner.swift in Sources */,
 				F5415CA5290D28D10099C278 /* ClothesCreateRouter.swift in Sources */,
 				F5415CA7290D290B0099C278 /* ClothesCreateViewController.swift in Sources */,
 				F5415CA9290D297C0099C278 /* ClothesCreateProtocols.swift in Sources */,
@@ -855,6 +870,7 @@
 				702F8CC9290D2872006B4DF1 /* ImageLoader.swift in Sources */,
 				702F8C9229044EC2006B4DF1 /* ProfileInteractor.swift in Sources */,
 				702F8C8629044E97006B4DF1 /* ClothesListContainer.swift in Sources */,
+				70F052AD29116D3C0074EDE5 /* HomeState.swift in Sources */,
 				702F8CBC290C85FB006B4DF1 /* CalendarView+DataSource.swift in Sources */,
 				702F8C7529044E53006B4DF1 /* HomeRouter.swift in Sources */,
 				702F8CC8290D2872006B4DF1 /* ImageCache.swift in Sources */,

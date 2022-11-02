@@ -102,6 +102,10 @@ extension HomePresenter: HomeModuleInput {
 }
 
 extension HomePresenter: HomeViewOutput {
+    func reloadData() {
+        // [art] reload data
+    }
+    
     func configureCalendarTitle(date: Date) -> (String, String) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
@@ -120,9 +124,9 @@ extension HomePresenter: HomeViewOutput {
     }
     
     func dateDidChange(with date: Date) {
-        view?.update(with: .isLoading)
+        view?.update(with: HomeState(state: .isLoading))
         // [art] update data
-        view?.update(with: .success)
+        view?.update(with: HomeState(state: .faild))
     }
     
     var lookList: [HomeSection] {
@@ -130,7 +134,7 @@ extension HomePresenter: HomeViewOutput {
     }
     
     func viewDidLoad() {
-        view?.update(with: .success)
+        view?.update(with: HomeState(state: .isLoading))
     }
 }
 

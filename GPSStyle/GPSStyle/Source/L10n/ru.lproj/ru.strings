@@ -10,4 +10,6 @@
 "cloth" = "Одежда";
 "appName" = "GPSStyle";
 "calendarTitle" = "%@ %@ года";
-
+"emptyHomeTitle" = "На сегодня образа нет 😞\n👇 Создайте его👇";
+"errorHomeTitle" = "Произошла ошибочка 😞\n👇 Попробуй еще раз👇";
+"reload" = "Перезагрузить";

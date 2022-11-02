@@ -18,12 +18,26 @@ final class HomeViewController: UIViewController {
         static let addButtonMarginBottom: CGFloat = 13.0
         static let monthCount: Int = 12
         static let headerHeight: CGFloat = 28.0
+        static let spinnerHeight: CGFloat = 56.0
+        static let titleTopMargin: CGFloat = 46.0
+        static let errorButtonTopMargin: CGFloat = 24.0
+        static let errorButtonWidth: CGFloat = 265.0
+        static let errorButtonHeight: CGFloat = 45.0
+        static let errorLabelHeight: CGFloat = 56.0
+        static let buttonCornerRadius: CGFloat = Constants.errorButtonHeight / 2
     }
 
     private let output: HomeViewOutput
     private let calendar = CalendarView()
     private let addButton = UIButton()
     private let tableView = UITableView()
+    private let errorLabel = UILabel()
+    private let errorButton = UIButton()
+    private lazy var spinner: Spinner = {
+        let spinner = Spinner(squareLength: Constants.spinnerHeight)
+        return spinner
+    }()
+
     init(output: HomeViewOutput) {
         self.output = output
         
@@ -40,8 +54,11 @@ final class HomeViewController: UIViewController {
         view.backgroundColor = ColorName.white.color
         setupTitle()
         setupCalendar()
-        setupButton()
         setupTableView()
+        setupSpinner()
+        setupErrorLabel()
+        setupErrorButton()
+        setupButton()
         output.viewDidLoad()
     }
     
@@ -66,8 +83,31 @@ final class HomeViewController: UIViewController {
             .below(of: calendar)
             .bottom()
             .horizontally()
+        errorLabel.pin
+            .below(of: calendar)
+            .marginTop(Constants.titleTopMargin)
+            .horizontally()
+            .height(Constants.errorLabelHeight)
+        errorButton.pin
+            .below(of: errorLabel)
+            .marginTop(Constants.errorButtonTopMargin)
+            .hCenter()
+            .width(Constants.errorButtonWidth)
+            .height(Constants.errorButtonHeight)
     }
     
+    private func setupErrorLabel() {
+        view.addSubview(errorLabel)
+        errorLabel.font = FontFamily.Inter.medium.font(size: 22)
+        errorLabel.textColor = ColorName.lightGrey.color
+        errorLabel.numberOfLines = 0
+        errorLabel.textAlignment = .center
+    }
+    
+    private func setupSpinner() {
+        view.addSubview(spinner)
+    }
+
     private func setupTableView() {
         view.addSubview(tableView)
         tableView.delegate = self
@@ -80,6 +120,21 @@ final class HomeViewController: UIViewController {
         view.addSubview(addButton)
         addButton.setImage(Asset.add.image, for: .normal)
         addButton.addTarget(self, action: #selector(addButtonDidTaped), for: .touchUpInside)
+    }
+    
+    private func setupErrorButton() {
+        view.addSubview(errorButton)
+        errorButton.layer.cornerRadius = Constants.buttonCornerRadius
+        errorButton.setTitle(L10n.reload, for: .normal)
+        errorButton.setTitleColor(ColorName.white.color, for: .normal)
+        errorButton.backgroundColor = ColorName.mainPurple.color
+        errorButton.titleLabel?.font = FontFamily.Inter.semiBold.font(size: 20)
+        errorButton.addTarget(self, action: #selector(errorButtonDidTaped), for: .touchUpInside)
+    }
+
+    @objc
+    private func errorButtonDidTaped() {
+        output.reloadData()
     }
     
     @objc
@@ -108,15 +163,12 @@ final class HomeViewController: UIViewController {
 
 extension HomeViewController: HomeViewInput {
     func update(with state: HomeState) {
-        switch state {
-        case .isLoading:
-            break // TODO: ADD Loader
-        case .empty:
-            break // TODO: ADD EmptyView
-        case .success:
+        errorLabel.text = state.getErrorTitle
+        errorLabel.isHidden = !state.shouldShowErrorLabel
+        errorButton.isHidden = !state.shouldShowErrorButton
+        state.isLoading ? spinner.startAnimation() : spinner.stopAnimation()
+        if state.isFinished {
             tableView.reloadData()
-        case .faild:
-            break // TODO: ADD FAILD STATE
         }
     }
 }

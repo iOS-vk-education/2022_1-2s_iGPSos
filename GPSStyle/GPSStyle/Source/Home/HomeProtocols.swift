@@ -8,13 +8,6 @@
 
 import Foundation
 
-enum HomeState {
-    case isLoading
-    case empty
-    case success
-    case faild
-}
-
 protocol HomeModuleInput {
     var moduleOutput: HomeModuleOutput? { get }
 }
@@ -29,6 +22,7 @@ protocol HomeViewInput: AnyObject {
 protocol HomeViewOutput: AnyObject {
     var lookList: [HomeSection] { get }
     func viewDidLoad()
+    func reloadData()
     func dateDidChange(with date: Date)
     func addButtonDidTap()
     func clothDidTap(with index: IndexPath)
