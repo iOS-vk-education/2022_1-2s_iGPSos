@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Войти", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = #colorLiteral(red: 0.6730021834, green: 0.4277178049, blue: 0.6891061068, alpha: 1)
+        button.backgroundColor = ColorName.mainPurple.color
         button.titleLabel?.font = UIFont(name: "Avenir Next", size: 20)
         button.layer.cornerRadius = 33
         button.translatesAutoresizingMaskIntoConstraints = false

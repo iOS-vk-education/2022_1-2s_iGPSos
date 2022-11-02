@@ -63,7 +63,7 @@ class CreateAccountViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Создать аккаунт", for: .normal)
         button.tintColor = .white
-        button.backgroundColor = #colorLiteral(red: 0.6730021834, green: 0.4277178049, blue: 0.6891061068, alpha: 1)
+        button.backgroundColor = ColorName.mainPurple.color
         button.titleLabel?.font = UIFont(name: "Avenir Next", size: 20)
         button.layer.cornerRadius = 33
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -74,13 +74,10 @@ class CreateAccountViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setTitle("Уже есть аккаунт?", for: .normal)
         button.tintColor = .lightGray
-//        button.backgroundColor = #colorLiteral(red: 0.6730021834, green: 0.4277178049, blue: 0.6891061068, alpha: 1)
-        
         button.titleLabel?.font = UIFont(name: "Avenir Next", size: 20)
         var bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0, y: 30, width: 170, height: 1.0)
         bottomLine.backgroundColor = UIColor.lightGray.cgColor
-//        button.borderStyle = .none
         button.layer.addSublayer(bottomLine)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
