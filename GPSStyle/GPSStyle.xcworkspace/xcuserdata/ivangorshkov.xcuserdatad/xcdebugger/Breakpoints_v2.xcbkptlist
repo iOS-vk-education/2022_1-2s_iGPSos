@@ -16,7 +16,11 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "166"
             endingLineNumber = "166"
+<<<<<<< HEAD
             landmarkName = "update(with:)"
+=======
+            landmarkName = "tableView(_:willDisplayHeaderView:forSection:)"
+>>>>>>> b9e581da623369d41d946af239bc2bfaa5980b54
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
