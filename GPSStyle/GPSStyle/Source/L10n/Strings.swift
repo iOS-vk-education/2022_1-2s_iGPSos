@@ -24,14 +24,14 @@ internal enum L10n {
   internal static let createAccount = L10n.tr("ru", "createAccount", fallback: "Создать аккаунт")
   /// Почта
   internal static let email = L10n.tr("ru", "email", fallback: "Почта")
-  /// Войти
-  internal static let login = L10n.tr("ru", "login", fallback: "Войти")
   /// На сегодня образа нет 😞
   /// 👇 Создайте его👇
   internal static let emptyHomeTitle = L10n.tr("ru", "emptyHomeTitle", fallback: "На сегодня образа нет 😞\n👇 Создайте его👇")
   /// Произошла ошибочка 😞
   /// 👇 Попробуй еще раз👇
   internal static let errorHomeTitle = L10n.tr("ru", "errorHomeTitle", fallback: "Произошла ошибочка 😞\n👇 Попробуй еще раз👇")
+  /// Войти
+  internal static let login = L10n.tr("ru", "login", fallback: "Войти")
   /// Localizable.strings
   ///   GPSStyle
   /// 
