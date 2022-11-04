@@ -10,19 +10,19 @@ import UIKit
 final class WelcomeViewController: UIViewController {
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "GPStyle"
+        label.text = L10n.appName
         label.textColor = .black
-        label.font = UIFont(name: "Avenir Next Bold", size: 40)
+        label.font = FontFamily.Inter.bold.font(size: 40)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private var createAccountButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Создать аккаунт", for: .normal)
-        button.tintColor = .white
+        button.setTitle(L10n.createAccount, for: .normal)
+        button.tintColor = ColorName.white.color
         button.backgroundColor = ColorName.mainPurple.color
-        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 20)
+        button.titleLabel?.font = FontFamily.Inter.medium.font(size: 22)
         button.layer.cornerRadius = 33
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -30,10 +30,10 @@ final class WelcomeViewController: UIViewController {
     
     private var alreadySignUpButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Уже есть аккаунт?", for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = #colorLiteral(red: 0.6666666667, green: 0.6117647059, blue: 0.6705882353, alpha: 1)
-        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 20)
+        button.setTitle(L10n.alreadyHaveAccount, for: .normal)
+        button.tintColor = ColorName.white.color
+        button.backgroundColor = ColorName.secondPurple.color
+        button.titleLabel?.font = FontFamily.Inter.medium.font(size: 22)
         button.layer.cornerRadius = 33
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -54,21 +54,19 @@ final class WelcomeViewController: UIViewController {
     
     @objc
     private func didTapCreateAccount() {
-        let vc = CreateAccountViewController()
+        let vc = CreateAccountContainer.assemble(with: CreateAccountContext()).viewController
         present(vc, animated: true, completion: nil)
     }
     
     @objc
     private func didTapLoginButton() {
-        let vc = LoginViewController()
+        let vc = LoginContainer.assemble(with: LoginContext()).viewController
         present(vc, animated: true, completion: nil)
     }
     
     func setupViews() {
-        view.backgroundColor = #colorLiteral(red: 0.918249011, green: 0.9182489514, blue: 0.9182489514, alpha: 1)
-        view.addSubview(titleLabel)
-        view.addSubview(createAccountButton)
-        view.addSubview(alreadySignUpButton)
+        view.backgroundColor = ColorName.white.color
+        view.addSubviews(titleLabel, createAccountButton, alreadySignUpButton)
     }
 }
     
@@ -83,7 +81,7 @@ extension WelcomeViewController {
             createAccountButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             createAccountButton.heightAnchor.constraint(equalToConstant: 65),
             
-            alreadySignUpButton.topAnchor.constraint(equalTo: createAccountButton.bottomAnchor, constant: 5),
+            alreadySignUpButton.topAnchor.constraint(equalTo: createAccountButton.bottomAnchor, constant: 12),
             alreadySignUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             alreadySignUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             alreadySignUpButton.heightAnchor.constraint(equalToConstant: 65)

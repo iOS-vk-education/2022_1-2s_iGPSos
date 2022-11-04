@@ -24,6 +24,13 @@ extension CreateAccountPresenter: CreateAccountModuleInput {
 }
 
 extension CreateAccountPresenter: CreateAccountViewOutput {
+    func didTapCreateAccount() {
+        router.goToMainScreen()
+    }
+    
+    func didTapLoginButton() {
+        router.gotToLoginScreen()
+    }
 }
 
 extension CreateAccountPresenter: CreateAccountInteractorOutput {

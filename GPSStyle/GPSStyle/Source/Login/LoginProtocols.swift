@@ -18,6 +18,7 @@ protocol LoginViewInput: AnyObject {
 }
 
 protocol LoginViewOutput: AnyObject {
+    func didTapCreateAccount()
 }
 
 protocol LoginInteractorInput: AnyObject {
@@ -27,4 +28,5 @@ protocol LoginInteractorOutput: AnyObject {
 }
 
 protocol LoginRouterInput: AnyObject {
+    func goToMainScreen()
 }

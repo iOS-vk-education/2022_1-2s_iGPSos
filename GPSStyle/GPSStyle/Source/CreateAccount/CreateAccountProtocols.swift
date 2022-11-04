@@ -18,6 +18,8 @@ protocol CreateAccountViewInput: AnyObject {
 }
 
 protocol CreateAccountViewOutput: AnyObject {
+    func didTapCreateAccount()
+    func didTapLoginButton()
 }
 
 protocol CreateAccountInteractorInput: AnyObject {
@@ -27,4 +29,6 @@ protocol CreateAccountInteractorOutput: AnyObject {
 }
 
 protocol CreateAccountRouterInput: AnyObject {
+    func goToMainScreen()
+    func gotToLoginScreen()
 }

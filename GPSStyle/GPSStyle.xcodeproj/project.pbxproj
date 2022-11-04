@@ -72,6 +72,8 @@
 		70618CB328FF31E900054A78 /* GPSStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70618CB228FF31E900054A78 /* GPSStyleTests.swift */; };
 		70618CBD28FF31E900054A78 /* GPSStyleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70618CBC28FF31E900054A78 /* GPSStyleUITests.swift */; };
 		70618CBF28FF31E900054A78 /* GPSStyleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70618CBE28FF31E900054A78 /* GPSStyleUITestsLaunchTests.swift */; };
+		70BD233629156C0F00DEC795 /* CreateAccountContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BD233529156C0F00DEC795 /* CreateAccountContainer.swift */; };
+		70BD23382915748D00DEC795 /* LoginContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BD23372915748C00DEC795 /* LoginContainer.swift */; };
 		70F052AB2910539E0074EDE5 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F052AA2910539E0074EDE5 /* Spinner.swift */; };
 		70F052AD29116D3C0074EDE5 /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F052AC29116D3C0074EDE5 /* HomeState.swift */; };
 		77120E79C9CE1C14F604AB82 /* Pods_GPSStyle_GPSStyleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB50EC33BFD932CBA8E2D83 /* Pods_GPSStyle_GPSStyleUITests.framework */; };
@@ -189,6 +191,8 @@
 		70618CB828FF31E900054A78 /* GPSStyleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GPSStyleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		70618CBC28FF31E900054A78 /* GPSStyleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSStyleUITests.swift; sourceTree = "<group>"; };
 		70618CBE28FF31E900054A78 /* GPSStyleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPSStyleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		70BD233529156C0F00DEC795 /* CreateAccountContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountContainer.swift; sourceTree = "<group>"; };
+		70BD23372915748C00DEC795 /* LoginContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContainer.swift; sourceTree = "<group>"; };
 		70F052AA2910539E0074EDE5 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		70F052AC29116D3C0074EDE5 /* HomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
 		8470EF11AC9981E312CD4064 /* Pods-GPSStyle-GPSStyleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; path = "Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -557,6 +561,7 @@
 				DCF385E22911BCCC008E3BBF /* CreateAccountPresenter.swift */,
 				DCF385E42911BCEA008E3BBF /* CreateAccountProtocols.swift */,
 				DCF385E62911BD09008E3BBF /* CreateAccountInteractor.swift */,
+				70BD233529156C0F00DEC795 /* CreateAccountContainer.swift */,
 			);
 			path = CreateAccount;
 			sourceTree = "<group>";
@@ -569,6 +574,7 @@
 				DCF385D82911B5C1008E3BBF /* LoginPresenter.swift */,
 				DCF385DA2911B5D5008E3BBF /* LoginProtocols.swift */,
 				DCF385DC2911B618008E3BBF /* LoginInteractor.swift */,
+				70BD23372915748C00DEC795 /* LoginContainer.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -890,6 +896,7 @@
 				702F8C8229044E97006B4DF1 /* ClothesListRouter.swift in Sources */,
 				702F8CC4290C940D006B4DF1 /* VerticalAlignLabel.swift in Sources */,
 				DCF385E52911BCEA008E3BBF /* CreateAccountProtocols.swift in Sources */,
+				70BD233629156C0F00DEC795 /* CreateAccountContainer.swift in Sources */,
 				DCF385E32911BCCC008E3BBF /* CreateAccountPresenter.swift in Sources */,
 				702F8CB7290C85FB006B4DF1 /* CalendarView+Extensions.swift in Sources */,
 				702F8C9F29044EFC006B4DF1 /* LooksListInteractor.swift in Sources */,
@@ -915,6 +922,7 @@
 				DCF385CF2911B2F0008E3BBF /* WelcomeViewController.swift in Sources */,
 				702F8C7929044E53006B4DF1 /* HomeContainer.swift in Sources */,
 				702F8C8F29044EC2006B4DF1 /* ProfileRouter.swift in Sources */,
+				70BD23382915748D00DEC795 /* LoginContainer.swift in Sources */,
 				702F8C4229042B29006B4DF1 /* MainTabBarController.swift in Sources */,
 				702F8CB6290C85FB006B4DF1 /* CalendarHeaderView.swift in Sources */,
 				702F8C7829044E53006B4DF1 /* HomeInteractor.swift in Sources */,

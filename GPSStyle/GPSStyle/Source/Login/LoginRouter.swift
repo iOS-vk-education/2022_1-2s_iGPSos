@@ -8,13 +8,13 @@
 import UIKit
 
 final class LoginRouter {
-    static let shared = LoginRouter()
-    
-    init() {}
-    
-  func gotoMainTabBarController(from source: UIViewController) {
-      let tabBarController = MainTabBarController(tabBarModel: TabBarModelImpl())
-      tabBarController.modalPresentationStyle = .fullScreen
-      source.present(tabBarController, animated: true, completion: nil)
+    weak var viewController: UIViewController?
+}
+
+extension LoginRouter: LoginRouterInput {
+    func goToMainScreen() {
+        let vc = MainTabBarController.init(tabBarModel: TabBarModelImpl())
+        vc.modalPresentationStyle = .fullScreen
+        viewController?.present(vc, animated: true, completion: nil)
     }
 }

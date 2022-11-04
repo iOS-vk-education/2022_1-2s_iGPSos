@@ -30,6 +30,9 @@ internal struct ColorName {
   /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#9a55a0"></span>
   /// Alpha: 100% <br/> (0x9a55a0ff)
   internal static let mainPurple = ColorName(rgbaValue: 0x9a55a0ff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#aa9cab"></span>
+  /// Alpha: 100% <br/> (0xaa9cabff)
+  internal static let secondPurple = ColorName(rgbaValue: 0xaa9cabff)
   /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#ffffff"></span>
   /// Alpha: 100% <br/> (0xffffffff)
   internal static let white = ColorName(rgbaValue: 0xffffffff)

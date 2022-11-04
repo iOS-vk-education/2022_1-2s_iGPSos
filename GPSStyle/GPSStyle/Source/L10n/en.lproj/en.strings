@@ -13,4 +13,10 @@
 "emptyHomeTitle" = "There is no look for today 😞\n👇 Create it👇";
 "errorHomeTitle" = "There was an error 😞\n👇 Try again👇";
 "reload" = "Reload";
+"login" = "Login";
+"email" = "Email";
+"password" = "Password";
+"createAccount" = "Create an account";
+"name" = "Name";
+"alreadyHaveAccount" = "Already have an account?";
 

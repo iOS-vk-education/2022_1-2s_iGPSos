@@ -24,6 +24,9 @@ extension LoginPresenter: LoginModuleInput {
 }
 
 extension LoginPresenter: LoginViewOutput {
+    func didTapCreateAccount() {
+        router.goToMainScreen()
+    }
 }
 
 extension LoginPresenter: LoginInteractorOutput {
