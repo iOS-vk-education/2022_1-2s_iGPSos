@@ -65,7 +65,7 @@ final class ClothesCreateViewController: UIViewController {
         button.setTitle("Добавить фото", for: .normal)
         button.tintColor = .white
         button.backgroundColor = ColorName.mainPurple.color
-        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 20)
+        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 22.0)
         button.layer.cornerRadius = 30
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -73,12 +73,13 @@ final class ClothesCreateViewController: UIViewController {
 
     private let checkTheWeatherButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("Отслеживать погоду", for: .normal)
+        
+        button.setTitle("   Отслеживать погоду", for: .normal)
+        button.setTitleColor(ColorName.black.color, for: .normal)
+        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 18.0)
+        
         button.setImage(UIImage(named: "check_weather_off"), for: .normal)
-        button.tintColor = .black
         button.contentHorizontalAlignment = .left
-        // button.imageEdgeInsets.left = -50
-        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 20)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -88,7 +89,7 @@ final class ClothesCreateViewController: UIViewController {
         button.setTitle("Создать", for: .normal)
         button.tintColor = .white
         button.backgroundColor = ColorName.mainPurple.color
-        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 20)
+        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 22.0)
         button.layer.cornerRadius = 30
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
