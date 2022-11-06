@@ -10,13 +10,7 @@ import UIKit
 final class ClothesCreateViewController: UIViewController {
     private let output: ClothesCreateViewOutput
     
-    /*
-    private let clothingNameTextField = UITextField()
-    private let clothingSizeTextField = UITextField()
-    private let clothingColorTextField = UITextField()
-    private let clothingBrandTextField = UITextField()
-    private let selectPhotoButton = UIButton()
-    */
+    private var checkTheWeather: Bool = false
     
     private let clothingNameTextField: UITextField = {
      let textField = UITextField()
@@ -116,11 +110,12 @@ final class ClothesCreateViewController: UIViewController {
         setupViews()
         setupTitle()
         setConstraints()
-        // addTargets()  // TODO: add targets
+        addTargets()
     }
     
     func setupViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = ColorName.white.color
+        
         view.addSubview(clothingNameTextField)
         view.addSubview(selectPhotoButton)
         view.addSubview(clothingSizeTextField)
@@ -137,78 +132,42 @@ final class ClothesCreateViewController: UIViewController {
         navigationItem.titleView = title
     }
     
-    /*
-    private func setupClothingNameTextField() {
-        view.addSubview(clothingNameTextField)
-        let textField = UITextField()
-        textField.placeholder = "Название"
-        var bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
-        bottomLine.backgroundColor = UIColor.lightGray.cgColor
-        textField.borderStyle = .none
-        textField.layer.addSublayer(bottomLine)
-        textField.translatesAutoresizingMaskIntoConstraints = false
+    private func addTargets() {
+        selectPhotoButton.addTarget(self, action: #selector(didTapSelectPhoto), for: .touchUpInside)
+        checkTheWeatherButton.addTarget(self, action: #selector(didTapCheckWeather), for: .touchUpInside)
+        cretateClothesButton.addTarget(self, action: #selector(didTapCreateClothes), for: .touchUpInside)
     }
-    
-    private func setupSelectPhotoButton() {
-        view.addSubview(selectPhotoButton)
-        let button = UIButton(type: .system)
-        button.setTitle("Добавить фото", for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = ColorName.mainPurple.color
-        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 20)
-        button.layer.cornerRadius = 30
-        button.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func setupClothingSizeTextField() {
-        view.addSubview(clothingSizeTextField)
-        let textField = UITextField()
-        textField.placeholder = "Размер"
-        var bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
-        bottomLine.backgroundColor = UIColor.lightGray.cgColor
-        textField.borderStyle = .none
-        textField.layer.addSublayer(bottomLine)
-        textField.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func setupClothingColorTextField() {
-        view.addSubview(clothingColorTextField )
-        let textField = UITextField()
-        textField.placeholder = "Цвет"
-        var bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
-        bottomLine.backgroundColor = UIColor.lightGray.cgColor
-        textField.borderStyle = .none
-        textField.layer.addSublayer(bottomLine)
-        textField.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func setupClothingBrandTextField() {
-        view.addSubview(clothingBrandTextField)
-        let textField = UITextField()
-        textField.placeholder = "Брэнд"
-        var bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
-        bottomLine.backgroundColor = UIColor.lightGray.cgColor
-        textField.borderStyle = .none
-        textField.layer.addSublayer(bottomLine)
-        textField.translatesAutoresizingMaskIntoConstraints = false
-    }
-    */
     
     // TODO: добавить место для фотографии imageView
-    @objc private func didTapSelectPhotoButton() {
+    
+    @objc private func didTapSelectPhoto() {
         // TODO: выбор фото
     }
-    // TODO: Label отслеживания погоды
+    
+    @objc private func didTapCheckWeather() {
+        // TODO: добавить отслеживание погоды
+        if !checkTheWeather {
+            checkTheWeather = true
+            checkTheWeatherButton.setImage(UIImage(named: "check_weather_on"), for: .normal)
+        } else {
+            checkTheWeather = false
+            checkTheWeatherButton.setImage(UIImage(named: "check_weather_off"), for: .normal)
+        }
+        
+    }
+    
+    @objc private func didTapCreateClothes() {
+        // TODO: создать вещь
+        let vc = ClothesCreateContainer.assemble(with: ClothesCreateContext()).viewController
+        present(vc, animated: true, completion: nil)
+    }
+    
     // TODO: Выборку вариантов в Размер, Цвет и Брэнд
 }
 
 extension ClothesCreateViewController {
     func setConstraints() {
-        NSLayoutConstraint.activate( [
+        NSLayoutConstraint.activate([
             // Cloting name text field
             clothingNameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             clothingNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
