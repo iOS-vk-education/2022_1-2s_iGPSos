@@ -24,6 +24,13 @@ final class ClothesCreateViewController: UIViewController {
         return textField
     }()
     
+    private let clothesImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     private let clothingSizeTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Размер"
@@ -118,6 +125,7 @@ final class ClothesCreateViewController: UIViewController {
         view.backgroundColor = ColorName.white.color
         
         view.addSubview(clothingNameTextField)
+        view.addSubview(clothesImageView)
         view.addSubview(selectPhotoButton)
         view.addSubview(clothingSizeTextField)
         view.addSubview(clothingColorTextField)
@@ -143,6 +151,12 @@ final class ClothesCreateViewController: UIViewController {
     
     @objc private func didTapSelectPhoto() {
         // TODO: выбор фото
+        presentPhotoActionSheet()
+        if clothesImageView.image != nil { // Надо изменить
+            selectPhotoButton.setTitle("Изменить фото", for: .normal)
+        } else {
+            selectPhotoButton.setTitle("Добавть фото", for: .normal)
+        }
     }
     
     @objc private func didTapCheckWeather() {
@@ -175,8 +189,14 @@ extension ClothesCreateViewController {
             clothingNameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             clothingNameTextField.heightAnchor.constraint(equalToConstant: 40),
             
+            // Clothing ImageView
+            clothesImageView.topAnchor.constraint(equalTo: clothingNameTextField.bottomAnchor, constant: 15),
+            clothesImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 90),
+            clothesImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -90),
+            clothesImageView.heightAnchor.constraint(equalToConstant: 180),
+            
             // Select photo button
-            selectPhotoButton.topAnchor.constraint(equalTo: clothingNameTextField.topAnchor, constant: 60),
+            selectPhotoButton.topAnchor.constraint(equalTo: clothesImageView.bottomAnchor, constant: 10),
             selectPhotoButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             selectPhotoButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             selectPhotoButton.heightAnchor.constraint(equalToConstant: 60),
@@ -215,4 +235,57 @@ extension ClothesCreateViewController {
 }
 
 extension ClothesCreateViewController: ClothesCreateViewInput {
+}
+
+extension ClothesCreateViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    private func presentPhotoActionSheet() {
+        let actionSheet = UIAlertController(title: "Clothes photo",
+                                            message: "How would you like to select a photo",
+                                            preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel",
+                                            style: .cancel,
+                                            handler: nil))
+        
+        actionSheet.addAction(UIAlertAction(title: "Take photo",
+                                            style: .default,
+                                            handler: { [weak self] _ in self?.presentCamera()
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Chose Photo",
+                                            style: .default,
+                                            handler: { [weak self] _ in self?.presentPhotoPicker()
+        }))
+        
+        present(actionSheet, animated: true)
+    }
+    
+    private func presentCamera() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+    
+    private func presentPhotoPicker() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            return
+        }
+        self.clothesImageView.image = selectedImage
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
 }
