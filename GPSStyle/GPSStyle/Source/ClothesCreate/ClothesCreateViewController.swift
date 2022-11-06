@@ -197,6 +197,13 @@ final class ClothesCreateViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
     }
     */
+    
+    // TODO: добавить место для фотографии imageView
+    @objc private func didTapSelectPhotoButton() {
+        // TODO: выбор фото
+    }
+    // TODO: Label отслеживания погоды
+    // TODO: Выборку вариантов в Размер, Цвет и Брэнд
 }
 
 extension ClothesCreateViewController {
