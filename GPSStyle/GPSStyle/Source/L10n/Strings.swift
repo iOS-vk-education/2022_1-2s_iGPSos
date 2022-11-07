@@ -10,6 +10,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// Уже есть аккаунт?
+  internal static let alreadyHaveAccount = L10n.tr("ru", "alreadyHaveAccount", fallback: "Уже есть аккаунт?")
   /// GPSStyle
   internal static let appName = L10n.tr("ru", "appName", fallback: "GPSStyle")
   /// %@ %@ года
@@ -18,17 +20,27 @@ internal enum L10n {
   }
   /// Одежда
   internal static let cloth = L10n.tr("ru", "cloth", fallback: "Одежда")
+  /// Создать аккаунт
+  internal static let createAccount = L10n.tr("ru", "createAccount", fallback: "Создать аккаунт")
+  /// Почта
+  internal static let email = L10n.tr("ru", "email", fallback: "Почта")
   /// На сегодня образа нет 😞
   /// 👇 Создайте его👇
   internal static let emptyHomeTitle = L10n.tr("ru", "emptyHomeTitle", fallback: "На сегодня образа нет 😞\n👇 Создайте его👇")
   /// Произошла ошибочка 😞
   /// 👇 Попробуй еще раз👇
   internal static let errorHomeTitle = L10n.tr("ru", "errorHomeTitle", fallback: "Произошла ошибочка 😞\n👇 Попробуй еще раз👇")
+  /// Войти
+  internal static let login = L10n.tr("ru", "login", fallback: "Войти")
   /// Localizable.strings
   ///   GPSStyle
   /// 
   ///   Created by Ivan Gorshkov on 22.10.2022.
   internal static let main = L10n.tr("ru", "main", fallback: "Главная")
+  /// Имя
+  internal static let name = L10n.tr("ru", "name", fallback: "Имя")
+  /// Пароль
+  internal static let password = L10n.tr("ru", "password", fallback: "Пароль")
   /// Перезагрузить
   internal static let reload = L10n.tr("ru", "reload", fallback: "Перезагрузить")
 }
