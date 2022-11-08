@@ -3,3 +3,4 @@ Black : #000000
 MainPurple : #9A55A0
 LightGrey : #A3A3A3
 DarkGrey : 606060
+SecondPurple : #AA9CAB
