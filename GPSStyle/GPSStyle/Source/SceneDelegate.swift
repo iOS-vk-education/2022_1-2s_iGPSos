@@ -20,12 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.rootViewController = WelcomeViewController()
         window?.makeKeyAndVisible()
-        
-//        let window = UIWindow(windowScene: windowScene)
-//        let welcomeController = WelcomeViewController()
-//        window.rootViewController = welcomeController
-//        self.window = window
-//        window.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -38,27 +38,14 @@ class MainTabBarController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
-//        if Auth.auth().currentUser == nil {
-//            let vc = UINavigationController(rootViewController: WelcomeViewController())
-//            vc.modalPresentationStyle = .fullScreen
-//            present(vc, animated: false)
-//        }
     }
-//    
-//    private func handleAuthentification() {
-//        if Auth.auth().currentUser == nil {
-//            let vc = UINavigationController(rootViewController: WelcomeViewController())
-//            vc.modalPresentationStyle = .fullScreen
-//            present(vc, animated: false)
-//        }
-//    }
+
     
     private func setup() {
         setupViewControllers()
         setupTabBarAppearance()
         setupTabColor()
         setupTabBarShadow()
-//        handleAuthentification()
     }
     
     private func setupViewControllers() {
