@@ -14,7 +14,7 @@ final class ClothesCreateViewController: UIViewController {
     
     private let clothingNameTextField: UITextField = {
      let textField = UITextField()
-     textField.placeholder = "Название"
+     textField.placeholder = L10n.clothesName
      var bottomLine = CALayer()
      bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
      bottomLine.backgroundColor = UIColor.lightGray.cgColor
@@ -33,7 +33,7 @@ final class ClothesCreateViewController: UIViewController {
     
     private let clothingSizeTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Размер"
+        textField.placeholder = L10n.size
         var bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
         bottomLine.backgroundColor = UIColor.lightGray.cgColor
@@ -45,7 +45,7 @@ final class ClothesCreateViewController: UIViewController {
     
     private let clothingColorTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Цвет"
+        textField.placeholder = L10n.color
         var bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
         bottomLine.backgroundColor = UIColor.lightGray.cgColor
@@ -57,7 +57,7 @@ final class ClothesCreateViewController: UIViewController {
     
     private let clothingBrandTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Брэнд"
+        textField.placeholder = L10n.brand
         var bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
         bottomLine.backgroundColor = UIColor.lightGray.cgColor
@@ -69,7 +69,7 @@ final class ClothesCreateViewController: UIViewController {
     
     private let selectPhotoButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Добавить фото", for: .normal)
+        button.setTitle(L10n.addPhoto, for: .normal)
         button.tintColor = .white
         button.backgroundColor = ColorName.mainPurple.color
         button.titleLabel?.font = UIFont(name: "Avenir Next", size: 22.0)
@@ -81,7 +81,7 @@ final class ClothesCreateViewController: UIViewController {
     private let checkTheWeatherButton: UIButton = {
         let button = UIButton(type: .custom)
         
-        button.setTitle("   Отслеживать погоду", for: .normal)
+        button.setTitle(L10n.checkTheWeather, for: .normal)
         button.setTitleColor(ColorName.black.color, for: .normal)
         button.titleLabel?.font = UIFont(name: "Avenir Next", size: 18.0)
         
@@ -93,7 +93,7 @@ final class ClothesCreateViewController: UIViewController {
     
     private let cretateClothesButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Создать", for: .normal)
+        button.setTitle(L10n.createClothes, for: .normal)
         button.tintColor = .white
         button.backgroundColor = ColorName.mainPurple.color
         button.titleLabel?.font = UIFont(name: "Avenir Next", size: 22.0)
@@ -136,7 +136,7 @@ final class ClothesCreateViewController: UIViewController {
     
     private func setupTitle() {
         let title = UILabel()
-        title.text = "Создать"
+        title.text = L10n.createClothes
         title.font = FontFamily.Inter.medium.font(size: 22)
         navigationItem.titleView = title
     }
@@ -155,7 +155,7 @@ final class ClothesCreateViewController: UIViewController {
         if clothesImageView.image != nil { // Надо изменить
             selectPhotoButton.setTitle("Изменить фото", for: .normal)
         } else {
-            selectPhotoButton.setTitle("Добавть фото", for: .normal)
+            selectPhotoButton.setTitle(L10n.addPhoto, for: .normal)
         }
     }
     
@@ -239,20 +239,20 @@ extension ClothesCreateViewController: ClothesCreateViewInput {
 
 extension ClothesCreateViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     private func presentPhotoActionSheet() {
-        let actionSheet = UIAlertController(title: "Clothes photo",
-                                            message: "How would you like to select a photo",
+        let actionSheet = UIAlertController(title: L10n.clothesPhoto,
+                                            message: L10n.howAddPhoto,
                                             preferredStyle: .actionSheet)
         
-        actionSheet.addAction(UIAlertAction(title: "Cancel",
+        actionSheet.addAction(UIAlertAction(title: L10n.cancel,
                                             style: .cancel,
                                             handler: nil))
         
-        actionSheet.addAction(UIAlertAction(title: "Take photo",
+        actionSheet.addAction(UIAlertAction(title: L10n.takePhoto,
                                             style: .default,
                                             handler: { [weak self] _ in self?.presentCamera()
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "Chose Photo",
+        actionSheet.addAction(UIAlertAction(title: L10n.choosePhoto,
                                             style: .default,
                                             handler: { [weak self] _ in self?.presentPhotoPicker()
         }))
