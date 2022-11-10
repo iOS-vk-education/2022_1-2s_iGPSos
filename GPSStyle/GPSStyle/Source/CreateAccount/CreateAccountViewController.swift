@@ -10,7 +10,7 @@ import Combine
 import FirebaseAuth
 
 class CreateAccountViewController: UIViewController {
-    private var userModel = CreateAccountModel()
+    private var userModel = AuthenticationModel()
     private var subscriptions: Set<AnyCancellable> = []
     
     private let titleLabel: UILabel = {
@@ -95,17 +95,17 @@ class CreateAccountViewController: UIViewController {
     
     @objc private func didChangeNameField() {
         userModel.name = nameTextField.text
-        userModel.validateCreateAccountForm()
+        userModel.validateAuthenticationForm()
     }
     
     @objc private func didChangeEmailField() {
         userModel.email = emailTextField.text
-        userModel.validateCreateAccountForm()
+        userModel.validateAuthenticationForm()
     }
     
     @objc private func didChangePasswordField() {
         userModel.password = passwordTextField.text
-        userModel.validateCreateAccountForm()
+        userModel.validateAuthenticationForm()
     }
     
     private func bindViews() {
@@ -113,15 +113,33 @@ class CreateAccountViewController: UIViewController {
         emailTextField.addTarget(self, action: #selector(didChangeEmailField), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(didChangePasswordField), for: .editingChanged)
         
-        userModel.$isCreateAccountFormValid.sink { [weak self] validationState in
+        userModel.$isAuthenticationFormValid.sink { [weak self] validationState in
             self?.createAccountButton.isEnabled = validationState
         }
         .store(in: &subscriptions)
         
         userModel.$user.sink { [weak self] user in
-            print(user)
+            guard user != nil else { return }
+            if user != nil {
+                let vc = MainTabBarController(tabBarModel: TabBarModelImpl())
+                vc.modalPresentationStyle = .fullScreen
+                self?.present(vc, animated: true)
+            }
         }
         .store(in: &subscriptions)
+        
+        userModel.$error.sink { [weak self] errorString in
+            guard let error = errorString else { return }
+            self?.presentAlert(with: error)
+        }
+        .store(in: &subscriptions)
+    }
+    
+    private func presentAlert(with error: String) {
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "ok", style: .default)
+        alert.addAction(okayButton)
+        present(alert, animated: true)
     }
     
     override func viewDidLoad() {
@@ -140,16 +158,12 @@ class CreateAccountViewController: UIViewController {
     @objc
     private func didTapCreateAccount() {
         userModel.createUser()
-        if userModel.createUser() != nil {
-                let vc = MainTabBarController(tabBarModel: TabBarModelImpl())
-                vc.modalPresentationStyle = .fullScreen
-                present(vc, animated: true)
-            }
     }
     
     @objc
     private func didTapLoginButton() {
         let vc = LoginViewController()
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
     

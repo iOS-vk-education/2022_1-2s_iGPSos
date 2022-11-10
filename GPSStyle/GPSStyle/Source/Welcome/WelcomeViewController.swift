@@ -55,12 +55,14 @@ final class WelcomeViewController: UIViewController {
     @objc
     private func didTapCreateAccount() {
         let vc = CreateAccountViewController()
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
     
     @objc
     private func didTapLoginButton() {
         let vc = LoginViewController()
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
     

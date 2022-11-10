@@ -9,22 +9,23 @@ import Foundation
 import Firebase
 import Combine
 
-final class CreateAccountModel: ObservableObject {
+final class AuthenticationModel: ObservableObject {
     @Published var name: String?
     @Published var email: String?
     @Published var password: String?
-    @Published var isCreateAccountFormValid: Bool = false
+    @Published var isAuthenticationFormValid: Bool = false
     @Published var user: User?
+    @Published var error: String?
     
     private var subscriptions: Set<AnyCancellable> = []
     
-    func validateCreateAccountForm() {
+    func validateAuthenticationForm() {
         guard let email = email,
               let password = password else {
-            isCreateAccountFormValid = false
+            isAuthenticationFormValid = false
             return
         }
-        isCreateAccountFormValid = isValidEmail(email) && password.count >= 8
+        isAuthenticationFormValid = isValidEmail(email) && password.count >= 8
     }
     
     func isValidEmail(_ email: String) -> Bool {
@@ -38,7 +39,24 @@ final class CreateAccountModel: ObservableObject {
               let email = email,
               let password = password else { return }
         AuthUser.shared.createAccountUser(with: name, email: email, password: password)
-            .sink { _ in
+            .sink { [weak self] completion in
+                if case .failure(let error) = completion {
+                    self?.error = error.localizedDescription
+                }
+            } receiveValue: { [weak self] user in
+                self?.user = user
+            }
+            .store(in: &subscriptions)
+    }
+    
+    func loginUser() {
+        guard let email = email,
+              let password = password else { return }
+        AuthUser.shared.loginUser(with: email, password: password)
+            .sink { [weak self] completion in
+                if case .failure(let error) = completion {
+                    self?.error = error.localizedDescription
+                }
             } receiveValue: { [weak self] user in
                 self?.user = user
             }
