@@ -10,18 +10,36 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// Добавить фото
+  internal static let addPhoto = L10n.tr("ru", "addPhoto", fallback: "Добавить фото")
   /// Уже есть аккаунт?
   internal static let alreadyHaveAccount = L10n.tr("ru", "alreadyHaveAccount", fallback: "Уже есть аккаунт?")
   /// GPSStyle
   internal static let appName = L10n.tr("ru", "appName", fallback: "GPSStyle")
+  /// Брэнд
+  internal static let brand = L10n.tr("ru", "brand", fallback: "Брэнд")
   /// %@ %@ года
   internal static func calendarTitle(_ p1: Any, _ p2: Any) -> String {
     return L10n.tr("ru", "calendarTitle", String(describing: p1), String(describing: p2), fallback: "%@ %@ года")
   }
+  /// Назад
+  internal static let cancel = L10n.tr("ru", "cancel", fallback: "Назад")
+  ///    Отслеживание погоды
+  internal static let checkTheWeather = L10n.tr("ru", "checkTheWeather", fallback: "   Отслеживание погоды")
+  /// Выбрать фото
+  internal static let choosePhoto = L10n.tr("ru", "choosePhoto", fallback: "Выбрать фото")
   /// Одежда
   internal static let cloth = L10n.tr("ru", "cloth", fallback: "Одежда")
+  /// Название
+  internal static let clothesName = L10n.tr("ru", "clothesName", fallback: "Название")
+  /// Фото одежды
+  internal static let clothesPhoto = L10n.tr("ru", "clothesPhoto", fallback: "Фото одежды")
+  /// Цвет
+  internal static let color = L10n.tr("ru", "color", fallback: "Цвет")
   /// Создать аккаунт
   internal static let createAccount = L10n.tr("ru", "createAccount", fallback: "Создать аккаунт")
+  /// Создать
+  internal static let createClothes = L10n.tr("ru", "createClothes", fallback: "Создать")
   /// Почта
   internal static let email = L10n.tr("ru", "email", fallback: "Почта")
   /// На сегодня образа нет 😞
@@ -30,6 +48,8 @@ internal enum L10n {
   /// Произошла ошибочка 😞
   /// 👇 Попробуй еще раз👇
   internal static let errorHomeTitle = L10n.tr("ru", "errorHomeTitle", fallback: "Произошла ошибочка 😞\n👇 Попробуй еще раз👇")
+  /// Как бы вы хотели добавить фото
+  internal static let howAddPhoto = L10n.tr("ru", "howAddPhoto", fallback: "Как бы вы хотели добавить фото")
   /// Войти
   internal static let login = L10n.tr("ru", "login", fallback: "Войти")
   /// Localizable.strings
@@ -43,6 +63,10 @@ internal enum L10n {
   internal static let password = L10n.tr("ru", "password", fallback: "Пароль")
   /// Перезагрузить
   internal static let reload = L10n.tr("ru", "reload", fallback: "Перезагрузить")
+  /// Размер
+  internal static let size = L10n.tr("ru", "size", fallback: "Размер")
+  /// Cделать фото
+  internal static let takePhoto = L10n.tr("ru", "takePhoto", fallback: "Cделать фото")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
