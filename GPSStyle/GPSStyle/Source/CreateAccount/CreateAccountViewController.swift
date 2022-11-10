@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import Combine
+import FirebaseAuth
 
 class CreateAccountViewController: UIViewController {
+    private var userModel = CreateAccountModel()
+    private var subscriptions: Set<AnyCancellable> = []
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.createAccount
@@ -58,6 +63,7 @@ class CreateAccountViewController: UIViewController {
         textField.borderStyle = .none
         textField.layer.addSublayer(bottomLine)
         textField.textContentType = .password
+        textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -70,6 +76,7 @@ class CreateAccountViewController: UIViewController {
         button.titleLabel?.font = FontFamily.Inter.medium.font(size: 22)
         button.layer.cornerRadius = 33
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.isEnabled = false
         return button
     }()
     
@@ -86,11 +93,43 @@ class CreateAccountViewController: UIViewController {
         return button
     }()
     
+    @objc private func didChangeNameField() {
+        userModel.name = nameTextField.text
+        userModel.validateCreateAccountForm()
+    }
+    
+    @objc private func didChangeEmailField() {
+        userModel.email = emailTextField.text
+        userModel.validateCreateAccountForm()
+    }
+    
+    @objc private func didChangePasswordField() {
+        userModel.password = passwordTextField.text
+        userModel.validateCreateAccountForm()
+    }
+    
+    private func bindViews() {
+        nameTextField.addTarget(self, action: #selector(didChangeNameField), for: .editingChanged)
+        emailTextField.addTarget(self, action: #selector(didChangeEmailField), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(didChangePasswordField), for: .editingChanged)
+        
+        userModel.$isCreateAccountFormValid.sink { [weak self] validationState in
+            self?.createAccountButton.isEnabled = validationState
+        }
+        .store(in: &subscriptions)
+        
+        userModel.$user.sink { [weak self] user in
+            print(user)
+        }
+        .store(in: &subscriptions)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setConstraints()
         addTargets()
+        bindViews()
     }
     
     private func addTargets() {
@@ -100,8 +139,12 @@ class CreateAccountViewController: UIViewController {
     
     @objc
     private func didTapCreateAccount() {
-        let vc = CreateAccountViewController()
-        present(vc, animated: true, completion: nil)
+        userModel.createUser()
+        if userModel.createUser() != nil {
+                let vc = MainTabBarController(tabBarModel: TabBarModelImpl())
+                vc.modalPresentationStyle = .fullScreen
+                present(vc, animated: true)
+            }
     }
     
     @objc
@@ -110,9 +153,14 @@ class CreateAccountViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
+    @objc private func didTapToDismiss() {
+        view.endEditing(true)
+    }
+    
     func setupViews(){
         view.backgroundColor = ColorName.white.color
         view.addSubviews(titleLabel, imageView, nameTextField, emailTextField, passwordTextField, createAccountButton, alreadySignUpButton)
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapToDismiss)))
     }
 }
 
@@ -152,4 +200,3 @@ extension CreateAccountViewController {
         ])
     }
 }
-

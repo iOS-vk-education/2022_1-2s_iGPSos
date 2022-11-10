@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
     private let titleLabel: UILabel = {
@@ -46,6 +47,7 @@ class LoginViewController: UIViewController {
         textField.borderStyle = .none
         textField.layer.addSublayer(bottomLine)
         textField.textContentType = .password
+        textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -113,4 +115,3 @@ extension LoginViewController {
         ])
     }
 }
-

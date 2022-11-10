@@ -16,8 +16,10 @@ target 'GPSStyle' do
   # Api
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'FirebaseFirestore'
+  pod 'CombineFirebase/Auth'
   pod 'Firebase/AnalyticsWithoutAdIdSupport'
 
   target 'GPSStyleTests' do
