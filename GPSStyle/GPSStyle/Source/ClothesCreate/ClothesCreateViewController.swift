@@ -13,14 +13,14 @@ final class ClothesCreateViewController: UIViewController {
     private var checkTheWeather: Bool = false
     
     private let clothingNameTextField: UITextField = {
-     let textField = UITextField()
-     textField.placeholder = L10n.clothesName
-     var bottomLine = CALayer()
-     bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
-     bottomLine.backgroundColor = UIColor.lightGray.cgColor
-     textField.borderStyle = .none
-     textField.layer.addSublayer(bottomLine)
-     textField.translatesAutoresizingMaskIntoConstraints = false
+        let textField = UITextField()
+        textField.placeholder = L10n.clothesName
+        var bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
+        bottomLine.backgroundColor = UIColor.lightGray.cgColor
+        textField.borderStyle = .none
+        textField.layer.addSublayer(bottomLine)
+        textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
@@ -77,7 +77,7 @@ final class ClothesCreateViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-
+    
     private let checkTheWeatherButton: UIButton = {
         let button = UIButton(type: .custom)
         
@@ -101,7 +101,7 @@ final class ClothesCreateViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-
+    
     init(output: ClothesCreateViewOutput) {
         self.output = output
         
@@ -123,15 +123,14 @@ final class ClothesCreateViewController: UIViewController {
     
     func setupViews() {
         view.backgroundColor = ColorName.white.color
-        
-        view.addSubview(clothingNameTextField)
-        view.addSubview(clothesImageView)
-        view.addSubview(selectPhotoButton)
-        view.addSubview(clothingSizeTextField)
-        view.addSubview(clothingColorTextField)
-        view.addSubview(clothingBrandTextField)
-        view.addSubview(checkTheWeatherButton)
-        view.addSubview(cretateClothesButton)
+        view.addSubviews(clothingNameTextField,
+                         clothesImageView,
+                         selectPhotoButton,
+                         clothingSizeTextField,
+                         clothingColorTextField,
+                         clothingBrandTextField,
+                         checkTheWeatherButton,
+                         cretateClothesButton)
     }
     
     private func setupTitle() {
@@ -147,20 +146,11 @@ final class ClothesCreateViewController: UIViewController {
         cretateClothesButton.addTarget(self, action: #selector(didTapCreateClothes), for: .touchUpInside)
     }
     
-    // TODO: добавить место для фотографии imageView
-    
     @objc private func didTapSelectPhoto() {
-        // TODO: выбор фото
         presentPhotoActionSheet()
-        if clothesImageView.image != nil { // Надо изменить
-            selectPhotoButton.setTitle("Изменить фото", for: .normal)
-        } else {
-            selectPhotoButton.setTitle(L10n.addPhoto, for: .normal)
-        }
     }
     
     @objc private func didTapCheckWeather() {
-        // TODO: добавить отслеживание погоды
         if !checkTheWeather {
             checkTheWeather = true
             checkTheWeatherButton.setImage(UIImage(named: "check_weather_on"), for: .normal)
@@ -168,11 +158,9 @@ final class ClothesCreateViewController: UIViewController {
             checkTheWeather = false
             checkTheWeatherButton.setImage(UIImage(named: "check_weather_off"), for: .normal)
         }
-        
     }
     
     @objc private func didTapCreateClothes() {
-        // TODO: создать вещь
         let vc = ClothesCreateContainer.assemble(with: ClothesCreateContext()).viewController
         present(vc, animated: true, completion: nil)
     }
@@ -279,13 +267,16 @@ extension ClothesCreateViewController: UIImagePickerControllerDelegate, UINaviga
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
-        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+        guard let selectedImage = info[.editedImage] as? UIImage else {
             return
         }
         self.clothesImageView.image = selectedImage
-    }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
+        if clothesImageView.image != nil {
+            selectPhotoButton.setTitle("Изменить фото", for: .normal)
+            print("Image is true")
+        } else {
+            selectPhotoButton.setTitle(L10n.addPhoto, for: .normal)
+            print("Image is false")
+        }
     }
 }
