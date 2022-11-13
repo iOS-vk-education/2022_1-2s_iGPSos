@@ -25,7 +25,7 @@ final class ProfileViewController: UIViewController {
     
     private var signOutButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Выйти", for: .normal)
+        button.setTitle(L10n.signOut, for: .normal)
         button.tintColor = ColorName.white.color
         button.backgroundColor = ColorName.mainPurple.color
         button.titleLabel?.font = FontFamily.Inter.medium.font(size: 22)

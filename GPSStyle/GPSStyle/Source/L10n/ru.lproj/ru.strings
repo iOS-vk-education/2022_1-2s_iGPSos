@@ -17,5 +17,6 @@
 "email" = "Почта";
 "password" = "Пароль";
 "createAccount" = "Создать аккаунт";
+"signOut" = "Выйти";
 "name" = "Имя";
 "alreadyHaveAccount" = "Уже есть аккаунт?";
