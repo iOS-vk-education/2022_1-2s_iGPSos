@@ -17,6 +17,7 @@
 "email" = "Email";
 "password" = "Password";
 "createAccount" = "Create an account";
+"signOut" = "Sign out";
 "name" = "Name";
 "alreadyHaveAccount" = "Already have an account?";
 

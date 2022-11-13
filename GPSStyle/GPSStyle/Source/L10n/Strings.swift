@@ -43,6 +43,8 @@ internal enum L10n {
   internal static let password = L10n.tr("ru", "password", fallback: "Пароль")
   /// Перезагрузить
   internal static let reload = L10n.tr("ru", "reload", fallback: "Перезагрузить")
+  /// Выйти
+  internal static let signOut = L10n.tr("ru", "signOut", fallback: "Выйти")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
