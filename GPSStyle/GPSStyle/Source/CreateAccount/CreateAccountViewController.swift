@@ -119,7 +119,7 @@ class CreateAccountViewController: UIViewController {
         .store(in: &subscriptions)
         
         userModel.$user.sink { [weak self] user in
-            guard user != nil else { return }
+//            guard user != nil else { return }
             if user != nil {
                 let vc = MainTabBarController(tabBarModel: TabBarModelImpl())
                 vc.modalPresentationStyle = .fullScreen
@@ -167,14 +167,14 @@ class CreateAccountViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
-    @objc private func didTapToDismiss() {
+    @objc private func dismissKeyboard() {
         view.endEditing(true)
     }
     
     func setupViews(){
         view.backgroundColor = ColorName.white.color
         view.addSubviews(titleLabel, imageView, nameTextField, emailTextField, passwordTextField, createAccountButton, alreadySignUpButton)
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapToDismiss)))
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
     }
 }
 

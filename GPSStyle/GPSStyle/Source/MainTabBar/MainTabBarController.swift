@@ -40,7 +40,6 @@ class MainTabBarController: UITabBarController {
         navigationController?.navigationBar.isHidden = false
     }
 
-    
     private func setup() {
         setupViewControllers()
         setupTabBarAppearance()
