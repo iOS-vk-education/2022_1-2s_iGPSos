@@ -119,7 +119,6 @@ class CreateAccountViewController: UIViewController {
         .store(in: &subscriptions)
         
         userModel.$user.sink { [weak self] user in
-//            guard user != nil else { return }
             if user != nil {
                 let vc = MainTabBarController(tabBarModel: TabBarModelImpl())
                 vc.modalPresentationStyle = .fullScreen
