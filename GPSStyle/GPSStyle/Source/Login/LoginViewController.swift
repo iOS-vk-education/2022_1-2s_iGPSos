@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import Firebase
+import Combine
 
 class LoginViewController: UIViewController {
+    private var userModel = AuthenticationModel()
+    private var subscriptions: Set<AnyCancellable> = []
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.login
@@ -46,11 +51,12 @@ class LoginViewController: UIViewController {
         textField.borderStyle = .none
         textField.layer.addSublayer(bottomLine)
         textField.textContentType = .password
+        textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
-    private var createAccountButton: UIButton = {
+    private var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(L10n.login, for: .normal)
         button.tintColor = .white
@@ -61,27 +67,68 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    @objc private func didChangeEmailField() {
+        userModel.email = emailTextField.text
+        userModel.validateAuthenticationForm()
+    }
+    
+    @objc private func didChangePasswordField() {
+        userModel.password = passwordTextField.text
+        userModel.validateAuthenticationForm()
+    }
+    
+    private func bindViews() {
+        emailTextField.addTarget(self, action: #selector(didChangeEmailField), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(didChangePasswordField), for: .editingChanged)
+        
+        userModel.$isAuthenticationFormValid.sink { [weak self] validationState in
+            self?.loginButton.isEnabled = validationState
+        }
+        .store(in: &subscriptions)
+        
+        userModel.$user.sink { [weak self] user in
+            if user != nil {
+                let vc = MainTabBarController(tabBarModel: TabBarModelImpl())
+                vc.modalPresentationStyle = .fullScreen
+                self?.present(vc, animated: true)
+            }
+        }
+        .store(in: &subscriptions)
+        
+        userModel.$error.sink { [weak self] errorString in
+            guard let error = errorString else { return }
+            self?.presentAlert(with: error)
+        }
+        .store(in: &subscriptions)
+    }
+    
+    private func presentAlert(with error: String) {
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "ok", style: .default)
+        alert.addAction(okayButton)
+        present(alert, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setConstraints()
         addTargets()
+        bindViews()
     }
     
     private func addTargets() {
-        createAccountButton.addTarget(self, action: #selector(didTapCreateAccount), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
     }
                                 
     @objc
-    private func didTapCreateAccount() {
-        let tabBarController = MainTabBarController(tabBarModel: TabBarModelImpl())
-        tabBarController.modalPresentationStyle = .fullScreen
-        present(tabBarController, animated: true, completion: nil)
+    private func didTapLogin() {
+        userModel.loginUser()
     }
     
     func setupViews() {
         view.backgroundColor = ColorName.white.color
-        view.addSubviews(titleLabel, imageView, emailTextField, passwordTextField, createAccountButton)
+        view.addSubviews(titleLabel, imageView, emailTextField, passwordTextField, loginButton)
     }
 }
 
@@ -106,11 +153,10 @@ extension LoginViewController {
             passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             passwordTextField.heightAnchor.constraint(equalToConstant: 40),
             
-            createAccountButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
-            createAccountButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            createAccountButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            createAccountButton.heightAnchor.constraint(equalToConstant: 60)
+            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
+            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            loginButton.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
 }
-

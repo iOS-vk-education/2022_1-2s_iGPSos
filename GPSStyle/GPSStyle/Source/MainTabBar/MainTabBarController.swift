@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MainTabBarController: UITabBarController {
     var tabBarModel: TabBarModel?
@@ -34,6 +35,11 @@ class MainTabBarController: UITabBarController {
         setup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+
     private func setup() {
         setupViewControllers()
         setupTabBarAppearance()

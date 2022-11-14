@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import Combine
+import FirebaseAuth
 
 class CreateAccountViewController: UIViewController {
+    private var userModel = AuthenticationModel()
+    private var subscriptions: Set<AnyCancellable> = []
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.createAccount
@@ -58,6 +63,7 @@ class CreateAccountViewController: UIViewController {
         textField.borderStyle = .none
         textField.layer.addSublayer(bottomLine)
         textField.textContentType = .password
+        textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -70,6 +76,7 @@ class CreateAccountViewController: UIViewController {
         button.titleLabel?.font = FontFamily.Inter.medium.font(size: 22)
         button.layer.cornerRadius = 33
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.isEnabled = false
         return button
     }()
     
@@ -86,11 +93,60 @@ class CreateAccountViewController: UIViewController {
         return button
     }()
     
+    @objc private func didChangeNameField() {
+        userModel.name = nameTextField.text
+        userModel.validateAuthenticationForm()
+    }
+    
+    @objc private func didChangeEmailField() {
+        userModel.email = emailTextField.text
+        userModel.validateAuthenticationForm()
+    }
+    
+    @objc private func didChangePasswordField() {
+        userModel.password = passwordTextField.text
+        userModel.validateAuthenticationForm()
+    }
+    
+    private func bindViews() {
+        nameTextField.addTarget(self, action: #selector(didChangeNameField), for: .editingChanged)
+        emailTextField.addTarget(self, action: #selector(didChangeEmailField), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(didChangePasswordField), for: .editingChanged)
+        
+        userModel.$isAuthenticationFormValid.sink { [weak self] validationState in
+            self?.createAccountButton.isEnabled = validationState
+        }
+        .store(in: &subscriptions)
+        
+        userModel.$user.sink { [weak self] user in
+            if user != nil {
+                let vc = MainTabBarController(tabBarModel: TabBarModelImpl())
+                vc.modalPresentationStyle = .fullScreen
+                self?.present(vc, animated: true)
+            }
+        }
+        .store(in: &subscriptions)
+        
+        userModel.$error.sink { [weak self] errorString in
+            guard let error = errorString else { return }
+            self?.presentAlert(with: error)
+        }
+        .store(in: &subscriptions)
+    }
+    
+    private func presentAlert(with error: String) {
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        let okayButton = UIAlertAction(title: "ok", style: .default)
+        alert.addAction(okayButton)
+        present(alert, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setConstraints()
         addTargets()
+        bindViews()
     }
     
     private func addTargets() {
@@ -100,19 +156,24 @@ class CreateAccountViewController: UIViewController {
     
     @objc
     private func didTapCreateAccount() {
-        let vc = CreateAccountViewController()
-        present(vc, animated: true, completion: nil)
+        userModel.createUser()
     }
     
     @objc
     private func didTapLoginButton() {
         let vc = LoginViewController()
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func setupViews(){
         view.backgroundColor = ColorName.white.color
         view.addSubviews(titleLabel, imageView, nameTextField, emailTextField, passwordTextField, createAccountButton, alreadySignUpButton)
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
     }
 }
 
@@ -152,4 +213,3 @@ extension CreateAccountViewController {
         ])
     }
 }
-
