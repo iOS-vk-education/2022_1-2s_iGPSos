@@ -88,6 +88,7 @@
 		F5415CA9290D297C0099C278 /* ClothesCreateProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA8290D297C0099C278 /* ClothesCreateProtocols.swift */; };
 		F5415CAB290D29C30099C278 /* ClothesCreateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CAA290D29C30099C278 /* ClothesCreateInteractor.swift */; };
 		F5415CAD290D29E40099C278 /* ClothesCreateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CAC290D29E40099C278 /* ClothesCreateContainer.swift */; };
+		F57E4ED32915172300EABA0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F57E4ED22915172300EABA0C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +201,7 @@
 		F5415CA8290D297C0099C278 /* ClothesCreateProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateProtocols.swift; sourceTree = "<group>"; };
 		F5415CAA290D29C30099C278 /* ClothesCreateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateInteractor.swift; sourceTree = "<group>"; };
 		F5415CAC290D29E40099C278 /* ClothesCreateContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateContainer.swift; sourceTree = "<group>"; };
+		F57E4ED22915172300EABA0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -487,8 +489,8 @@
 		70618C9A28FF31E300054A78 /* GPSStyle */ = {
 			isa = PBXGroup;
 			children = (
+				F57E4ED22915172300EABA0C /* GoogleService-Info.plist */,
 				70618CA928FF31E800054A78 /* Info.plist */,
-				DCDDBA3E2905585C00209C6B /* GoogleService-Info.plist */,
 				702F8C632904348C006B4DF1 /* Resources */,
 				702F8C3F29042AC9006B4DF1 /* Source */,
 			);
@@ -690,6 +692,7 @@
 			files = (
 				70618CA828FF31E800054A78 /* LaunchScreen.storyboard in Resources */,
 				702F8CE1290D3AA8006B4DF1 /* Inter-ExtraBold.ttf in Resources */,
+				F57E4ED32915172300EABA0C /* GoogleService-Info.plist in Resources */,
 				702F8CDD290D3AA8006B4DF1 /* Inter-Light.ttf in Resources */,
 				702F8CE2290D3AA8006B4DF1 /* Inter-ExtraLight.ttf in Resources */,
 				702F8CDF290D3AA8006B4DF1 /* Inter-Bold.ttf in Resources */,
@@ -702,7 +705,6 @@
 				702F8CE4290D3AA8006B4DF1 /* Inter-SemiBold.ttf in Resources */,
 				702F8CDE290D3AA8006B4DF1 /* Inter-Thin.ttf in Resources */,
 				702F8CE0290D3AA8006B4DF1 /* Inter-Regular.ttf in Resources */,
-				DCDDBA3F2905585C00209C6B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,6 +18,7 @@ protocol ClothesCreateViewInput: AnyObject {
 }
 
 protocol ClothesCreateViewOutput: AnyObject {
+    func didTapCreateClothes()
 }
 
 protocol ClothesCreateInteractorInput: AnyObject {
@@ -27,4 +28,5 @@ protocol ClothesCreateInteractorOutput: AnyObject {
 }
 
 protocol ClothesCreateRouterInput: AnyObject {
+    func goToMainScreen()
 }
