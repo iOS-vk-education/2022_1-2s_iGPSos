@@ -31,8 +31,8 @@ final class ClothesCreateViewController: UIViewController {
         return imageView
     }()
     
-    private let clothingSizeTextField: UITextField = {
-        let textField = UITextField()
+    private var clothingSizeTextField: CustomPickerTextField = {
+        let textField = CustomPickerTextField()
         textField.placeholder = L10n.size
         var bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
@@ -43,8 +43,8 @@ final class ClothesCreateViewController: UIViewController {
         return textField
     }()
     
-    private let clothingColorTextField: UITextField = {
-        let textField = UITextField()
+    private var clothingColorTextField: CustomPickerTextField = {
+        let textField = CustomPickerTextField()
         textField.placeholder = L10n.color
         var bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
@@ -55,8 +55,8 @@ final class ClothesCreateViewController: UIViewController {
         return textField
     }()
     
-    private let clothingBrandTextField: UITextField = {
-        let textField = UITextField()
+    private var clothingBrandTextField: CustomPickerTextField = {
+        let textField = CustomPickerTextField()
         textField.placeholder = L10n.brand
         var bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
@@ -119,6 +119,7 @@ final class ClothesCreateViewController: UIViewController {
         setupTitle()
         setConstraints()
         addTargets()
+        pickersDidLoad()
     }
     
     func setupViews() {
@@ -133,6 +134,31 @@ final class ClothesCreateViewController: UIViewController {
                          cretateClothesButton)
     }
     
+    private func pickersDidLoad() {
+        self.clothingSizeTextField.pickerDatas = clothesSize
+        clothingSizeTextField.displayNameHandler = { item in
+            return (item as? String) ?? ""
+        }
+        self.clothingSizeTextField.itemSelectionHandler = { index, item in
+            print("\(index), \(item as? String)")
+        }
+        
+        self.clothingColorTextField.pickerDatas = clothesColor
+        clothingColorTextField.displayNameHandler = { item in
+            return (item as? String) ?? ""
+        }
+        self.clothingColorTextField.itemSelectionHandler = { index, item in
+            print("\(index), \(item as? String)")
+        }
+        
+        self.clothingBrandTextField.pickerDatas = clothesBrand
+        clothingBrandTextField.displayNameHandler = { item in
+            return (item as? String) ?? ""
+        }
+        self.clothingBrandTextField.itemSelectionHandler = { index, item in
+            print("\(index), \(item as? String)")
+        }
+    }
     private func setupTitle() {
         let title = UILabel()
         title.text = L10n.createClothes
@@ -164,8 +190,6 @@ final class ClothesCreateViewController: UIViewController {
         let vc = ClothesCreateContainer.assemble(with: ClothesCreateContext()).viewController
         present(vc, animated: true, completion: nil)
     }
-    
-    // TODO: Выборку вариантов в Размер, Цвет и Брэнд
 }
 
 extension ClothesCreateViewController {
