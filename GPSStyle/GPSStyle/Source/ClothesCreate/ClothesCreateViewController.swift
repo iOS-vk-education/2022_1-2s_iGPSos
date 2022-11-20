@@ -12,9 +12,6 @@ final class ClothesCreateViewController: UIViewController {
     
     private var checkTheWeather: Bool = false
     
-    private var pickerView = UIPickerView()
-    private var currentTextField: UITextField?
-    
     private let clothingNameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = L10n.clothesName
@@ -46,7 +43,7 @@ final class ClothesCreateViewController: UIViewController {
         return textField
     }()
     
-    var clothingSizePickerView = UIPickerView()
+    private var clothingSizePickerView = UIPickerView()
     
     private var clothingColorTextField: UITextField = {
         let textField = UITextField()
@@ -60,7 +57,7 @@ final class ClothesCreateViewController: UIViewController {
         return textField
     }()
     
-    var clothingColorPickerView = UIPickerView()
+    private var clothingColorPickerView = UIPickerView()
     
     private var clothingBrandTextField: UITextField = {
         let textField = UITextField()
@@ -74,7 +71,7 @@ final class ClothesCreateViewController: UIViewController {
         return textField
     }()
     
-    var clothingBrandPickerView = UIPickerView()
+    private var clothingBrandPickerView = UIPickerView()
     
     private let selectPhotoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -351,4 +348,3 @@ extension ClothesCreateViewController: UIPickerViewDelegate, UIPickerViewDataSou
         }
     }
 }
-
