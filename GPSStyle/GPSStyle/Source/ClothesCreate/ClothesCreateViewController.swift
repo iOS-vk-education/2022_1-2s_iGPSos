@@ -12,6 +12,9 @@ final class ClothesCreateViewController: UIViewController {
     
     private var checkTheWeather: Bool = false
     
+    private var pickerView = UIPickerView()
+    private var currentTextField: UITextField?
+    
     private let clothingNameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = L10n.clothesName
@@ -31,8 +34,8 @@ final class ClothesCreateViewController: UIViewController {
         return imageView
     }()
     
-    private var clothingSizeTextField: CustomPickerTextField = {
-        let textField = CustomPickerTextField()
+    private var clothingSizeTextField: UITextField = {
+        let textField = UITextField()
         textField.placeholder = L10n.size
         var bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
@@ -43,8 +46,10 @@ final class ClothesCreateViewController: UIViewController {
         return textField
     }()
     
-    private var clothingColorTextField: CustomPickerTextField = {
-        let textField = CustomPickerTextField()
+    var clothingSizePickerView = UIPickerView()
+    
+    private var clothingColorTextField: UITextField = {
+        let textField = UITextField()
         textField.placeholder = L10n.color
         var bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
@@ -55,8 +60,10 @@ final class ClothesCreateViewController: UIViewController {
         return textField
     }()
     
-    private var clothingBrandTextField: CustomPickerTextField = {
-        let textField = CustomPickerTextField()
+    var clothingColorPickerView = UIPickerView()
+    
+    private var clothingBrandTextField: UITextField = {
+        let textField = UITextField()
         textField.placeholder = L10n.brand
         var bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
@@ -66,6 +73,8 @@ final class ClothesCreateViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
+    
+    var clothingBrandPickerView = UIPickerView()
     
     private let selectPhotoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -119,7 +128,7 @@ final class ClothesCreateViewController: UIViewController {
         setupTitle()
         setConstraints()
         addTargets()
-        pickersDidLoad()
+        setupPickersViews()
     }
     
     func setupViews() {
@@ -134,31 +143,21 @@ final class ClothesCreateViewController: UIViewController {
                          cretateClothesButton)
     }
     
-    private func pickersDidLoad() {
-        self.clothingSizeTextField.pickerDatas = clothesSize
-        clothingSizeTextField.displayNameHandler = { item in
-            return (item as? String) ?? ""
-        }
-        self.clothingSizeTextField.itemSelectionHandler = { index, item in
-            print("\(index), \(item as? String)")
-        }
+    func setupPickersViews() {
+        clothingSizeTextField.inputView = clothingSizePickerView
+        clothingColorTextField.inputView = clothingColorPickerView
+        clothingBrandTextField.inputView = clothingBrandPickerView
         
-        self.clothingColorTextField.pickerDatas = clothesColor
-        clothingColorTextField.displayNameHandler = { item in
-            return (item as? String) ?? ""
-        }
-        self.clothingColorTextField.itemSelectionHandler = { index, item in
-            print("\(index), \(item as? String)")
-        }
+        clothingBrandPickerView.delegate = self
+        clothingBrandPickerView.dataSource = self
         
-        self.clothingBrandTextField.pickerDatas = clothesBrand
-        clothingBrandTextField.displayNameHandler = { item in
-            return (item as? String) ?? ""
-        }
-        self.clothingBrandTextField.itemSelectionHandler = { index, item in
-            print("\(index), \(item as? String)")
-        }
+        clothingSizePickerView.delegate = self
+        clothingSizePickerView.dataSource = self
+        
+        clothingColorPickerView.delegate = self
+        clothingColorPickerView.dataSource = self
     }
+    
     private func setupTitle() {
         let title = UILabel()
         title.text = L10n.createClothes
@@ -304,3 +303,52 @@ extension ClothesCreateViewController: UIImagePickerControllerDelegate, UINaviga
         }
     }
 }
+
+extension ClothesCreateViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch pickerView {
+        case clothingSizePickerView:
+            return clothesSize.count
+        case clothingColorPickerView:
+            return clothesColor.count
+        case clothingBrandPickerView:
+            return clothesBrand.count
+        default:
+            return 0
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch pickerView {
+        case clothingSizePickerView:
+            return clothesSize[row]
+        case clothingColorPickerView:
+            return clothesColor[row]
+        case clothingBrandPickerView:
+            return clothesBrand[row]
+        default:
+            return ""
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView {
+        case clothingSizePickerView:
+            clothingSizeTextField.text = clothesSize[row]
+            clothingSizeTextField.resignFirstResponder()
+        case clothingColorPickerView:
+            clothingColorTextField.text = clothesColor[row]
+            clothingColorTextField.resignFirstResponder()
+        case clothingBrandPickerView:
+            clothingBrandTextField.text = clothesBrand[row]
+            clothingBrandTextField.resignFirstResponder()
+        default:
+            return
+        }
+    }
+}
+

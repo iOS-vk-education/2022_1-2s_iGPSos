@@ -6,7 +6,6 @@
 //
 
 
-
 internal let clothesBrand = ["Gucci",
                       "Prada",
                       "Ostin",
@@ -15,7 +14,6 @@ internal let clothesBrand = ["Gucci",
                       "Giorgio Armani",
                       "Polo Ralph Lauren",
                       "другой"]
-
 
 internal let clothesColor = ["Белый",
                       "Красный",
