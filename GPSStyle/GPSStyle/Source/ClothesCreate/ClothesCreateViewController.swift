@@ -190,6 +190,8 @@ final class ClothesCreateViewController: UIViewController {
 
 extension ClothesCreateViewController {
     func setConstraints() {
+        var supportConstraint = clothesImageView.image == nil ? clothingNameTextField.bottomAnchor : clothesImageView.bottomAnchor
+        
         NSLayoutConstraint.activate([
             // Cloting name text field
             clothingNameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -204,7 +206,7 @@ extension ClothesCreateViewController {
             clothesImageView.heightAnchor.constraint(equalToConstant: 180),
             
             // Select photo button
-            selectPhotoButton.topAnchor.constraint(equalTo: clothesImageView.bottomAnchor, constant: 10),
+            selectPhotoButton.topAnchor.constraint(equalTo: supportConstraint, constant: 10),
             selectPhotoButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             selectPhotoButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             selectPhotoButton.heightAnchor.constraint(equalToConstant: 60),
@@ -298,6 +300,7 @@ extension ClothesCreateViewController: UIImagePickerControllerDelegate, UINaviga
             selectPhotoButton.setTitle(L10n.addPhoto, for: .normal)
             print("Image is false")
         }
+        setConstraints()
     }
 }
 
