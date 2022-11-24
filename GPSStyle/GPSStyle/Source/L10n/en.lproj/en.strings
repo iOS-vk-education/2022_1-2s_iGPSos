@@ -28,6 +28,7 @@
 "cancel" = "Cancel";
 "takePhoto" = "Take a photo";
 "choosePhoto" = "Choose a photo";
+"changePhoto" = "Change a photo";
 "checkTheWeather" = "   Check the weather";
 "signOut" = "Sign out";
 "name" = "Name";

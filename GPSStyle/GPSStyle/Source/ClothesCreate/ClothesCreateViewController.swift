@@ -191,7 +191,7 @@ final class ClothesCreateViewController: UIViewController {
 }
 
 extension ClothesCreateViewController {
-    func setConstraints() {
+    private func setConstraints() {
         updateConstraints()
         guard let supportConstraint = supportConstraint else {
             return
@@ -306,11 +306,9 @@ extension ClothesCreateViewController: UIImagePickerControllerDelegate, UINaviga
         }
         self.clothesImageView.image = selectedImage
         if clothesImageView.image != nil {
-            selectPhotoButton.setTitle("Изменить фото", for: .normal)
-            print("Image is true")
+            selectPhotoButton.setTitle(L10n.changePhoto, for: .normal)
         } else {
             selectPhotoButton.setTitle(L10n.addPhoto, for: .normal)
-            print("Image is false")
         }
         updateConstraints()
     }

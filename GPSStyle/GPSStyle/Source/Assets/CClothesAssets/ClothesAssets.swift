@@ -5,7 +5,6 @@
 //  Created by Алексей Шевченко on 19.11.2022.
 //
 
-
 internal let clothesBrand = ["Gucci",
                       "Prada",
                       "Ostin",
