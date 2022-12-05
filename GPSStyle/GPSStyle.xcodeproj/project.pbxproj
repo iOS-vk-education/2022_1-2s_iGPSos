@@ -81,7 +81,8 @@
 		DCA223162919937E005D71C8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA223152919937E005D71C8 /* WelcomeViewController.swift */; };
 		DCA2231829199391005D71C8 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA2231729199391005D71C8 /* CreateAccountViewController.swift */; };
 		DCA2231A291993A4005D71C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA22319291993A3005D71C8 /* LoginViewController.swift */; };
-		DCDDBA3F2905585C00209C6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCDDBA3E2905585C00209C6B /* GoogleService-Info.plist */; };
+		DCB337AA293E2D16001B3CC6 /* MeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB337A9293E2D16001B3CC6 /* MeetingViewController.swift */; };
+		DCB337AC293E2D40001B3CC6 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB337AB293E2D40001B3CC6 /* DateTimePicker.swift */; };
 		F5415CA3290D28590099C278 /* ClothesCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */; };
 		F5415CA5290D28D10099C278 /* ClothesCreateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */; };
 		F5415CA7290D290B0099C278 /* ClothesCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA6290D290B0099C278 /* ClothesCreateViewController.swift */; };
@@ -193,7 +194,8 @@
 		DCA223152919937E005D71C8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		DCA2231729199391005D71C8 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		DCA22319291993A3005D71C8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		DCDDBA3E2905585C00209C6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DCB337A9293E2D16001B3CC6 /* MeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewController.swift; sourceTree = "<group>"; };
+		DCB337AB293E2D40001B3CC6 /* DateTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
 		DF47B501C23C104C059933F8 /* Pods-GPSStyleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyleTests.release.xcconfig"; path = "Target Support Files/Pods-GPSStyleTests/Pods-GPSStyleTests.release.xcconfig"; sourceTree = "<group>"; };
 		F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreatePresenter.swift; sourceTree = "<group>"; };
 		F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateRouter.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 		702F8C3F29042AC9006B4DF1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				DCB337A8293E2CEA001B3CC6 /* Meeting */,
 				DC467386291AD5AC00BF3D3A /* Model */,
 				DCA2231429199345005D71C8 /* Welcome */,
 				DCA223132919931B005D71C8 /* CreateAccount */,
@@ -563,6 +566,15 @@
 				DCA223152919937E005D71C8 /* WelcomeViewController.swift */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		DCB337A8293E2CEA001B3CC6 /* Meeting */ = {
+			isa = PBXGroup;
+			children = (
+				DCB337A9293E2D16001B3CC6 /* MeetingViewController.swift */,
+				DCB337AB293E2D40001B3CC6 /* DateTimePicker.swift */,
+			);
+			path = Meeting;
 			sourceTree = "<group>";
 		};
 		F5415C9F290D259E0099C278 /* ClothesCreate */ = {
@@ -886,6 +898,7 @@
 				702F8C672904355D006B4DF1 /* Colors.swift in Sources */,
 				702F8C9329044EC2006B4DF1 /* ProfileContainer.swift in Sources */,
 				702F8CE9290D3B0A006B4DF1 /* Fonts.swift in Sources */,
+				DCB337AC293E2D40001B3CC6 /* DateTimePicker.swift in Sources */,
 				702F8C6C290441B3006B4DF1 /* Assets.swift in Sources */,
 				702F8C8529044E97006B4DF1 /* ClothesListInteractor.swift in Sources */,
 				702F8CBD290C85FB006B4DF1 /* CalendarView.swift in Sources */,
@@ -910,6 +923,7 @@
 				702F8C9C29044EFC006B4DF1 /* LooksListRouter.swift in Sources */,
 				702F8C9029044EC2006B4DF1 /* ProfileViewController.swift in Sources */,
 				702F8C9D29044EFC006B4DF1 /* LooksListViewController.swift in Sources */,
+				DCB337AA293E2D16001B3CC6 /* MeetingViewController.swift in Sources */,
 				702F8C6929043CA7006B4DF1 /* TabBarModel.swift in Sources */,
 				702F8C8429044E97006B4DF1 /* ClothesListProtocols.swift in Sources */,
 				DCA223162919937E005D71C8 /* WelcomeViewController.swift in Sources */,
