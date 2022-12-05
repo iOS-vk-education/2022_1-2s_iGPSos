@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import PinLayout
 
 class MeetingViewController: UIViewController {
+    private var models: [CellModel] = []
+    
     private var repeatEveryWeek: Bool = false
     
     private let titleLabelDate: UILabel = {
         let label = UILabel()
-        label.text = "Время и дата"
+        label.text = L10n.timedate
         label.textColor = .black
         label.font = FontFamily.Inter.medium.font(size: 22.0)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -21,7 +24,7 @@ class MeetingViewController: UIViewController {
     
     private var dateTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Время и дата"
+        textField.placeholder = L10n.timedate
         let spacerView = UIView(frame:CGRect(x:5, y:0, width:50, height:30))
         textField.leftViewMode = .always
         textField.leftView = spacerView
@@ -57,13 +60,21 @@ class MeetingViewController: UIViewController {
     
     private let titleLabelLook: UILabel = {
         let label = UILabel()
-        label.text = "Образ"
+        label.text = L10n.look
         label.textColor = .black
         label.font = FontFamily.Inter.medium.font(size: 22.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    let idMeetingTableViewCell = "MeetingTableViewCell"
+    
     // MARK: - Life circle
     
     override func viewDidLoad() {
@@ -73,6 +84,29 @@ class MeetingViewController: UIViewController {
         setConstraints()
         createDatePicker()
         repeatEveryWeekButton.addTarget(self, action: #selector(didTapRepeatEveryWeek), for: .touchUpInside)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
+        tableView.register(MeetingTableViewCell.self, forCellReuseIdentifier: idMeetingTableViewCell)
+        
+        models = [
+            CellModel(id: 1,
+                      title: "Вечерний образ",
+                      imageUrl: "1645850968_1-krasavica-info-p-belie-tufli-na-belom-fone-devushka-krasivo-1.jpg"),
+            CellModel(id: 2,
+                      title: "Образ на обед",
+                      imageUrl: "black-women-s-shoes-isolated-on-white-background-3d-rendering-illustration_97167-287.jpg.webp"),
+            CellModel(id: 3,
+                      title: "Спортивный образ",
+                      imageUrl: "empty_10.jpg"),
+            CellModel(id: 4,
+                      title: "Образ на вечеринку",
+                      imageUrl: "1645850968_1-krasavica-info-p-belie-tufli-na-belom-fone-devushka-krasivo-1.jpg"),
+            CellModel(id: 5,
+                      title: "На прогулку",
+                      imageUrl: "1645850968_1-krasavica-info-p-belie-tufli-na-belom-fone-devushka-krasivo-1.jpg")
+        ]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,10 +114,10 @@ class MeetingViewController: UIViewController {
     }
     
     // MARK: - Setup
-    
+
     func setupViews() {
         view.backgroundColor = ColorName.white.color
-        view.addSubviews(dateTextField, titleLabelDate, repeatEveryWeekButton, titleLabelLook)
+        view.addSubviews(dateTextField, titleLabelDate, repeatEveryWeekButton, titleLabelLook, tableView)
     }
     
     private func setupNavBar() {
@@ -95,7 +129,7 @@ class MeetingViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .black
         
         let title = UILabel()
-        title.text = "Создать встречу"
+        title.text = L10n.createMeeting
         title.font = FontFamily.Inter.medium.font(size: 22)
         navigationItem.titleView = title
     }
@@ -151,7 +185,27 @@ extension MeetingViewController {
             repeatEveryWeekButton.heightAnchor.constraint(equalToConstant: 60),
             
             titleLabelLook.topAnchor.constraint(equalTo: repeatEveryWeekButton.bottomAnchor, constant: 10),
-            titleLabelLook.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15)
+            titleLabelLook.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            
+            tableView.topAnchor.constraint(equalTo: titleLabelLook.bottomAnchor, constant: 10),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         ])
+    }
+}
+
+extension MeetingViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return models.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: idMeetingTableViewCell, for: indexPath) as? MeetingTableViewCell
+        cell?.configure(with: models[indexPath.row])
+        return cell ?? .init()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
 }

@@ -33,4 +33,6 @@
 "name" = "Name";
 "alreadyHaveAccount" = "Already have an account?";
 "repeatEveryWeek" = "   Repeat Every Week";
-
+"timedate" = "Time and Date";
+"createMeeting" = "Create Meeting";
+"look" = "Look";

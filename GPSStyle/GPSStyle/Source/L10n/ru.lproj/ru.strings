@@ -33,3 +33,6 @@
 "name" = "Имя";
 "alreadyHaveAccount" = "Уже есть аккаунт?";
 "repeatEveryWeek" = "   Повторять каждую неделю";
+"timedate" = "Время и дата";
+"createMeeting" = "Создать встречу";
+"look" = "Образ";
