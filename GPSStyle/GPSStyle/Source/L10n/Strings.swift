@@ -24,20 +24,18 @@ internal enum L10n {
   }
   /// Назад
   internal static let cancel = L10n.tr("ru", "cancel", fallback: "Назад")
+  /// Изменить фото
+  internal static let changePhoto = L10n.tr("ru", "changePhoto", fallback: "Изменить фото")
   ///    Отслеживать погоду
   internal static let checkTheWeather = L10n.tr("ru", "checkTheWeather", fallback: "   Отслеживать погоду")
   /// Выбрать фото
   internal static let choosePhoto = L10n.tr("ru", "choosePhoto", fallback: "Выбрать фото")
-  /// Cделать фото
-  internal static let takePhoto = L10n.tr("ru", "takePhoto", fallback: "Cделать фото")
   /// Одежда
   internal static let cloth = L10n.tr("ru", "cloth", fallback: "Одежда")
   /// Название
   internal static let clothesName = L10n.tr("ru", "clothesName", fallback: "Название")
   /// Фото одежды
   internal static let clothesPhoto = L10n.tr("ru", "clothesPhoto", fallback: "Фото одежды")
-  /// Размер
-  internal static let size = L10n.tr("ru", "size", fallback: "Размер")
   /// Цвет
   internal static let color = L10n.tr("ru", "color", fallback: "Цвет")
   /// Создать аккаунт
@@ -69,6 +67,10 @@ internal enum L10n {
   internal static let reload = L10n.tr("ru", "reload", fallback: "Перезагрузить")
   /// Выйти
   internal static let signOut = L10n.tr("ru", "signOut", fallback: "Выйти")
+  /// Размер
+  internal static let size = L10n.tr("ru", "size", fallback: "Размер")
+  /// Cделать фото
+  internal static let takePhoto = L10n.tr("ru", "takePhoto", fallback: "Cделать фото")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

@@ -10,6 +10,8 @@ import UIKit
 final class ClothesCreateViewController: UIViewController {
     private let output: ClothesCreateViewOutput
     
+    private var supportConstraint: NSLayoutConstraint?
+    
     private var checkTheWeather: Bool = false
     
     private let clothingNameTextField: UITextField = {
@@ -31,7 +33,7 @@ final class ClothesCreateViewController: UIViewController {
         return imageView
     }()
     
-    private let clothingSizeTextField: UITextField = {
+    private var clothingSizeTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = L10n.size
         var bottomLine = CALayer()
@@ -43,7 +45,9 @@ final class ClothesCreateViewController: UIViewController {
         return textField
     }()
     
-    private let clothingColorTextField: UITextField = {
+    private var clothingSizePickerView = UIPickerView()
+    
+    private var clothingColorTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = L10n.color
         var bottomLine = CALayer()
@@ -55,7 +59,9 @@ final class ClothesCreateViewController: UIViewController {
         return textField
     }()
     
-    private let clothingBrandTextField: UITextField = {
+    private var clothingColorPickerView = UIPickerView()
+    
+    private var clothingBrandTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = L10n.brand
         var bottomLine = CALayer()
@@ -66,6 +72,8 @@ final class ClothesCreateViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
+    
+    private var clothingBrandPickerView = UIPickerView()
     
     private let selectPhotoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -119,6 +127,7 @@ final class ClothesCreateViewController: UIViewController {
         setupTitle()
         setConstraints()
         addTargets()
+        setupPickersViews()
     }
     
     func setupViews() {
@@ -131,6 +140,21 @@ final class ClothesCreateViewController: UIViewController {
                          clothingBrandTextField,
                          checkTheWeatherButton,
                          cretateClothesButton)
+    }
+    
+    func setupPickersViews() {
+        clothingSizeTextField.inputView = clothingSizePickerView
+        clothingColorTextField.inputView = clothingColorPickerView
+        clothingBrandTextField.inputView = clothingBrandPickerView
+        
+        clothingBrandPickerView.delegate = self
+        clothingBrandPickerView.dataSource = self
+        
+        clothingSizePickerView.delegate = self
+        clothingSizePickerView.dataSource = self
+        
+        clothingColorPickerView.delegate = self
+        clothingColorPickerView.dataSource = self
     }
     
     private func setupTitle() {
@@ -164,12 +188,14 @@ final class ClothesCreateViewController: UIViewController {
         let vc = ClothesCreateContainer.assemble(with: ClothesCreateContext()).viewController
         present(vc, animated: true, completion: nil)
     }
-    
-    // TODO: Выборку вариантов в Размер, Цвет и Брэнд
 }
 
 extension ClothesCreateViewController {
-    func setConstraints() {
+    private func setConstraints() {
+        updateConstraints()
+        guard let supportConstraint = supportConstraint else {
+            return
+        }
         NSLayoutConstraint.activate([
             // Cloting name text field
             clothingNameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -184,7 +210,7 @@ extension ClothesCreateViewController {
             clothesImageView.heightAnchor.constraint(equalToConstant: 180),
             
             // Select photo button
-            selectPhotoButton.topAnchor.constraint(equalTo: clothesImageView.bottomAnchor, constant: 10),
+            supportConstraint,
             selectPhotoButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             selectPhotoButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             selectPhotoButton.heightAnchor.constraint(equalToConstant: 60),
@@ -219,6 +245,14 @@ extension ClothesCreateViewController {
             cretateClothesButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             cretateClothesButton.heightAnchor.constraint(equalToConstant: 60)
         ] )
+    }
+    
+    private func updateConstraints() {
+        supportConstraint?.isActive = false
+        supportConstraint = clothesImageView.image == nil ?
+        selectPhotoButton.topAnchor.constraint(equalTo: clothingNameTextField.bottomAnchor, constant: 15) :
+        selectPhotoButton.topAnchor.constraint(equalTo: clothesImageView.bottomAnchor, constant: 15)
+        supportConstraint?.isActive = true
     }
 }
 
@@ -272,11 +306,62 @@ extension ClothesCreateViewController: UIImagePickerControllerDelegate, UINaviga
         }
         self.clothesImageView.image = selectedImage
         if clothesImageView.image != nil {
-            selectPhotoButton.setTitle("Изменить фото", for: .normal)
-            print("Image is true")
+            selectPhotoButton.setTitle(L10n.changePhoto, for: .normal)
         } else {
             selectPhotoButton.setTitle(L10n.addPhoto, for: .normal)
-            print("Image is false")
         }
+        updateConstraints()
+    }
+}
+
+extension ClothesCreateViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch pickerView {
+        case clothingSizePickerView:
+            return clothesSize.count
+        case clothingColorPickerView:
+            return clothesColor.count
+        case clothingBrandPickerView:
+            return clothesBrand.count
+        default:
+            return 0
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch pickerView {
+        case clothingSizePickerView:
+            return clothesSize[row]
+        case clothingColorPickerView:
+            return clothesColor[row]
+        case clothingBrandPickerView:
+            return clothesBrand[row]
+        default:
+            return ""
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView {
+        case clothingSizePickerView:
+            clothingSizeTextField.text = clothesSize[row]
+            clothingSizeTextField.resignFirstResponder()
+        case clothingColorPickerView:
+            clothingColorTextField.text = clothesColor[row]
+            clothingColorTextField.resignFirstResponder()
+        case clothingBrandPickerView:
+            clothingBrandTextField.text = clothesBrand[row]
+            clothingBrandTextField.resignFirstResponder()
+        default:
+            return
+        }
+    }
+    
+    private func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        return false
     }
 }
