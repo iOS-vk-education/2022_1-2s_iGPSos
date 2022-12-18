@@ -55,7 +55,7 @@ final class ProfileViewController: UIViewController {
           navigationItem.titleView = title
       }
     
-    func setupViews(){
+    func setupViews() {
         view.backgroundColor = ColorName.white.color
         view.addSubviews(signOutButton)
     }
