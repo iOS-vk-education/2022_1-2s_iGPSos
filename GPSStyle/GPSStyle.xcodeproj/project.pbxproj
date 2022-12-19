@@ -85,6 +85,7 @@
 		DCB9D1C1294F2B1D009A8D79 /* MeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9D1C0294F2B1D009A8D79 /* MeetingViewController.swift */; };
 		DCB9D1C3294F2B2A009A8D79 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9D1C2294F2B2A009A8D79 /* DateTimePicker.swift */; };
 		DCB9D1C5294F2B80009A8D79 /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9D1C4294F2B80009A8D79 /* CellModel.swift */; };
+		DCD04B20294F9D1E00C1F1A3 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD04B1F294F9D1E00C1F1A3 /* UserModel.swift */; };
 		F5415CA3290D28590099C278 /* ClothesCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */; };
 		F5415CA5290D28D10099C278 /* ClothesCreateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */; };
 		F5415CA7290D290B0099C278 /* ClothesCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA6290D290B0099C278 /* ClothesCreateViewController.swift */; };
@@ -201,6 +202,7 @@
 		DCB9D1C0294F2B1D009A8D79 /* MeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewController.swift; sourceTree = "<group>"; };
 		DCB9D1C2294F2B2A009A8D79 /* DateTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
 		DCB9D1C4294F2B80009A8D79 /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
+		DCD04B1F294F9D1E00C1F1A3 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		DF47B501C23C104C059933F8 /* Pods-GPSStyleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyleTests.release.xcconfig"; path = "Target Support Files/Pods-GPSStyleTests/Pods-GPSStyleTests.release.xcconfig"; sourceTree = "<group>"; };
 		F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreatePresenter.swift; sourceTree = "<group>"; };
 		F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateRouter.swift; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 				DC0C2D6D291BE1F800702D09 /* AuthenticationModel.swift */,
 				DC0C2D6F291BED7700702D09 /* AuthUser.swift */,
 				DCB9D1C4294F2B80009A8D79 /* CellModel.swift */,
+				DCD04B1F294F9D1E00C1F1A3 /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -918,6 +921,7 @@
 				702F8C672904355D006B4DF1 /* Colors.swift in Sources */,
 				702F8C9329044EC2006B4DF1 /* ProfileContainer.swift in Sources */,
 				702F8CE9290D3B0A006B4DF1 /* Fonts.swift in Sources */,
+				DCD04B20294F9D1E00C1F1A3 /* UserModel.swift in Sources */,
 				702F8C6C290441B3006B4DF1 /* Assets.swift in Sources */,
 				702F8C8529044E97006B4DF1 /* ClothesListInteractor.swift in Sources */,
 				DCB9D1C5294F2B80009A8D79 /* CellModel.swift in Sources */,

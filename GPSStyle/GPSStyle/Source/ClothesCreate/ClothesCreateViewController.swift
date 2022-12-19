@@ -29,6 +29,9 @@ final class ClothesCreateViewController: UIViewController {
     private let clothesImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 30
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

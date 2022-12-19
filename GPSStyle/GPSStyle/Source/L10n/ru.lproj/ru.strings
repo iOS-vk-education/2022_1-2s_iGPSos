@@ -29,6 +29,7 @@
 "takePhoto" = "Cделать фото";
 "choosePhoto" = "Выбрать фото";
 "changePhoto" = "Изменить фото";
+"deletePhoto" = "Удалить фото";
 "checkTheWeather" = "   Отслеживать погоду";
 "signOut" = "Выйти";
 "name" = "Имя";

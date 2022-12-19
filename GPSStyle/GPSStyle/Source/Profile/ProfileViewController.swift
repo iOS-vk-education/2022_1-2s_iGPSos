@@ -23,6 +23,60 @@ final class ProfileViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private let userNameLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Алина"
+//        var bottomLine = CALayer()
+//        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
+//        bottomLine.backgroundColor = UIColor.lightGray.cgColor
+//        label.borderStyle = .none
+//        label.layer.addSublayer(bottomLine)
+//        label.textContentType = .emailAddress
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let userEmailLabel: UILabel = {
+        let label = UILabel()
+        label.text = "alpahom030102@gmail.com"
+//        var bottomLine = CALayer()
+//        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
+//        bottomLine.backgroundColor = UIColor.lightGray.cgColor
+//        label.borderStyle = .none
+//        label.layer.addSublayer(bottomLine)
+//        label.textContentType = .emailAddress
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = L10n.name
+        label.textColor = .systemGray
+        var bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
+        bottomLine.backgroundColor = UIColor.lightGray.cgColor
+//        label.borderStyle = .none
+        label.layer.addSublayer(bottomLine)
+//        label.textContentType = .emailAddress
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let emailLabel: UILabel = {
+        let label = UILabel()
+        label.text = L10n.email
+        label.textColor = .systemGray
+        var bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
+        bottomLine.backgroundColor = UIColor.lightGray.cgColor
+//        label.borderStyle = .none
+        label.layer.addSublayer(bottomLine)
+//        label.textContentType = .emailAddress
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private var signOutButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(L10n.signOut, for: .normal)
@@ -57,7 +111,7 @@ final class ProfileViewController: UIViewController {
     
     func setupViews() {
         view.backgroundColor = ColorName.white.color
-        view.addSubviews(signOutButton)
+        view.addSubviews(signOutButton, emailLabel, nameLabel, userNameLabel, userEmailLabel)
     }
     
     override func viewDidLoad() {
@@ -75,6 +129,26 @@ extension ProfileViewController: ProfileViewInput {
 extension ProfileViewController {
     func setConstraints() {
         NSLayoutConstraint.activate([
+            userNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25),
+//            usernameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            userNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -35),
+            userNameLabel.heightAnchor.constraint(equalToConstant: 40),
+            
+            userEmailLabel.topAnchor.constraint(equalTo: userNameLabel.topAnchor, constant: 45),
+//            usernameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            userEmailLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -35),
+            userEmailLabel.heightAnchor.constraint(equalToConstant: 40),
+                        
+            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            nameLabel.heightAnchor.constraint(equalToConstant: 40),
+            
+            emailLabel.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 45),
+            emailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            emailLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            emailLabel.heightAnchor.constraint(equalToConstant: 40),
+            
             signOutButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 250),
             signOutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             signOutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
