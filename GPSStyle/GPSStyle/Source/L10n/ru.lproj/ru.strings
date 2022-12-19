@@ -28,6 +28,8 @@
 "cancel" = "Назад";
 "takePhoto" = "Cделать фото";
 "choosePhoto" = "Выбрать фото";
+"changePhoto" = "Изменить фото";
+
 "checkTheWeather" = "   Отслеживать погоду";
 "signOut" = "Выйти";
 "name" = "Имя";

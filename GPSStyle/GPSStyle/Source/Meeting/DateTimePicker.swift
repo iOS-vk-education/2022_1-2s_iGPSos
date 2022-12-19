@@ -113,7 +113,7 @@ class DateTimePicker: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     var currentDate = date
     
     // adding 30 days to current date
-      let oneMonthFromNow = calendar.date(byAdding: .day, value: 30, to: currentDate)
+    let oneMonthFromNow = calendar.date(byAdding: .day, value: 30, to: currentDate)
     
     // last date
     let endDate = oneMonthFromNow

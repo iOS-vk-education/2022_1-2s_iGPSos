@@ -24,6 +24,8 @@ internal enum L10n {
   }
   /// Назад
   internal static let cancel = L10n.tr("ru", "cancel", fallback: "Назад")
+  /// Изменить фото
+  internal static let changePhoto = L10n.tr("ru", "changePhoto", fallback: "Изменить фото")
   ///    Отслеживать погоду
   internal static let checkTheWeather = L10n.tr("ru", "checkTheWeather", fallback: "   Отслеживать погоду")
   /// Выбрать фото
@@ -75,8 +77,11 @@ internal enum L10n {
   internal static let size = L10n.tr("ru", "size", fallback: "Размер")
   /// Cделать фото
   internal static let takePhoto = L10n.tr("ru", "takePhoto", fallback: "Cделать фото")
+<<<<<<< HEAD
   /// Время и дата
   internal static let timedate = L10n.tr("ru", "timedate", fallback: "Время и дата")
+=======
+>>>>>>> ef0eca7c2480014415165a9eb397fa46d6dd9e4f
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

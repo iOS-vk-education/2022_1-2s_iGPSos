@@ -19,7 +19,6 @@ class MeetingTableViewCell: UITableViewCell {
         static let cellLeftMargin: CGFloat = 24.0
     }
     
-    static let cellReuseIdentifier = "MeetingTableViewCell"
     private let imageClothView = UIImageView()
     private let title = VerticalAlignLabel()
 
