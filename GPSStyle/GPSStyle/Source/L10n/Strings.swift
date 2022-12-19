@@ -42,8 +42,10 @@ internal enum L10n {
   internal static let createAccount = L10n.tr("ru", "createAccount", fallback: "Создать аккаунт")
   /// Создать
   internal static let createClothes = L10n.tr("ru", "createClothes", fallback: "Создать")
+  /// Удалить фото
+  internal static let deletePhoto = L10n.tr("ru", "deletePhoto", fallback: "Удалить фото")
   /// Создать встречу
-  internal static let createMeeting = L10n.tr("ru", "createMeeting", fallback: "Создать встречу")
+    internal static let createMeeting = L10n.tr("ru", "createMeeting", fallback: "Создать встречу")
   /// Почта
   internal static let email = L10n.tr("ru", "email", fallback: "Почта")
   /// На сегодня образа нет 😞
