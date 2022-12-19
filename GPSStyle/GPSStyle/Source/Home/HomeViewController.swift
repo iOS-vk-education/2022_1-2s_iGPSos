@@ -139,7 +139,11 @@ final class HomeViewController: UIViewController {
     
     @objc
     private func addButtonDidTaped() {
-        output.addButtonDidTap()
+        let meetingViewController = MeetingViewController()
+        let navigationController = UINavigationController(rootViewController: meetingViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
+//        output.addButtonDidTap()
     }
     
     private func setupTitle() {
