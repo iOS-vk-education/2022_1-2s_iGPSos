@@ -5,6 +5,11 @@
 //  Created by Алексей Шевченко on 19.11.2022.
 //
 
+struct pickerViewUnitCreateClothes {
+    let name: String
+    let variants: [String]
+}
+
 internal let clothesBrand = ["Gucci",
                       "Prada",
                       "Ostin",
@@ -36,3 +41,7 @@ internal let clothesSize = ["S",
                      "XXXL",
                      "4XL",
                      "другой"]
+
+internal let pickerUnitClothesBrand = pickerViewUnitCreateClothes(name: "Brand", variants: clothesBrand)
+internal let pickerUnitClothesColor = pickerViewUnitCreateClothes(name: "Color", variants: clothesColor)
+internal let pickerUnitClothesSize = pickerViewUnitCreateClothes(name: "Size", variants: clothesSize)
