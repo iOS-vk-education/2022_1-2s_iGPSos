@@ -31,6 +31,7 @@
 "changePhoto" = "Change a photo";
 "deletePhoto" = "Delete the photo";
 "checkTheWeather" = "   Check the weather";
+"selectCharacteristic" = "Select ";
 "signOut" = "Sign out";
 "name" = "Name";
 "alreadyHaveAccount" = "Already have an account?";

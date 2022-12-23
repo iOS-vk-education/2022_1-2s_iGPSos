@@ -5,7 +5,7 @@
 //  Created by Алексей Шевченко on 19.11.2022.
 //
 
-struct pickerViewUnitCreateClothes {
+struct UnitClothesType {
     let name: String
     let variants: [String]
 }
@@ -42,6 +42,6 @@ internal let clothesSize = ["S",
                      "4XL",
                      "другой"]
 
-internal let pickerUnitClothesBrand = pickerViewUnitCreateClothes(name: "Brand", variants: clothesBrand)
-internal let pickerUnitClothesColor = pickerViewUnitCreateClothes(name: "Color", variants: clothesColor)
-internal let pickerUnitClothesSize = pickerViewUnitCreateClothes(name: "Size", variants: clothesSize)
+internal let pickerUnitClothesBrand = UnitClothesType(name: L10n.brand, variants: clothesBrand)
+internal let pickerUnitClothesColor = UnitClothesType(name: L10n.color, variants: clothesColor)
+internal let pickerUnitClothesSize = UnitClothesType(name: L10n.size, variants: clothesSize)

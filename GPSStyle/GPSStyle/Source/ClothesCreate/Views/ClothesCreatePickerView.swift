@@ -20,7 +20,6 @@ final class ClothesCreatePickerViewController: UIViewController {
         pickerView.delegate = self
         pickerView.dataSource = self
         
-        nameOfPicker.text = "NAME OF PICKER"
         nameOfPicker.textAlignment = .center
         nameOfPicker.font = UIFont(name: "Avenir Next", size: 22.0)
         
@@ -54,8 +53,8 @@ final class ClothesCreatePickerViewController: UIViewController {
             .horizontally()
     }
     
-    func configure(with model: pickerViewUnitCreateClothes) {
-        nameOfPicker.text = model.name
+    func configure(with model: UnitClothesType) {
+        nameOfPicker.text = L10n.selectCharacteristic + model.name
         data = model.variants
     }
 }

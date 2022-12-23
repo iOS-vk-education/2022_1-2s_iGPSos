@@ -49,7 +49,7 @@ final class ClothesCreateViewController: UIViewController {
     
     private let clothingSizeTextField: UILabel = {
         let label = UILabel()
-        label.text = "Size"
+        label.text = L10n.size
         label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -57,7 +57,7 @@ final class ClothesCreateViewController: UIViewController {
     
     private let clothingColorTextField: UILabel = {
         let label = UILabel()
-        label.text = "Color"
+        label.text = L10n.color
         label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -65,7 +65,7 @@ final class ClothesCreateViewController: UIViewController {
     
     private let clothingBrandTextField: UILabel = {
         let label = UILabel()
-        label.text = "Brand"
+        label.text = L10n.brand
         label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
