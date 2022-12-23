@@ -170,7 +170,7 @@ class CreateAccountViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func setupViews(){
+    func setupViews() {
         view.backgroundColor = ColorName.white.color
         view.addSubviews(titleLabel, imageView, nameTextField, emailTextField, passwordTextField, createAccountButton, alreadySignUpButton)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))

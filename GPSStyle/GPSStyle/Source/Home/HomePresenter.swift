@@ -15,81 +15,6 @@ final class HomePresenter {
     private let router: HomeRouterInput
     private let interactor: HomeInteractorInput
     private var data: [HomeSection] = [
-        .init(title: "На встречу в 14:30", rows: [
-            .init(
-                id: 1,
-                title: "Штаны хлопковые",
-                imageUrl: "1645850968_1-krasavica-info-p-belie-tufli-na-belom-fone-devushka-krasivo-1.jpg",
-                isWarning: true,
-                specification: [
-                    .init(type: "Цвет", value: "Черный")
-                ]),
-            .init(
-                id: 2,
-                title: "Штаны хлопковые",
-                imageUrl: "black-women-s-shoes-isolated-on-white-background-3d-rendering-illustration_97167-287.jpg.webp",
-                isWarning: true,
-                specification: [
-                    .init(type: "Цвет", value: "Черный")
-                ]),
-            .init(
-                id: 3,
-                title: "Штаны хлопковые",
-                imageUrl: "empty_10.jpg",
-                isWarning: true,
-                specification: [
-                    .init(type: "Цвет", value: "Черный")
-                ]),
-            .init(
-                id: 4,
-                title: "Штаны хлопковые",
-                imageUrl: "1645850968_1-krasavica-info-p-belie-tufli-na-belom-fone-devushka-krasivo-1.jpg",
-                isWarning: true,
-                specification: [
-                    .init(type: "Цвет", value: "Черный")
-                ]),
-            .init(
-                id: 5,
-                title: "Штаны хлопковые",
-                imageUrl: "black-women-s-shoes-isolated-on-white-background-3d-rendering-illustration_97167-287.jpg.webp",
-                isWarning: true,
-                specification: [
-                    .init(type: "Цвет", value: "Черный")
-                ]),
-            .init(
-                id: 6,
-                title: "Штаны хлопковые",
-                imageUrl: "empty_10.jpg",
-                isWarning: true,
-                specification: [
-                    .init(type: "Цвет", value: "Черный")
-                ]),
-            .init(
-                id: 7,
-                title: "Штаны хлопковые",
-                imageUrl: "1645850968_1-krasavica-info-p-belie-tufli-na-belom-fone-devushka-krasivo-1.jpg",
-                isWarning: true,
-                specification: [
-                    .init(type: "Цвет", value: "Черный")
-                ]),
-            .init(
-                id: 8,
-                title: "Штаны хлопковые",
-                imageUrl: "black-women-s-shoes-isolated-on-white-background-3d-rendering-illustration_97167-287.jpg.webp",
-                isWarning: true,
-                specification: [
-                    .init(type: "Цвет", value: "Черный")
-                ]),
-            .init(
-                id: 9,
-                title: "Штаны хлопковые",
-                imageUrl: "empty_10.jpg",
-                isWarning: true,
-                specification: [
-                    .init(type: "Цвет", value: "Черный")
-                ])
-        ]
-        )
     ] // MOCK DATA
 
     init(router: HomeRouterInput, interactor: HomeInteractorInput) {
@@ -126,7 +51,7 @@ extension HomePresenter: HomeViewOutput {
     func dateDidChange(with date: Date) {
         view?.update(with: HomeState(state: .isLoading))
         // [art] update data
-        view?.update(with: HomeState(state: .faild))
+        view?.update(with: HomeState(state: .empty))
     }
     
     var lookList: [HomeSection] {
