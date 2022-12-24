@@ -24,8 +24,6 @@ class ClothesTableViewCell: UITableViewCell {
     static let cellReuseIdentifier = "ClothesTableViewCell"
     private let imageClothesView = UIImageView()
     private let title = VerticalAlignLabel()
-    private let countLabel = UILabel()
-    private var size = 0
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -51,7 +49,6 @@ class ClothesTableViewCell: UITableViewCell {
 
     override func prepareForReuse() {
         imageClothesView.image = nil
-        size = 0
     }
 
     func configure(model: ClothingModel) {
@@ -64,44 +61,21 @@ class ClothesTableViewCell: UITableViewCell {
             }
         }
         title.text = model.name
-        size = model.imageName.count
-        countLabel.text = "+\(size - 1)"
-        countLabel.isHidden = size == 1
         setNeedsLayout()
     }
 
     private func layout() {
         contentView.pin.all().marginRight(Constants.cellLeftMargin)
-        if size == 1 {
-            imageClothesView.pin
-                .left(Constants.imageMargin)
-                .vertically(Constants.imageClothVerticallyMargin)
-                .size(Constants.imageClothSideSize)
-            title.pin
-                .right(of: imageClothesView)
-                .marginLeft(Constants.labelLeftMargin)
-                .right()
-                .top()
-                .bottom()
-        } else {
-            imageClothesView.pin
-                .left(Constants.imageMargin)
-                .vertically(Constants.imageClothVerticallyMargin)
-                .width(Constants.imageClothSideSize / 2)
-                .height(Constants.imageClothSideSize)
-            countLabel.pin
-                .right(of: imageClothesView)
-                .marginLeft(Constants.labelLeftMargin)
-                .vertically(Constants.imageClothVerticallyMargin)
-                .width(Constants.imageClothSideSize / 2)
-                .height(Constants.imageClothSideSize)
-            title.pin
-                .right(of: countLabel)
-                .marginLeft(Constants.labelLeftMargin)
-                .right()
-                .top()
-                .bottom()
-        }
+        imageClothesView.pin
+            .left(Constants.imageMargin)
+            .vertically(Constants.imageClothVerticallyMargin)
+            .size(Constants.imageClothSideSize)
+        title.pin
+            .right(of: imageClothesView)
+            .marginLeft(Constants.labelLeftMargin)
+            .right()
+            .top()
+            .bottom()
     }
     
     private func setup() {
@@ -109,11 +83,9 @@ class ClothesTableViewCell: UITableViewCell {
         separatorInset = .zero
         accessoryType = .disclosureIndicator
     
-        contentView.addSubviews(imageClothesView, title, countLabel)
+        contentView.addSubviews(imageClothesView, title)
         title.verticalAlignment = .middle
         title.font = FontFamily.Inter.regular.font(size: 14)
-        countLabel.font = FontFamily.Inter.regular.font(size: 14)
-        countLabel.textColor = ColorName.mainPurple.color
         
         imageClothesView.addOverlay()
         imageClothesView.layer.cornerRadius = Constants.imageCornerRadius

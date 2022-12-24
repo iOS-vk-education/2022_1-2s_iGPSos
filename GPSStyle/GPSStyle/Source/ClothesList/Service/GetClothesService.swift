@@ -43,7 +43,7 @@ extension GetClothesService: GetClothesServiceInput {
                 let data = snapshot.data()
                 return ClothingModel(
                     uuid: data["uuid"] as? String ?? "",
-                    name: data["title"] as? String ?? "",
+                    name: data["name"] as? String ?? "",
                     imageName: data["imageName"] as? String ?? "",
                     specification: data["specification"] as? [String: String] ?? [:]
                 )
