@@ -95,6 +95,10 @@
 		DCA223162919937E005D71C8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA223152919937E005D71C8 /* WelcomeViewController.swift */; };
 		DCA2231829199391005D71C8 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA2231729199391005D71C8 /* CreateAccountViewController.swift */; };
 		DCA2231A291993A4005D71C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA22319291993A3005D71C8 /* LoginViewController.swift */; };
+		DCB9D1BF294F2B0D009A8D79 /* MeetingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9D1BE294F2B0D009A8D79 /* MeetingTableViewCell.swift */; };
+		DCB9D1C1294F2B1D009A8D79 /* MeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9D1C0294F2B1D009A8D79 /* MeetingViewController.swift */; };
+		DCB9D1C3294F2B2A009A8D79 /* DateTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9D1C2294F2B2A009A8D79 /* DateTimePicker.swift */; };
+		DCB9D1C5294F2B80009A8D79 /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9D1C4294F2B80009A8D79 /* CellModel.swift */; };
 		F5415CA3290D28590099C278 /* ClothesCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */; };
 		F5415CA5290D28D10099C278 /* ClothesCreateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */; };
 		F5415CA7290D290B0099C278 /* ClothesCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CA6290D290B0099C278 /* ClothesCreateViewController.swift */; };
@@ -221,6 +225,10 @@
 		DCA223152919937E005D71C8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		DCA2231729199391005D71C8 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		DCA22319291993A3005D71C8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DCB9D1BE294F2B0D009A8D79 /* MeetingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTableViewCell.swift; sourceTree = "<group>"; };
+		DCB9D1C0294F2B1D009A8D79 /* MeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewController.swift; sourceTree = "<group>"; };
+		DCB9D1C2294F2B2A009A8D79 /* DateTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
+		DCB9D1C4294F2B80009A8D79 /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
 		DF47B501C23C104C059933F8 /* Pods-GPSStyleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyleTests.release.xcconfig"; path = "Target Support Files/Pods-GPSStyleTests/Pods-GPSStyleTests.release.xcconfig"; sourceTree = "<group>"; };
 		F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreatePresenter.swift; sourceTree = "<group>"; };
 		F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateRouter.swift; sourceTree = "<group>"; };
@@ -277,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				70F7040A292C289C003382F1 /* CreateLook */,
+				DCB9D1BD294F2ABF009A8D79 /* Meeting */,
 				DC467386291AD5AC00BF3D3A /* Model */,
 				DCA2231429199345005D71C8 /* Welcome */,
 				DCA223132919931B005D71C8 /* CreateAccount */,
@@ -620,6 +629,7 @@
 				DC0C2D6D291BE1F800702D09 /* AuthenticationModel.swift */,
 				DC0C2D6F291BED7700702D09 /* AuthUser.swift */,
 				70BB4B2D2944E2170079170B /* Clothes.swift */,
+				DCB9D1C4294F2B80009A8D79 /* CellModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -646,6 +656,16 @@
 				DCA223152919937E005D71C8 /* WelcomeViewController.swift */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		DCB9D1BD294F2ABF009A8D79 /* Meeting */ = {
+			isa = PBXGroup;
+			children = (
+				DCB9D1BE294F2B0D009A8D79 /* MeetingTableViewCell.swift */,
+				DCB9D1C0294F2B1D009A8D79 /* MeetingViewController.swift */,
+				DCB9D1C2294F2B2A009A8D79 /* DateTimePicker.swift */,
+			);
+			path = Meeting;
 			sourceTree = "<group>";
 		};
 		F5415C9F290D259E0099C278 /* ClothesCreate */ = {
@@ -960,6 +980,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5415CA3290D28590099C278 /* ClothesCreatePresenter.swift in Sources */,
+				DCB9D1BF294F2B0D009A8D79 /* MeetingTableViewCell.swift in Sources */,
 				70F052AB2910539E0074EDE5 /* Spinner.swift in Sources */,
 				F5415CA5290D28D10099C278 /* ClothesCreateRouter.swift in Sources */,
 				70F70413292C28BC003382F1 /* CreateLookViewController.swift in Sources */,
@@ -971,6 +992,7 @@
 				F5415CAD290D29E40099C278 /* ClothesCreateContainer.swift in Sources */,
 				70BB4B2E2944E2170079170B /* Clothes.swift in Sources */,
 				702F8C9E29044EFC006B4DF1 /* LooksListProtocols.swift in Sources */,
+				DCB9D1C1294F2B1D009A8D79 /* MeetingViewController.swift in Sources */,
 				702F8CBA290C85FB006B4DF1 /* CalendarView+Delegate.swift in Sources */,
 				702F8CC0290C8C35006B4DF1 /* HomeTableViewCell.swift in Sources */,
 				702F8C8229044E97006B4DF1 /* ClothesListRouter.swift in Sources */,
@@ -985,9 +1007,11 @@
 				702F8CE9290D3B0A006B4DF1 /* Fonts.swift in Sources */,
 				702F8C6C290441B3006B4DF1 /* Assets.swift in Sources */,
 				702F8C8529044E97006B4DF1 /* ClothesListInteractor.swift in Sources */,
+				DCB9D1C5294F2B80009A8D79 /* CellModel.swift in Sources */,
 				702F8CBD290C85FB006B4DF1 /* CalendarView.swift in Sources */,
 				70618C9C28FF31E300054A78 /* AppDelegate.swift in Sources */,
 				702F8C7729044E53006B4DF1 /* HomeProtocols.swift in Sources */,
+				DCB9D1C3294F2B2A009A8D79 /* DateTimePicker.swift in Sources */,
 				702F8C9129044EC2006B4DF1 /* ProfileProtocols.swift in Sources */,
 				702F8C8329044E97006B4DF1 /* ClothesListViewController.swift in Sources */,
 				DC0C2D6E291BE1F800702D09 /* AuthenticationModel.swift in Sources */,

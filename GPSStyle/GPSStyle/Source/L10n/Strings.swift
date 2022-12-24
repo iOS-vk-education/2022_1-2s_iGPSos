@@ -44,6 +44,10 @@ internal enum L10n {
   internal static let createAccount = L10n.tr("ru", "createAccount", fallback: "Создать аккаунт")
   /// Создать
   internal static let createClothes = L10n.tr("ru", "createClothes", fallback: "Создать")
+  /// Создать встречу
+  internal static let createMeeting = L10n.tr("ru", "createMeeting", fallback: "Создать встречу")
+  /// Удалить фото
+  internal static let deletePhoto = L10n.tr("ru", "deletePhoto", fallback: "Удалить фото")
   /// Почта
   internal static let email = L10n.tr("ru", "email", fallback: "Почта")
   /// На сегодня образа нет 😞
@@ -58,6 +62,8 @@ internal enum L10n {
   internal static let login = L10n.tr("ru", "login", fallback: "Войти")
   /// Образы
   internal static let looks = L10n.tr("ru", "looks", fallback: "Образы")
+  /// Образ
+  internal static let look = L10n.tr("ru", "look", fallback: "Образ")
   /// Localizable.strings
   ///   GPSStyle
   /// 
@@ -69,12 +75,16 @@ internal enum L10n {
   internal static let password = L10n.tr("ru", "password", fallback: "Пароль")
   /// Перезагрузить
   internal static let reload = L10n.tr("ru", "reload", fallback: "Перезагрузить")
+  ///    Повторять каждую неделю
+  internal static let repeatEveryWeek = L10n.tr("ru", "repeatEveryWeek", fallback: "   Повторять каждую неделю")
   /// Выйти
   internal static let signOut = L10n.tr("ru", "signOut", fallback: "Выйти")
   /// Размер
   internal static let size = L10n.tr("ru", "size", fallback: "Размер")
   /// Cделать фото
   internal static let takePhoto = L10n.tr("ru", "takePhoto", fallback: "Cделать фото")
+  /// Время и дата
+  internal static let timedate = L10n.tr("ru", "timedate", fallback: "Время и дата")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

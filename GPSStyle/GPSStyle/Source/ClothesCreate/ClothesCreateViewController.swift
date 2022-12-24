@@ -29,6 +29,9 @@ final class ClothesCreateViewController: UIViewController {
     private let clothesImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 30
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -279,7 +282,17 @@ extension ClothesCreateViewController: UIImagePickerControllerDelegate, UINaviga
                                             handler: { [weak self] _ in self?.presentPhotoPicker()
         }))
         
+        actionSheet.addAction(UIAlertAction(title: L10n.deletePhoto,
+                                            style: .default,
+                                            handler: { [weak self] _ in self?.deletePhoto()
+        }))
+        
         present(actionSheet, animated: true)
+    }
+    
+    private func deletePhoto() {
+        self.clothesImageView.image = nil
+        updateConstraints()
     }
     
     private func presentCamera() {
