@@ -188,8 +188,14 @@ final class ClothesCreateViewController: UIViewController {
     }
     
     @objc private func didTapCreateClothes() {
-        let vc = ClothesCreateContainer.assemble(with: ClothesCreateContext()).viewController
-        present(vc, animated: true, completion: nil)
+        guard let name = clothingNameTextField.text,
+              let image = clothesImageView.image else {
+            return
+        }
+        output.didTapCreateClothes(model: ClothesModel(title: name,
+                                                       image: image,
+                                                       checkWeather: checkTheWeather,
+                                                       specification: [:]))
     }
 }
 

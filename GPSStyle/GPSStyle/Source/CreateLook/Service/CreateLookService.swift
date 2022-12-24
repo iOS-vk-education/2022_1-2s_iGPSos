@@ -8,7 +8,7 @@
 import Firebase
 
 protocol CreateLookServiceInput: AnyObject {
-    func createLook(with title: String?, images : [String], and clothId: [String])
+    func createLook(with title: String?, images: [String], and clothId: [String])
 }
 
 protocol CreateLookServiceOutput: AnyObject {

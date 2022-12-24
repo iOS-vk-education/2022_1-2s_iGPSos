@@ -12,4 +12,8 @@ final class ClothesCreateInteractor {
 }
 
 extension ClothesCreateInteractor: ClothesCreateInteractorInput {
+    func createClothes(model: ClothesModel) {
+        
+    }
+    
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ClothesCreateModuleInput {
     var moduleOutput: ClothesCreateModuleOutput? { get }
@@ -18,10 +19,11 @@ protocol ClothesCreateViewInput: AnyObject {
 }
 
 protocol ClothesCreateViewOutput: AnyObject {
-    func didTapCreateClothes()
+    func didTapCreateClothes(model: ClothesModel)
 }
 
 protocol ClothesCreateInteractorInput: AnyObject {
+    func createClothes(model: ClothesModel)
 }
 
 protocol ClothesCreateInteractorOutput: AnyObject {
@@ -29,4 +31,11 @@ protocol ClothesCreateInteractorOutput: AnyObject {
 
 protocol ClothesCreateRouterInput: AnyObject {
     func goToMainScreen()
+}
+
+struct ClothesModel {
+    let title: String
+    let image: UIImage
+    let checkWeather: Bool
+    let specification: [String: String]
 }
