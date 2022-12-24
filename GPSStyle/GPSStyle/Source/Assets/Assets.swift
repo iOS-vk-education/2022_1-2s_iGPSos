@@ -31,6 +31,8 @@ internal enum Asset {
   internal static let checkWeatherOff = ImageAsset(name: "check_weather_off")
   internal static let checkWeatherOn = ImageAsset(name: "check_weather_on")
   internal static let logo = ImageAsset(name: "logo")
+  internal static let tabClothes = ImageAsset(name: "tab_clothes")
+  internal static let tabClothesFilled = ImageAsset(name: "tab_clothes_filled")
   internal static let tabHome = ImageAsset(name: "tab_home")
   internal static let tabHomeFilled = ImageAsset(name: "tab_home_filled")
   internal static let tabLooks = ImageAsset(name: "tab_looks")

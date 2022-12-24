@@ -60,10 +60,10 @@ internal enum L10n {
   internal static let howAddPhoto = L10n.tr("ru", "howAddPhoto", fallback: "Как бы вы хотели добавить фото")
   /// Войти
   internal static let login = L10n.tr("ru", "login", fallback: "Войти")
-  /// Образы
-  internal static let looks = L10n.tr("ru", "looks", fallback: "Образы")
   /// Образ
   internal static let look = L10n.tr("ru", "look", fallback: "Образ")
+  /// Образы
+  internal static let looks = L10n.tr("ru", "looks", fallback: "Образы")
   /// Localizable.strings
   ///   GPSStyle
   /// 
