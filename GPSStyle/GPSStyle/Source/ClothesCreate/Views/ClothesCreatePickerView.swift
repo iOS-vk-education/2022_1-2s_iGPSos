@@ -24,7 +24,7 @@ final class ClothesCreatePickerViewController: UIViewController {
         nameOfPicker.font = UIFont(name: "Avenir Next", size: 22.0)
         
         buttonSelect.setTitle("Select", for: .normal)
-        buttonSelect.backgroundColor = .purple
+        buttonSelect.backgroundColor = ColorName.mainPurple.color
         buttonSelect.layer.cornerRadius = 40 / 2
         
         view.backgroundColor = .white

@@ -240,8 +240,8 @@ extension ClothesCreateViewController {
             
             // Clothing ImageView
             clothesImageView.topAnchor.constraint(equalTo: clothingNameTextField.bottomAnchor, constant: 15),
-            clothesImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 90),
-            clothesImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -90),
+            clothesImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 107),
+            clothesImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -107),
             clothesImageView.heightAnchor.constraint(equalToConstant: 180),
             
             // Select photo button
