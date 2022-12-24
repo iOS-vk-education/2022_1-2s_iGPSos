@@ -21,8 +21,8 @@ class ClothesTableViewCell: UITableViewCell {
         static let cellLeftMargin: CGFloat = 24.0
     }
     
-    static let cellReuseIdentifier = "LookTableViewCell"
-    private let imageLookView = UIImageView()
+    static let cellReuseIdentifier = "ClothesTableViewCell"
+    private let imageClothesView = UIImageView()
     private let title = VerticalAlignLabel()
     private let countLabel = UILabel()
     private var size = 0
@@ -50,7 +50,7 @@ class ClothesTableViewCell: UITableViewCell {
     }
 
     override func prepareForReuse() {
-        imageLookView.image = nil
+        imageClothesView.image = nil
         size = 0
     }
 
@@ -60,7 +60,7 @@ class ClothesTableViewCell: UITableViewCell {
                 return
             }
             DispatchQueue.main.async { [weak self] in
-                self?.imageLookView.image = image
+                self?.imageClothesView.image = image
             }
         }
         title.text = model.name
@@ -73,24 +73,24 @@ class ClothesTableViewCell: UITableViewCell {
     private func layout() {
         contentView.pin.all().marginRight(Constants.cellLeftMargin)
         if size == 1 {
-            imageLookView.pin
+            imageClothesView.pin
                 .left(Constants.imageMargin)
                 .vertically(Constants.imageClothVerticallyMargin)
                 .size(Constants.imageClothSideSize)
             title.pin
-                .right(of: imageLookView)
+                .right(of: imageClothesView)
                 .marginLeft(Constants.labelLeftMargin)
                 .right()
                 .top()
                 .bottom()
         } else {
-            imageLookView.pin
+            imageClothesView.pin
                 .left(Constants.imageMargin)
                 .vertically(Constants.imageClothVerticallyMargin)
                 .width(Constants.imageClothSideSize / 2)
                 .height(Constants.imageClothSideSize)
             countLabel.pin
-                .right(of: imageLookView)
+                .right(of: imageClothesView)
                 .marginLeft(Constants.labelLeftMargin)
                 .vertically(Constants.imageClothVerticallyMargin)
                 .width(Constants.imageClothSideSize / 2)
@@ -109,15 +109,15 @@ class ClothesTableViewCell: UITableViewCell {
         separatorInset = .zero
         accessoryType = .disclosureIndicator
     
-        contentView.addSubviews(imageLookView, title, countLabel)
+        contentView.addSubviews(imageClothesView, title, countLabel)
         title.verticalAlignment = .middle
         title.font = FontFamily.Inter.regular.font(size: 14)
         countLabel.font = FontFamily.Inter.regular.font(size: 14)
         countLabel.textColor = ColorName.mainPurple.color
         
-        imageLookView.addOverlay()
-        imageLookView.layer.cornerRadius = Constants.imageCornerRadius
-        imageLookView.layer.masksToBounds = true
-        imageLookView.contentMode = .scaleAspectFit
+        imageClothesView.addOverlay()
+        imageClothesView.layer.cornerRadius = Constants.imageCornerRadius
+        imageClothesView.layer.masksToBounds = true
+        imageClothesView.contentMode = .scaleAspectFit
     }
 }
