@@ -55,7 +55,7 @@ class ClothesTableViewCell: UITableViewCell {
     }
 
     func configure(model: ClothingModel) {
-        ImageLoader.shared.image(hash: model.hashValue, with: model.imageName.first ?? "") { [weak self] hash, image  in
+        ImageLoader.shared.image(hash: model.hashValue, with: model.imageName) { [weak self] hash, image  in
             guard model.hashValue == hash else {
                 return
             }

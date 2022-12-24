@@ -44,7 +44,8 @@ extension GetClothesService: GetClothesServiceInput {
                 return ClothingModel(
                     uuid: data["uuid"] as? String ?? "",
                     name: data["title"] as? String ?? "",
-                    imageName: data["images"] as? [String] ?? []
+                    imageName: data["imageName"] as? String ?? "",
+                    specification: data["specification"] as? [String: String] ?? [:]
                 )
             }.compactMap { $0 }
             self?.output?.success(with: clothes)
