@@ -107,6 +107,7 @@
 		F5415CAD290D29E40099C278 /* ClothesCreateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CAC290D29E40099C278 /* ClothesCreateContainer.swift */; };
 		F5574938292956590093809E /* ClothesAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5574937292956590093809E /* ClothesAssets.swift */; };
 		F57E4ED32915172300EABA0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F57E4ED22915172300EABA0C /* GoogleService-Info.plist */; };
+		F5F346582953A43B00525E4B /* ClothesCreatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F346572953A43B00525E4B /* ClothesCreatePickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -238,6 +239,7 @@
 		F5415CAC290D29E40099C278 /* ClothesCreateContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateContainer.swift; sourceTree = "<group>"; };
 		F5574937292956590093809E /* ClothesAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesAssets.swift; sourceTree = "<group>"; };
 		F57E4ED22915172300EABA0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F5F346572953A43B00525E4B /* ClothesCreatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreatePickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -671,6 +673,7 @@
 		F5415C9F290D259E0099C278 /* ClothesCreate */ = {
 			isa = PBXGroup;
 			children = (
+				F5F346562953A42600525E4B /* Views */,
 				F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */,
 				F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */,
 				F5415CA6290D290B0099C278 /* ClothesCreateViewController.swift */,
@@ -687,6 +690,14 @@
 				F5574937292956590093809E /* ClothesAssets.swift */,
 			);
 			path = CClothesAssets;
+			sourceTree = "<group>";
+		};
+		F5F346562953A42600525E4B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F5F346572953A43B00525E4B /* ClothesCreatePickerView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -999,6 +1010,7 @@
 				70F70415292C28BC003382F1 /* CreateLookInteractor.swift in Sources */,
 				702F8CC4290C940D006B4DF1 /* VerticalAlignLabel.swift in Sources */,
 				702F8CB7290C85FB006B4DF1 /* CalendarView+Extensions.swift in Sources */,
+				F5F346582953A43B00525E4B /* ClothesCreatePickerView.swift in Sources */,
 				702F8C9F29044EFC006B4DF1 /* LooksListInteractor.swift in Sources */,
 				702F8CB5290C85FB006B4DF1 /* CalendarFlowLayout.swift in Sources */,
 				F5574938292956590093809E /* ClothesAssets.swift in Sources */,
@@ -1172,7 +1184,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1227,7 +1239,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
