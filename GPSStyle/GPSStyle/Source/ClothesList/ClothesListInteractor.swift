@@ -10,7 +10,24 @@ import Foundation
 
 final class ClothesListInteractor {
     weak var output: ClothesListInteractorOutput?
+    var getClothingService: GetClothesServiceInput?
+    
+    init() {
+        getClothingService = GetClothesService(interactor: self)
+    }
 }
 
 extension ClothesListInteractor: ClothesListInteractorInput {
+    func fetchClothing() {
+        getClothingService?.fetchClothing()
+    }
+}
+
+extension ClothesListInteractor: GetClothesServiceOutput {
+    func faild() {
+    }
+    
+    func success(with array: [ClothingModel]) {
+        output?.clothDidLoad(with: array)
+    }
 }

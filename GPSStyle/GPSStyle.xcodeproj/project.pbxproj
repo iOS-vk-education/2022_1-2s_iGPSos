@@ -106,6 +106,9 @@
 		F5415CAD290D29E40099C278 /* ClothesCreateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CAC290D29E40099C278 /* ClothesCreateContainer.swift */; };
 		F5574938292956590093809E /* ClothesAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5574937292956590093809E /* ClothesAssets.swift */; };
 		F5796E1F2957666400E43877 /* CreateClothesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5796E1E2957666400E43877 /* CreateClothesService.swift */; };
+		F5796E2329579D4700E43877 /* ClothesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5796E2229579D4700E43877 /* ClothesTableViewCell.swift */; };
+		F5796E2529579D5900E43877 /* GetClothesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5796E2429579D5900E43877 /* GetClothesService.swift */; };
+		F5796E2729579D6F00E43877 /* ClothesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5796E2629579D6F00E43877 /* ClothesModel.swift */; };
 		F57E4ED32915172300EABA0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F57E4ED22915172300EABA0C /* GoogleService-Info.plist */; };
 		F5F346582953A43B00525E4B /* ClothesCreatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F346572953A43B00525E4B /* ClothesCreatePickerView.swift */; };
 		FF78E4077B047D1F1CDDE758 /* Pods_GPSStyle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597083DB7F5242C54CE63840 /* Pods_GPSStyle.framework */; };
@@ -239,6 +242,9 @@
 		F5415CAC290D29E40099C278 /* ClothesCreateContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateContainer.swift; sourceTree = "<group>"; };
 		F5574937292956590093809E /* ClothesAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesAssets.swift; sourceTree = "<group>"; };
 		F5796E1E2957666400E43877 /* CreateClothesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClothesService.swift; sourceTree = "<group>"; };
+		F5796E2229579D4700E43877 /* ClothesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesTableViewCell.swift; sourceTree = "<group>"; };
+		F5796E2429579D5900E43877 /* GetClothesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetClothesService.swift; sourceTree = "<group>"; };
+		F5796E2629579D6F00E43877 /* ClothesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesModel.swift; sourceTree = "<group>"; };
 		F57E4ED22915172300EABA0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F5A0EE0A8EC53A9E64D5221C /* Pods-GPSStyle-GPSStyleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; path = "Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F5F346572953A43B00525E4B /* ClothesCreatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreatePickerView.swift; sourceTree = "<group>"; };
@@ -378,6 +384,8 @@
 		702F8C7A29044E69006B4DF1 /* ClothesList */ = {
 			isa = PBXGroup;
 			children = (
+				F5796E2129579D2D00E43877 /* Service */,
+				F5796E2029579D1200E43877 /* SubView */,
 				702F8C7B29044E97006B4DF1 /* ClothesListPresenter.swift */,
 				702F8C7C29044E97006B4DF1 /* ClothesListRouter.swift */,
 				702F8C7D29044E97006B4DF1 /* ClothesListViewController.swift */,
@@ -703,6 +711,23 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		F5796E2029579D1200E43877 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				F5796E2229579D4700E43877 /* ClothesTableViewCell.swift */,
+				F5796E2629579D6F00E43877 /* ClothesModel.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		F5796E2129579D2D00E43877 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F5796E2429579D5900E43877 /* GetClothesService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		F5F346562953A42600525E4B /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1017,6 +1042,7 @@
 				DCB9D1C1294F2B1D009A8D79 /* MeetingViewController.swift in Sources */,
 				702F8CBA290C85FB006B4DF1 /* CalendarView+Delegate.swift in Sources */,
 				702F8CC0290C8C35006B4DF1 /* HomeTableViewCell.swift in Sources */,
+				F5796E2729579D6F00E43877 /* ClothesModel.swift in Sources */,
 				702F8C8229044E97006B4DF1 /* ClothesListRouter.swift in Sources */,
 				70F70415292C28BC003382F1 /* CreateLookInteractor.swift in Sources */,
 				702F8CC4290C940D006B4DF1 /* VerticalAlignLabel.swift in Sources */,
@@ -1065,6 +1091,7 @@
 				70BB4B3E295652270079170B /* LookTableViewCell.swift in Sources */,
 				DCA223162919937E005D71C8 /* WelcomeViewController.swift in Sources */,
 				70618C9E28FF31E300054A78 /* SceneDelegate.swift in Sources */,
+				F5796E2529579D5900E43877 /* GetClothesService.swift in Sources */,
 				70F70411292C28BC003382F1 /* CreateLookPresenter.swift in Sources */,
 				702F8C9B29044EFC006B4DF1 /* LooksListPresenter.swift in Sources */,
 				702F8CA029044EFC006B4DF1 /* LooksListContainer.swift in Sources */,
@@ -1081,6 +1108,7 @@
 				702F8CBC290C85FB006B4DF1 /* CalendarView+DataSource.swift in Sources */,
 				702F8C7529044E53006B4DF1 /* HomeRouter.swift in Sources */,
 				DC0C2D70291BED7700702D09 /* AuthUser.swift in Sources */,
+				F5796E2329579D4700E43877 /* ClothesTableViewCell.swift in Sources */,
 				702F8CC8290D2872006B4DF1 /* ImageCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
