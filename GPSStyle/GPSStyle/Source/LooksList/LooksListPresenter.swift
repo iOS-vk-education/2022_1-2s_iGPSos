@@ -14,6 +14,7 @@ final class LooksListPresenter {
     
     private let router: LooksListRouterInput
     private let interactor: LooksListInteractorInput
+    private var data: [LookModel] = []
     
     init(router: LooksListRouterInput, interactor: LooksListInteractorInput) {
         self.router = router
@@ -25,7 +26,26 @@ extension LooksListPresenter: LooksListModuleInput {
 }
 
 extension LooksListPresenter: LooksListViewOutput {
+    func getLook(index: Int) -> LookModel {
+        data[index]
+    }
+    
+    var countList: Int {
+        data.count
+    }
+    
+    func viewWillAppear() {
+        interactor.fetchLooks()
+    }
+    
+    func addButtonDidTap() {
+        router.goToAddLookScreen()
+    }
 }
 
 extension LooksListPresenter: LooksListInteractorOutput {
+    func clothDidLoad(with array: [LookModel]) {
+        data = array
+        view?.reloadData()
+    }
 }

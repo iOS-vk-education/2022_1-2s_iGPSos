@@ -28,17 +28,12 @@ final class TabBarModelImpl: TabBarModel {
          generateVC(
             viewController:
                 LooksListContainer.assemble(with: LooksListContext()).viewController,
-            image: UIImage(systemName: "person.fill"),
-            selectedImage: UIImage(systemName: "house.fill")
+            image: Asset.tabLooks.image,
+            selectedImage: Asset.tabLooksFilled.image
         ),
          generateVC(
             viewController:
                 ProfileContainer.assemble(with: ProfileContext()).viewController,
-            image: UIImage(systemName: "person.fill"),
-            selectedImage: UIImage(systemName: "house.fill")
-        ), generateVC(
-            viewController:
-                ClothesCreateContainer.assemble(with: ClothesCreateContext()).viewController,
             image: UIImage(systemName: "person.fill"),
             selectedImage: UIImage(systemName: "house.fill")
         )]

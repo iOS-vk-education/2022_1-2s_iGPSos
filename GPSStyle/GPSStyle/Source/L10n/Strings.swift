@@ -10,6 +10,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// Сохранить
+  internal static let add = L10n.tr("ru", "add", fallback: "Сохранить")
   /// Добавить фото
   internal static let addPhoto = L10n.tr("ru", "addPhoto", fallback: "Добавить фото")
   /// Уже есть аккаунт?
@@ -58,6 +60,8 @@ internal enum L10n {
   internal static let howAddPhoto = L10n.tr("ru", "howAddPhoto", fallback: "Как бы вы хотели добавить фото")
   /// Войти
   internal static let login = L10n.tr("ru", "login", fallback: "Войти")
+  /// Образы
+  internal static let looks = L10n.tr("ru", "looks", fallback: "Образы")
   /// Образ
   internal static let look = L10n.tr("ru", "look", fallback: "Образ")
   /// Localizable.strings

@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if Auth.auth().currentUser != nil {
             window?.rootViewController = MainTabBarController(tabBarModel: TabBarModelImpl())
             window?.makeKeyAndVisible()
-        } else { 
+        } else {
             window?.rootViewController = WelcomeViewController()
             window?.makeKeyAndVisible()
         }

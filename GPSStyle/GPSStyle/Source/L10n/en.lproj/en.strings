@@ -34,8 +34,9 @@
 "signOut" = "Sign out";
 "name" = "Name";
 "alreadyHaveAccount" = "Already have an account?";
+"add" = "Add";
+"looks" = "Looks";
 "repeatEveryWeek" = "   Repeat Every Week";
 "timedate" = "Time and Date";
 "createMeeting" = "Create Meeting";
 "look" = "Look";
-

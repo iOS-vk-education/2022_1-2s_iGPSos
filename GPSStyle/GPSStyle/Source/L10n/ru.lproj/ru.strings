@@ -34,6 +34,8 @@
 "signOut" = "Выйти";
 "name" = "Имя";
 "alreadyHaveAccount" = "Уже есть аккаунт?";
+"add" = "Сохранить";
+"looks" = "Образы";
 "repeatEveryWeek" = "   Повторять каждую неделю";
 "timedate" = "Время и дата";
 "createMeeting" = "Создать встречу";
