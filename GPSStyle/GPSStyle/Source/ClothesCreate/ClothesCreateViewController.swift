@@ -7,7 +7,8 @@
 
 import UIKit
 
-final class ClothesCreateViewController: UIViewController {
+final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDelegate {
+    
     private let output: ClothesCreateViewOutput
     
     private var supportConstraint: NSLayoutConstraint?
@@ -166,6 +167,19 @@ final class ClothesCreateViewController: UIViewController {
         cretateClothesButton.addTarget(self, action: #selector(didTapCreateClothes), for: .touchUpInside)
     }
     
+    func didFinishPicking(with value: String, type: String) {
+        switch type {
+        case "Brand":
+            clothingBrandTextField.text = value
+        case "Color":
+            clothingColorTextField.text = value
+        case "Size":
+            clothingSizeTextField.text = value
+        default:
+            break
+        }
+    }
+    
     @objc
     private func didTapSelectPhoto() {
         presentPhotoActionSheet()
@@ -185,6 +199,7 @@ final class ClothesCreateViewController: UIViewController {
     @objc
     private func didTapSizeLabel() {
         let clothesCreatePickerSizeViewController = ClothesCreatePickerViewController()
+        clothesCreatePickerSizeViewController.delegate = self
         clothesCreatePickerSizeViewController.configure(with: pickerUnitClothesSize)
         let nav = UINavigationController(rootViewController: clothesCreatePickerSizeViewController)
         nav.modalPresentationStyle = .pageSheet
@@ -197,9 +212,10 @@ final class ClothesCreateViewController: UIViewController {
     
     @objc
     private func didTapColorLabel() {
-        let clothesCreatePickerSizeViewController = ClothesCreatePickerViewController()
-        clothesCreatePickerSizeViewController.configure(with: pickerUnitClothesColor)
-        let nav = UINavigationController(rootViewController: clothesCreatePickerSizeViewController)
+        let clothesCreatePickerColorViewController = ClothesCreatePickerViewController()
+        clothesCreatePickerColorViewController.delegate = self
+        clothesCreatePickerColorViewController.configure(with: pickerUnitClothesColor)
+        let nav = UINavigationController(rootViewController: clothesCreatePickerColorViewController)
         nav.modalPresentationStyle = .pageSheet
         if let nav = nav.presentationController as? UISheetPresentationController {
             nav.prefersGrabberVisible = true
@@ -211,6 +227,7 @@ final class ClothesCreateViewController: UIViewController {
     @objc
     private func didTapBrandLabel() {
         let clothesCreatePickerBrandViewController = ClothesCreatePickerViewController()
+        clothesCreatePickerBrandViewController.delegate = self
         clothesCreatePickerBrandViewController.configure(with: pickerUnitClothesBrand)
         let nav = UINavigationController(rootViewController: clothesCreatePickerBrandViewController)
         nav.modalPresentationStyle = .pageSheet

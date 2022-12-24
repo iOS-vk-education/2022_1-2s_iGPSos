@@ -8,11 +8,18 @@
 import UIKit
 import PinLayout
 
+protocol ClothesCreatePickerDelegate: AnyObject {
+    func didFinishPicking(with value: String, type: String)
+}
+
 final class ClothesCreatePickerViewController: UIViewController {
     private let nameOfPicker: UILabel = UILabel()
     private let pickerView: UIPickerView = UIPickerView()
     private let buttonSelect: UIButton = UIButton()
     private var data: [String] = []
+    private var type: String = ""
+    private var selectedValue: String = ""
+    weak var delegate: ClothesCreatePickerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +33,7 @@ final class ClothesCreatePickerViewController: UIViewController {
         buttonSelect.setTitle(L10n.selectCharacteristicButton, for: .normal)
         buttonSelect.backgroundColor = ColorName.mainPurple.color
         buttonSelect.layer.cornerRadius = 40 / 2
-        
+        buttonSelect.addTarget(self, action: #selector(didTapSelectButton), for: .touchUpInside)
         view.backgroundColor = .white
         view.addSubviews(nameOfPicker, pickerView, buttonSelect)
     }
@@ -56,6 +63,13 @@ final class ClothesCreatePickerViewController: UIViewController {
     func configure(with model: UnitClothesType) {
         nameOfPicker.text = L10n.selectCharacteristic + model.name
         data = model.variants
+        type = model.typeName
+    }
+    
+    @objc
+    private func didTapSelectButton() {
+        delegate?.didFinishPicking(with: selectedValue, type: type)
+        dismiss(animated: true)
     }
 }
 
@@ -73,5 +87,6 @@ extension ClothesCreatePickerViewController: UIPickerViewDelegate, UIPickerViewD
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedValue = data[row]
     }
 }

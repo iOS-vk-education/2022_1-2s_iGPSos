@@ -8,6 +8,7 @@
 struct UnitClothesType {
     let name: String
     let variants: [String]
+    let typeName: String
 }
 
 internal let clothesBrand = ["Gucci",
@@ -42,6 +43,6 @@ internal let clothesSize = ["S",
                      "4XL",
                      "другой"]
 
-internal let pickerUnitClothesBrand = UnitClothesType(name: L10n.brand, variants: clothesBrand)
-internal let pickerUnitClothesColor = UnitClothesType(name: L10n.color, variants: clothesColor)
-internal let pickerUnitClothesSize = UnitClothesType(name: L10n.size, variants: clothesSize)
+internal let pickerUnitClothesBrand = UnitClothesType(name: L10n.brand, variants: clothesBrand, typeName: "Brand")
+internal let pickerUnitClothesColor = UnitClothesType(name: L10n.color, variants: clothesColor, typeName: "Color")
+internal let pickerUnitClothesSize = UnitClothesType(name: L10n.size, variants: clothesSize, typeName: "Size")
