@@ -52,6 +52,10 @@ final class ClothesCreateViewController: UIViewController {
         label.text = L10n.size
         label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
+        bottomLine.backgroundColor = UIColor.lightGray.cgColor
+        label.layer.addSublayer(bottomLine)
         return label
     }()
     
@@ -60,6 +64,10 @@ final class ClothesCreateViewController: UIViewController {
         label.text = L10n.color
         label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
+        bottomLine.backgroundColor = UIColor.lightGray.cgColor
+        label.layer.addSublayer(bottomLine)
         return label
     }()
     
@@ -68,6 +76,10 @@ final class ClothesCreateViewController: UIViewController {
         label.text = L10n.brand
         label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
+        bottomLine.backgroundColor = UIColor.lightGray.cgColor
+        label.layer.addSublayer(bottomLine)
         return label
     }()
     
