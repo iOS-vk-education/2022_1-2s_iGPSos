@@ -163,11 +163,13 @@ final class ClothesCreateViewController: UIViewController {
         cretateClothesButton.addTarget(self, action: #selector(didTapCreateClothes), for: .touchUpInside)
     }
     
-    @objc private func didTapSelectPhoto() {
+    @objc
+    private func didTapSelectPhoto() {
         presentPhotoActionSheet()
     }
     
-    @objc private func didTapCheckWeather() {
+    @objc
+    private func didTapCheckWeather() {
         if !checkTheWeather {
             checkTheWeather = true
             checkTheWeatherButton.setImage(UIImage(named: "check_weather_on"), for: .normal)
@@ -216,7 +218,8 @@ final class ClothesCreateViewController: UIViewController {
         present(nav, animated: true)
     }
     
-    @objc private func didTapCreateClothes() {
+    @objc
+    private func didTapCreateClothes() {
         let vc = ClothesCreateContainer.assemble(with: ClothesCreateContext()).viewController
         present(vc, animated: true, completion: nil)
     }
