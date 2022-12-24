@@ -23,7 +23,7 @@ final class ClothesCreatePickerViewController: UIViewController {
         nameOfPicker.textAlignment = .center
         nameOfPicker.font = UIFont(name: "Avenir Next", size: 22.0)
         
-        buttonSelect.setTitle("Select", for: .normal)
+        buttonSelect.setTitle(L10n.selectCharacteristicButton, for: .normal)
         buttonSelect.backgroundColor = ColorName.mainPurple.color
         buttonSelect.layer.cornerRadius = 40 / 2
         

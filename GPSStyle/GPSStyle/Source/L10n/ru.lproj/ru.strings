@@ -32,6 +32,7 @@
 "deletePhoto" = "Удалить фото";
 "checkTheWeather" = "   Отслеживать погоду";
 "selectCharacteristic" = "Выберите ";
+"selectCharacteristicButton" = "Выберите";
 "signOut" = "Выйти";
 "name" = "Имя";
 "alreadyHaveAccount" = "Уже есть аккаунт?";

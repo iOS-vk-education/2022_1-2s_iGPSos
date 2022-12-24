@@ -75,6 +75,8 @@ internal enum L10n {
   internal static let repeatEveryWeek = L10n.tr("ru", "repeatEveryWeek", fallback: "   Повторять каждую неделю")
   /// Выберите 
   internal static let selectCharacteristic = L10n.tr("ru", "selectCharacteristic", fallback: "Выберите ")
+  /// Выберите
+  internal static let selectCharacteristicButton = L10n.tr("ru", "selectCharacteristicButton", fallback: "Выберите")
   /// Выйти
   internal static let signOut = L10n.tr("ru", "signOut", fallback: "Выйти")
   /// Размер
