@@ -170,15 +170,18 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
     
     func didFinishPicking(with value: String, type: String) {
         switch type {
-        case "Brand":
+        case TypeName.brand.rawValue:
             clothingBrandTextField.text = value
-            specification["Брэнд"] = value
-        case "Color":
+            clothingBrandTextField.textColor = .black
+            specification[L10n.brand] = value
+        case TypeName.color.rawValue:
             clothingColorTextField.text = value
-            specification["Цвет"] = value
-        case "Size":
+            clothingColorTextField.textColor = .black
+            specification[L10n.color] = value
+        case TypeName.size.rawValue:
             clothingSizeTextField.text = value
-            specification["Размер"] = value
+            clothingSizeTextField.textColor = .black
+            specification[L10n.size] = value
         default:
             break
         }

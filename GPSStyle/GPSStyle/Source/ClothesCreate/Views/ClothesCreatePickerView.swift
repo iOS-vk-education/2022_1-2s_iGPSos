@@ -68,6 +68,9 @@ final class ClothesCreatePickerViewController: UIViewController {
     
     @objc
     private func didTapSelectButton() {
+        if selectedValue.isEmpty {
+            selectedValue = data[0]
+        }
         delegate?.didFinishPicking(with: selectedValue, type: type)
         dismiss(animated: true)
     }

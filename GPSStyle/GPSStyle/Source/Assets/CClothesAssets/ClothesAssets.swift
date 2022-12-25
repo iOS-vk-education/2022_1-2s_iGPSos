@@ -5,6 +5,12 @@
 //  Created by Алексей Шевченко on 19.11.2022.
 //
 
+enum TypeName: String {
+    case brand = "Brand"
+    case color = "Color"
+    case size = "Size"
+}
+
 struct UnitClothesType {
     let name: String
     let variants: [String]
@@ -43,6 +49,12 @@ internal let clothesSize = ["S",
                      "4XL",
                      "другой"]
 
-internal let pickerUnitClothesBrand = UnitClothesType(name: L10n.brand, variants: clothesBrand, typeName: "Brand")
-internal let pickerUnitClothesColor = UnitClothesType(name: L10n.color, variants: clothesColor, typeName: "Color")
-internal let pickerUnitClothesSize = UnitClothesType(name: L10n.size, variants: clothesSize, typeName: "Size")
+internal let pickerUnitClothesBrand = UnitClothesType(name: L10n.brand,
+                                                      variants: clothesBrand,
+                                                      typeName: TypeName.brand.rawValue)
+internal let pickerUnitClothesColor = UnitClothesType(name: L10n.color,
+                                                      variants: clothesColor,
+                                                      typeName: TypeName.color.rawValue)
+internal let pickerUnitClothesSize = UnitClothesType(name: L10n.size,
+                                                     variants: clothesSize,
+                                                     typeName: TypeName.size.rawValue)
