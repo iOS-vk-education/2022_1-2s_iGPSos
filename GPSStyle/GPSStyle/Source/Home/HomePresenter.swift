@@ -27,6 +27,10 @@ extension HomePresenter: HomeModuleInput {
 }
 
 extension HomePresenter: HomeViewOutput {
+    func addButtonDidTaped() {
+        router.goToCreateMeeting()
+    }
+    
     func reloadData() {
         // [art] reload data
     }
@@ -49,9 +53,8 @@ extension HomePresenter: HomeViewOutput {
     }
     
     func dateDidChange(with date: Date) {
-        view?.update(with: HomeState(state: .isLoading))
-        // [art] update data
-        view?.update(with: HomeState(state: .empty))
+        view?.update(with: ControllerState(state: .isLoading, config: homeConfig))
+        interactor.fetchCurrentEvents(date: date)
     }
     
     var lookList: [HomeSection] {
@@ -59,9 +62,22 @@ extension HomePresenter: HomeViewOutput {
     }
     
     func viewDidLoad() {
-        view?.update(with: HomeState(state: .isLoading))
+        view?.update(with: ControllerState(state: .isLoading, config: homeConfig))
+        interactor.fetchEvents()
     }
 }
 
 extension HomePresenter: HomeInteractorOutput {
+    func currentEventsDidRecive(with array: [HomeSection]) {
+        data = array
+        if data.isEmpty {
+            view?.update(with: ControllerState(state: .empty, config: homeConfig))
+            return
+        }
+        view?.update(with: ControllerState(state: .success, config: homeConfig))
+    }
+    
+    func eventsDidRecive(with array: [CalendarEvent]) {
+        view?.updateEvents(with: array)
+    }
 }

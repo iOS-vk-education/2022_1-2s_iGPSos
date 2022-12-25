@@ -50,20 +50,23 @@ internal enum L10n {
   internal static let deletePhoto = L10n.tr("ru", "deletePhoto", fallback: "Удалить фото")
   /// Почта
   internal static let email = L10n.tr("ru", "email", fallback: "Почта")
-  /// На сегодня образа нет 😞
+  /// На сегодня встреч нет 😞
   /// 👇 Создайте его👇
-  internal static let emptyHomeTitle = L10n.tr("ru", "emptyHomeTitle", fallback: "На сегодня образа нет 😞\n👇 Создайте его👇")
+  internal static let emptyHomeTitle = L10n.tr("ru", "emptyHomeTitle", fallback: "На сегодня встреч нет 😞\n👇 Создайте его👇")
+  /// У тебя пока нет образов 😞
+  /// 👇 Создайте его👇
+  internal static let emptyLookTitle = L10n.tr("ru", "emptyLookTitle", fallback: "У тебя пока нет образов 😞\n👇 Создайте его👇")
   /// Произошла ошибочка 😞
   /// 👇 Попробуй еще раз👇
-  internal static let errorHomeTitle = L10n.tr("ru", "errorHomeTitle", fallback: "Произошла ошибочка 😞\n👇 Попробуй еще раз👇")
+  internal static let errorTitle = L10n.tr("ru", "errorTitle", fallback: "Произошла ошибочка 😞\n👇 Попробуй еще раз👇")
   /// Как бы вы хотели добавить фото
   internal static let howAddPhoto = L10n.tr("ru", "howAddPhoto", fallback: "Как бы вы хотели добавить фото")
   /// Войти
   internal static let login = L10n.tr("ru", "login", fallback: "Войти")
-  /// Образы
-  internal static let looks = L10n.tr("ru", "looks", fallback: "Образы")
   /// Образ
   internal static let look = L10n.tr("ru", "look", fallback: "Образ")
+  /// Образы
+  internal static let looks = L10n.tr("ru", "looks", fallback: "Образы")
   /// Localizable.strings
   ///   GPSStyle
   /// 

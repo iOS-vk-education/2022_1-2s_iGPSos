@@ -16,7 +16,8 @@ protocol HomeModuleOutput: AnyObject {
 }
 
 protocol HomeViewInput: AnyObject {
-    func update(with state: HomeState)
+    func update(with state: ControllerState)
+    func updateEvents(with array: [CalendarEvent])
 }
 
 protocol HomeViewOutput: AnyObject {
@@ -27,13 +28,19 @@ protocol HomeViewOutput: AnyObject {
     func addButtonDidTap()
     func clothDidTap(with index: IndexPath)
     func configureCalendarTitle(date: Date) -> (String, String)
+    func addButtonDidTaped()
 }
 
 protocol HomeInteractorInput: AnyObject {
+    func fetchEvents()
+    func fetchCurrentEvents(date: Date)
 }
 
 protocol HomeInteractorOutput: AnyObject {
+    func eventsDidRecive(with array: [CalendarEvent])
+    func currentEventsDidRecive(with array: [HomeSection])
 }
 
 protocol HomeRouterInput: AnyObject {
+    func goToCreateMeeting()
 }

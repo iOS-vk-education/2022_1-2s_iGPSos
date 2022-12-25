@@ -25,7 +25,18 @@ final class LooksListPresenter {
 extension LooksListPresenter: LooksListModuleInput {
 }
 
+extension LooksListPresenter: CreateLookModuleOutput {
+    func update() {
+        getData()
+    }
+}
+
 extension LooksListPresenter: LooksListViewOutput {
+    func getData() {
+        view?.update(with: .init(state: .isLoading, config: lookConfig))
+        interactor.fetchLooks()
+    }
+    
     func getLook(index: Int) -> LookModel {
         data[index]
     }
@@ -34,18 +45,14 @@ extension LooksListPresenter: LooksListViewOutput {
         data.count
     }
     
-    func viewWillAppear() {
-        interactor.fetchLooks()
-    }
-    
     func addButtonDidTap() {
-        router.goToAddLookScreen()
+        router.goToAddLookScreen(presenter: self)
     }
 }
 
 extension LooksListPresenter: LooksListInteractorOutput {
     func clothDidLoad(with array: [LookModel]) {
         data = array
-        view?.reloadData()
+        view?.update(with: (data.isEmpty ? .init(state: .empty, config: lookConfig) : .init(state: .success, config: lookConfig)))
     }
 }

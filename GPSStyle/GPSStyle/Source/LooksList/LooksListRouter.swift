@@ -13,8 +13,8 @@ final class LooksListRouter {
 }
 
 extension LooksListRouter: LooksListRouterInput {
-    func goToAddLookScreen() {
-        let container = CreateLookContainer.assemble(with: CreateLookContext())
+    func goToAddLookScreen(presenter: CreateLookModuleOutput) {
+        let container = CreateLookContainer.assemble(with: CreateLookContext(moduleOutput: presenter))
         viewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
 }

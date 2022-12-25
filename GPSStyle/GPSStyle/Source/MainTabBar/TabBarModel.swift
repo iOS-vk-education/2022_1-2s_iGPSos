@@ -34,8 +34,8 @@ final class TabBarModelImpl: TabBarModel {
          generateVC(
             viewController:
                 ProfileContainer.assemble(with: ProfileContext()).viewController,
-            image: UIImage(systemName: "person.fill"),
-            selectedImage: UIImage(systemName: "house.fill")
+            image: Asset.tabProfile.image,
+            selectedImage: Asset.tabProfileFilled.image
         )]
         // TODO: Change Image and selectedImage To real Images
     }

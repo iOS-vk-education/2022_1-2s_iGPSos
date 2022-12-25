@@ -13,4 +13,8 @@ final class HomeRouter {
 }
 
 extension HomeRouter: HomeRouterInput {
+    func goToCreateMeeting() {
+        let meetingViewController = MeetingViewController()
+        viewController?.navigationController?.pushViewController(meetingViewController, animated: true)
+    }
 }

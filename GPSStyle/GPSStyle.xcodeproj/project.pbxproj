@@ -80,8 +80,11 @@
 		70BB4B3B295651550079170B /* GetLooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BB4B3A295651550079170B /* GetLooksService.swift */; };
 		70BB4B3E295652270079170B /* LookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BB4B3D295652270079170B /* LookTableViewCell.swift */; };
 		70BB4B40295652400079170B /* LookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BB4B3F295652400079170B /* LookModel.swift */; };
+		70BB4B47295783940079170B /* AddMeetingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BB4B46295783940079170B /* AddMeetingService.swift */; };
+		70BB4B4A295795FF0079170B /* CalendarEventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BB4B49295794260079170B /* CalendarEventService.swift */; };
+		70BB4B4C2957B0150079170B /* DaysEventsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BB4B4B2957B0150079170B /* DaysEventsService.swift */; };
 		70F052AB2910539E0074EDE5 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F052AA2910539E0074EDE5 /* Spinner.swift */; };
-		70F052AD29116D3C0074EDE5 /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F052AC29116D3C0074EDE5 /* HomeState.swift */; };
+		70F052AD29116D3C0074EDE5 /* ControllerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F052AC29116D3C0074EDE5 /* ControllerState.swift */; };
 		70F70411292C28BC003382F1 /* CreateLookPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F7040B292C28BC003382F1 /* CreateLookPresenter.swift */; };
 		70F70412292C28BC003382F1 /* CreateLookRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F7040C292C28BC003382F1 /* CreateLookRouter.swift */; };
 		70F70413292C28BC003382F1 /* CreateLookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F7040D292C28BC003382F1 /* CreateLookViewController.swift */; };
@@ -210,8 +213,11 @@
 		70BB4B3A295651550079170B /* GetLooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLooksService.swift; sourceTree = "<group>"; };
 		70BB4B3D295652270079170B /* LookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookTableViewCell.swift; sourceTree = "<group>"; };
 		70BB4B3F295652400079170B /* LookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookModel.swift; sourceTree = "<group>"; };
+		70BB4B46295783940079170B /* AddMeetingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeetingService.swift; sourceTree = "<group>"; };
+		70BB4B49295794260079170B /* CalendarEventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEventService.swift; sourceTree = "<group>"; };
+		70BB4B4B2957B0150079170B /* DaysEventsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysEventsService.swift; sourceTree = "<group>"; };
 		70F052AA2910539E0074EDE5 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
-		70F052AC29116D3C0074EDE5 /* HomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
+		70F052AC29116D3C0074EDE5 /* ControllerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerState.swift; sourceTree = "<group>"; };
 		70F7040B292C28BC003382F1 /* CreateLookPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLookPresenter.swift; sourceTree = "<group>"; };
 		70F7040C292C28BC003382F1 /* CreateLookRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLookRouter.swift; sourceTree = "<group>"; };
 		70F7040D292C28BC003382F1 /* CreateLookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLookViewController.swift; sourceTree = "<group>"; };
@@ -358,6 +364,7 @@
 		702F8C6D29044E45006B4DF1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				70BB4B48295794180079170B /* Service */,
 				702F8CEA290D4035006B4DF1 /* Entity */,
 				702F8CBE290C8C0C006B4DF1 /* Subviews */,
 				702F8C6E29044E53006B4DF1 /* HomePresenter.swift */,
@@ -366,7 +373,7 @@
 				702F8C7129044E53006B4DF1 /* HomeProtocols.swift */,
 				702F8C7229044E53006B4DF1 /* HomeInteractor.swift */,
 				702F8C7329044E53006B4DF1 /* HomeContainer.swift */,
-				70F052AC29116D3C0074EDE5 /* HomeState.swift */,
+				70F052AC29116D3C0074EDE5 /* ControllerState.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -590,6 +597,23 @@
 			path = SubView;
 			sourceTree = "<group>";
 		};
+		70BB4B45295783800079170B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				70BB4B46295783940079170B /* AddMeetingService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		70BB4B48295794180079170B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				70BB4B49295794260079170B /* CalendarEventService.swift */,
+				70BB4B4B2957B0150079170B /* DaysEventsService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		70F052A92910537B0074EDE5 /* Spinner */ = {
 			isa = PBXGroup;
 			children = (
@@ -661,6 +685,7 @@
 		DCB9D1BD294F2ABF009A8D79 /* Meeting */ = {
 			isa = PBXGroup;
 			children = (
+				70BB4B45295783800079170B /* Service */,
 				DCB9D1BE294F2B0D009A8D79 /* MeetingTableViewCell.swift */,
 				DCB9D1C0294F2B1D009A8D79 /* MeetingViewController.swift */,
 				DCB9D1C2294F2B2A009A8D79 /* DateTimePicker.swift */,
@@ -986,6 +1011,7 @@
 				70F70413292C28BC003382F1 /* CreateLookViewController.swift in Sources */,
 				70BB4B38295627DB0079170B /* GetClothsService.swift in Sources */,
 				F5415CA7290D290B0099C278 /* ClothesCreateViewController.swift in Sources */,
+				70BB4B4A295795FF0079170B /* CalendarEventService.swift in Sources */,
 				F5415CA9290D297C0099C278 /* ClothesCreateProtocols.swift in Sources */,
 				70BB4B3B295651550079170B /* GetLooksService.swift in Sources */,
 				F5415CAB290D29C30099C278 /* ClothesCreateInteractor.swift in Sources */,
@@ -1032,6 +1058,7 @@
 				70BB4B40295652400079170B /* LookModel.swift in Sources */,
 				702F8C7629044E53006B4DF1 /* HomeViewController.swift in Sources */,
 				702F8C9C29044EFC006B4DF1 /* LooksListRouter.swift in Sources */,
+				70BB4B47295783940079170B /* AddMeetingService.swift in Sources */,
 				702F8C9029044EC2006B4DF1 /* ProfileViewController.swift in Sources */,
 				70F70416292C28BC003382F1 /* CreateLookContainer.swift in Sources */,
 				702F8C9D29044EFC006B4DF1 /* LooksListViewController.swift in Sources */,
@@ -1040,6 +1067,7 @@
 				702F8C8429044E97006B4DF1 /* ClothesListProtocols.swift in Sources */,
 				70BB4B3E295652270079170B /* LookTableViewCell.swift in Sources */,
 				DCA223162919937E005D71C8 /* WelcomeViewController.swift in Sources */,
+				70BB4B4C2957B0150079170B /* DaysEventsService.swift in Sources */,
 				70618C9E28FF31E300054A78 /* SceneDelegate.swift in Sources */,
 				70F70411292C28BC003382F1 /* CreateLookPresenter.swift in Sources */,
 				702F8C9B29044EFC006B4DF1 /* LooksListPresenter.swift in Sources */,
@@ -1053,7 +1081,7 @@
 				702F8C9229044EC2006B4DF1 /* ProfileInteractor.swift in Sources */,
 				702F8C8629044E97006B4DF1 /* ClothesListContainer.swift in Sources */,
 				70BB4B312944F2830079170B /* ClothTableViewCell.swift in Sources */,
-				70F052AD29116D3C0074EDE5 /* HomeState.swift in Sources */,
+				70F052AD29116D3C0074EDE5 /* ControllerState.swift in Sources */,
 				702F8CBC290C85FB006B4DF1 /* CalendarView+DataSource.swift in Sources */,
 				702F8C7529044E53006B4DF1 /* HomeRouter.swift in Sources */,
 				DC0C2D70291BED7700702D09 /* AuthUser.swift in Sources */,

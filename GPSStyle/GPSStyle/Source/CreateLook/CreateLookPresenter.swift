@@ -74,6 +74,7 @@ extension CreateLookPresenter: CreateLookInteractorOutput {
     }
     
     func finishCreatingLook() {
+        moduleOutput?.update()
         router.closeVC()
     }
 }

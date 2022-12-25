@@ -13,7 +13,7 @@ struct HomeSection {
 }
 
 struct HomeRow: Hashable {
-    let id: Int
+    let id: String
     let title: String
     let imageUrl: String
     let isWarning: Bool

@@ -9,9 +9,13 @@ import UIKit
 import PinLayout
 
 class MeetingViewController: UIViewController {
-    private var models: [CellModel] = []
+    private var models: [LookModel] = []
     
     private var repeatEveryWeek: Bool = false
+    private var addMettingService: AddMeetingServiceInput?
+    private var getLooksService: GetLooksServiceInput?
+    private var date: Date?
+    private var time: Date?
     
     private let titleLabelDate: UILabel = {
         let label = UILabel()
@@ -25,7 +29,7 @@ class MeetingViewController: UIViewController {
     private var dateTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = L10n.timedate
-        let spacerView = UIView(frame:CGRect(x:5, y:0, width:50, height:30))
+        let spacerView = UIView(frame: CGRect(x: 5, y: 0, width: 50, height: 30))
         textField.leftViewMode = .always
         textField.leftView = spacerView
         textField.layer.borderWidth = 1
@@ -41,6 +45,8 @@ class MeetingViewController: UIViewController {
         picker.didSelectDates = { [weak self] (day, startDate, endDate) in
             let text = Date.buildTimeRangeString(dayDate: day, startDate: startDate, endDate: endDate)
             self?.dateTextField.text = text
+            self?.date = day
+            self?.time = startDate
         }
         return picker
     }()
@@ -73,8 +79,6 @@ class MeetingViewController: UIViewController {
         return tableView
     }()
     
-    let idMeetingTableViewCell = "MeetingTableViewCell"
-    
     // MARK: - Life circle
     
     override func viewDidLoad() {
@@ -88,25 +92,11 @@ class MeetingViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        tableView.register(MeetingTableViewCell.self, forCellReuseIdentifier: idMeetingTableViewCell)
+        tableView.register(LookTableViewCell.self, forCellReuseIdentifier: LookTableViewCell.cellReuseIdentifier)
         
-        models = [
-            CellModel(id: 1,
-                      title: "Вечерний образ",
-                      imageUrl: "1645850968_1-krasavica-info-p-belie-tufli-na-belom-fone-devushka-krasivo-1.jpg"),
-            CellModel(id: 2,
-                      title: "Образ на обед",
-                      imageUrl: "black-women-s-shoes-isolated-on-white-background-3d-rendering-illustration_97167-287.jpg.webp"),
-            CellModel(id: 3,
-                      title: "Спортивный образ",
-                      imageUrl: "empty_10.jpg"),
-            CellModel(id: 4,
-                      title: "Образ на вечеринку",
-                      imageUrl: "1645850968_1-krasavica-info-p-belie-tufli-na-belom-fone-devushka-krasivo-1.jpg"),
-            CellModel(id: 5,
-                      title: "На прогулку",
-                      imageUrl: "1645850968_1-krasavica-info-p-belie-tufli-na-belom-fone-devushka-krasivo-1.jpg")
-        ]
+        addMettingService = AddMeetingService(interactor: self)
+        getLooksService = GetLooksService(interactor: self)
+        getLooksService?.fetchLooks()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -150,7 +140,7 @@ class MeetingViewController: UIViewController {
     
     @objc
     private func didTapBackButton() {
-        dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     @objc func donePressed() {
@@ -201,11 +191,38 @@ extension MeetingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: idMeetingTableViewCell, for: indexPath) as? MeetingTableViewCell
-        cell?.configure(with: models[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: LookTableViewCell.cellReuseIdentifier, for: indexPath) as? LookTableViewCell
+        cell?.configure(model: models[indexPath.row])
         return cell ?? .init()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let date = date, let time = time else {
+            return
+        }
+        let startTimeFormatter = DateFormatter()
+        startTimeFormatter.dateFormat = "h:mm a"
+        
+        addMettingService?.createMeeting(
+            date: date,
+            title: "Встреча в \( startTimeFormatter.string(from: time))",
+            lookId: models[indexPath.row].uuid
+        )
+    }
+}
+
+extension MeetingViewController: AddMeetingServiceOutput {
+    func faild() {
+    }
+    
+    func success() {
+        navigationController?.popViewController(animated: true)
+    }
+}
+
+extension MeetingViewController: GetLooksServiceOutput {
+    func success(with array: [LookModel]) {
+        models = array
+        tableView.reloadData()
     }
 }

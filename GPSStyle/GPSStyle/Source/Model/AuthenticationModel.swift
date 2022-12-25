@@ -45,6 +45,13 @@ final class AuthenticationModel: ObservableObject {
                 }
             } receiveValue: { [weak self] user in
                 self?.user = user
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.displayName = name
+                changeRequest?.commitChanges { error in
+                    if let error = error {
+                        print(error)
+                    }
+                }
             }
             .store(in: &subscriptions)
     }

@@ -13,6 +13,7 @@ protocol CreateLookModuleInput {
 }
 
 protocol CreateLookModuleOutput: AnyObject {
+    func update()
 }
 
 protocol CreateLookViewInput: AnyObject {
