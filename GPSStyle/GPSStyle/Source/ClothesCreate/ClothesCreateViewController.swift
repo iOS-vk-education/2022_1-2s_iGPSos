@@ -169,9 +169,8 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
     }
     
     private func didTapSpecificationLabel(unit: UnitClothesType) {
-        let clothesCreatePickerViewController = ClothesCreatePickerViewController()
+        let clothesCreatePickerViewController = ClothesCreatePickerViewController(model: unit)
         clothesCreatePickerViewController.delegate = self
-        clothesCreatePickerViewController.configure(with: unit)
         let nav = UINavigationController(rootViewController: clothesCreatePickerViewController)
         nav.modalPresentationStyle = .pageSheet
         if let nav = nav.presentationController as? UISheetPresentationController {
@@ -181,20 +180,23 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         present(nav, animated: true)
     }
     
-    func didFinishPicking(with value: String, type: TypeName) {
-        switch type {
+    func didFinishPicking(with model: UnitClothesType) {
+        switch model.typeName {
         case TypeName.brand:
-            clothingBrandTextField.text = value
+            clothingBrandTextField.text = model.selectedValue
             clothingBrandTextField.textColor = .black
-            specification[L10n.brand] = value
+            specification[L10n.brand] = model.selectedValue
+            pickerUnitClothesBrand = model
         case TypeName.color:
-            clothingColorTextField.text = value
+            clothingColorTextField.text = model.selectedValue
             clothingColorTextField.textColor = .black
-            specification[L10n.color] = value
+            specification[L10n.color] = model.selectedValue
+            pickerUnitClothesColor = model
         case TypeName.size:
-            clothingSizeTextField.text = value
+            clothingSizeTextField.text = model.selectedValue
             clothingSizeTextField.textColor = .black
-            specification[L10n.size] = value
+            specification[L10n.size] = model.selectedValue
+            pickerUnitClothesSize = model
         }
     }
     
