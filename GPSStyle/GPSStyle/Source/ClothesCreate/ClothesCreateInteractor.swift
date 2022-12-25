@@ -7,9 +7,23 @@
 
 import Foundation
 
-final class ClothesCreateInteractor {
+final class ClothesCreateInteractor: CreateLookServiceOutput {
+    func faild() {
+    }
+    
+    func success() {
+    }
+    
     weak var output: ClothesCreateInteractorOutput?
+    var createClothesService: CreateClothesServiceInput?
+    
+    init() {
+        createClothesService = CreateClothesService(interactor: self)
+    }
 }
 
 extension ClothesCreateInteractor: ClothesCreateInteractorInput {
+    func createClothes(model: ClothesModel) {
+        createClothesService?.createClothes(model: model)
+    }
 }

@@ -8,8 +8,9 @@
 
 import Foundation
 
-protocol HomeModuleInput {
+protocol HomeModuleInput: AnyObject {
     var moduleOutput: HomeModuleOutput? { get }
+    func updateAfterCreating()
 }
 
 protocol HomeModuleOutput: AnyObject {
@@ -25,7 +26,6 @@ protocol HomeViewOutput: AnyObject {
     func viewDidLoad()
     func reloadData()
     func dateDidChange(with date: Date)
-    func addButtonDidTap()
     func clothDidTap(with index: IndexPath)
     func configureCalendarTitle(date: Date) -> (String, String)
     func addButtonDidTaped()
@@ -42,5 +42,5 @@ protocol HomeInteractorOutput: AnyObject {
 }
 
 protocol HomeRouterInput: AnyObject {
-    func goToCreateMeeting()
+    func goToCreateMeeting(presenter: HomeModuleInput)
 }

@@ -22,8 +22,8 @@ final class TabBarModelImpl: TabBarModel {
          generateVC(
             viewController:
                 ClothesListContainer.assemble(with: ClothesListContext()).viewController,
-            image: UIImage(systemName: "person.fill"),
-            selectedImage: UIImage(systemName: "house.fill")
+            image: Asset.tabClothes.image,
+            selectedImage: Asset.tabClothesFilled.image
         ),
          generateVC(
             viewController:
@@ -37,7 +37,6 @@ final class TabBarModelImpl: TabBarModel {
             image: Asset.tabProfile.image,
             selectedImage: Asset.tabProfileFilled.image
         )]
-        // TODO: Change Image and selectedImage To real Images
     }
     
     private func generateVC(viewController: UIViewController, image: UIImage?, selectedImage: UIImage?) -> UIViewController {

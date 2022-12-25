@@ -33,6 +33,7 @@ final class HomeViewController: UIViewController {
     private let tableView = UITableView()
     private let errorLabel = UILabel()
     private let errorButton = UIButton()
+    private let once = Once()
     private lazy var spinner: Spinner = {
         let spinner = Spinner(squareLength: Constants.spinnerHeight)
         return spinner
@@ -64,7 +65,9 @@ final class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        calendar.selectDate(Date()) // by default selected is now
+        once.run {
+            calendar.selectDate(Date())
+        }
     }
     
     override func viewDidLayoutSubviews() {

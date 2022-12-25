@@ -10,6 +10,7 @@ import PinLayout
 
 class MeetingViewController: UIViewController {
     private var models: [LookModel] = []
+    weak var delegate: HomeModuleInput?
     
     private var repeatEveryWeek: Bool = false
     private var addMettingService: AddMeetingServiceInput?
@@ -216,6 +217,7 @@ extension MeetingViewController: AddMeetingServiceOutput {
     }
     
     func success() {
+        delegate?.updateAfterCreating()
         navigationController?.popViewController(animated: true)
     }
 }

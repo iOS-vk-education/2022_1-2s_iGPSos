@@ -14,6 +14,7 @@ final class ClothesListPresenter {
     
     private let router: ClothesListRouterInput
     private let interactor: ClothesListInteractorInput
+    private var data: [ClothingModel] = []
     
     init(router: ClothesListRouterInput, interactor: ClothesListInteractorInput) {
         self.router = router
@@ -25,7 +26,26 @@ extension ClothesListPresenter: ClothesListModuleInput {
 }
 
 extension ClothesListPresenter: ClothesListViewOutput {
+    func getCloth(index: Int) -> ClothingModel {
+        data[index]
+    }
+    
+    var countList: Int {
+        data.count
+    }
+    
+    func viewWillAppear() {
+        interactor.fetchClothing()
+    }
+    
+    func addButtonDidTap() {
+        router.goToAddClothesScreen()
+    }
 }
 
 extension ClothesListPresenter: ClothesListInteractorOutput {
+    func clothDidLoad(with array: [ClothingModel]) {
+        data = array
+        view?.reloadData()
+    }
 }

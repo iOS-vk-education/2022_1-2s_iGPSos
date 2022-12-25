@@ -13,4 +13,8 @@ final class ClothesListRouter {
 }
 
 extension ClothesListRouter: ClothesListRouterInput {
+    func goToAddClothesScreen() {
+        let container = ClothesCreateContainer.assemble(with: ClothesCreateContext())
+        viewController?.navigationController?.pushViewController(container.viewController, animated: true)
+    }
 }

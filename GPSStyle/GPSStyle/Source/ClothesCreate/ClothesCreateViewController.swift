@@ -7,12 +7,14 @@
 
 import UIKit
 
-final class ClothesCreateViewController: UIViewController {
+final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDelegate {
     private let output: ClothesCreateViewOutput
     
     private var supportConstraint: NSLayoutConstraint?
     
     private var checkTheWeather: Bool = false
+    
+    private var specification: [String: String] = [:]
     
     private let clothingNameTextField: UITextField = {
         let textField = UITextField()
@@ -36,48 +38,6 @@ final class ClothesCreateViewController: UIViewController {
         return imageView
     }()
     
-    private var clothingSizeTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = L10n.size
-        var bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
-        bottomLine.backgroundColor = UIColor.lightGray.cgColor
-        textField.borderStyle = .none
-        textField.layer.addSublayer(bottomLine)
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    private var clothingSizePickerView = UIPickerView()
-    
-    private var clothingColorTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = L10n.color
-        var bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
-        bottomLine.backgroundColor = UIColor.lightGray.cgColor
-        textField.borderStyle = .none
-        textField.layer.addSublayer(bottomLine)
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    private var clothingColorPickerView = UIPickerView()
-    
-    private var clothingBrandTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = L10n.brand
-        var bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
-        bottomLine.backgroundColor = UIColor.lightGray.cgColor
-        textField.borderStyle = .none
-        textField.layer.addSublayer(bottomLine)
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    private var clothingBrandPickerView = UIPickerView()
-    
     private let selectPhotoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(L10n.addPhoto, for: .normal)
@@ -87,6 +47,45 @@ final class ClothesCreateViewController: UIViewController {
         button.layer.cornerRadius = 30
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
+    }()
+    
+    private let clothingSizeTextField: UILabel = {
+        let label = UILabel()
+        label.text = L10n.size
+        label.textColor = .lightGray
+        label.isUserInteractionEnabled = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
+        bottomLine.backgroundColor = UIColor.lightGray.cgColor
+        label.layer.addSublayer(bottomLine)
+        return label
+    }()
+    
+    private let clothingColorTextField: UILabel = {
+        let label = UILabel()
+        label.text = L10n.color
+        label.textColor = .lightGray
+        label.isUserInteractionEnabled = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
+        bottomLine.backgroundColor = UIColor.lightGray.cgColor
+        label.layer.addSublayer(bottomLine)
+        return label
+    }()
+    
+    private let clothingBrandTextField: UILabel = {
+        let label = UILabel()
+        label.text = L10n.brand
+        label.textColor = .lightGray
+        label.isUserInteractionEnabled = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
+        bottomLine.backgroundColor = UIColor.lightGray.cgColor
+        label.layer.addSublayer(bottomLine)
+        return label
     }()
     
     private let checkTheWeatherButton: UIButton = {
@@ -146,18 +145,14 @@ final class ClothesCreateViewController: UIViewController {
     }
     
     func setupPickersViews() {
-        clothingSizeTextField.inputView = clothingSizePickerView
-        clothingColorTextField.inputView = clothingColorPickerView
-        clothingBrandTextField.inputView = clothingBrandPickerView
+        let recognierSize = UITapGestureRecognizer(target: self, action: #selector(didTapSizeLabel))
+        clothingSizeTextField.addGestureRecognizer(recognierSize)
         
-        clothingBrandPickerView.delegate = self
-        clothingBrandPickerView.dataSource = self
+        let recognierColor = UITapGestureRecognizer(target: self, action: #selector(didTapColorLabel))
+        clothingColorTextField.addGestureRecognizer(recognierColor)
         
-        clothingSizePickerView.delegate = self
-        clothingSizePickerView.dataSource = self
-        
-        clothingColorPickerView.delegate = self
-        clothingColorPickerView.dataSource = self
+        let recognierBrand = UITapGestureRecognizer(target: self, action: #selector(didTapBrandLabel))
+        clothingBrandTextField.addGestureRecognizer(recognierBrand)
     }
     
     private func setupTitle() {
@@ -173,11 +168,29 @@ final class ClothesCreateViewController: UIViewController {
         cretateClothesButton.addTarget(self, action: #selector(didTapCreateClothes), for: .touchUpInside)
     }
     
-    @objc private func didTapSelectPhoto() {
+    func didFinishPicking(with value: String, type: String) {
+        switch type {
+        case "Brand":
+            clothingBrandTextField.text = value
+            specification["Брэнд"] = value
+        case "Color":
+            clothingColorTextField.text = value
+            specification["Цвет"] = value
+        case "Size":
+            clothingSizeTextField.text = value
+            specification["Размер"] = value
+        default:
+            break
+        }
+    }
+    
+    @objc
+    private func didTapSelectPhoto() {
         presentPhotoActionSheet()
     }
     
-    @objc private func didTapCheckWeather() {
+    @objc
+    private func didTapCheckWeather() {
         if !checkTheWeather {
             checkTheWeather = true
             checkTheWeatherButton.setImage(UIImage(named: "check_weather_on"), for: .normal)
@@ -188,8 +201,54 @@ final class ClothesCreateViewController: UIViewController {
     }
     
     @objc private func didTapCreateClothes() {
-        let vc = ClothesCreateContainer.assemble(with: ClothesCreateContext()).viewController
-        present(vc, animated: true, completion: nil)
+        guard let name = clothingNameTextField.text,
+              let image = clothesImageView.image else {
+            return
+        }
+        output.didTapCreateClothes(model: ClothesModel(title: name,
+                                                       image: image,
+                                                       checkWeather: checkTheWeather,
+                                                       specification: specification)) }
+    @objc
+    private func didTapSizeLabel() {
+        let clothesCreatePickerSizeViewController = ClothesCreatePickerViewController()
+        clothesCreatePickerSizeViewController.delegate = self
+        clothesCreatePickerSizeViewController.configure(with: pickerUnitClothesSize)
+        let nav = UINavigationController(rootViewController: clothesCreatePickerSizeViewController)
+        nav.modalPresentationStyle = .pageSheet
+        if let nav = nav.presentationController as? UISheetPresentationController {
+            nav.prefersGrabberVisible = true
+            nav.detents = [.custom { _ in return 300 }]
+        }
+        present(nav, animated: true)
+    }
+    
+    @objc
+    private func didTapColorLabel() {
+        let clothesCreatePickerColorViewController = ClothesCreatePickerViewController()
+        clothesCreatePickerColorViewController.delegate = self
+        clothesCreatePickerColorViewController.configure(with: pickerUnitClothesColor)
+        let nav = UINavigationController(rootViewController: clothesCreatePickerColorViewController)
+        nav.modalPresentationStyle = .pageSheet
+        if let nav = nav.presentationController as? UISheetPresentationController {
+            nav.prefersGrabberVisible = true
+            nav.detents = [.custom { _ in return 300 }]
+        }
+        present(nav, animated: true)
+    }
+    
+    @objc
+    private func didTapBrandLabel() {
+        let clothesCreatePickerBrandViewController = ClothesCreatePickerViewController()
+        clothesCreatePickerBrandViewController.delegate = self
+        clothesCreatePickerBrandViewController.configure(with: pickerUnitClothesBrand)
+        let nav = UINavigationController(rootViewController: clothesCreatePickerBrandViewController)
+        nav.modalPresentationStyle = .pageSheet
+        if let nav = nav.presentationController as? UISheetPresentationController {
+            nav.prefersGrabberVisible = true
+            nav.detents = [.custom { _ in return 300 }]
+        }
+        present(nav, animated: true)
     }
 }
 
@@ -208,8 +267,8 @@ extension ClothesCreateViewController {
             
             // Clothing ImageView
             clothesImageView.topAnchor.constraint(equalTo: clothingNameTextField.bottomAnchor, constant: 15),
-            clothesImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 90),
-            clothesImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -90),
+            clothesImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 107),
+            clothesImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -107),
             clothesImageView.heightAnchor.constraint(equalToConstant: 180),
             
             // Select photo button
@@ -324,57 +383,5 @@ extension ClothesCreateViewController: UIImagePickerControllerDelegate, UINaviga
             selectPhotoButton.setTitle(L10n.addPhoto, for: .normal)
         }
         updateConstraints()
-    }
-}
-
-extension ClothesCreateViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        switch pickerView {
-        case clothingSizePickerView:
-            return clothesSize.count
-        case clothingColorPickerView:
-            return clothesColor.count
-        case clothingBrandPickerView:
-            return clothesBrand.count
-        default:
-            return 0
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        switch pickerView {
-        case clothingSizePickerView:
-            return clothesSize[row]
-        case clothingColorPickerView:
-            return clothesColor[row]
-        case clothingBrandPickerView:
-            return clothesBrand[row]
-        default:
-            return ""
-        }
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch pickerView {
-        case clothingSizePickerView:
-            clothingSizeTextField.text = clothesSize[row]
-            clothingSizeTextField.resignFirstResponder()
-        case clothingColorPickerView:
-            clothingColorTextField.text = clothesColor[row]
-            clothingColorTextField.resignFirstResponder()
-        case clothingBrandPickerView:
-            clothingBrandTextField.text = clothesBrand[row]
-            clothingBrandTextField.resignFirstResponder()
-        default:
-            return
-        }
-    }
-    
-    private func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        return false
     }
 }
