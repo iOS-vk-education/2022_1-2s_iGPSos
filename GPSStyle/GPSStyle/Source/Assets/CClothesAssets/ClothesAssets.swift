@@ -14,7 +14,7 @@ enum TypeName: String {
 struct UnitClothesType {
     let name: String
     let variants: [String]
-    let typeName: String
+    let typeName: TypeName
 }
 
 internal let clothesBrand = ["Gucci",
@@ -51,10 +51,10 @@ internal let clothesSize = ["S",
 
 internal let pickerUnitClothesBrand = UnitClothesType(name: L10n.brand,
                                                       variants: clothesBrand,
-                                                      typeName: TypeName.brand.rawValue)
+                                                      typeName: TypeName.brand)
 internal let pickerUnitClothesColor = UnitClothesType(name: L10n.color,
                                                       variants: clothesColor,
-                                                      typeName: TypeName.color.rawValue)
+                                                      typeName: TypeName.color)
 internal let pickerUnitClothesSize = UnitClothesType(name: L10n.size,
                                                      variants: clothesSize,
-                                                     typeName: TypeName.size.rawValue)
+                                                     typeName: TypeName.size)

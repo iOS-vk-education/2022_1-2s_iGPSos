@@ -9,7 +9,7 @@ import UIKit
 import PinLayout
 
 protocol ClothesCreatePickerDelegate: AnyObject {
-    func didFinishPicking(with value: String, type: String)
+    func didFinishPicking(with value: String, type: TypeName)
 }
 
 final class ClothesCreatePickerViewController: UIViewController {
@@ -17,7 +17,7 @@ final class ClothesCreatePickerViewController: UIViewController {
     private let pickerView: UIPickerView = UIPickerView()
     private let buttonSelect: UIButton = UIButton()
     private var data: [String] = []
-    private var type: String = ""
+    private var type: TypeName?
     private var selectedValue: String = ""
     weak var delegate: ClothesCreatePickerDelegate?
     
@@ -70,6 +70,9 @@ final class ClothesCreatePickerViewController: UIViewController {
     private func didTapSelectButton() {
         if selectedValue.isEmpty {
             selectedValue = data[0]
+        }
+        guard let type = type else {
+            return
         }
         delegate?.didFinishPicking(with: selectedValue, type: type)
         dismiss(animated: true)
