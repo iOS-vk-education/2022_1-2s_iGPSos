@@ -168,6 +168,19 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         cretateClothesButton.addTarget(self, action: #selector(didTapCreateClothes), for: .touchUpInside)
     }
     
+    private func didTapSpecificationLabel(unit: UnitClothesType) {
+        let clothesCreatePickerViewController = ClothesCreatePickerViewController()
+        clothesCreatePickerViewController.delegate = self
+        clothesCreatePickerViewController.configure(with: unit)
+        let nav = UINavigationController(rootViewController: clothesCreatePickerViewController)
+        nav.modalPresentationStyle = .pageSheet
+        if let nav = nav.presentationController as? UISheetPresentationController {
+            nav.prefersGrabberVisible = true
+            nav.detents = [.custom { _ in return 300 }]
+        }
+        present(nav, animated: true)
+    }
+    
     func didFinishPicking(with value: String, type: String) {
         switch type {
         case TypeName.brand.rawValue:
@@ -203,7 +216,8 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         }
     }
     
-    @objc private func didTapCreateClothes() {
+    @objc
+    private func didTapCreateClothes() {
         guard let name = clothingNameTextField.text,
               let image = clothesImageView.image else {
             return
@@ -214,44 +228,17 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
                                                        specification: specification)) }
     @objc
     private func didTapSizeLabel() {
-        let clothesCreatePickerSizeViewController = ClothesCreatePickerViewController()
-        clothesCreatePickerSizeViewController.delegate = self
-        clothesCreatePickerSizeViewController.configure(with: pickerUnitClothesSize)
-        let nav = UINavigationController(rootViewController: clothesCreatePickerSizeViewController)
-        nav.modalPresentationStyle = .pageSheet
-        if let nav = nav.presentationController as? UISheetPresentationController {
-            nav.prefersGrabberVisible = true
-            nav.detents = [.custom { _ in return 300 }]
-        }
-        present(nav, animated: true)
+        didTapSpecificationLabel(unit: pickerUnitClothesSize)
     }
     
     @objc
     private func didTapColorLabel() {
-        let clothesCreatePickerColorViewController = ClothesCreatePickerViewController()
-        clothesCreatePickerColorViewController.delegate = self
-        clothesCreatePickerColorViewController.configure(with: pickerUnitClothesColor)
-        let nav = UINavigationController(rootViewController: clothesCreatePickerColorViewController)
-        nav.modalPresentationStyle = .pageSheet
-        if let nav = nav.presentationController as? UISheetPresentationController {
-            nav.prefersGrabberVisible = true
-            nav.detents = [.custom { _ in return 300 }]
-        }
-        present(nav, animated: true)
+        didTapSpecificationLabel(unit: pickerUnitClothesColor)
     }
     
     @objc
     private func didTapBrandLabel() {
-        let clothesCreatePickerBrandViewController = ClothesCreatePickerViewController()
-        clothesCreatePickerBrandViewController.delegate = self
-        clothesCreatePickerBrandViewController.configure(with: pickerUnitClothesBrand)
-        let nav = UINavigationController(rootViewController: clothesCreatePickerBrandViewController)
-        nav.modalPresentationStyle = .pageSheet
-        if let nav = nav.presentationController as? UISheetPresentationController {
-            nav.prefersGrabberVisible = true
-            nav.detents = [.custom { _ in return 300 }]
-        }
-        present(nav, animated: true)
+        didTapSpecificationLabel(unit: pickerUnitClothesBrand)
     }
 }
 
@@ -344,10 +331,12 @@ extension ClothesCreateViewController: UIImagePickerControllerDelegate, UINaviga
                                             handler: { [weak self] _ in self?.presentPhotoPicker()
         }))
         
-        actionSheet.addAction(UIAlertAction(title: L10n.deletePhoto,
-                                            style: .default,
-                                            handler: { [weak self] _ in self?.deletePhoto()
-        }))
+        if clothesImageView.image != nil {
+            actionSheet.addAction(UIAlertAction(title: L10n.deletePhoto,
+                                                style: .default,
+                                                handler: { [weak self] _ in self?.deletePhoto()
+            }))
+        }
         
         present(actionSheet, animated: true)
     }
