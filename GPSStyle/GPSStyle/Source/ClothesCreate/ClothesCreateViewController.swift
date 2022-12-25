@@ -8,12 +8,13 @@
 import UIKit
 
 final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDelegate {
-    
     private let output: ClothesCreateViewOutput
     
     private var supportConstraint: NSLayoutConstraint?
     
     private var checkTheWeather: Bool = false
+    
+    private var specification: [String: String] = [:]
     
     private let clothingNameTextField: UITextField = {
         let textField = UITextField()
@@ -171,10 +172,13 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         switch type {
         case "Brand":
             clothingBrandTextField.text = value
+            specification["Брэнд"] = value
         case "Color":
             clothingColorTextField.text = value
+            specification["Цвет"] = value
         case "Size":
             clothingSizeTextField.text = value
+            specification["Размер"] = value
         default:
             break
         }
@@ -196,6 +200,15 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         }
     }
     
+    @objc private func didTapCreateClothes() {
+        guard let name = clothingNameTextField.text,
+              let image = clothesImageView.image else {
+            return
+        }
+        output.didTapCreateClothes(model: ClothesModel(title: name,
+                                                       image: image,
+                                                       checkWeather: checkTheWeather,
+                                                       specification: specification)) }
     @objc
     private func didTapSizeLabel() {
         let clothesCreatePickerSizeViewController = ClothesCreatePickerViewController()
@@ -236,12 +249,6 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
             nav.detents = [.custom { _ in return 300 }]
         }
         present(nav, animated: true)
-    }
-    
-    @objc
-    private func didTapCreateClothes() {
-        let vc = ClothesCreateContainer.assemble(with: ClothesCreateContext()).viewController
-        present(vc, animated: true, completion: nil)
     }
 }
 

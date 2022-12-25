@@ -24,8 +24,8 @@ extension ClothesCreatePresenter: ClothesCreateModuleInput {
 }
 
 extension ClothesCreatePresenter: ClothesCreateViewOutput {
-    func didTapCreateClothes() {
-        router.goToMainScreen()
+    func didTapCreateClothes(model: ClothesModel) {
+        interactor.createClothes(model: model)
     }
 }
 

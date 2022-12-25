@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0457E6C18D1F9E86DD470F71 /* Pods_GPSStyleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13242142B07C9908B209D70B /* Pods_GPSStyleTests.framework */; };
 		702F8C4229042B29006B4DF1 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8C4129042B29006B4DF1 /* MainTabBarController.swift */; };
 		702F8C4529042C8A006B4DF1 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 702F8C4429042C8A006B4DF1 /* swiftgen.yml */; };
 		702F8C4C29042F45006B4DF1 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702F8C4B29042F45006B4DF1 /* Strings.swift */; };
@@ -88,8 +87,8 @@
 		70F70414292C28BC003382F1 /* CreateLookProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F7040E292C28BC003382F1 /* CreateLookProtocols.swift */; };
 		70F70415292C28BC003382F1 /* CreateLookInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F7040F292C28BC003382F1 /* CreateLookInteractor.swift */; };
 		70F70416292C28BC003382F1 /* CreateLookContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F70410292C28BC003382F1 /* CreateLookContainer.swift */; };
-		77120E79C9CE1C14F604AB82 /* Pods_GPSStyle_GPSStyleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DB50EC33BFD932CBA8E2D83 /* Pods_GPSStyle_GPSStyleUITests.framework */; };
-		C32BBFF21AEB4B5BFFA68F88 /* Pods_GPSStyle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15EC9988C8C08A9F86895CB7 /* Pods_GPSStyle.framework */; };
+		7C194BE25A9F3A823D464645 /* Pods_GPSStyleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA832571A3F593A59BAB5521 /* Pods_GPSStyleTests.framework */; };
+		89932F13968B2A87E80E9302 /* Pods_GPSStyle_GPSStyleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3858B91C85D7255540DBEDC /* Pods_GPSStyle_GPSStyleUITests.framework */; };
 		DC0C2D6E291BE1F800702D09 /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C2D6D291BE1F800702D09 /* AuthenticationModel.swift */; };
 		DC0C2D70291BED7700702D09 /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C2D6F291BED7700702D09 /* AuthUser.swift */; };
 		DCA223162919937E005D71C8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA223152919937E005D71C8 /* WelcomeViewController.swift */; };
@@ -106,8 +105,13 @@
 		F5415CAB290D29C30099C278 /* ClothesCreateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CAA290D29C30099C278 /* ClothesCreateInteractor.swift */; };
 		F5415CAD290D29E40099C278 /* ClothesCreateContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5415CAC290D29E40099C278 /* ClothesCreateContainer.swift */; };
 		F5574938292956590093809E /* ClothesAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5574937292956590093809E /* ClothesAssets.swift */; };
+		F5796E1F2957666400E43877 /* CreateClothesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5796E1E2957666400E43877 /* CreateClothesService.swift */; };
+		F5796E2329579D4700E43877 /* ClothesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5796E2229579D4700E43877 /* ClothesTableViewCell.swift */; };
+		F5796E2529579D5900E43877 /* GetClothesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5796E2429579D5900E43877 /* GetClothesService.swift */; };
+		F5796E2729579D6F00E43877 /* ClothesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5796E2629579D6F00E43877 /* ClothesModel.swift */; };
 		F57E4ED32915172300EABA0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F57E4ED22915172300EABA0C /* GoogleService-Info.plist */; };
 		F5F346582953A43B00525E4B /* ClothesCreatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F346572953A43B00525E4B /* ClothesCreatePickerView.swift */; };
+		FF78E4077B047D1F1CDDE758 /* Pods_GPSStyle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597083DB7F5242C54CE63840 /* Pods_GPSStyle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,12 +132,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		13242142B07C9908B209D70B /* Pods_GPSStyleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPSStyleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		15EC9988C8C08A9F86895CB7 /* Pods_GPSStyle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPSStyle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		30CAADC0196775665A4A8EA9 /* Pods-GPSStyleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyleTests.debug.xcconfig"; path = "Target Support Files/Pods-GPSStyleTests/Pods-GPSStyleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		476F182ED4AB7CEC2F5FF946 /* Pods-GPSStyle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle.release.xcconfig"; path = "Target Support Files/Pods-GPSStyle/Pods-GPSStyle.release.xcconfig"; sourceTree = "<group>"; };
-		621ED99DA5CC9464462682CE /* Pods-GPSStyle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle.debug.xcconfig"; path = "Target Support Files/Pods-GPSStyle/Pods-GPSStyle.debug.xcconfig"; sourceTree = "<group>"; };
-		623CDAEEBDEA4DB8B1ACEDF8 /* Pods-GPSStyle-GPSStyleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle-GPSStyleUITests.release.xcconfig"; path = "Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		344C5D263F9CBFD7C0E82063 /* Pods-GPSStyle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle.release.xcconfig"; path = "Target Support Files/Pods-GPSStyle/Pods-GPSStyle.release.xcconfig"; sourceTree = "<group>"; };
+		597083DB7F5242C54CE63840 /* Pods_GPSStyle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPSStyle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CB77922EF14722C33E275A8 /* Pods-GPSStyle-GPSStyleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle-GPSStyleUITests.release.xcconfig"; path = "Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		702F8C4129042B29006B4DF1 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		702F8C4429042C8A006B4DF1 /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		702F8C4B29042F45006B4DF1 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -219,8 +220,10 @@
 		70F7040E292C28BC003382F1 /* CreateLookProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLookProtocols.swift; sourceTree = "<group>"; };
 		70F7040F292C28BC003382F1 /* CreateLookInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLookInteractor.swift; sourceTree = "<group>"; };
 		70F70410292C28BC003382F1 /* CreateLookContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLookContainer.swift; sourceTree = "<group>"; };
-		8470EF11AC9981E312CD4064 /* Pods-GPSStyle-GPSStyleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; path = "Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		9DB50EC33BFD932CBA8E2D83 /* Pods_GPSStyle_GPSStyleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPSStyle_GPSStyleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82DCAACD4EFBF62BEFACBA2D /* Pods-GPSStyleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyleTests.release.xcconfig"; path = "Target Support Files/Pods-GPSStyleTests/Pods-GPSStyleTests.release.xcconfig"; sourceTree = "<group>"; };
+		AA832571A3F593A59BAB5521 /* Pods_GPSStyleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPSStyleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C01CFD2901F9CBAC77DC085F /* Pods-GPSStyle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle.debug.xcconfig"; path = "Target Support Files/Pods-GPSStyle/Pods-GPSStyle.debug.xcconfig"; sourceTree = "<group>"; };
+		C6D4899FFB6B98C7C3058BF2 /* Pods-GPSStyleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyleTests.debug.xcconfig"; path = "Target Support Files/Pods-GPSStyleTests/Pods-GPSStyleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC0C2D6D291BE1F800702D09 /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModel.swift; sourceTree = "<group>"; };
 		DC0C2D6F291BED7700702D09 /* AuthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
 		DCA223152919937E005D71C8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -230,7 +233,7 @@
 		DCB9D1C0294F2B1D009A8D79 /* MeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingViewController.swift; sourceTree = "<group>"; };
 		DCB9D1C2294F2B2A009A8D79 /* DateTimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePicker.swift; sourceTree = "<group>"; };
 		DCB9D1C4294F2B80009A8D79 /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
-		DF47B501C23C104C059933F8 /* Pods-GPSStyleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyleTests.release.xcconfig"; path = "Target Support Files/Pods-GPSStyleTests/Pods-GPSStyleTests.release.xcconfig"; sourceTree = "<group>"; };
+		E3858B91C85D7255540DBEDC /* Pods_GPSStyle_GPSStyleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GPSStyle_GPSStyleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreatePresenter.swift; sourceTree = "<group>"; };
 		F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateRouter.swift; sourceTree = "<group>"; };
 		F5415CA6290D290B0099C278 /* ClothesCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateViewController.swift; sourceTree = "<group>"; };
@@ -238,7 +241,12 @@
 		F5415CAA290D29C30099C278 /* ClothesCreateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateInteractor.swift; sourceTree = "<group>"; };
 		F5415CAC290D29E40099C278 /* ClothesCreateContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreateContainer.swift; sourceTree = "<group>"; };
 		F5574937292956590093809E /* ClothesAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesAssets.swift; sourceTree = "<group>"; };
+		F5796E1E2957666400E43877 /* CreateClothesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClothesService.swift; sourceTree = "<group>"; };
+		F5796E2229579D4700E43877 /* ClothesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesTableViewCell.swift; sourceTree = "<group>"; };
+		F5796E2429579D5900E43877 /* GetClothesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetClothesService.swift; sourceTree = "<group>"; };
+		F5796E2629579D6F00E43877 /* ClothesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesModel.swift; sourceTree = "<group>"; };
 		F57E4ED22915172300EABA0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F5A0EE0A8EC53A9E64D5221C /* Pods-GPSStyle-GPSStyleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; path = "Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F5F346572953A43B00525E4B /* ClothesCreatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreatePickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -247,7 +255,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C32BBFF21AEB4B5BFFA68F88 /* Pods_GPSStyle.framework in Frameworks */,
+				FF78E4077B047D1F1CDDE758 /* Pods_GPSStyle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0457E6C18D1F9E86DD470F71 /* Pods_GPSStyleTests.framework in Frameworks */,
+				7C194BE25A9F3A823D464645 /* Pods_GPSStyleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +271,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77120E79C9CE1C14F604AB82 /* Pods_GPSStyle_GPSStyleUITests.framework in Frameworks */,
+				89932F13968B2A87E80E9302 /* Pods_GPSStyle_GPSStyleUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,12 +281,12 @@
 		22043178CBC5D5FE1DBC0E3D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				621ED99DA5CC9464462682CE /* Pods-GPSStyle.debug.xcconfig */,
-				476F182ED4AB7CEC2F5FF946 /* Pods-GPSStyle.release.xcconfig */,
-				8470EF11AC9981E312CD4064 /* Pods-GPSStyle-GPSStyleUITests.debug.xcconfig */,
-				623CDAEEBDEA4DB8B1ACEDF8 /* Pods-GPSStyle-GPSStyleUITests.release.xcconfig */,
-				30CAADC0196775665A4A8EA9 /* Pods-GPSStyleTests.debug.xcconfig */,
-				DF47B501C23C104C059933F8 /* Pods-GPSStyleTests.release.xcconfig */,
+				C01CFD2901F9CBAC77DC085F /* Pods-GPSStyle.debug.xcconfig */,
+				344C5D263F9CBFD7C0E82063 /* Pods-GPSStyle.release.xcconfig */,
+				F5A0EE0A8EC53A9E64D5221C /* Pods-GPSStyle-GPSStyleUITests.debug.xcconfig */,
+				5CB77922EF14722C33E275A8 /* Pods-GPSStyle-GPSStyleUITests.release.xcconfig */,
+				C6D4899FFB6B98C7C3058BF2 /* Pods-GPSStyleTests.debug.xcconfig */,
+				82DCAACD4EFBF62BEFACBA2D /* Pods-GPSStyleTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -376,6 +384,8 @@
 		702F8C7A29044E69006B4DF1 /* ClothesList */ = {
 			isa = PBXGroup;
 			children = (
+				F5796E2129579D2D00E43877 /* Service */,
+				F5796E2029579D1200E43877 /* SubView */,
 				702F8C7B29044E97006B4DF1 /* ClothesListPresenter.swift */,
 				702F8C7C29044E97006B4DF1 /* ClothesListRouter.swift */,
 				702F8C7D29044E97006B4DF1 /* ClothesListViewController.swift */,
@@ -515,7 +525,7 @@
 				70618CBB28FF31E900054A78 /* GPSStyleUITests */,
 				70618C9928FF31E300054A78 /* Products */,
 				22043178CBC5D5FE1DBC0E3D /* Pods */,
-				C52CE417B896E94126BFFA4C /* Frameworks */,
+				EA82F8C58B0FA3F2948B2FA0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -615,16 +625,6 @@
 			path = CreateLook;
 			sourceTree = "<group>";
 		};
-		C52CE417B896E94126BFFA4C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				15EC9988C8C08A9F86895CB7 /* Pods_GPSStyle.framework */,
-				9DB50EC33BFD932CBA8E2D83 /* Pods_GPSStyle_GPSStyleUITests.framework */,
-				13242142B07C9908B209D70B /* Pods_GPSStyleTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		DC467386291AD5AC00BF3D3A /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -670,9 +670,20 @@
 			path = Meeting;
 			sourceTree = "<group>";
 		};
+		EA82F8C58B0FA3F2948B2FA0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				597083DB7F5242C54CE63840 /* Pods_GPSStyle.framework */,
+				E3858B91C85D7255540DBEDC /* Pods_GPSStyle_GPSStyleUITests.framework */,
+				AA832571A3F593A59BAB5521 /* Pods_GPSStyleTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F5415C9F290D259E0099C278 /* ClothesCreate */ = {
 			isa = PBXGroup;
 			children = (
+				F5796E1D2957664B00E43877 /* Service */,
 				F5F346562953A42600525E4B /* Views */,
 				F5415CA2290D28590099C278 /* ClothesCreatePresenter.swift */,
 				F5415CA4290D28D10099C278 /* ClothesCreateRouter.swift */,
@@ -692,6 +703,31 @@
 			path = CClothesAssets;
 			sourceTree = "<group>";
 		};
+		F5796E1D2957664B00E43877 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F5796E1E2957666400E43877 /* CreateClothesService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F5796E2029579D1200E43877 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				F5796E2229579D4700E43877 /* ClothesTableViewCell.swift */,
+				F5796E2629579D6F00E43877 /* ClothesModel.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		F5796E2129579D2D00E43877 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F5796E2429579D5900E43877 /* GetClothesService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		F5F346562953A42600525E4B /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -707,13 +743,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 70618CC228FF31E900054A78 /* Build configuration list for PBXNativeTarget "GPSStyle" */;
 			buildPhases = (
-				A82A34CC0B6D646FC699E2B7 /* [CP] Check Pods Manifest.lock */,
+				89C164236BC28C0841C4E56D /* [CP] Check Pods Manifest.lock */,
 				702F8C4E2904309A006B4DF1 /* SwiftGen */,
 				70618CCB28FF35CF00054A78 /* SwiftLint */,
 				70618C9428FF31E300054A78 /* Sources */,
 				70618C9528FF31E300054A78 /* Frameworks */,
 				70618C9628FF31E300054A78 /* Resources */,
-				F6899D4071968D4363D3E8A7 /* [CP] Embed Pods Frameworks */,
+				0FDB7B3BE691C2DEC6671485 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -728,7 +764,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 70618CC528FF31E900054A78 /* Build configuration list for PBXNativeTarget "GPSStyleTests" */;
 			buildPhases = (
-				701077527178E7A9A6FC3D59 /* [CP] Check Pods Manifest.lock */,
+				B263551ABB58843C9C0A6274 /* [CP] Check Pods Manifest.lock */,
 				70618CAA28FF31E900054A78 /* Sources */,
 				70618CAB28FF31E900054A78 /* Frameworks */,
 				70618CAC28FF31E900054A78 /* Resources */,
@@ -747,11 +783,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 70618CC828FF31E900054A78 /* Build configuration list for PBXNativeTarget "GPSStyleUITests" */;
 			buildPhases = (
-				AB81FBF194482D622A1BA926 /* [CP] Check Pods Manifest.lock */,
+				CE8A6B773A4FACD5B87DF9A6 /* [CP] Check Pods Manifest.lock */,
 				70618CB428FF31E900054A78 /* Sources */,
 				70618CB528FF31E900054A78 /* Frameworks */,
 				70618CB628FF31E900054A78 /* Resources */,
-				3A78592365EB9FA3AA4C4840 /* [CP] Embed Pods Frameworks */,
+				9AF8E7D278AD8D087E7EC7DF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -847,43 +883,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3A78592365EB9FA3AA4C4840 /* [CP] Embed Pods Frameworks */ = {
+		0FDB7B3BE691C2DEC6671485 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-GPSStyle/Pods-GPSStyle-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-GPSStyle/Pods-GPSStyle-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		701077527178E7A9A6FC3D59 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GPSStyleTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GPSStyle/Pods-GPSStyle-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		702F8C4E2904309A006B4DF1 /* SwiftGen */ = {
@@ -922,7 +936,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
-		A82A34CC0B6D646FC699E2B7 /* [CP] Check Pods Manifest.lock */ = {
+		89C164236BC28C0841C4E56D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -944,7 +958,46 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AB81FBF194482D622A1BA926 /* [CP] Check Pods Manifest.lock */ = {
+		9AF8E7D278AD8D087E7EC7DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B263551ABB58843C9C0A6274 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GPSStyleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE8A6B773A4FACD5B87DF9A6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -964,23 +1017,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6899D4071968D4363D3E8A7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GPSStyle/Pods-GPSStyle-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GPSStyle/Pods-GPSStyle-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GPSStyle/Pods-GPSStyle-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1006,6 +1042,7 @@
 				DCB9D1C1294F2B1D009A8D79 /* MeetingViewController.swift in Sources */,
 				702F8CBA290C85FB006B4DF1 /* CalendarView+Delegate.swift in Sources */,
 				702F8CC0290C8C35006B4DF1 /* HomeTableViewCell.swift in Sources */,
+				F5796E2729579D6F00E43877 /* ClothesModel.swift in Sources */,
 				702F8C8229044E97006B4DF1 /* ClothesListRouter.swift in Sources */,
 				70F70415292C28BC003382F1 /* CreateLookInteractor.swift in Sources */,
 				702F8CC4290C940D006B4DF1 /* VerticalAlignLabel.swift in Sources */,
@@ -1049,10 +1086,12 @@
 				702F8C9D29044EFC006B4DF1 /* LooksListViewController.swift in Sources */,
 				702F8C6929043CA7006B4DF1 /* TabBarModel.swift in Sources */,
 				70BB4B332944F6380079170B /* ClothesLookCreate.swift in Sources */,
+				F5796E1F2957666400E43877 /* CreateClothesService.swift in Sources */,
 				702F8C8429044E97006B4DF1 /* ClothesListProtocols.swift in Sources */,
 				70BB4B3E295652270079170B /* LookTableViewCell.swift in Sources */,
 				DCA223162919937E005D71C8 /* WelcomeViewController.swift in Sources */,
 				70618C9E28FF31E300054A78 /* SceneDelegate.swift in Sources */,
+				F5796E2529579D5900E43877 /* GetClothesService.swift in Sources */,
 				70F70411292C28BC003382F1 /* CreateLookPresenter.swift in Sources */,
 				702F8C9B29044EFC006B4DF1 /* LooksListPresenter.swift in Sources */,
 				702F8CA029044EFC006B4DF1 /* LooksListContainer.swift in Sources */,
@@ -1069,6 +1108,7 @@
 				702F8CBC290C85FB006B4DF1 /* CalendarView+DataSource.swift in Sources */,
 				702F8C7529044E53006B4DF1 /* HomeRouter.swift in Sources */,
 				DC0C2D70291BED7700702D09 /* AuthUser.swift in Sources */,
+				F5796E2329579D4700E43877 /* ClothesTableViewCell.swift in Sources */,
 				702F8CC8290D2872006B4DF1 /* ImageCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1251,7 +1291,7 @@
 		};
 		70618CC328FF31E900054A78 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 621ED99DA5CC9464462682CE /* Pods-GPSStyle.debug.xcconfig */;
+			baseConfigurationReference = C01CFD2901F9CBAC77DC085F /* Pods-GPSStyle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1279,7 +1319,7 @@
 		};
 		70618CC428FF31E900054A78 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 476F182ED4AB7CEC2F5FF946 /* Pods-GPSStyle.release.xcconfig */;
+			baseConfigurationReference = 344C5D263F9CBFD7C0E82063 /* Pods-GPSStyle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1307,7 +1347,7 @@
 		};
 		70618CC628FF31E900054A78 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30CAADC0196775665A4A8EA9 /* Pods-GPSStyleTests.debug.xcconfig */;
+			baseConfigurationReference = C6D4899FFB6B98C7C3058BF2 /* Pods-GPSStyleTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1327,7 +1367,7 @@
 		};
 		70618CC728FF31E900054A78 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF47B501C23C104C059933F8 /* Pods-GPSStyleTests.release.xcconfig */;
+			baseConfigurationReference = 82DCAACD4EFBF62BEFACBA2D /* Pods-GPSStyleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1347,7 +1387,7 @@
 		};
 		70618CC928FF31E900054A78 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8470EF11AC9981E312CD4064 /* Pods-GPSStyle-GPSStyleUITests.debug.xcconfig */;
+			baseConfigurationReference = F5A0EE0A8EC53A9E64D5221C /* Pods-GPSStyle-GPSStyleUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1365,7 +1405,7 @@
 		};
 		70618CCA28FF31E900054A78 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 623CDAEEBDEA4DB8B1ACEDF8 /* Pods-GPSStyle-GPSStyleUITests.release.xcconfig */;
+			baseConfigurationReference = 5CB77922EF14722C33E275A8 /* Pods-GPSStyle-GPSStyleUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

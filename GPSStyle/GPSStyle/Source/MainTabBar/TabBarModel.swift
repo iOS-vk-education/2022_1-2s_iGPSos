@@ -22,8 +22,8 @@ final class TabBarModelImpl: TabBarModel {
          generateVC(
             viewController:
                 ClothesListContainer.assemble(with: ClothesListContext()).viewController,
-            image: UIImage(systemName: "person.fill"),
-            selectedImage: UIImage(systemName: "house.fill")
+            image: Asset.tabClothes.image,
+            selectedImage: Asset.tabClothesFilled.image
         ),
          generateVC(
             viewController:
@@ -34,6 +34,12 @@ final class TabBarModelImpl: TabBarModel {
          generateVC(
             viewController:
                 ProfileContainer.assemble(with: ProfileContext()).viewController,
+            image: UIImage(systemName: "person.fill"),
+            selectedImage: UIImage(systemName: "house.fill")
+        ),
+         generateVC(
+            viewController:
+                ClothesCreateContainer.assemble(with: ClothesCreateContext()).viewController,
             image: UIImage(systemName: "person.fill"),
             selectedImage: UIImage(systemName: "house.fill")
         )]
