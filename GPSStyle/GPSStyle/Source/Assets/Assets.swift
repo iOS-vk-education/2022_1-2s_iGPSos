@@ -37,6 +37,8 @@ internal enum Asset {
   internal static let tabHomeFilled = ImageAsset(name: "tab_home_filled")
   internal static let tabLooks = ImageAsset(name: "tab_looks")
   internal static let tabLooksFilled = ImageAsset(name: "tab_looks_filled")
+  internal static let tabProfile = ImageAsset(name: "tab_profile")
+  internal static let tabProfileFilled = ImageAsset(name: "tab_profile_filled")
   internal static let warning = ImageAsset(name: "warning")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
