@@ -30,9 +30,9 @@ final class ClothesCreatePickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure(with: model)
         pickerView.delegate = self
         pickerView.dataSource = self
+        configure(with: model)
         
         nameOfPicker.textAlignment = .center
         nameOfPicker.font = UIFont(name: "Avenir Next", size: 22.0)
@@ -82,6 +82,13 @@ final class ClothesCreatePickerViewController: UIViewController {
     
     @objc
     private func didTapSelectButton() {
+        if model.selectedValue == nil {
+            let newModel: UnitClothesType = UnitClothesType(name: model.name,
+                                                            variants: model.variants,
+                                                            typeName: model.typeName,
+                                                            selectedValue: model.variants.first)
+            self.model = newModel
+        }
         delegate?.didFinishPicking(with: model)
         dismiss(animated: true)
     }

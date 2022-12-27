@@ -25,6 +25,8 @@ internal let clothesBrand = ["Gucci",
                       "Louis Vuitton",
                       "Giorgio Armani",
                       "Polo Ralph Lauren",
+                      "Nike",
+                      "Adidas",
                       "другой"]
 
 internal let clothesColor = ["Белый",
@@ -38,6 +40,8 @@ internal let clothesColor = ["Белый",
                       "Розовый",
                       "Бирюзовый",
                       "Охра",
+                      "Cерый",
+                      "Коричневый",
                       "Чёрный",
                       "другой"]
 
@@ -48,17 +52,10 @@ internal let clothesSize = ["S",
                      "XXL",
                      "XXXL",
                      "4XL",
+                     "37EU",
+                     "38EU",
+                     "39EU",
+                     "40EU",
+                     "45EU",
                      "другой"]
 
-internal var pickerUnitClothesBrand = UnitClothesType(name: L10n.brand,
-                                                      variants: clothesBrand,
-                                                      typeName: TypeName.brand,
-                                                      selectedValue: nil)
-internal var pickerUnitClothesColor = UnitClothesType(name: L10n.color,
-                                                      variants: clothesColor,
-                                                      typeName: TypeName.color,
-                                                      selectedValue: nil)
-internal var pickerUnitClothesSize = UnitClothesType(name: L10n.size,
-                                                     variants: clothesSize,
-                                                     typeName: TypeName.size,
-                                                     selectedValue: nil)

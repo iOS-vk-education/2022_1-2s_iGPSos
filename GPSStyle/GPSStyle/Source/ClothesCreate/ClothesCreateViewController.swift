@@ -16,6 +16,19 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
     
     private var specification: [String: String] = [:]
     
+    private var pickerUnitClothesBrand = UnitClothesType(name: L10n.brand,
+                                                         variants: clothesBrand,
+                                                         typeName: TypeName.brand,
+                                                         selectedValue: nil)
+    private var pickerUnitClothesColor = UnitClothesType(name: L10n.color,
+                                                         variants: clothesColor,
+                                                         typeName: TypeName.color,
+                                                         selectedValue: nil)
+    private var pickerUnitClothesSize = UnitClothesType(name: L10n.size,
+                                                        variants: clothesSize,
+                                                        typeName: TypeName.size,
+                                                        selectedValue: nil)
+    
     private let clothingNameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = L10n.clothesName

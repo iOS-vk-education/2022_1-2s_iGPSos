@@ -50,6 +50,7 @@ final class LooksListViewController: UIViewController {
                 .marginBottom(Constants.addButtonMarginBottom)
         }
         tableView.pin.all()
+        tableView.contentInset.bottom = Constants.addButtonSideSize + Constants.addButtonMarginBottom
     }
     
     private func setupTableView() {
