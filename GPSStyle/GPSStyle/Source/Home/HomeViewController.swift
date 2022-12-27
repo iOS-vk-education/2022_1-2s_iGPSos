@@ -33,6 +33,7 @@ final class HomeViewController: UIViewController {
     private let tableView = UITableView()
     private let errorLabel = UILabel()
     private let errorButton = UIButton()
+    private let once = Once()
     private lazy var spinner: Spinner = {
         let spinner = Spinner(squareLength: Constants.spinnerHeight)
         return spinner
@@ -64,7 +65,9 @@ final class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        calendar.selectDate(Date()) // by default selected is now
+        once.run {
+            calendar.selectDate(Date())
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -139,11 +142,7 @@ final class HomeViewController: UIViewController {
     
     @objc
     private func addButtonDidTaped() {
-        let meetingViewController = MeetingViewController()
-        let navigationController = UINavigationController(rootViewController: meetingViewController)
-        navigationController.modalPresentationStyle = .fullScreen
-        present(navigationController, animated: true, completion: nil)
-//        output.addButtonDidTap()
+        output.addButtonDidTaped()
     }
     
     private func setupTitle() {
@@ -166,12 +165,16 @@ final class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: HomeViewInput {
-    func update(with state: HomeState) {
+    func updateEvents(with array: [CalendarEvent]) {
+        calendar.events = array
+    }
+    
+    func update(with state: ControllerState) {
         errorLabel.text = state.getErrorTitle
         errorLabel.isHidden = !state.shouldShowErrorLabel
         errorButton.isHidden = !state.shouldShowErrorButton
         state.isLoading ? spinner.startAnimation() : spinner.stopAnimation()
-        if state.isFinished {
+        if state.isFinished || state.isEmpty {
             tableView.reloadData()
         }
     }

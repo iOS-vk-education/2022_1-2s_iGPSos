@@ -9,11 +9,9 @@ import Foundation
 
 final class ClothesCreateInteractor: CreateLookServiceOutput {
     func faild() {
-
     }
     
     func success() {
-        
     }
     
     weak var output: ClothesCreateInteractorOutput?

@@ -16,12 +16,12 @@ protocol LooksListModuleOutput: AnyObject {
 }
 
 protocol LooksListViewInput: AnyObject {
-    func reloadData()
+    func update(with state: ControllerState)
 }
 
 protocol LooksListViewOutput: AnyObject {
     func addButtonDidTap()
-    func viewWillAppear()
+    func getData()
     func getLook(index: Int) -> LookModel
     var countList: Int { get }
 }
@@ -35,5 +35,5 @@ protocol LooksListInteractorOutput: AnyObject {
 }
 
 protocol LooksListRouterInput: AnyObject {
-    func goToAddLookScreen()
+    func goToAddLookScreen(presenter: CreateLookModuleOutput)
 }

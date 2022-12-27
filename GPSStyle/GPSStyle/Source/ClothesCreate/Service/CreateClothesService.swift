@@ -38,7 +38,7 @@ extension CreateClothesService: CreateClothesServiceInput {
         let riversRef = storage.child("\(imageName).jpg")
 
         // Upload the file to the path "images/rivers.jpg"
-        let uploadTask = riversRef.putData(data, metadata: nil) { [weak self] (metadata, error) in
+        let uploadTask = riversRef.putData(data, metadata: nil) { [weak self] (_, _) in
             var dict = [String: Any]()
             dict["imageName"] = "\(imageName).jpg"
             dict["name"] = model.title

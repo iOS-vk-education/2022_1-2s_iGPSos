@@ -13,10 +13,9 @@ final class HomePresenter {
     weak var moduleOutput: HomeModuleOutput?
     
     private let router: HomeRouterInput
+    private var currentDate: Date?
     private let interactor: HomeInteractorInput
-    private var data: [HomeSection] = [
-    ] // MOCK DATA
-
+    private var data: [HomeSection] = [HomeSection]()
     init(router: HomeRouterInput, interactor: HomeInteractorInput) {
         self.router = router
         self.interactor = interactor
@@ -24,11 +23,25 @@ final class HomePresenter {
 }
 
 extension HomePresenter: HomeModuleInput {
+    func updateAfterCreating() {
+        guard let currentDate = currentDate else {
+            return
+        }
+        interactor.fetchEvents()
+        dateDidChange(with: currentDate)
+    }
 }
 
 extension HomePresenter: HomeViewOutput {
+    func addButtonDidTaped() {
+        router.goToCreateMeeting(presenter: self)
+    }
+    
     func reloadData() {
-        // [art] reload data
+        guard let currentDate = currentDate else {
+            return
+        }
+        dateDidChange(with: currentDate)
     }
     
     func configureCalendarTitle(date: Date) -> (String, String) {
@@ -40,18 +53,14 @@ extension HomePresenter: HomeViewOutput {
         return (month, year)
     }
     
-    func addButtonDidTap() {
-        // [art] Open new screen add event
-    }
-    
     func clothDidTap(with index: IndexPath) {
         // [art] Open new screen view cloth
     }
     
     func dateDidChange(with date: Date) {
-        view?.update(with: HomeState(state: .isLoading))
-        // [art] update data
-        view?.update(with: HomeState(state: .empty))
+        currentDate = date
+        view?.update(with: ControllerState(state: .isLoading, config: homeConfig))
+        interactor.fetchCurrentEvents(date: date)
     }
     
     var lookList: [HomeSection] {
@@ -59,9 +68,22 @@ extension HomePresenter: HomeViewOutput {
     }
     
     func viewDidLoad() {
-        view?.update(with: HomeState(state: .isLoading))
+        view?.update(with: ControllerState(state: .isLoading, config: homeConfig))
+        interactor.fetchEvents()
     }
 }
 
 extension HomePresenter: HomeInteractorOutput {
+    func currentEventsDidRecive(with array: [HomeSection]) {
+        data = array
+        if data.isEmpty {
+            view?.update(with: ControllerState(state: .empty, config: homeConfig))
+            return
+        }
+        view?.update(with: ControllerState(state: .success, config: homeConfig))
+    }
+    
+    func eventsDidRecive(with array: [CalendarEvent]) {
+        view?.updateEvents(with: array)
+    }
 }

@@ -10,11 +10,11 @@ import UIKit
 
 final class CreateLookViewController: UIViewController {
 	private let output: CreateLookViewOutput
-    private let lookNameTextField: UITextField = {
+    private lazy var lookNameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = L10n.clothesName
         var bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 25, width: 360, height: 1.0)
+        bottomLine.frame = CGRect(x: 0, y: 25, width: view.frame.width - 40, height: 1.0)
         bottomLine.backgroundColor = UIColor.lightGray.cgColor
         textField.borderStyle = .none
         textField.layer.addSublayer(bottomLine)
@@ -45,6 +45,7 @@ final class CreateLookViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+        tabBarController?.tabBar.isHidden = true
         setupTitle()
         setupViews()
         output.viewDidLoad()
@@ -77,7 +78,7 @@ final class CreateLookViewController: UIViewController {
         lookNameTextField.pin
             .top(view.safeAreaInsets)
             .marginTop(20)
-            .horizontally(10)
+            .horizontally(20)
             .height(20)
         tableView.pin
             .below(of: lookNameTextField)

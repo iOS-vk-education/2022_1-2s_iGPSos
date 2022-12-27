@@ -25,54 +25,38 @@ final class ProfileViewController: UIViewController {
     
     private let userNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Алина"
-//        var bottomLine = CALayer()
-//        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
-//        bottomLine.backgroundColor = UIColor.lightGray.cgColor
-//        label.borderStyle = .none
-//        label.layer.addSublayer(bottomLine)
-//        label.textContentType = .emailAddress
+        label.text = Auth.auth().currentUser?.displayName
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let userEmailLabel: UILabel = {
         let label = UILabel()
-        label.text = "alpahom030102@gmail.com"
-//        var bottomLine = CALayer()
-//        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
-//        bottomLine.backgroundColor = UIColor.lightGray.cgColor
-//        label.borderStyle = .none
-//        label.layer.addSublayer(bottomLine)
-//        label.textContentType = .emailAddress
+        label.text = Auth.auth().currentUser?.email
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.name
         label.textColor = .systemGray
         var bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
+        bottomLine.frame = CGRect(x: 0, y: 40, width: view.frame.width - 40, height: 1.0)
         bottomLine.backgroundColor = UIColor.lightGray.cgColor
-//        label.borderStyle = .none
         label.layer.addSublayer(bottomLine)
-//        label.textContentType = .emailAddress
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private let emailLabel: UILabel = {
+    private lazy var  emailLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.email
         label.textColor = .systemGray
         var bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
+        bottomLine.frame = CGRect(x: 0, y: 40, width: view.frame.width - 40, height: 1.0)
         bottomLine.backgroundColor = UIColor.lightGray.cgColor
-//        label.borderStyle = .none
         label.layer.addSublayer(bottomLine)
-//        label.textContentType = .emailAddress
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -149,7 +133,7 @@ extension ProfileViewController {
             emailLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             emailLabel.heightAnchor.constraint(equalToConstant: 40),
             
-            signOutButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 250),
+            signOutButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
             signOutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             signOutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             signOutButton.heightAnchor.constraint(equalToConstant: 65)

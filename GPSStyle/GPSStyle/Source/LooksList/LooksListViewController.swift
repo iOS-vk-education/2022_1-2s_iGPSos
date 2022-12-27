@@ -12,10 +12,22 @@ final class LooksListViewController: UIViewController {
     private enum Constants {
         static let addButtonSideSize: CGFloat = 80.0
         static let addButtonMarginBottom: CGFloat = 13.0
+        static let errorButtonTopMargin: CGFloat = 24.0
+        static let errorButtonWidth: CGFloat = 265.0
+        static let errorButtonHeight: CGFloat = 45.0
+        static let errorLabelHeight: CGFloat = 56.0
+        static let spinnerHeight: CGFloat = 56.0
+        static let buttonCornerRadius: CGFloat = Constants.errorButtonHeight / 2
     }
     private let output: LooksListViewOutput
     private let addButton = UIButton()
     private let tableView = UITableView()
+    private let errorLabel = UILabel()
+    private let errorButton = UIButton()
+    private lazy var spinner: Spinner = {
+        let spinner = Spinner(squareLength: Constants.spinnerHeight)
+        return spinner
+    }()
     
     init(output: LooksListViewOutput) {
         self.output = output
@@ -34,11 +46,15 @@ final class LooksListViewController: UIViewController {
         setupTitle()
         setupTableView()
         setupButton()
+        setupErrorLabel()
+        setupSpinner()
+        setupErrorButton()
+        output.getData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        output.viewWillAppear()
+        tabBarController?.tabBar.isHidden = false
     }
     
     override func viewDidLayoutSubviews() {
@@ -51,6 +67,43 @@ final class LooksListViewController: UIViewController {
         }
         tableView.pin.all()
         tableView.contentInset.bottom = Constants.addButtonSideSize + Constants.addButtonMarginBottom
+        errorLabel.pin
+            .top(view.pin.safeArea.top + Constants.errorButtonTopMargin)
+            .horizontally()
+            .height(Constants.errorLabelHeight)
+        errorButton.pin
+            .below(of: errorLabel)
+            .marginTop(Constants.errorButtonTopMargin)
+            .hCenter()
+            .width(Constants.errorButtonWidth)
+            .height(Constants.errorButtonHeight)
+    }
+    
+    private func setupErrorLabel() {
+        view.addSubview(errorLabel)
+        errorLabel.font = FontFamily.Inter.medium.font(size: 22)
+        errorLabel.textColor = ColorName.lightGrey.color
+        errorLabel.numberOfLines = 0
+        errorLabel.textAlignment = .center
+    }
+    
+    private func setupSpinner() {
+        view.addSubview(spinner)
+    }
+
+    private func setupErrorButton() {
+        view.addSubview(errorButton)
+        errorButton.layer.cornerRadius = Constants.buttonCornerRadius
+        errorButton.setTitle(L10n.reload, for: .normal)
+        errorButton.setTitleColor(ColorName.white.color, for: .normal)
+        errorButton.backgroundColor = ColorName.mainPurple.color
+        errorButton.titleLabel?.font = FontFamily.Inter.semiBold.font(size: 20)
+        errorButton.addTarget(self, action: #selector(errorButtonDidTaped), for: .touchUpInside)
+    }
+
+    @objc
+    private func errorButtonDidTaped() {
+        output.getData()
     }
     
     private func setupTableView() {
@@ -81,8 +134,14 @@ final class LooksListViewController: UIViewController {
 }
 
 extension LooksListViewController: LooksListViewInput {
-    func reloadData() {
-        tableView.reloadData()
+    func update(with state: ControllerState) {
+        errorLabel.text = state.getErrorTitle
+        errorLabel.isHidden = !state.shouldShowErrorLabel
+        errorButton.isHidden = !state.shouldShowErrorButton
+        state.isLoading ? spinner.startAnimation() : spinner.stopAnimation()
+        if state.isFinished {
+            tableView.reloadData()
+        }
     }
 }
 

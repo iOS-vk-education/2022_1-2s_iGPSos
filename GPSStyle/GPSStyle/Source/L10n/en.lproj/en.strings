@@ -10,8 +10,9 @@
 "cloth" = "Cloth";
 "appName" = "GPSStyle";
 "calendarTitle" = "%@ %@ year";
-"emptyHomeTitle" = "There is no look for today 😞\n👇 Create it👇";
-"errorHomeTitle" = "There was an error 😞\n👇 Try again👇";
+"emptyHomeTitle" = "There is no events for today 😞\n👇 Create it👇";
+"errorTitle" = "There was an error 😞\n👇 Try again👇";
+"emptyLookTitle" = "You don't have any looks yet 😞\n👇 Create it👇";
 "reload" = "Reload";
 "login" = "Login";
 "email" = "Email";
