@@ -9,23 +9,30 @@ import UIKit
 import PinLayout
 
 protocol ClothesCreatePickerDelegate: AnyObject {
-    func didFinishPicking(with value: String, type: String)
+    func didFinishPicking(with model: UnitClothesType)
 }
 
 final class ClothesCreatePickerViewController: UIViewController {
     private let nameOfPicker: UILabel = UILabel()
     private let pickerView: UIPickerView = UIPickerView()
     private let buttonSelect: UIButton = UIButton()
-    private var data: [String] = []
-    private var type: String = ""
-    private var selectedValue: String = ""
+    private var model: UnitClothesType
     weak var delegate: ClothesCreatePickerDelegate?
+    
+    init(model: UnitClothesType) {
+        self.model = model
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         pickerView.delegate = self
         pickerView.dataSource = self
+        configure(with: model)
         
         nameOfPicker.textAlignment = .center
         nameOfPicker.font = UIFont(name: "Avenir Next", size: 22.0)
@@ -60,15 +67,29 @@ final class ClothesCreatePickerViewController: UIViewController {
             .horizontally()
     }
     
-    func configure(with model: UnitClothesType) {
+    func setSelectedValue(with model: UnitClothesType) {
+        guard let selectedName = model.selectedValue,
+              let rowSelectedValue = model.variants.firstIndex(of: selectedName) else {
+            return
+        }
+        pickerView.selectRow(rowSelectedValue, inComponent: 0, animated: false)
+    }
+    
+    private func configure(with model: UnitClothesType) {
         nameOfPicker.text = L10n.selectCharacteristic + model.name
-        data = model.variants
-        type = model.typeName
+        setSelectedValue(with: model)
     }
     
     @objc
     private func didTapSelectButton() {
-        delegate?.didFinishPicking(with: selectedValue, type: type)
+        if model.selectedValue == nil {
+            let newModel: UnitClothesType = UnitClothesType(name: model.name,
+                                                            variants: model.variants,
+                                                            typeName: model.typeName,
+                                                            selectedValue: model.variants.first)
+            self.model = newModel
+        }
+        delegate?.didFinishPicking(with: model)
         dismiss(animated: true)
     }
 }
@@ -79,14 +100,18 @@ extension ClothesCreatePickerViewController: UIPickerViewDelegate, UIPickerViewD
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        data.count
+        model.variants.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        data[row]
+        model.variants[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedValue = data[row]
+        let newModel: UnitClothesType = UnitClothesType(name: model.name,
+                                                        variants: model.variants,
+                                                        typeName: model.typeName,
+                                                        selectedValue: model.variants[row])
+        self.model = newModel
     }
 }

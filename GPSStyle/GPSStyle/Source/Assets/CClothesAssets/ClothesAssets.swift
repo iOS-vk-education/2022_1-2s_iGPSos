@@ -5,10 +5,17 @@
 //  Created by Алексей Шевченко on 19.11.2022.
 //
 
+enum TypeName: String {
+    case brand = "Brand"
+    case color = "Color"
+    case size = "Size"
+}
+
 struct UnitClothesType {
     let name: String
     let variants: [String]
-    let typeName: String
+    let typeName: TypeName
+    let selectedValue: String?
 }
 
 internal let clothesBrand = ["Gucci",
@@ -18,19 +25,23 @@ internal let clothesBrand = ["Gucci",
                       "Louis Vuitton",
                       "Giorgio Armani",
                       "Polo Ralph Lauren",
+                      "Nike",
+                      "Adidas",
                       "другой"]
 
 internal let clothesColor = ["Белый",
                       "Красный",
                       "Оранжевый",
                       "Жёлтый",
-                      "Залёный",
+                      "Зелёный",
                       "Голубой",
                       "Синий",
                       "Фиолетовый",
                       "Розовый",
                       "Бирюзовый",
                       "Охра",
+                      "Cерый",
+                      "Коричневый",
                       "Чёрный",
                       "другой"]
 
@@ -41,8 +52,9 @@ internal let clothesSize = ["S",
                      "XXL",
                      "XXXL",
                      "4XL",
+                     "37EU",
+                     "38EU",
+                     "39EU",
+                     "40EU",
+                     "45EU",
                      "другой"]
-
-internal let pickerUnitClothesBrand = UnitClothesType(name: L10n.brand, variants: clothesBrand, typeName: "Brand")
-internal let pickerUnitClothesColor = UnitClothesType(name: L10n.color, variants: clothesColor, typeName: "Color")
-internal let pickerUnitClothesSize = UnitClothesType(name: L10n.size, variants: clothesSize, typeName: "Size")

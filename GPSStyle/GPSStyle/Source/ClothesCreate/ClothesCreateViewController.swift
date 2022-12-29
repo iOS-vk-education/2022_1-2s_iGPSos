@@ -16,6 +16,19 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
     
     private var specification: [String: String] = [:]
     
+    private var pickerUnitClothesBrand = UnitClothesType(name: L10n.brand,
+                                                         variants: clothesBrand,
+                                                         typeName: TypeName.brand,
+                                                         selectedValue: nil)
+    private var pickerUnitClothesColor = UnitClothesType(name: L10n.color,
+                                                         variants: clothesColor,
+                                                         typeName: TypeName.color,
+                                                         selectedValue: nil)
+    private var pickerUnitClothesSize = UnitClothesType(name: L10n.size,
+                                                        variants: clothesSize,
+                                                        typeName: TypeName.size,
+                                                        selectedValue: nil)
+    
     private let clothingNameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = L10n.clothesName
@@ -168,19 +181,35 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         cretateClothesButton.addTarget(self, action: #selector(didTapCreateClothes), for: .touchUpInside)
     }
     
-    func didFinishPicking(with value: String, type: String) {
-        switch type {
-        case "Brand":
-            clothingBrandTextField.text = value
-            specification["Брэнд"] = value
-        case "Color":
-            clothingColorTextField.text = value
-            specification["Цвет"] = value
-        case "Size":
-            clothingSizeTextField.text = value
-            specification["Размер"] = value
-        default:
-            break
+    private func didTapSpecificationLabel(unit: UnitClothesType) {
+        let clothesCreatePickerViewController = ClothesCreatePickerViewController(model: unit)
+        clothesCreatePickerViewController.delegate = self
+        let nav = UINavigationController(rootViewController: clothesCreatePickerViewController)
+        nav.modalPresentationStyle = .pageSheet
+        if let nav = nav.presentationController as? UISheetPresentationController {
+            nav.prefersGrabberVisible = true
+            nav.detents = [.custom { _ in return 300 }]
+        }
+        present(nav, animated: true)
+    }
+    
+    func didFinishPicking(with model: UnitClothesType) {
+        switch model.typeName {
+        case TypeName.brand:
+            clothingBrandTextField.text = model.selectedValue
+            clothingBrandTextField.textColor = .black
+            specification[L10n.brand] = model.selectedValue
+            pickerUnitClothesBrand = model
+        case TypeName.color:
+            clothingColorTextField.text = model.selectedValue
+            clothingColorTextField.textColor = .black
+            specification[L10n.color] = model.selectedValue
+            pickerUnitClothesColor = model
+        case TypeName.size:
+            clothingSizeTextField.text = model.selectedValue
+            clothingSizeTextField.textColor = .black
+            specification[L10n.size] = model.selectedValue
+            pickerUnitClothesSize = model
         }
     }
     
@@ -200,7 +229,8 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         }
     }
     
-    @objc private func didTapCreateClothes() {
+    @objc
+    private func didTapCreateClothes() {
         guard let name = clothingNameTextField.text,
               let image = clothesImageView.image else {
             return
@@ -211,44 +241,17 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
                                                        specification: specification)) }
     @objc
     private func didTapSizeLabel() {
-        let clothesCreatePickerSizeViewController = ClothesCreatePickerViewController()
-        clothesCreatePickerSizeViewController.delegate = self
-        clothesCreatePickerSizeViewController.configure(with: pickerUnitClothesSize)
-        let nav = UINavigationController(rootViewController: clothesCreatePickerSizeViewController)
-        nav.modalPresentationStyle = .pageSheet
-        if let nav = nav.presentationController as? UISheetPresentationController {
-            nav.prefersGrabberVisible = true
-            nav.detents = [.custom { _ in return 300 }]
-        }
-        present(nav, animated: true)
+        didTapSpecificationLabel(unit: pickerUnitClothesSize)
     }
     
     @objc
     private func didTapColorLabel() {
-        let clothesCreatePickerColorViewController = ClothesCreatePickerViewController()
-        clothesCreatePickerColorViewController.delegate = self
-        clothesCreatePickerColorViewController.configure(with: pickerUnitClothesColor)
-        let nav = UINavigationController(rootViewController: clothesCreatePickerColorViewController)
-        nav.modalPresentationStyle = .pageSheet
-        if let nav = nav.presentationController as? UISheetPresentationController {
-            nav.prefersGrabberVisible = true
-            nav.detents = [.custom { _ in return 300 }]
-        }
-        present(nav, animated: true)
+        didTapSpecificationLabel(unit: pickerUnitClothesColor)
     }
     
     @objc
     private func didTapBrandLabel() {
-        let clothesCreatePickerBrandViewController = ClothesCreatePickerViewController()
-        clothesCreatePickerBrandViewController.delegate = self
-        clothesCreatePickerBrandViewController.configure(with: pickerUnitClothesBrand)
-        let nav = UINavigationController(rootViewController: clothesCreatePickerBrandViewController)
-        nav.modalPresentationStyle = .pageSheet
-        if let nav = nav.presentationController as? UISheetPresentationController {
-            nav.prefersGrabberVisible = true
-            nav.detents = [.custom { _ in return 300 }]
-        }
-        present(nav, animated: true)
+        didTapSpecificationLabel(unit: pickerUnitClothesBrand)
     }
 }
 
@@ -341,10 +344,12 @@ extension ClothesCreateViewController: UIImagePickerControllerDelegate, UINaviga
                                             handler: { [weak self] _ in self?.presentPhotoPicker()
         }))
         
-        actionSheet.addAction(UIAlertAction(title: L10n.deletePhoto,
-                                            style: .default,
-                                            handler: { [weak self] _ in self?.deletePhoto()
-        }))
+        if clothesImageView.image != nil {
+            actionSheet.addAction(UIAlertAction(title: L10n.deletePhoto,
+                                                style: .default,
+                                                handler: { [weak self] _ in self?.deletePhoto()
+            }))
+        }
         
         present(actionSheet, animated: true)
     }

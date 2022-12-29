@@ -82,6 +82,7 @@ final class HomeViewController: UIViewController {
                 .size(Constants.addButtonSideSize)
                 .marginBottom(Constants.addButtonMarginBottom)
         }
+        tableView.contentInset.bottom = Constants.addButtonSideSize + Constants.addButtonMarginBottom
         tableView.pin
             .below(of: calendar)
             .bottom()

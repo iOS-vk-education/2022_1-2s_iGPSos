@@ -66,6 +66,7 @@ final class LooksListViewController: UIViewController {
                 .marginBottom(Constants.addButtonMarginBottom)
         }
         tableView.pin.all()
+        tableView.contentInset.bottom = Constants.addButtonSideSize + Constants.addButtonMarginBottom
         errorLabel.pin
             .top(view.pin.safeArea.top + Constants.errorButtonTopMargin)
             .horizontally()
