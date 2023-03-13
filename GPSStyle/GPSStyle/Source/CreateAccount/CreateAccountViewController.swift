@@ -74,7 +74,7 @@ class CreateAccountViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = ColorName.mainPurple.color
         button.titleLabel?.font = FontFamily.Inter.medium.font(size: 22)
-        button.layer.cornerRadius = 33
+        button.layer.cornerRadius = 30
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isEnabled = false
         return button
