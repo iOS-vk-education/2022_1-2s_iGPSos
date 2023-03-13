@@ -62,7 +62,20 @@ class LoginViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = ColorName.mainPurple.color
         button.titleLabel?.font = FontFamily.Inter.medium.font(size: 22.0)
-        button.layer.cornerRadius = 33
+        button.layer.cornerRadius = 30
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private var createAccountButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle(L10n.createAccount, for: .normal)
+        button.tintColor = .lightGray
+        button.titleLabel?.font = FontFamily.Inter.regular.font(size: 14)
+        var bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: 25, width: 115, height: 1.0)
+        bottomLine.backgroundColor = UIColor.lightGray.cgColor
+        button.layer.addSublayer(bottomLine)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -119,6 +132,7 @@ class LoginViewController: UIViewController {
     
     private func addTargets() {
         loginButton.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
+        createAccountButton.addTarget(self, action: #selector(didTapCreateButton), for: .touchUpInside)
     }
                                 
     @objc
@@ -126,9 +140,21 @@ class LoginViewController: UIViewController {
         userModel.loginUser()
     }
     
+    @objc
+    private func didTapCreateButton() {
+        let vc = CreateAccountViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+    }
+    
     func setupViews() {
         view.backgroundColor = ColorName.white.color
-        view.addSubviews(titleLabel, imageView, emailTextField, passwordTextField, loginButton)
+        view.addSubviews(titleLabel,
+                         imageView,
+                         emailTextField,
+                         passwordTextField,
+                         loginButton,
+                         createAccountButton)
     }
 }
 
@@ -140,8 +166,8 @@ extension LoginViewController {
             
             imageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -12),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.2),
-            imageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1),
+            imageView.widthAnchor.constraint(equalToConstant: 85),
+            imageView.heightAnchor.constraint(equalToConstant: 85),
             
             emailTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
             emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -156,7 +182,10 @@ extension LoginViewController {
             loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
             loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            loginButton.heightAnchor.constraint(equalToConstant: 60)
+            loginButton.heightAnchor.constraint(equalToConstant: 60),
+            
+            createAccountButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 5),
+            createAccountButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 }

@@ -74,7 +74,7 @@ class CreateAccountViewController: UIViewController {
         button.tintColor = .white
         button.backgroundColor = ColorName.mainPurple.color
         button.titleLabel?.font = FontFamily.Inter.medium.font(size: 22)
-        button.layer.cornerRadius = 33
+        button.layer.cornerRadius = 30
         button.translatesAutoresizingMaskIntoConstraints = false
         button.isEnabled = false
         return button
@@ -183,10 +183,10 @@ extension CreateAccountViewController {
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            imageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 0),
+            imageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -12),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.2),
-            imageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1),
+            imageView.widthAnchor.constraint(equalToConstant: 85),
+            imageView.heightAnchor.constraint(equalToConstant: 85),
             
             nameTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
             nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
