@@ -31,10 +31,12 @@ final class WelcomeViewController: UIViewController {
     private var alreadySignUpButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(L10n.alreadyHaveAccount, for: .normal)
-        button.tintColor = ColorName.white.color
-        button.backgroundColor = ColorName.secondPurple.color
-        button.titleLabel?.font = FontFamily.Inter.medium.font(size: 22)
-        button.layer.cornerRadius = 33
+        button.tintColor = .lightGray
+        button.titleLabel?.font = FontFamily.Inter.regular.font(size: 14)
+        var bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: 25, width: 125, height: 1.0)
+        bottomLine.backgroundColor = UIColor.lightGray.cgColor
+        button.layer.addSublayer(bottomLine)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -85,10 +87,8 @@ extension WelcomeViewController {
             createAccountButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             createAccountButton.heightAnchor.constraint(equalToConstant: 65),
             
-            alreadySignUpButton.topAnchor.constraint(equalTo: createAccountButton.bottomAnchor, constant: 12),
-            alreadySignUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            alreadySignUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            alreadySignUpButton.heightAnchor.constraint(equalToConstant: 65)
+            alreadySignUpButton.topAnchor.constraint(equalTo: createAccountButton.bottomAnchor, constant: 5),
+            alreadySignUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 }

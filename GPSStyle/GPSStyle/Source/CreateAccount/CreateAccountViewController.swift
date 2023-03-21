@@ -31,24 +31,38 @@ class CreateAccountViewController: UIViewController {
     
     private let nameTextField: UITextField = {
         let textField = UITextField()
+        textField.backgroundColor = .white
+        textField.layer.cornerRadius = 30
         textField.placeholder = L10n.name
-        var bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
-        bottomLine.backgroundColor = UIColor.lightGray.cgColor
-        textField.borderStyle = .none
-        textField.layer.addSublayer(bottomLine)
+        
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 60))
+        textField.leftViewMode = .always
+        
+        textField.layer.shadowColor = UIColor.gray.cgColor
+        textField.layer.masksToBounds = false
+        textField.layer.shadowOffset = CGSize(width: 0, height: 5)
+        textField.layer.shadowRadius = 2
+        textField.layer.shadowOpacity = 0.2
+        
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
     private let emailTextField: UITextField = {
         let textField = UITextField()
+        textField.backgroundColor = .white
+        textField.layer.cornerRadius = 30
         textField.placeholder = L10n.email
-        var bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
-        bottomLine.backgroundColor = UIColor.lightGray.cgColor
-        textField.borderStyle = .none
-        textField.layer.addSublayer(bottomLine)
+        
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 60))
+        textField.leftViewMode = .always
+        
+        textField.layer.shadowColor = UIColor.gray.cgColor
+        textField.layer.masksToBounds = false
+        textField.layer.shadowOffset = CGSize(width: 0, height: 5)
+        textField.layer.shadowRadius = 2
+        textField.layer.shadowOpacity = 0.2
+
         textField.textContentType = .emailAddress
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -56,12 +70,19 @@ class CreateAccountViewController: UIViewController {
     
     private let passwordTextField: UITextField = {
         let textField = UITextField()
+        textField.backgroundColor = .white
+        textField.layer.cornerRadius = 30
         textField.placeholder = L10n.password
-        var bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
-        bottomLine.backgroundColor = UIColor.lightGray.cgColor
-        textField.borderStyle = .none
-        textField.layer.addSublayer(bottomLine)
+        
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 60))
+        textField.leftViewMode = .always
+
+        textField.layer.shadowColor = UIColor.gray.cgColor
+        textField.layer.masksToBounds = false
+        textField.layer.shadowOffset = CGSize(width: 0, height: 5)
+        textField.layer.shadowRadius = 2
+        textField.layer.shadowOpacity = 0.2
+
         textField.textContentType = .password
         textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -180,7 +201,7 @@ class CreateAccountViewController: UIViewController {
 extension CreateAccountViewController {
     func setConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 150),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             imageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -12),
@@ -188,20 +209,20 @@ extension CreateAccountViewController {
             imageView.widthAnchor.constraint(equalToConstant: 85),
             imageView.heightAnchor.constraint(equalToConstant: 85),
             
-            nameTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
+            nameTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 28),
             nameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             nameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            nameTextField.heightAnchor.constraint(equalToConstant: 40),
+            nameTextField.heightAnchor.constraint(equalToConstant: 56),
             
-            emailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 5),
+            emailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 20),
             emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             emailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            emailTextField.heightAnchor.constraint(equalToConstant: 40),
+            emailTextField.heightAnchor.constraint(equalToConstant: 56),
             
-            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 5),
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20),
             passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 40),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 56),
             
             createAccountButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
             createAccountButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
