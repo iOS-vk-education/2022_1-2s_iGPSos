@@ -29,13 +29,19 @@ class MeetingViewController: UIViewController {
     
     private var dateTextField: UITextField = {
         let textField = UITextField()
+        textField.backgroundColor = .white
+        textField.layer.cornerRadius = 30
         textField.placeholder = L10n.timedate
-        let spacerView = UIView(frame: CGRect(x: 5, y: 0, width: 50, height: 30))
+
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 60))
         textField.leftViewMode = .always
-        textField.leftView = spacerView
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor.purple.cgColor
-        textField.layer.cornerRadius = 24
+
+        textField.layer.shadowColor = UIColor.gray.cgColor
+        textField.layer.masksToBounds = false
+        textField.layer.shadowOffset = CGSize(width: 0, height: 5)
+        textField.layer.shadowRadius = 2
+        textField.layer.shadowOpacity = 0.2
+        
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()

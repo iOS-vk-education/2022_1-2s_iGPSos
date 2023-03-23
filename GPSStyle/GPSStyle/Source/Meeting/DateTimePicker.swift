@@ -14,6 +14,8 @@ class DateTimePicker: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     let pickerView = UIPickerView()
     pickerView.delegate = self
     pickerView.dataSource = self
+    pickerView.backgroundColor = .white
+    
     return pickerView
   }()
   
@@ -30,7 +32,11 @@ class DateTimePicker: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
   
   func setup() {
     dayFormatter.dateFormat = "EE d MMM"
+    timeFormatter.amSymbol = ""
+    timeFormatter.pmSymbol = ""
+    timeFormatter.locale = Locale(identifier: "ru_RU")
     timeFormatter.timeStyle = .short
+      
     days = setDays()
     startTimes = setStartTimes()
     endTimes = setEndTimes()
@@ -64,6 +70,7 @@ class DateTimePicker: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
       label = UILabel()
     }
     
+    label.backgroundColor = .white
     label.textColor = .black
     label.textAlignment = .center
     label.font = UIFont.systemFont(ofSize: 15)
@@ -90,7 +97,7 @@ class DateTimePicker: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     let dayIndex = pickerView.selectedRow(inComponent: 0)
     let startTimeIndex = pickerView.selectedRow(inComponent: 1)
     let endTimeIndex = pickerView.selectedRow(inComponent: 2)
-    
+      
     guard days.indices.contains(dayIndex),
             startTimes.indices.contains(startTimeIndex),
             endTimes.indices.contains(endTimeIndex) else { return }
@@ -99,7 +106,7 @@ class DateTimePicker: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     let startTime = startTimes[startTimeIndex]
     let endTime = endTimes[endTimeIndex]
     
-    didSelectDates?(day, startTime, endTime)
+    didSelectDates?(day, startTime, endTime)    
   }
   
   // MARK: - Private helpers
@@ -130,7 +137,7 @@ class DateTimePicker: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     var times = [Date]()
     var currentDate = date
 
-    currentDate = Calendar.current.date(bySetting: .hour, value: 7, of: currentDate) ?? Date()
+    currentDate = Calendar.current.date(bySetting: .hour, value: 6, of: currentDate) ?? Date()
     currentDate = Calendar.current.date(bySetting: .minute, value: 00, of: currentDate) ?? Date()
       
     let calendar = Calendar.current
@@ -182,10 +189,10 @@ extension Date {
     dayFormatter.dateFormat = "E, dd-MM-yyyy"
 
     let startTimeFormatter = DateFormatter()
-    startTimeFormatter.dateFormat = "h:mm a"
+    startTimeFormatter.dateFormat = "hh:mm"
     
     let endTimeFormatter = DateFormatter()
-    endTimeFormatter.dateFormat = "h:mm a"
+    endTimeFormatter.dateFormat = "hh:mm"
     
     return String(format: "%@ (%@ - %@)",
                   dayFormatter.string(from: dayDate),
