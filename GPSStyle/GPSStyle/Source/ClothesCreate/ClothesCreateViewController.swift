@@ -62,8 +62,9 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         let button = UIButton(type: .system)
         button.setTitle(L10n.addPhoto, for: .normal)
         button.tintColor = .white
-        button.backgroundColor = ColorName.mainPurple.color
+        button.backgroundColor = ColorName.lightPink.color
         button.titleLabel?.font = UIFont(name: "Avenir Next", size: 22.0)
+        button.titleLabel?.tintColor = ColorName.mainPurple.color
         button.layer.cornerRadius = 30
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -196,7 +197,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
                          clothingColorTextField,
                          clothingBrandView,
                          clothingBrandTextField,
-                         checkTheWeatherButton,
+//                         checkTheWeatherButton,
                          cretateClothesButton)
     }
     
@@ -319,8 +320,8 @@ extension ClothesCreateViewController {
             
             // Select photo button
             supportConstraint,
-            selectPhotoButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            selectPhotoButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            selectPhotoButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70),
+            selectPhotoButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -70),
             selectPhotoButton.heightAnchor.constraint(equalToConstant: 60),
             
             // Size View
@@ -360,15 +361,15 @@ extension ClothesCreateViewController {
             clothingBrandTextField.heightAnchor.constraint(equalToConstant: 56),
             
             // Checking for the weather tracking
-            checkTheWeatherButton.topAnchor.constraint(equalTo: clothingBrandTextField.bottomAnchor, constant: 10),
-            checkTheWeatherButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            checkTheWeatherButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
-            checkTheWeatherButton.heightAnchor.constraint(equalToConstant: 60),
+//            checkTheWeatherButton.topAnchor.constraint(equalTo: clothingBrandTextField.bottomAnchor, constant: 10),
+//            checkTheWeatherButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+//            checkTheWeatherButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
+//            checkTheWeatherButton.heightAnchor.constraint(equalToConstant: 60),
             
             // Create clothes button
-            cretateClothesButton.topAnchor.constraint(equalTo: checkTheWeatherButton.topAnchor, constant: 60),
-            cretateClothesButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            cretateClothesButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            cretateClothesButton.topAnchor.constraint(equalTo: clothingBrandTextField.bottomAnchor, constant: 10),
+            cretateClothesButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70),
+            cretateClothesButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -70),
             cretateClothesButton.heightAnchor.constraint(equalToConstant: 60)
         ] )
     }
