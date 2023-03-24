@@ -32,11 +32,18 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
     private let clothingNameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = L10n.clothesName
-        var bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
-        bottomLine.backgroundColor = UIColor.lightGray.cgColor
+        textField.backgroundColor = .white
+        textField.layer.cornerRadius = 30
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 60))
+        
         textField.borderStyle = .none
-        textField.layer.addSublayer(bottomLine)
+        textField.leftViewMode = .always
+        textField.layer.shadowColor = UIColor.gray.cgColor
+        textField.layer.masksToBounds = false
+        
+        textField.layer.shadowOffset = CGSize(width: 0, height: 5)
+        textField.layer.shadowRadius = 2
+        textField.layer.shadowOpacity = 0.2
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -55,11 +62,27 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         let button = UIButton(type: .system)
         button.setTitle(L10n.addPhoto, for: .normal)
         button.tintColor = .white
-        button.backgroundColor = ColorName.mainPurple.color
+        button.backgroundColor = ColorName.lightPink.color
         button.titleLabel?.font = UIFont(name: "Avenir Next", size: 22.0)
+        button.titleLabel?.tintColor = ColorName.mainPurple.color
         button.layer.cornerRadius = 30
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
+    }()
+    
+    private lazy var clothingSizeView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 30
+        
+        view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.masksToBounds = false
+        view.layer.shadowOffset = CGSize(width: 0, height: 5)
+        view.layer.shadowRadius = 2
+        view.layer.shadowOpacity = 0.2
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     private let clothingSizeTextField: UILabel = {
@@ -68,11 +91,22 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         label.textColor = .lightGray
         label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
-        let bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
-        bottomLine.backgroundColor = UIColor.lightGray.cgColor
-        label.layer.addSublayer(bottomLine)
         return label
+    }()
+    
+    private let clothingColorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 30
+        
+        view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.masksToBounds = false
+        view.layer.shadowOffset = CGSize(width: 0, height: 5)
+        view.layer.shadowRadius = 2
+        view.layer.shadowOpacity = 0.2
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     private let clothingColorTextField: UILabel = {
@@ -81,11 +115,22 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         label.textColor = .lightGray
         label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
-        let bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
-        bottomLine.backgroundColor = UIColor.lightGray.cgColor
-        label.layer.addSublayer(bottomLine)
         return label
+    }()
+    
+    private let clothingBrandView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 30
+        
+        view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.masksToBounds = false
+        view.layer.shadowOffset = CGSize(width: 0, height: 5)
+        view.layer.shadowRadius = 2
+        view.layer.shadowOpacity = 0.2
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     private let clothingBrandTextField: UILabel = {
@@ -94,10 +139,6 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         label.textColor = .lightGray
         label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
-        let bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 40, width: 360, height: 1.0)
-        bottomLine.backgroundColor = UIColor.lightGray.cgColor
-        label.layer.addSublayer(bottomLine)
         return label
     }()
     
@@ -150,10 +191,13 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         view.addSubviews(clothingNameTextField,
                          clothesImageView,
                          selectPhotoButton,
+                         clothingSizeView,
                          clothingSizeTextField,
+                         clothingColorView,
                          clothingColorTextField,
+                         clothingBrandView,
                          clothingBrandTextField,
-                         checkTheWeatherButton,
+//                         checkTheWeatherButton,
                          cretateClothesButton)
     }
     
@@ -262,11 +306,11 @@ extension ClothesCreateViewController {
             return
         }
         NSLayoutConstraint.activate([
-            // Cloting name text field
-            clothingNameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            // Name text field
+            clothingNameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
             clothingNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             clothingNameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            clothingNameTextField.heightAnchor.constraint(equalToConstant: 40),
+            clothingNameTextField.heightAnchor.constraint(equalToConstant: 56),
             
             // Clothing ImageView
             clothesImageView.topAnchor.constraint(equalTo: clothingNameTextField.bottomAnchor, constant: 15),
@@ -276,38 +320,56 @@ extension ClothesCreateViewController {
             
             // Select photo button
             supportConstraint,
-            selectPhotoButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            selectPhotoButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            selectPhotoButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70),
+            selectPhotoButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -70),
             selectPhotoButton.heightAnchor.constraint(equalToConstant: 60),
             
-            // Cloting size text field
+            // Size View
+            clothingSizeView.topAnchor.constraint(equalTo: selectPhotoButton.bottomAnchor, constant: 15),
+            clothingSizeView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            clothingSizeView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            clothingSizeView.heightAnchor.constraint(equalToConstant: 56),
+            
+            // Size text field
             clothingSizeTextField.topAnchor.constraint(equalTo: selectPhotoButton.bottomAnchor, constant: 15),
-            clothingSizeTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            clothingSizeTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            clothingSizeTextField.heightAnchor.constraint(equalToConstant: 40),
+            clothingSizeTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            clothingSizeTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            clothingSizeTextField.heightAnchor.constraint(equalToConstant: 56),
             
-            // Cloting color text field
-            clothingColorTextField.topAnchor.constraint(equalTo: clothingSizeTextField.bottomAnchor, constant: 5),
-            clothingColorTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            clothingColorTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            clothingColorTextField.heightAnchor.constraint(equalToConstant: 40),
+            // Color View
+            clothingColorView.topAnchor.constraint(equalTo: clothingSizeTextField.bottomAnchor, constant: 10),
+            clothingColorView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            clothingColorView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            clothingColorView.heightAnchor.constraint(equalToConstant: 56),
             
-            // Cloting brand text field
-            clothingBrandTextField.topAnchor.constraint(equalTo: clothingColorTextField.bottomAnchor, constant: 5),
-            clothingBrandTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            clothingBrandTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            clothingBrandTextField.heightAnchor.constraint(equalToConstant: 40),
+            // Color text field
+            clothingColorTextField.topAnchor.constraint(equalTo: clothingSizeTextField.bottomAnchor, constant: 10),
+            clothingColorTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            clothingColorTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            clothingColorTextField.heightAnchor.constraint(equalToConstant: 56),
+            
+            // Brand View
+            clothingBrandView.topAnchor.constraint(equalTo: clothingColorTextField.bottomAnchor, constant: 10),
+            clothingBrandView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            clothingBrandView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            clothingBrandView.heightAnchor.constraint(equalToConstant: 56),
+            
+            // Brand text field
+            clothingBrandTextField.topAnchor.constraint(equalTo: clothingColorTextField.bottomAnchor, constant: 10),
+            clothingBrandTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            clothingBrandTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            clothingBrandTextField.heightAnchor.constraint(equalToConstant: 56),
             
             // Checking for the weather tracking
-            checkTheWeatherButton.topAnchor.constraint(equalTo: clothingBrandTextField.bottomAnchor, constant: 10),
-            checkTheWeatherButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            checkTheWeatherButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
-            checkTheWeatherButton.heightAnchor.constraint(equalToConstant: 60),
+//            checkTheWeatherButton.topAnchor.constraint(equalTo: clothingBrandTextField.bottomAnchor, constant: 10),
+//            checkTheWeatherButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+//            checkTheWeatherButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
+//            checkTheWeatherButton.heightAnchor.constraint(equalToConstant: 60),
             
             // Create clothes button
-            cretateClothesButton.topAnchor.constraint(equalTo: checkTheWeatherButton.topAnchor, constant: 60),
-            cretateClothesButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            cretateClothesButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            cretateClothesButton.topAnchor.constraint(equalTo: clothingBrandTextField.bottomAnchor, constant: 10),
+            cretateClothesButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70),
+            cretateClothesButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -70),
             cretateClothesButton.heightAnchor.constraint(equalToConstant: 60)
         ] )
     }

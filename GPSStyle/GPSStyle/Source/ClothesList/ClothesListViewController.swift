@@ -70,7 +70,7 @@ final class ClothesListViewController: UIViewController {
     
     private func setupTitle() {
         let title = UILabel()
-        title.text = L10n.looks
+        title.text = L10n.cloth
         title.font = FontFamily.Inter.medium.font(size: 22)
         navigationItem.titleView = title
     }
