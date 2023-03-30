@@ -443,7 +443,9 @@ extension ClothesCreateViewController: UIImagePickerControllerDelegate, UINaviga
         guard let selectedImage = info[.editedImage] as? UIImage else {
             return
         }
-        self.clothesImageView.image = selectedImage
+        let resizeSelectedImage: UIImage = selectedImage.resize()
+        let imageWithoutBackground: UIImage? = resizeSelectedImage.removeBackgroudIfPosible()
+        self.clothesImageView.image = imageWithoutBackground
         if clothesImageView.image != nil {
             selectPhotoButton.setTitle(L10n.changePhoto, for: .normal)
         } else {
