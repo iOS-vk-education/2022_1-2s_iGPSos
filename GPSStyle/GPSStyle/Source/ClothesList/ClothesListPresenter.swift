@@ -32,7 +32,7 @@ extension ClothesListPresenter: ClothesListViewOutput {
     
     func removeCloth(for ind: Int) {
         data.remove(at: ind)
-        moduleOutput?.deleteClthClothing(for: data[ind])
+        interactor.deleteClthClothing(for: data[ind])
     }
     
     var countList: Int {

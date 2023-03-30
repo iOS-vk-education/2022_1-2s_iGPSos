@@ -30,6 +30,7 @@ protocol ClothesListViewOutput: AnyObject {
 
 protocol ClothesListInteractorInput: AnyObject {
     func fetchClothing()
+    func deleteClthClothing(for clth: ClothingModel)
 }
 
 protocol ClothesListInteractorOutput: AnyObject {

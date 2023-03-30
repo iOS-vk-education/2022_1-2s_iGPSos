@@ -21,7 +21,7 @@ extension ClothesListInteractor: ClothesListInteractorInput {
     func fetchClothing() {
         getClothingService?.fetchClothing()
     }
-    
+
     func deleteClthClothing(for clth: ClothingModel) {
         getClothingService?.delClothing(clth: clth)
     }
