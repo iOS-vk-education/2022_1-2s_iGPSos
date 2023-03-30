@@ -9,6 +9,7 @@ import Firebase
 
 protocol GetLooksServiceInput: AnyObject {
     func fetchLooks()
+    func delLook(look: LookModel)
 }
 
 protocol GetLooksServiceOutput: AnyObject {
@@ -48,6 +49,16 @@ extension GetLooksService: GetLooksServiceInput {
                 )
             }.compactMap { $0 }
             self?.output?.success(with: looks)
+        }
+    }
+    
+    func delLook(look: LookModel) {
+        database.collection("looks").document(look.uuid).delete { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
         }
     }
 }

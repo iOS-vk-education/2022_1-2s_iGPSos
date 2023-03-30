@@ -21,6 +21,9 @@ extension LooksListInteractor: LooksListInteractorInput {
     func fetchLooks() {
         getLooksService?.fetchLooks()
     }
+    func deleteLookClothing(for look: LookModel) {
+        getLooksService?.delLook(look: look)
+    }
 }
 
 extension LooksListInteractor: GetLooksServiceOutput {

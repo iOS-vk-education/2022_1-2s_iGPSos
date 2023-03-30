@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 final class ClothesListViewController: UIViewController {
     private let output: ClothesListViewOutput
-    
     private enum Constants {
         static let addButtonSideSize: CGFloat = 80.0
         static let addButtonMarginBottom: CGFloat = 13.0
@@ -108,4 +109,19 @@ extension ClothesListViewController: UITableViewDataSource {
         cell.configure(model: output.getCloth(index: indexPath.row))
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal, title: "") { [weak self] (_, _, _) in
+            self?.output.removeCloth(for: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            print("del")
+        }
+        deleteAction.backgroundColor = .white
+        deleteAction.image = UIImage(named: "delete")
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+        }
 }
