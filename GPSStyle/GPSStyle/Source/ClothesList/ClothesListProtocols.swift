@@ -13,6 +13,7 @@ protocol ClothesListModuleInput {
 }
 
 protocol ClothesListModuleOutput: AnyObject {
+    func deleteClthClothing(for clth: ClothingModel)
 }
 
 protocol ClothesListViewInput: AnyObject {
@@ -23,6 +24,7 @@ protocol ClothesListViewOutput: AnyObject {
     func addButtonDidTap()
     func viewWillAppear()
     func getCloth(index: Int) -> ClothingModel
+    func removeCloth(for ind: Int)
     var countList: Int { get }
 }
 

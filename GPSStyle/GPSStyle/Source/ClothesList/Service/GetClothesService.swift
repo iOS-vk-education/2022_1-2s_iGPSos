@@ -9,6 +9,7 @@ import Firebase
 
 protocol GetClothesServiceInput: AnyObject {
     func fetchClothing()
+    func delClothing(clth: ClothingModel)
 }
 
 protocol GetClothesServiceOutput: AnyObject {
@@ -50,5 +51,17 @@ extension GetClothesService: GetClothesServiceInput {
             }.compactMap { $0 }
             self?.output?.success(with: clothes)
         }
+    }
+    
+    func delClothing(clth: ClothingModel) {
+//            if let documentId = clth.uuid {
+        database.collection("clothes").document(clth.uuid).delete { error in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    } else {
+                        print("File deleted successfully")
+                    }
+                }
+//        }
     }
 }
