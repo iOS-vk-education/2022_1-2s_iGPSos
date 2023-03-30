@@ -54,7 +54,7 @@ extension GetClothesService: GetClothesServiceInput {
     }
     
     func delClothing(clth: ClothingModel) {
-        database.collection("clothes").document("JUayHtqIAlhfCRNAV4XH").delete { err in
+        database.collection("clothes").document(clth.uuid).delete { err in
             if let err = err {
                 print("Error removing document: \(err)")
             } else {
@@ -62,21 +62,4 @@ extension GetClothesService: GetClothesServiceInput {
             }
         }
     }
-//        database.collection("clothes").document(clth.uuid).delete { error in
-//                           if let error = error {
-//                               print(error.localizedDescription)
-//                           } else {
-//                               print("File deleted successfully")
-//                           }
-//                       }
-//           }
-//    }
-//        database.collection("clothes").document(clth.uuid).delete { error in
-//                    if let error = error {
-//                        print(error.localizedDescription)
-//                    } else {
-//                        print("File deleted successfully")
-//                    }
-//                }
-//    }
 }
