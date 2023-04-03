@@ -39,7 +39,6 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         textField.borderStyle = .none
         textField.leftViewMode = .always
         textField.layer.shadowColor = UIColor.gray.cgColor
-        textField.layer.masksToBounds = false
         
         textField.layer.shadowOffset = CGSize(width: 0, height: 5)
         textField.layer.shadowRadius = 2
@@ -197,7 +196,6 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
                          clothingColorTextField,
                          clothingBrandView,
                          clothingBrandTextField,
-//                         checkTheWeatherButton,
                          cretateClothesButton)
     }
     
@@ -306,67 +304,52 @@ extension ClothesCreateViewController {
             return
         }
         NSLayoutConstraint.activate([
-            // Name text field
+            
             clothingNameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
             clothingNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             clothingNameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             clothingNameTextField.heightAnchor.constraint(equalToConstant: 56),
             
-            // Clothing ImageView
             clothesImageView.topAnchor.constraint(equalTo: clothingNameTextField.bottomAnchor, constant: 15),
             clothesImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 107),
             clothesImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -107),
             clothesImageView.heightAnchor.constraint(equalToConstant: 180),
             
-            // Select photo button
             supportConstraint,
             selectPhotoButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70),
             selectPhotoButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -70),
             selectPhotoButton.heightAnchor.constraint(equalToConstant: 60),
             
-            // Size View
             clothingSizeView.topAnchor.constraint(equalTo: selectPhotoButton.bottomAnchor, constant: 15),
             clothingSizeView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             clothingSizeView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             clothingSizeView.heightAnchor.constraint(equalToConstant: 56),
             
-            // Size text field
             clothingSizeTextField.topAnchor.constraint(equalTo: selectPhotoButton.bottomAnchor, constant: 15),
             clothingSizeTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             clothingSizeTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             clothingSizeTextField.heightAnchor.constraint(equalToConstant: 56),
             
-            // Color View
             clothingColorView.topAnchor.constraint(equalTo: clothingSizeTextField.bottomAnchor, constant: 10),
             clothingColorView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             clothingColorView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             clothingColorView.heightAnchor.constraint(equalToConstant: 56),
             
-            // Color text field
             clothingColorTextField.topAnchor.constraint(equalTo: clothingSizeTextField.bottomAnchor, constant: 10),
             clothingColorTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             clothingColorTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             clothingColorTextField.heightAnchor.constraint(equalToConstant: 56),
             
-            // Brand View
             clothingBrandView.topAnchor.constraint(equalTo: clothingColorTextField.bottomAnchor, constant: 10),
             clothingBrandView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             clothingBrandView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             clothingBrandView.heightAnchor.constraint(equalToConstant: 56),
             
-            // Brand text field
             clothingBrandTextField.topAnchor.constraint(equalTo: clothingColorTextField.bottomAnchor, constant: 10),
             clothingBrandTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
             clothingBrandTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
             clothingBrandTextField.heightAnchor.constraint(equalToConstant: 56),
             
-            // Checking for the weather tracking
-//            checkTheWeatherButton.topAnchor.constraint(equalTo: clothingBrandTextField.bottomAnchor, constant: 10),
-//            checkTheWeatherButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-//            checkTheWeatherButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60),
-//            checkTheWeatherButton.heightAnchor.constraint(equalToConstant: 60),
-            
-            // Create clothes button
             cretateClothesButton.topAnchor.constraint(equalTo: clothingBrandTextField.bottomAnchor, constant: 10),
             cretateClothesButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70),
             cretateClothesButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -70),
@@ -444,7 +427,7 @@ extension ClothesCreateViewController: UIImagePickerControllerDelegate, UINaviga
             return
         }
         let resizeSelectedImage: UIImage = selectedImage.resize()
-        let imageWithoutBackground: UIImage? = resizeSelectedImage.removeBackgroudIfPosible()
+        let imageWithoutBackground: UIImage? = resizeSelectedImage.removeBackgroudIfPosible(width: 320, height: 320)
         self.clothesImageView.image = imageWithoutBackground
         if clothesImageView.image != nil {
             selectPhotoButton.setTitle(L10n.changePhoto, for: .normal)

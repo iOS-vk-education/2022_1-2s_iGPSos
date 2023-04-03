@@ -115,8 +115,8 @@
 		F5796E2529579D5900E43877 /* GetClothesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5796E2429579D5900E43877 /* GetClothesService.swift */; };
 		F5796E2729579D6F00E43877 /* ClothesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5796E2629579D6F00E43877 /* ClothesModel.swift */; };
 		F57E4ED32915172300EABA0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F57E4ED22915172300EABA0C /* GoogleService-Info.plist */; };
+		F5891D5729DB26B8002FDC69 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5891D5629DB26B8002FDC69 /* UIImage+Extension.swift */; };
 		F5F346582953A43B00525E4B /* ClothesCreatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F346572953A43B00525E4B /* ClothesCreatePickerView.swift */; };
-		F5FC012729D419C1000DF543 /* PhotoBackgroundDeleteMLModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FC012629D419C1000DF543 /* PhotoBackgroundDeleteMLModel.swift */; };
 		FF78E4077B047D1F1CDDE758 /* Pods_GPSStyle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597083DB7F5242C54CE63840 /* Pods_GPSStyle.framework */; };
 /* End PBXBuildFile section */
 
@@ -257,9 +257,9 @@
 		F5796E2429579D5900E43877 /* GetClothesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetClothesService.swift; sourceTree = "<group>"; };
 		F5796E2629579D6F00E43877 /* ClothesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesModel.swift; sourceTree = "<group>"; };
 		F57E4ED22915172300EABA0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F5891D5629DB26B8002FDC69 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		F5A0EE0A8EC53A9E64D5221C /* Pods-GPSStyle-GPSStyleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; path = "Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F5F346572953A43B00525E4B /* ClothesCreatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreatePickerView.swift; sourceTree = "<group>"; };
-		F5FC012629D419C1000DF543 /* PhotoBackgroundDeleteMLModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBackgroundDeleteMLModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -464,6 +464,7 @@
 		702F8CC1290C93FA006B4DF1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F5891D5529DB2693002FDC69 /* UIImage */,
 				70F052A92910537B0074EDE5 /* Spinner */,
 				702F8CC2290C9401006B4DF1 /* VerticalAlignLabel */,
 				702F8CAB290C85FA006B4DF1 /* Calendar */,
@@ -747,7 +748,6 @@
 		F557E9E529D5A55E00C77C22 /* CoreML */ = {
 			isa = PBXGroup;
 			children = (
-				F5FC012629D419C1000DF543 /* PhotoBackgroundDeleteMLModel.swift */,
 				F557E9E629D5A58E00C77C22 /* u2netp.mlmodel */,
 			);
 			path = CoreML;
@@ -776,6 +776,14 @@
 				F5796E2429579D5900E43877 /* GetClothesService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		F5891D5529DB2693002FDC69 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				F5891D5629DB26B8002FDC69 /* UIImage+Extension.swift */,
+			);
+			path = UIImage;
 			sourceTree = "<group>";
 		};
 		F5F346562953A42600525E4B /* Views */ = {
@@ -1127,7 +1135,6 @@
 				70BB4B36295620CB0079170B /* CreateLookService.swift in Sources */,
 				70F70414292C28BC003382F1 /* CreateLookProtocols.swift in Sources */,
 				702F8CB6290C85FB006B4DF1 /* CalendarHeaderView.swift in Sources */,
-				F5FC012729D419C1000DF543 /* PhotoBackgroundDeleteMLModel.swift in Sources */,
 				702F8C7829044E53006B4DF1 /* HomeInteractor.swift in Sources */,
 				DCA2231A291993A4005D71C8 /* LoginViewController.swift in Sources */,
 				702F8CB9290C85FB006B4DF1 /* CalendarView+Style.swift in Sources */,
@@ -1154,6 +1161,7 @@
 				702F8C8E29044EC2006B4DF1 /* ProfilePresenter.swift in Sources */,
 				702F8CCB290D30F1006B4DF1 /* UIView+Extension.swift in Sources */,
 				70F70412292C28BC003382F1 /* CreateLookRouter.swift in Sources */,
+				F5891D5729DB26B8002FDC69 /* UIImage+Extension.swift in Sources */,
 				702F8C8129044E97006B4DF1 /* ClothesListPresenter.swift in Sources */,
 				702F8CEC290D404A006B4DF1 /* HomeSection.swift in Sources */,
 				702F8CC9290D2872006B4DF1 /* ImageLoader.swift in Sources */,
