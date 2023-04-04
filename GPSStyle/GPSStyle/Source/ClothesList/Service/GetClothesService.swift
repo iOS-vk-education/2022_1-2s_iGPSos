@@ -54,11 +54,35 @@ extension GetClothesService: GetClothesServiceInput {
     }
     
     func delClothing(clth: ClothingModel) {
-        database.collection("clothes").document(clth.uuid).delete { err in
-            if let err = err {
-                print("Error removing document: \(err)")
-            } else {
-                print("Document successfully removed!")
+        database.collection("clothes").whereField(
+            "uuid", isEqualTo: clth.uuid ).getDocuments { [weak self] querySnapshot, error in
+            if error != nil {
+                self?.output?.faild()
+                return
+            }
+            guard let documents = querySnapshot?.documents else {
+                self?.output?.faild()
+                return
+            }
+            
+            let clothes = documents.map { snapshot -> ClothingModel in
+                let data = snapshot.data()
+                return ClothingModel(
+                    uuid: data["uuid"] as? String ?? "",
+                    name: data["name"] as? String ?? "",
+                    imageName: data["imageName"] as? String ?? "",
+                    specification: data["specification"] as? [String: String] ?? [:]
+                )
+            }.compactMap { $0 }
+            
+            for clothes in querySnapshot!.documents {
+                clothes.reference.delete { err in
+                    if let err = err {
+                        print("Error removing document: \(err)")
+                    } else {
+                        print("Document Clth successfully removed!")
+                    }
+                }
             }
         }
     }

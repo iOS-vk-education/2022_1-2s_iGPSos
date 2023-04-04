@@ -197,6 +197,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
                          clothingBrandView,
                          clothingBrandTextField,
                          cretateClothesButton)
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
     }
     
     func setupPickersViews() {
@@ -294,6 +295,10 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
     @objc
     private func didTapBrandLabel() {
         didTapSpecificationLabel(unit: pickerUnitClothesBrand)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 

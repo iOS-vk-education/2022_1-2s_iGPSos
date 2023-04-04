@@ -53,11 +53,35 @@ extension GetLooksService: GetLooksServiceInput {
     }
     
     func delLook(look: LookModel) {
-        database.collection("looks").document(look.uuid).delete { err in
-            if let err = err {
-                print("Error removing document: \(err)")
-            } else {
-                print("Document successfully removed!")
+        database.collection("looks").whereField(
+            "uuid", isEqualTo: look.uuid
+        ).getDocuments { [weak self] querySnapshot, error in
+            if error != nil {
+                self?.output?.faild()
+                return
+            }
+            guard let documents = querySnapshot?.documents else {
+                self?.output?.faild()
+                return
+            }
+            
+            let look = documents.map { snapshot -> LookModel in
+                let data = snapshot.data()
+                return LookModel(
+                    uuid: data["uuid"] as? String ?? "",
+                    name: data["title"] as? String ?? "",
+                    imageName: data["images"] as? [String] ?? []
+                )
+            }.compactMap { $0 }
+            
+            for look in querySnapshot!.documents {
+                look.reference.delete() { err in
+                    if let err = err {
+                        print("Error removing document: \(err)")
+                    } else {
+                        print("Document Look successfully removed!")
+                    }
+                }
             }
         }
     }
