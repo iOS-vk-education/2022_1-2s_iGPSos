@@ -79,7 +79,6 @@ class ClothesTableViewCell: UITableViewCell {
     }
     
     private func setup() {
-        selectionStyle = .none
         separatorInset = .zero
         accessoryType = .disclosureIndicator
     

@@ -41,6 +41,11 @@ extension LooksListPresenter: LooksListViewOutput {
         data[index]
     }
     
+    func removeLook(for ind: Int) {
+        interactor.deleteLookClothing(for: data[ind])
+        data.remove(at: ind)
+    }
+    
     var countList: Int {
         data.count
     }

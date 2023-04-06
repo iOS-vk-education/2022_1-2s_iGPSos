@@ -166,4 +166,15 @@ extension LooksListViewController: UITableViewDataSource {
         cell.configure(model: output.getLook(index: indexPath.row))
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal, title: "") { [weak self] (_, _, _) in
+            self?.output.removeLook(for: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            print("del")
+        }
+        deleteAction.backgroundColor = .white
+        deleteAction.image = UIImage(named: "delete")
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+        }
 }
