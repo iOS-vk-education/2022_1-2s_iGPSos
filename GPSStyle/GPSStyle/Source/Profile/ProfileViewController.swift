@@ -85,16 +85,7 @@ final class ProfileViewController: UIViewController {
         return label
     }()
     
-    private var signOutButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(L10n.signOut, for: .normal)
-        button.tintColor = ColorName.white.color
-        button.backgroundColor = ColorName.mainPurple.color
-        button.titleLabel?.font = FontFamily.Inter.medium.font(size: 22)
-        button.layer.cornerRadius = 33
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    var signOutButton = CustomButton()
     
     private func addTargets() {
         signOutButton.addTarget(self, action: #selector(didTapSignOut), for: .touchUpInside)
@@ -120,6 +111,7 @@ final class ProfileViewController: UIViewController {
     func setupViews() {
         view.backgroundColor = ColorName.white.color
         view.addSubviews(signOutButton, emailView, emailLabel, nameView, nameLabel, userNameLabel, userEmailLabel)
+        signOutButton.setTitle(L10n.signOut, for: .normal)
     }
     
     override func viewDidLoad() {
