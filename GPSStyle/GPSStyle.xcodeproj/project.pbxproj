@@ -95,6 +95,7 @@
 		89932F13968B2A87E80E9302 /* Pods_GPSStyle_GPSStyleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3858B91C85D7255540DBEDC /* Pods_GPSStyle_GPSStyleUITests.framework */; };
 		DC0C2D6E291BE1F800702D09 /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C2D6D291BE1F800702D09 /* AuthenticationModel.swift */; };
 		DC0C2D70291BED7700702D09 /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C2D6F291BED7700702D09 /* AuthUser.swift */; };
+		DC1B7B0929E2F5AC00C26922 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B7B0829E2F5AC00C26922 /* CustomButton.swift */; };
 		DCA223162919937E005D71C8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA223152919937E005D71C8 /* WelcomeViewController.swift */; };
 		DCA2231829199391005D71C8 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA2231729199391005D71C8 /* CreateAccountViewController.swift */; };
 		DCA2231A291993A4005D71C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA22319291993A3005D71C8 /* LoginViewController.swift */; };
@@ -236,6 +237,7 @@
 		C6D4899FFB6B98C7C3058BF2 /* Pods-GPSStyleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyleTests.debug.xcconfig"; path = "Target Support Files/Pods-GPSStyleTests/Pods-GPSStyleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC0C2D6D291BE1F800702D09 /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModel.swift; sourceTree = "<group>"; };
 		DC0C2D6F291BED7700702D09 /* AuthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
+		DC1B7B0829E2F5AC00C26922 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		DCA223152919937E005D71C8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		DCA2231729199391005D71C8 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		DCA22319291993A3005D71C8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 		702F8C3F29042AC9006B4DF1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				DC1B7B0629E2F56B00C26922 /* CustomComponents */,
 				70F7040A292C289C003382F1 /* CreateLook */,
 				DCB9D1BD294F2ABF009A8D79 /* Meeting */,
 				DC467386291AD5AC00BF3D3A /* Model */,
@@ -655,6 +658,22 @@
 				70F70410292C28BC003382F1 /* CreateLookContainer.swift */,
 			);
 			path = CreateLook;
+			sourceTree = "<group>";
+		};
+		DC1B7B0629E2F56B00C26922 /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+				DC1B7B0729E2F58300C26922 /* CustomButton */,
+			);
+			path = CustomComponents;
+			sourceTree = "<group>";
+		};
+		DC1B7B0729E2F58300C26922 /* CustomButton */ = {
+			isa = PBXGroup;
+			children = (
+				DC1B7B0829E2F5AC00C26922 /* CustomButton.swift */,
+			);
+			path = CustomButton;
 			sourceTree = "<group>";
 		};
 		DC467386291AD5AC00BF3D3A /* Model */ = {
@@ -1123,6 +1142,7 @@
 				702F8C7729044E53006B4DF1 /* HomeProtocols.swift in Sources */,
 				DCB9D1C3294F2B2A009A8D79 /* DateTimePicker.swift in Sources */,
 				702F8C9129044EC2006B4DF1 /* ProfileProtocols.swift in Sources */,
+				DC1B7B0929E2F5AC00C26922 /* CustomButton.swift in Sources */,
 				702F8C8329044E97006B4DF1 /* ClothesListViewController.swift in Sources */,
 				DC0C2D6E291BE1F800702D09 /* AuthenticationModel.swift in Sources */,
 				702F8CBB290C85FB006B4DF1 /* EventsManager.swift in Sources */,

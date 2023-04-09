@@ -17,16 +17,7 @@ final class WelcomeViewController: UIViewController {
         return label
     }()
     
-    private var createAccountButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(L10n.createAccount, for: .normal)
-        button.tintColor = ColorName.white.color
-        button.backgroundColor = ColorName.mainPurple.color
-        button.titleLabel?.font = FontFamily.Inter.medium.font(size: 22)
-        button.layer.cornerRadius = 33
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    var createAccountButton = CustomButton()
     
     private var alreadySignUpButton: UIButton = {
         let button = UIButton(type: .system)
@@ -48,7 +39,7 @@ final class WelcomeViewController: UIViewController {
         setConstraints()
         addTargets()
     }
-    
+
     private func addTargets() {
         createAccountButton.addTarget(self, action: #selector(didTapCreateAccount), for: .touchUpInside)
         alreadySignUpButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
@@ -73,6 +64,7 @@ final class WelcomeViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(createAccountButton)
         view.addSubview(alreadySignUpButton)
+        createAccountButton.setTitle(L10n.createAccount, for: .normal)
     }
 }
     
