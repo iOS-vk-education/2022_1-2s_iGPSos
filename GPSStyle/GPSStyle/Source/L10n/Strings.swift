@@ -92,6 +92,8 @@ internal enum L10n {
   internal static let takePhoto = L10n.tr("ru", "takePhoto", fallback: "Cделать фото")
   /// Время и дата
   internal static let timedate = L10n.tr("ru", "timedate", fallback: "Время и дата")
+  /// Название
+  internal static let title = L10n.tr("ru", "title", fallback: "Название")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
