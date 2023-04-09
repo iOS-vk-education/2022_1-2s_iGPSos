@@ -57,17 +57,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         return imageView
     }()
     
-    private let selectPhotoButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(L10n.addPhoto, for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = ColorName.lightPink.color
-        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 22.0)
-        button.titleLabel?.tintColor = ColorName.mainPurple.color
-        button.layer.cornerRadius = 30
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    var selectPhotoButton = CustomButton()
     
     private lazy var clothingSizeView: UIView = {
         let view = UIView()
@@ -154,16 +144,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         return button
     }()
     
-    private let cretateClothesButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(L10n.createClothes, for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = ColorName.mainPurple.color
-        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 22.0)
-        button.layer.cornerRadius = 30
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    var cretateClothesButton = CustomButton()
     
     init(output: ClothesCreateViewOutput) {
         self.output = output
@@ -198,6 +179,10 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
                          clothingBrandTextField,
                          cretateClothesButton)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+        selectPhotoButton.setTitle(L10n.addPhoto, for: .normal)
+        selectPhotoButton.tintColor = ColorName.mainPurple.color
+        selectPhotoButton.backgroundColor = ColorName.lightPink.color
+        cretateClothesButton.setTitle(L10n.createClothes, for: .normal)
     }
     
     func setupPickersViews() {
