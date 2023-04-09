@@ -27,10 +27,11 @@ protocol ClothesCreateInteractorInput: AnyObject {
 }
 
 protocol ClothesCreateInteractorOutput: AnyObject {
+    func finishCreatingCloth()
 }
 
 protocol ClothesCreateRouterInput: AnyObject {
-    func goToMainScreen()
+    func closeVC()
 }
 
 struct ClothesModel {
