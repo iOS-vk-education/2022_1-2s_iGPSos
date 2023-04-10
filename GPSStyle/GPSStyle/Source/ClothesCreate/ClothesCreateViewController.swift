@@ -57,7 +57,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         return imageView
     }()
     
-    var selectPhotoButton = CustomButton()
+    private var selectPhotoButton: CustomButton = CustomButton()
     
     private lazy var clothingSizeView: UIView = {
         let view = UIView()
@@ -144,7 +144,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         return button
     }()
     
-    var cretateClothesButton = CustomButton()
+    private var cretateClothesButton: CustomButton = CustomButton()
     
     init(output: ClothesCreateViewOutput) {
         self.output = output
@@ -259,8 +259,12 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
     
     @objc
     private func didTapCreateClothes() {
-        guard let name = clothingNameTextField.text,
-              let image = clothesImageView.image else {
+        guard let name = clothingNameTextField.text, !name.isEmpty,
+              let image = clothesImageView.image,
+              let size = pickerUnitClothesSize.selectedValue,
+              let color = pickerUnitClothesColor.selectedValue,
+              let brand = pickerUnitClothesBrand.selectedValue
+        else {
             return
         }
         output.didTapCreateClothes(model: ClothesModel(title: name,
@@ -282,7 +286,8 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         didTapSpecificationLabel(unit: pickerUnitClothesBrand)
     }
     
-    @objc private func dismissKeyboard() {
+    @objc
+    private func dismissKeyboard() {
         view.endEditing(true)
     }
 }
@@ -294,7 +299,6 @@ extension ClothesCreateViewController {
             return
         }
         NSLayoutConstraint.activate([
-            
             clothingNameTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
             clothingNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             clothingNameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
@@ -391,6 +395,7 @@ extension ClothesCreateViewController: UIImagePickerControllerDelegate, UINaviga
     
     private func deletePhoto() {
         self.clothesImageView.image = nil
+        selectPhotoButton.setTitle(L10n.addPhoto, for: .normal)
         updateConstraints()
     }
     

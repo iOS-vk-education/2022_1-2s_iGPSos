@@ -8,7 +8,6 @@
 import UIKit
 
 class CustomButton: UIButton {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -22,7 +21,7 @@ class CustomButton: UIButton {
        tintColor = ColorName.white.color
        backgroundColor = ColorName.mainPurple.color
        titleLabel?.font = FontFamily.Inter.medium.font(size: 22)
-       layer.cornerRadius = 33
+       layer.cornerRadius = 30
        translatesAutoresizingMaskIntoConstraints = false
     }
 }
