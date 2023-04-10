@@ -30,4 +30,7 @@ extension ClothesCreatePresenter: ClothesCreateViewOutput {
 }
 
 extension ClothesCreatePresenter: ClothesCreateInteractorOutput {
+    func finishCreatingCloth() {
+        router.closeVC()
+    }
 }
