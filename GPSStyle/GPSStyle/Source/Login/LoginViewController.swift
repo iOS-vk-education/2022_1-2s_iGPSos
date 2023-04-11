@@ -160,6 +160,7 @@ class LoginViewController: UIViewController {
                          loginButton,
                          createAccountButton)
         loginButton.setTitle(L10n.login, for: .normal)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
     }
 }
 

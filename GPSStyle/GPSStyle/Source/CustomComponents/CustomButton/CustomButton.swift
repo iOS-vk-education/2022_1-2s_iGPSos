@@ -23,6 +23,5 @@ class CustomButton: UIButton {
        backgroundColor = ColorName.mainPurple.color
        titleLabel?.font = FontFamily.Inter.medium.font(size: 22)
        layer.cornerRadius = 33
-       translatesAutoresizingMaskIntoConstraints = false
     }
 }
