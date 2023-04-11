@@ -182,7 +182,9 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         selectPhotoButton.setTitle(L10n.addPhoto, for: .normal)
         selectPhotoButton.tintColor = ColorName.mainPurple.color
         selectPhotoButton.backgroundColor = ColorName.lightPink.color
+        selectPhotoButton.translatesAutoresizingMaskIntoConstraints = false
         cretateClothesButton.setTitle(L10n.createClothes, for: .normal)
+        cretateClothesButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func setupPickersViews() {

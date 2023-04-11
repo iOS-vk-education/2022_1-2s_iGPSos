@@ -9,7 +9,7 @@
 import UIKit
 
 final class CreateLookViewController: UIViewController {
-	private let output: CreateLookViewOutput
+    private let output: CreateLookViewOutput
     
     private lazy var lookNameTextField: UITextField = {
         let textField = UITextField()
@@ -20,13 +20,10 @@ final class CreateLookViewController: UIViewController {
         textField.leftViewMode = .always
     
         textField.layer.shadowColor = UIColor.gray.cgColor
-        textField.layer.masksToBounds = false
         textField.layer.shadowOffset = CGSize(width: 0, height: 5)
         textField.layer.shadowRadius = 2
         textField.layer.shadowOpacity = 0.2
         
-        textField.textContentType = .password
-        textField.isSecureTextEntry = true
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -52,13 +49,13 @@ final class CreateLookViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         tabBarController?.tabBar.isHidden = true
         setupTitle()
         setupViews()
         output.viewDidLoad()
-	}
+    }
     
     private func setupTitle() {
         let title = UILabel()

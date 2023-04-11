@@ -186,6 +186,7 @@ class CreateAccountViewController: UIViewController {
         view.addSubviews(titleLabel, imageView, nameTextField, emailTextField, passwordTextField, createAccountButton, alreadySignUpButton)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
         createAccountButton.setTitle(L10n.createAccount, for: .normal)
+        createAccountButton.translatesAutoresizingMaskIntoConstraints = false
     }
 }
 

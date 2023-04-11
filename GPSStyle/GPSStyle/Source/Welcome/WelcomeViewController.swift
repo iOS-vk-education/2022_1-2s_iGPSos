@@ -65,6 +65,7 @@ final class WelcomeViewController: UIViewController {
         view.addSubview(createAccountButton)
         view.addSubview(alreadySignUpButton)
         createAccountButton.setTitle(L10n.createAccount, for: .normal)
+        createAccountButton.translatesAutoresizingMaskIntoConstraints = false
     }
 }
     
