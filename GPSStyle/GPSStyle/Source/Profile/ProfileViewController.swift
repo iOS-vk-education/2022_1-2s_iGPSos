@@ -112,6 +112,7 @@ final class ProfileViewController: UIViewController {
         view.backgroundColor = ColorName.white.color
         view.addSubviews(signOutButton, emailView, emailLabel, nameView, nameLabel, userNameLabel, userEmailLabel)
         signOutButton.setTitle(L10n.signOut, for: .normal)
+        signOutButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
     override func viewDidLoad() {
