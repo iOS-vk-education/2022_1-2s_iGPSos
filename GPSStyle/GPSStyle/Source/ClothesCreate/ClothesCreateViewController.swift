@@ -27,6 +27,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         static let imageViewHeight:   CGFloat = 180.0
         static let imageViewLeading:  CGFloat = 107.0
         static let imageViewTrailing: CGFloat = -107.0
+        static let pickerDrumHeight:  CGFloat = 300.0
     }
     
     private let output: ClothesCreateViewOutput
@@ -236,7 +237,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         nav.modalPresentationStyle = .pageSheet
         if let nav = nav.presentationController as? UISheetPresentationController {
             nav.prefersGrabberVisible = true
-            nav.detents = [.custom { _ in return 300 }]
+            nav.detents = [.custom { _ in return Constants.pickerDrumHeight }]
         }
         present(nav, animated: true)
     }
@@ -374,8 +375,8 @@ extension ClothesCreateViewController {
     private func updateConstraints() {
         supportConstraint?.isActive = false
         supportConstraint = clothesImageView.image == nil ?
-        selectPhotoButton.topAnchor.constraint(equalTo: clothingNameTextField.bottomAnchor, constant: 15) :
-        selectPhotoButton.topAnchor.constraint(equalTo: clothesImageView.bottomAnchor, constant: 15)
+        selectPhotoButton.topAnchor.constraint(equalTo: clothingNameTextField.bottomAnchor, constant: Constants.elementsTop) :
+        selectPhotoButton.topAnchor.constraint(equalTo: clothesImageView.bottomAnchor, constant: Constants.elementsTop)
         supportConstraint?.isActive = true
     }
 }

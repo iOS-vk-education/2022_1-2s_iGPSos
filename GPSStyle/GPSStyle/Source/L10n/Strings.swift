@@ -78,6 +78,8 @@ internal enum L10n {
   internal static let name = L10n.tr("ru", "name", fallback: "Имя")
   /// Пароль
   internal static let password = L10n.tr("ru", "password", fallback: "Пароль")
+  /// Профиль
+  internal static let profile = L10n.tr("ru", "profile", fallback: "Профиль")
   /// Перезагрузить
   internal static let reload = L10n.tr("ru", "reload", fallback: "Перезагрузить")
   ///    Повторять каждую неделю

@@ -23,6 +23,7 @@
 "color" = "Цвет";
 "size" = "Размер";
 "brand" = "Брэнд";
+"profile" = "Профиль";
 "category" = "Категория";
 "clothesName" = "Название";
 "clothesPhoto" = "Фото одежды";
