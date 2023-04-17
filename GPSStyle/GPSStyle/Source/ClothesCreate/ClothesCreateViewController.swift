@@ -74,7 +74,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         return view
     }()
     
-    private let clothingSizeTextField: UILabel = {
+    private let clothingSizeLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.size
         label.textColor = .lightGray
@@ -83,7 +83,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         return label
     }()
     
-    private let clothingColorView: UIView = {
+    private let clothingCategoryView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 30
@@ -98,7 +98,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         return view
     }()
     
-    private let clothingColorTextField: UILabel = {
+    private let clothingColorCategoryLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.category
         label.textColor = .lightGray
@@ -122,7 +122,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         return view
     }()
     
-    private let clothingBrandTextField: UILabel = {
+    private let clothingBrandLabel: UILabel = {
         let label = UILabel()
         label.text = L10n.brand
         label.textColor = .lightGray
@@ -172,11 +172,11 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
                          clothesImageView,
                          selectPhotoButton,
                          clothingSizeView,
-                         clothingSizeTextField,
-                         clothingColorView,
-                         clothingColorTextField,
+                         clothingSizeLabel,
+                         clothingCategoryView,
+                         clothingColorCategoryLabel,
                          clothingBrandView,
-                         clothingBrandTextField,
+                         clothingBrandLabel,
                          cretateClothesButton)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
         selectPhotoButton.setTitle(L10n.addPhoto, for: .normal)
@@ -189,13 +189,13 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
     
     func setupPickersViews() {
         let recognierSize = UITapGestureRecognizer(target: self, action: #selector(didTapSizeLabel))
-        clothingSizeTextField.addGestureRecognizer(recognierSize)
+        clothingSizeLabel.addGestureRecognizer(recognierSize)
         
         let recognierCategory = UITapGestureRecognizer(target: self, action: #selector(didTapColorLabel))
-        clothingColorTextField.addGestureRecognizer(recognierCategory)
+        clothingColorCategoryLabel.addGestureRecognizer(recognierCategory)
         
         let recognierBrand = UITapGestureRecognizer(target: self, action: #selector(didTapBrandLabel))
-        clothingBrandTextField.addGestureRecognizer(recognierBrand)
+        clothingBrandLabel.addGestureRecognizer(recognierBrand)
     }
     
     private func setupTitle() {
@@ -226,18 +226,18 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
     func didFinishPicking(with model: UnitClothesType) {
         switch model.typeName {
         case TypeName.brand:
-            clothingBrandTextField.text = model.selectedValue
-            clothingBrandTextField.textColor = .black
+            clothingBrandLabel.text = model.selectedValue
+            clothingBrandLabel.textColor = .black
             specification[L10n.brand] = model.selectedValue
             pickerUnitClothesBrand = model
         case TypeName.category:
-            clothingColorTextField.text = model.selectedValue
-            clothingColorTextField.textColor = .black
-            specification[L10n.color] = model.selectedValue
+            clothingColorCategoryLabel.text = model.selectedValue
+            clothingColorCategoryLabel.textColor = .black
+            specification[L10n.category] = model.selectedValue
             pickerUnitClothesCategory = model
         case TypeName.size:
-            clothingSizeTextField.text = model.selectedValue
-            clothingSizeTextField.textColor = .black
+            clothingSizeLabel.text = model.selectedValue
+            clothingSizeLabel.textColor = .black
             specification[L10n.size] = model.selectedValue
             pickerUnitClothesSize = model
         }
@@ -321,32 +321,32 @@ extension ClothesCreateViewController {
             clothingSizeView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             clothingSizeView.heightAnchor.constraint(equalToConstant: 56),
             
-            clothingSizeTextField.topAnchor.constraint(equalTo: selectPhotoButton.bottomAnchor, constant: 15),
-            clothingSizeTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            clothingSizeTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            clothingSizeTextField.heightAnchor.constraint(equalToConstant: 56),
+            clothingSizeLabel.topAnchor.constraint(equalTo: selectPhotoButton.bottomAnchor, constant: 15),
+            clothingSizeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            clothingSizeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            clothingSizeLabel.heightAnchor.constraint(equalToConstant: 56),
             
-            clothingColorView.topAnchor.constraint(equalTo: clothingSizeTextField.bottomAnchor, constant: 10),
-            clothingColorView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-            clothingColorView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            clothingColorView.heightAnchor.constraint(equalToConstant: 56),
+            clothingCategoryView.topAnchor.constraint(equalTo: clothingSizeLabel.bottomAnchor, constant: 10),
+            clothingCategoryView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            clothingCategoryView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            clothingCategoryView.heightAnchor.constraint(equalToConstant: 56),
             
-            clothingColorTextField.topAnchor.constraint(equalTo: clothingSizeTextField.bottomAnchor, constant: 10),
-            clothingColorTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            clothingColorTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            clothingColorTextField.heightAnchor.constraint(equalToConstant: 56),
+            clothingColorCategoryLabel.topAnchor.constraint(equalTo: clothingSizeLabel.bottomAnchor, constant: 10),
+            clothingColorCategoryLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            clothingColorCategoryLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            clothingColorCategoryLabel.heightAnchor.constraint(equalToConstant: 56),
             
-            clothingBrandView.topAnchor.constraint(equalTo: clothingColorTextField.bottomAnchor, constant: 10),
+            clothingBrandView.topAnchor.constraint(equalTo: clothingColorCategoryLabel.bottomAnchor, constant: 10),
             clothingBrandView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             clothingBrandView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             clothingBrandView.heightAnchor.constraint(equalToConstant: 56),
             
-            clothingBrandTextField.topAnchor.constraint(equalTo: clothingColorTextField.bottomAnchor, constant: 10),
-            clothingBrandTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            clothingBrandTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            clothingBrandTextField.heightAnchor.constraint(equalToConstant: 56),
+            clothingBrandLabel.topAnchor.constraint(equalTo: clothingColorCategoryLabel.bottomAnchor, constant: 10),
+            clothingBrandLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            clothingBrandLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            clothingBrandLabel.heightAnchor.constraint(equalToConstant: 56),
             
-            cretateClothesButton.topAnchor.constraint(equalTo: clothingBrandTextField.bottomAnchor, constant: 10),
+            cretateClothesButton.topAnchor.constraint(equalTo: clothingBrandLabel.bottomAnchor, constant: 10),
             cretateClothesButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 70),
             cretateClothesButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -70),
             cretateClothesButton.heightAnchor.constraint(equalToConstant: 60)
