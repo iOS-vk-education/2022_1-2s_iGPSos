@@ -20,10 +20,10 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
                                                          variants: clothesBrand,
                                                          typeName: TypeName.brand,
                                                          selectedValue: nil)
-    private var pickerUnitClothesColor = UnitClothesType(name: L10n.color,
-                                                         variants: clothesColor,
-                                                         typeName: TypeName.color,
-                                                         selectedValue: nil)
+    private var pickerUnitClothesCategory = UnitClothesType(name: L10n.category,
+                                                            variants: clothesCategory,
+                                                            typeName: TypeName.category,
+                                                            selectedValue: nil)
     private var pickerUnitClothesSize = UnitClothesType(name: L10n.size,
                                                         variants: clothesSize,
                                                         typeName: TypeName.size,
@@ -100,7 +100,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
     
     private let clothingColorTextField: UILabel = {
         let label = UILabel()
-        label.text = L10n.color
+        label.text = L10n.category
         label.textColor = .lightGray
         label.isUserInteractionEnabled = true
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -191,8 +191,8 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         let recognierSize = UITapGestureRecognizer(target: self, action: #selector(didTapSizeLabel))
         clothingSizeTextField.addGestureRecognizer(recognierSize)
         
-        let recognierColor = UITapGestureRecognizer(target: self, action: #selector(didTapColorLabel))
-        clothingColorTextField.addGestureRecognizer(recognierColor)
+        let recognierCategory = UITapGestureRecognizer(target: self, action: #selector(didTapColorLabel))
+        clothingColorTextField.addGestureRecognizer(recognierCategory)
         
         let recognierBrand = UITapGestureRecognizer(target: self, action: #selector(didTapBrandLabel))
         clothingBrandTextField.addGestureRecognizer(recognierBrand)
@@ -230,11 +230,11 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
             clothingBrandTextField.textColor = .black
             specification[L10n.brand] = model.selectedValue
             pickerUnitClothesBrand = model
-        case TypeName.color:
+        case TypeName.category:
             clothingColorTextField.text = model.selectedValue
             clothingColorTextField.textColor = .black
             specification[L10n.color] = model.selectedValue
-            pickerUnitClothesColor = model
+            pickerUnitClothesCategory = model
         case TypeName.size:
             clothingSizeTextField.text = model.selectedValue
             clothingSizeTextField.textColor = .black
@@ -264,7 +264,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         guard let name = clothingNameTextField.text, !name.isEmpty,
               let image = clothesImageView.image,
               let size = pickerUnitClothesSize.selectedValue,
-              let color = pickerUnitClothesColor.selectedValue,
+              let category = pickerUnitClothesCategory.selectedValue,
               let brand = pickerUnitClothesBrand.selectedValue
         else {
             return
@@ -280,7 +280,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
     
     @objc
     private func didTapColorLabel() {
-        didTapSpecificationLabel(unit: pickerUnitClothesColor)
+        didTapSpecificationLabel(unit: pickerUnitClothesCategory)
     }
     
     @objc

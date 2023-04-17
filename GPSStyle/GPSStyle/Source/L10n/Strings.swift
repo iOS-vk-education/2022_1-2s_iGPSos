@@ -26,6 +26,8 @@ internal enum L10n {
   }
   /// Назад
   internal static let cancel = L10n.tr("ru", "cancel", fallback: "Назад")
+  /// Категория
+  internal static let category = L10n.tr("ru", "category", fallback: "Категория")
   /// Изменить фото
   internal static let changePhoto = L10n.tr("ru", "changePhoto", fallback: "Изменить фото")
   ///    Отслеживать погоду
