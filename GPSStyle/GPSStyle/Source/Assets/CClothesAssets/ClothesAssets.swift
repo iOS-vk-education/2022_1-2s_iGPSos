@@ -7,7 +7,7 @@
 
 enum TypeName: String {
     case brand = "Brand"
-    case color = "Color"
+    case category = "Category"
     case size = "Size"
 }
 
@@ -29,21 +29,21 @@ internal let clothesBrand = ["Gucci",
                       "Adidas",
                       "другой"]
 
-internal let clothesColor = ["Белый",
-                      "Красный",
-                      "Оранжевый",
-                      "Жёлтый",
-                      "Зелёный",
-                      "Голубой",
-                      "Синий",
-                      "Фиолетовый",
-                      "Розовый",
-                      "Бирюзовый",
-                      "Охра",
-                      "Cерый",
-                      "Коричневый",
-                      "Чёрный",
-                      "другой"]
+internal let clothesCategory = ["Верхняя одежда",
+                                "Штаны",
+                                "Обувь",
+                                "Кофты",
+                                "Свитера",
+                                "Футболки",
+                                "Платья",
+                                "Юбки",
+                                "Шорты",
+                                "Рубашки",
+                                "Блузки",
+                                "Пиджаки",
+                                "Костюмы",
+                                "Аксессуары",
+                                "Другое"]
 
 internal let clothesSize = ["S",
                      "M",

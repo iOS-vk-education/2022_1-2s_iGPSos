@@ -23,6 +23,8 @@
 "color" = "Color";
 "size" = "Size";
 "brand" = "Brand";
+"profile" = "Profile";
+"category" = "Category";
 "clothesName" = "Name";
 "clothesPhoto" = "Clothes photo";
 "howAddPhoto" = "How would you like to select a photo";
