@@ -69,16 +69,7 @@ class LoginViewController: UIViewController {
         return textField
     }()
     
-    private var loginButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(L10n.login, for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = ColorName.mainPurple.color
-        button.titleLabel?.font = FontFamily.Inter.medium.font(size: 22.0)
-        button.layer.cornerRadius = 30
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    var loginButton = CustomButton()
     
     private var createAccountButton: UIButton = {
         let button = UIButton(type: .system)
@@ -168,6 +159,8 @@ class LoginViewController: UIViewController {
                          passwordTextField,
                          loginButton,
                          createAccountButton)
+        loginButton.setTitle(L10n.login, for: .normal)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
     }
 }
 

@@ -10,6 +10,24 @@ import UIKit
 import Firebase
 
 final class ProfileViewController: UIViewController {
+    private enum Constants {
+        static let layerCornerRadius:  CGFloat = 30.0
+        static let layerShadowRadius:  CGFloat = 2.0
+        static let layerShadowOpacity: Float = 0.2
+        static let shadowOffsetHeight: CGFloat = 5.0
+        static let shadowOffsetWidth:  CGFloat = 0.0
+        static let labelLeading: CGFloat = 45.0
+        static let labelTrailing: CGFloat = -40.0
+        static let viewLeading: CGFloat = 20.0
+        static let viewTrailing: CGFloat = -20.0
+        static let userLableTop: CGFloat = 25.0
+        static let userLabelHeight: CGFloat = 40.0
+        static let labelHeight: CGFloat = 56.0
+        static let buttonHeight: CGFloat = 65.0
+        static let buttonBottom: CGFloat = -30.0
+        static let nameTop: CGFloat = 20.0
+        static let emailTop: CGFloat = 70.0
+    }
     private let output: ProfileViewOutput
     
     init(output: ProfileViewOutput) {
@@ -42,13 +60,13 @@ final class ProfileViewController: UIViewController {
     private lazy var nameView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
-        view.layer.cornerRadius = 30
+        view.layer.cornerRadius = Constants.layerCornerRadius
         
         view.layer.shadowColor = UIColor.gray.cgColor
         view.layer.masksToBounds = false
-        view.layer.shadowOffset = CGSize(width: 0, height: 5)
-        view.layer.shadowRadius = 2
-        view.layer.shadowOpacity = 0.2
+        view.layer.shadowOffset = CGSize(width: Constants.shadowOffsetWidth, height: Constants.shadowOffsetHeight)
+        view.layer.shadowRadius = Constants.layerShadowRadius
+        view.layer.shadowOpacity = Constants.layerShadowOpacity
         
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -65,13 +83,13 @@ final class ProfileViewController: UIViewController {
     private lazy var emailView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
-        view.layer.cornerRadius = 30
+        view.layer.cornerRadius = Constants.layerCornerRadius
         
         view.layer.shadowColor = UIColor.gray.cgColor
         view.layer.masksToBounds = false
-        view.layer.shadowOffset = CGSize(width: 0, height: 5)
-        view.layer.shadowRadius = 2
-        view.layer.shadowOpacity = 0.2
+        view.layer.shadowOffset = CGSize(width: Constants.shadowOffsetWidth, height: Constants.shadowOffsetHeight)
+        view.layer.shadowRadius = Constants.layerShadowRadius
+        view.layer.shadowOpacity = Constants.layerShadowOpacity
         
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -85,16 +103,7 @@ final class ProfileViewController: UIViewController {
         return label
     }()
     
-    private var signOutButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(L10n.signOut, for: .normal)
-        button.tintColor = ColorName.white.color
-        button.backgroundColor = ColorName.mainPurple.color
-        button.titleLabel?.font = FontFamily.Inter.medium.font(size: 22)
-        button.layer.cornerRadius = 33
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    var signOutButton = CustomButton()
     
     private func addTargets() {
         signOutButton.addTarget(self, action: #selector(didTapSignOut), for: .touchUpInside)
@@ -112,7 +121,7 @@ final class ProfileViewController: UIViewController {
     
     private func setupTitle() {
           let title = UILabel()
-          title.text = "Профиль"
+        title.text = L10n.profile
           title.font = FontFamily.Inter.medium.font(size: 22)
           navigationItem.titleView = title
       }
@@ -120,6 +129,8 @@ final class ProfileViewController: UIViewController {
     func setupViews() {
         view.backgroundColor = ColorName.white.color
         view.addSubviews(signOutButton, emailView, emailLabel, nameView, nameLabel, userNameLabel, userEmailLabel)
+        signOutButton.setTitle(L10n.signOut, for: .normal)
+        signOutButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
     override func viewDidLoad() {
@@ -137,38 +148,38 @@ extension ProfileViewController: ProfileViewInput {
 extension ProfileViewController {
     func setConstraints() {
         NSLayoutConstraint.activate([
-            userNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25),
-            userNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -45),
-            userNameLabel.heightAnchor.constraint(equalToConstant: 40),
+            userNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.userLableTop),
+            userNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.labelTrailing),
+            userNameLabel.heightAnchor.constraint(equalToConstant: Constants.userLabelHeight),
             
-            userEmailLabel.topAnchor.constraint(equalTo: userNameLabel.topAnchor, constant: 70),
-            userEmailLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -45),
-            userEmailLabel.heightAnchor.constraint(equalToConstant: 40),
+            userEmailLabel.topAnchor.constraint(equalTo: userNameLabel.topAnchor, constant: Constants.emailTop),
+            userEmailLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.labelTrailing),
+            userEmailLabel.heightAnchor.constraint(equalToConstant: Constants.userLabelHeight),
                         
-            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
-            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            nameLabel.heightAnchor.constraint(equalToConstant: 56),
+            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.nameTop),
+            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.labelLeading),
+            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.viewTrailing),
+            nameLabel.heightAnchor.constraint(equalToConstant: Constants.labelHeight),
             
-            nameView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            nameView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            nameView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            nameView.heightAnchor.constraint(equalToConstant: 56),
+            nameView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Constants.nameTop),
+            nameView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.viewLeading),
+            nameView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.viewTrailing),
+            nameView.heightAnchor.constraint(equalToConstant: Constants.labelHeight),
             
-            emailLabel.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 70),
-            emailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
-            emailLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            emailLabel.heightAnchor.constraint(equalToConstant: 56),
+            emailLabel.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: Constants.emailTop),
+            emailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.labelLeading),
+            emailLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.viewTrailing),
+            emailLabel.heightAnchor.constraint(equalToConstant: Constants.labelHeight),
             
-            emailView.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: 70),
-            emailView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            emailView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            emailView.heightAnchor.constraint(equalToConstant: 56),
+            emailView.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: Constants.emailTop),
+            emailView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.viewLeading),
+            emailView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.viewTrailing),
+            emailView.heightAnchor.constraint(equalToConstant: Constants.labelHeight),
             
-            signOutButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
-            signOutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            signOutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            signOutButton.heightAnchor.constraint(equalToConstant: 65)
+            signOutButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: Constants.buttonBottom),
+            signOutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.viewLeading),
+            signOutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.viewTrailing),
+            signOutButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
         ])
     }
 }

@@ -12,6 +12,7 @@ final class ClothesCreateInteractor: CreateLookServiceOutput {
     }
     
     func success() {
+        output?.finishCreatingCloth()
     }
     
     weak var output: ClothesCreateInteractorOutput?

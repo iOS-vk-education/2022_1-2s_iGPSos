@@ -41,7 +41,7 @@ class MeetingViewController: UIViewController {
         textField.layer.shadowOffset = CGSize(width: 0, height: 5)
         textField.layer.shadowRadius = 2
         textField.layer.shadowOpacity = 0.2
-        
+
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()

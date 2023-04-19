@@ -89,17 +89,7 @@ class CreateAccountViewController: UIViewController {
         return textField
     }()
     
-    private var createAccountButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle(L10n.createAccount, for: .normal)
-        button.tintColor = .white
-        button.backgroundColor = ColorName.mainPurple.color
-        button.titleLabel?.font = FontFamily.Inter.medium.font(size: 22)
-        button.layer.cornerRadius = 30
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.isEnabled = false
-        return button
-    }()
+    var createAccountButton = CustomButton()
     
     private var alreadySignUpButton: UIButton = {
         let button = UIButton(type: .system)
@@ -195,6 +185,8 @@ class CreateAccountViewController: UIViewController {
         view.backgroundColor = ColorName.white.color
         view.addSubviews(titleLabel, imageView, nameTextField, emailTextField, passwordTextField, createAccountButton, alreadySignUpButton)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+        createAccountButton.setTitle(L10n.createAccount, for: .normal)
+        createAccountButton.translatesAutoresizingMaskIntoConstraints = false
     }
 }
 

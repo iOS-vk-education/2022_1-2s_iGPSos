@@ -9,15 +9,21 @@
 import UIKit
 
 final class CreateLookViewController: UIViewController {
-	private let output: CreateLookViewOutput
+    private let output: CreateLookViewOutput
+    
     private lazy var lookNameTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = L10n.clothesName
-        var bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: 25, width: view.frame.width - 40, height: 1.0)
-        bottomLine.backgroundColor = UIColor.lightGray.cgColor
-        textField.borderStyle = .none
-        textField.layer.addSublayer(bottomLine)
+        textField.backgroundColor = .white
+        textField.layer.cornerRadius = 30
+        textField.placeholder = L10n.title
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 60))
+        textField.leftViewMode = .always
+    
+        textField.layer.shadowColor = UIColor.gray.cgColor
+        textField.layer.shadowOffset = CGSize(width: 0, height: 5)
+        textField.layer.shadowRadius = 2
+        textField.layer.shadowOpacity = 0.2
+        
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -43,13 +49,13 @@ final class CreateLookViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         tabBarController?.tabBar.isHidden = true
         setupTitle()
         setupViews()
         output.viewDidLoad()
-	}
+    }
     
     private func setupTitle() {
         let title = UILabel()
@@ -79,10 +85,10 @@ final class CreateLookViewController: UIViewController {
             .top(view.safeAreaInsets)
             .marginTop(20)
             .horizontally(20)
-            .height(20)
+            .height(56)
         tableView.pin
             .below(of: lookNameTextField)
-            .marginTop(10)
+            .marginTop(15)
             .horizontally()
             .bottom()
     }

@@ -12,9 +12,7 @@ final class ClothesCreateRouter {
 }
 
 extension ClothesCreateRouter: ClothesCreateRouterInput {
-    func goToMainScreen() {
-        let vc = MainTabBarController.init(tabBarModel: TabBarModelImpl())
-        vc.modalPresentationStyle = .fullScreen
-        viewController?.present(vc, animated: true, completion: nil)
+    func closeVC() {
+        viewController?.navigationController?.popViewController(animated: true)
     }
 }
