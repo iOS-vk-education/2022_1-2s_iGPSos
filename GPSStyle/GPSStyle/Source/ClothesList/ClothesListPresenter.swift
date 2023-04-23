@@ -14,7 +14,7 @@ final class ClothesListPresenter {
     
     private let router: ClothesListRouterInput
     private let interactor: ClothesListInteractorInput
-    private var data: [ClothingModel] = []
+    private var data: [ClothesSection] = []
     
     init(router: ClothesListRouterInput, interactor: ClothesListInteractorInput) {
         self.router = router
@@ -27,12 +27,12 @@ extension ClothesListPresenter: ClothesListModuleInput {
 
 extension ClothesListPresenter: ClothesListViewOutput {
     func getCloth(index: Int) -> ClothingModel {
-        data[index]
+        return ClothingModel.init(uuid: "", name: "", imageName: "", specification: SpecificationModel.init(brand: "", category: "", size: "")) //data[index].rows
     }
     
     func removeCloth(for ind: Int) {
-        interactor.deleteClthClothing(for: data[ind])
-        data.remove(at: ind)
+//        interactor.deleteClthClothing(for: data[ind])
+//        data.remove(at: ind)
     }
     
     var countList: Int {
@@ -49,7 +49,7 @@ extension ClothesListPresenter: ClothesListViewOutput {
 }
 
 extension ClothesListPresenter: ClothesListInteractorOutput {
-    func clothDidLoad(with array: [ClothingModel]) {
+    func clothDidLoad(with array: [ClothesSection]) {
         data = array
         view?.reloadData()
     }

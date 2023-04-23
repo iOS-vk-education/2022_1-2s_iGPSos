@@ -15,7 +15,7 @@ final class ClothesCreateContainer {
     class func assemble(with context: ClothesCreateContext) -> ClothesCreateContainer {
         let router = ClothesCreateRouter()
         let interactor = ClothesCreateInteractor()
-        let presenter = ClothesCreatePresenter(router: router, interactor: interactor)
+        let presenter = ClothesCreatePresenter(item: context.clothesRow, router: router, interactor: interactor)
         let viewController = ClothesCreateViewController(output: presenter)
         router.viewController = viewController
         
@@ -36,4 +36,6 @@ final class ClothesCreateContainer {
 
 struct ClothesCreateContext {
     weak var moduleOutput: ClothesCreateModuleOutput?
+    let clothesRow: ClothesRow?
+    // let state: StateOn (title Red / Create)
 }

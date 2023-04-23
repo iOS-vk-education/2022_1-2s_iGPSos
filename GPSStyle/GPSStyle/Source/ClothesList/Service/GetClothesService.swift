@@ -14,7 +14,7 @@ protocol GetClothesServiceInput: AnyObject {
 
 protocol GetClothesServiceOutput: AnyObject {
     func faild()
-    func success(with array: [ClothingModel])
+    func success(with array: [ClothesSection])
 }
 
 final class GetClothesService {
@@ -42,14 +42,37 @@ extension GetClothesService: GetClothesServiceInput {
             
             let clothes = documents.map { snapshot -> ClothingModel in
                 let data = snapshot.data()
+                let dataSpectification = data["specification"] as? [String: String] ?? [:]
+                let specification = SpecificationModel.init(brand: dataSpectification["brand"] ?? "",
+                                                            category: dataSpectification["category"] ?? "",
+                                                            size: dataSpectification["size"] ?? "")
                 return ClothingModel(
                     uuid: data["uuid"] as? String ?? "",
                     name: data["name"] as? String ?? "",
                     imageName: data["imageName"] as? String ?? "",
-                    specification: data["specification"] as? [String: String] ?? [:]
+                    specification: specification
                 )
             }.compactMap { $0 }
-            self?.output?.success(with: clothes)
+            
+            let categoryModels: [ClothingModel] = clothes.sorted { $0.specification.category < $1.specification.category }
+            let allCategories: [String] = categoryModels.map { $0.specification.category }
+            let categories: [String] = Array(Set(allCategories))
+            
+            let clothesSections: [ClothesSection] = categories.compactMap { item in
+                var clothesRows: [ClothesRow] = []
+                let _ = categoryModels.map {
+                    if item == $0.specification.category {
+                        let row = ClothesRow.init(id: $0.uuid,
+                                                  title: $0.name,
+                                                  imageUrl: $0.imageName,
+                                                  isWarning: false,
+                                                  specification: $0.specification)
+                        clothesRows.append(row)
+                    }
+                }
+                return ClothesSection.init(title: item, rows: clothesRows)
+            }
+            self?.output?.success(with: clothesSections)
         }
     }
     
@@ -71,7 +94,9 @@ extension GetClothesService: GetClothesServiceInput {
                     uuid: data["uuid"] as? String ?? "",
                     name: data["name"] as? String ?? "",
                     imageName: data["imageName"] as? String ?? "",
-                    specification: data["specification"] as? [String: String] ?? [:]
+                    specification: data["specification"] as? SpecificationModel ?? SpecificationModel.init(brand: "",
+                                                                                                            category: "",
+                                                                                                            size: "")
                 )
             }.compactMap { $0 }
             

@@ -117,6 +117,7 @@
 		F5796E2729579D6F00E43877 /* ClothesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5796E2629579D6F00E43877 /* ClothesModel.swift */; };
 		F57E4ED32915172300EABA0C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F57E4ED22915172300EABA0C /* GoogleService-Info.plist */; };
 		F5891D5729DB26B8002FDC69 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5891D5629DB26B8002FDC69 /* UIImage+Extension.swift */; };
+		F59A19FB29F284F00034B2A3 /* ClothesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59A19FA29F284F00034B2A3 /* ClothesSection.swift */; };
 		F5F346582953A43B00525E4B /* ClothesCreatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F346572953A43B00525E4B /* ClothesCreatePickerView.swift */; };
 		FF78E4077B047D1F1CDDE758 /* Pods_GPSStyle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597083DB7F5242C54CE63840 /* Pods_GPSStyle.framework */; };
 /* End PBXBuildFile section */
@@ -260,6 +261,7 @@
 		F5796E2629579D6F00E43877 /* ClothesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesModel.swift; sourceTree = "<group>"; };
 		F57E4ED22915172300EABA0C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F5891D5629DB26B8002FDC69 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		F59A19FA29F284F00034B2A3 /* ClothesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesSection.swift; sourceTree = "<group>"; };
 		F5A0EE0A8EC53A9E64D5221C /* Pods-GPSStyle-GPSStyleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; path = "Target Support Files/Pods-GPSStyle-GPSStyleUITests/Pods-GPSStyle-GPSStyleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F5F346572953A43B00525E4B /* ClothesCreatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesCreatePickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -400,6 +402,7 @@
 		702F8C7A29044E69006B4DF1 /* ClothesList */ = {
 			isa = PBXGroup;
 			children = (
+				F59A19F929F284DE0034B2A3 /* Entity */,
 				F5796E2129579D2D00E43877 /* Service */,
 				F5796E2029579D1200E43877 /* SubView */,
 				702F8C7B29044E97006B4DF1 /* ClothesListPresenter.swift */,
@@ -805,6 +808,14 @@
 			path = UIImage;
 			sourceTree = "<group>";
 		};
+		F59A19F929F284DE0034B2A3 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				F59A19FA29F284F00034B2A3 /* ClothesSection.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		F5F346562953A42600525E4B /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1169,6 +1180,7 @@
 				702F8C6929043CA7006B4DF1 /* TabBarModel.swift in Sources */,
 				70BB4B332944F6380079170B /* ClothesLookCreate.swift in Sources */,
 				F5796E1F2957666400E43877 /* CreateClothesService.swift in Sources */,
+				F59A19FB29F284F00034B2A3 /* ClothesSection.swift in Sources */,
 				702F8C8429044E97006B4DF1 /* ClothesListProtocols.swift in Sources */,
 				70BB4B3E295652270079170B /* LookTableViewCell.swift in Sources */,
 				DCA223162919937E005D71C8 /* WelcomeViewController.swift in Sources */,
@@ -1381,7 +1393,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7TDDB7J597;
+				DEVELOPMENT_TEAM = V89L9C89Q6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GPSStyle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1410,7 +1422,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7TDDB7J597;
+				DEVELOPMENT_TEAM = V89L9C89Q6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GPSStyle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

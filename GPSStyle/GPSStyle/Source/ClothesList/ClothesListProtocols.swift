@@ -34,7 +34,7 @@ protocol ClothesListInteractorInput: AnyObject {
 }
 
 protocol ClothesListInteractorOutput: AnyObject {
-    func clothDidLoad(with array: [ClothingModel])
+    func clothDidLoad(with array: [ClothesSection])
 }
 
 protocol ClothesListRouterInput: AnyObject {

@@ -33,7 +33,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
     private let output: ClothesCreateViewOutput
     private var supportConstraint: NSLayoutConstraint?
     private var checkTheWeather: Bool = false
-    private var specification: [String: String] = [:]
+    private var specification: SpecificationModel?
     
     private var pickerUnitClothesBrand = UnitClothesType(name: L10n.brand,
                                                          variants: clothesBrand,
@@ -183,6 +183,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         setConstraints()
         addTargets()
         setupPickersViews()
+        output.didLoadView()
     }
     
     func setupViews() {
@@ -247,19 +248,30 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         case TypeName.brand:
             clothingBrandLabel.text = model.selectedValue
             clothingBrandLabel.textColor = .black
-            specification[L10n.brand] = model.selectedValue
+            if let value = model.selectedValue {
+                specification?.brand = value
+            }
             pickerUnitClothesBrand = model
         case TypeName.category:
             clothingColorCategoryLabel.text = model.selectedValue
             clothingColorCategoryLabel.textColor = .black
-            specification[L10n.category] = model.selectedValue
+            if let value = model.selectedValue {
+                specification?.category = value
+            }
             pickerUnitClothesCategory = model
         case TypeName.size:
             clothingSizeLabel.text = model.selectedValue
             clothingSizeLabel.textColor = .black
-            specification[L10n.size] = model.selectedValue
+            if let value = model.selectedValue {
+                specification?.size = value
+            }
             pickerUnitClothesSize = model
         }
+    }
+    
+    func configure(with model: ClothesRow?) {
+        title = "OK"
+        // configure
     }
     
     @objc
@@ -288,6 +300,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         else {
             return
         }
+        let specification = SpecificationModel(brand: brand, category: category, size: size)
         output.didTapCreateClothes(model: ClothesModel(title: name,
                                                        image: image,
                                                        checkWeather: checkTheWeather,
@@ -374,7 +387,7 @@ extension ClothesCreateViewController {
     
     private func updateConstraints() {
         supportConstraint?.isActive = false
-        supportConstraint = clothesImageView.image == nil ?
+        supportConstraint = clothesImageView.backgroundColor == nil ?
         selectPhotoButton.topAnchor.constraint(equalTo: clothingNameTextField.bottomAnchor, constant: Constants.elementsTop) :
         selectPhotoButton.topAnchor.constraint(equalTo: clothesImageView.bottomAnchor, constant: Constants.elementsTop)
         supportConstraint?.isActive = true
@@ -442,9 +455,11 @@ extension ClothesCreateViewController: UIImagePickerControllerDelegate, UINaviga
         guard let selectedImage = info[.editedImage] as? UIImage else {
             return
         }
+        // в отдлельном
         let resizeSelectedImage: UIImage = selectedImage.resize()
         let imageWithoutBackground: UIImage? = resizeSelectedImage.removeBackgroudIfPosible(width: 320, height: 320)
-        self.clothesImageView.image = imageWithoutBackground
+        // в отдлельном
+        //self.clothesImageView.image = imageWithoutBackground
         if clothesImageView.image != nil {
             selectPhotoButton.setTitle(L10n.changePhoto, for: .normal)
         } else {
