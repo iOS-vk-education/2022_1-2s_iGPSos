@@ -169,12 +169,26 @@ extension LooksListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .normal, title: "") { [weak self] (_, _, _) in
-            self?.output.removeLook(for: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            print("del")
+            DispatchQueue.main.async {
+                self?.showDeleteWarningLook(for: indexPath)
+            }
         }
         deleteAction.backgroundColor = .white
         deleteAction.image = UIImage(named: "delete")
         return UISwipeActionsConfiguration(actions: [deleteAction])
         }
+    
+    func showDeleteWarningLook(for indexPath: IndexPath) {
+        let alert = UIAlertController(title: "", message: "Вы уверены, что хотите удалить элемент?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Назад", style: .default, handler: nil)
+        let deleteAction = UIAlertAction(title: "Удалить", style: .destructive) { _ in
+            DispatchQueue.main.async { [self] in
+                self.output.removeLook(for: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
+        present(alert, animated: true, completion: nil)
+    }
 }
