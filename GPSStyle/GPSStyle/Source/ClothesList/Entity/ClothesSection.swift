@@ -20,7 +20,7 @@ struct ClothesRow: Hashable {
     let specification: SpecificationModel
     
     var stringSpecification: String {
-        return "Размер:  \(specification.size) Брэнд: \(specification.brand)"
+        return "Размер: \(specification.size)  Брэнд: \(specification.brand)"
     }
 }
 

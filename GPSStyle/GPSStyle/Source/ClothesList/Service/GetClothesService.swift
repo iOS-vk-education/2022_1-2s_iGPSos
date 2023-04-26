@@ -60,7 +60,7 @@ extension GetClothesService: GetClothesServiceInput {
             
             let clothesSections: [ClothesSection] = categories.compactMap { item in
                 var clothesRows: [ClothesRow] = []
-                let _ = categoryModels.map {
+                _ = categoryModels.map {
                     if item == $0.specification.category {
                         let row = ClothesRow.init(id: $0.uuid,
                                                   title: $0.name,
@@ -88,7 +88,7 @@ extension GetClothesService: GetClothesServiceInput {
                 return
             }
             
-            let clothes = documents.map { snapshot -> ClothingModel in
+            _ = documents.map { snapshot -> ClothingModel in
                 let data = snapshot.data()
                 return ClothingModel(
                     uuid: data["uuid"] as? String ?? "",

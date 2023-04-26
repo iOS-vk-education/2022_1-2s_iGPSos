@@ -387,7 +387,7 @@ extension ClothesCreateViewController {
     
     private func updateConstraints() {
         supportConstraint?.isActive = false
-        supportConstraint = clothesImageView.backgroundColor == nil ?
+        supportConstraint = clothesImageView.image == nil ?
         selectPhotoButton.topAnchor.constraint(equalTo: clothingNameTextField.bottomAnchor, constant: Constants.elementsTop) :
         selectPhotoButton.topAnchor.constraint(equalTo: clothesImageView.bottomAnchor, constant: Constants.elementsTop)
         supportConstraint?.isActive = true
@@ -459,7 +459,7 @@ extension ClothesCreateViewController: UIImagePickerControllerDelegate, UINaviga
         let resizeSelectedImage: UIImage = selectedImage.resize()
         let imageWithoutBackground: UIImage? = resizeSelectedImage.removeBackgroudIfPosible(width: 320, height: 320)
         // в отдлельном
-        //self.clothesImageView.image = imageWithoutBackground
+        self.clothesImageView.image = imageWithoutBackground
         if clothesImageView.image != nil {
             selectPhotoButton.setTitle(L10n.changePhoto, for: .normal)
         } else {
