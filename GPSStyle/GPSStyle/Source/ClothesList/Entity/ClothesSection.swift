@@ -21,10 +21,6 @@ struct ClothesRow: Hashable {
     
     var stringSpecification: String {
         return "Размер:  \(specification.size) Брэнд: \(specification.brand)"
-        
-//        specification.reduce("", { partialResult, specification in
-//            partialResult + specification.type + ": " + specification.value + " "
-//        })
     }
 }
 

@@ -95,8 +95,8 @@ extension GetClothesService: GetClothesServiceInput {
                     name: data["name"] as? String ?? "",
                     imageName: data["imageName"] as? String ?? "",
                     specification: data["specification"] as? SpecificationModel ?? SpecificationModel.init(brand: "",
-                                                                                                            category: "",
-                                                                                                            size: "")
+                                                                                                           category: "",
+                                                                                                           size: "")
                 )
             }.compactMap { $0 }
             

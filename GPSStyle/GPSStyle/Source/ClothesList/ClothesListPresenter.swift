@@ -27,7 +27,12 @@ extension ClothesListPresenter: ClothesListModuleInput {
 
 extension ClothesListPresenter: ClothesListViewOutput {
     func getCloth(index: Int) -> ClothingModel {
-        return ClothingModel.init(uuid: "", name: "", imageName: "", specification: SpecificationModel.init(brand: "", category: "", size: "")) //data[index].rows
+        return ClothingModel.init(uuid: "",
+                                  name: "",
+                                  imageName: "",
+                                  specification: SpecificationModel.init(brand: "",
+                                                                         category: "",
+                                                                         size: "")) //data[index].rows
     }
     
     func removeCloth(for ind: Int) {
@@ -37,6 +42,10 @@ extension ClothesListPresenter: ClothesListViewOutput {
     
     var countList: Int {
         data.count
+    }
+    
+    var getSections: [ClothesSection] {
+        return data
     }
     
     func viewWillAppear() {

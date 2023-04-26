@@ -95,10 +95,18 @@ extension ClothesListViewController: UITableViewDelegate {
 }
 
 extension ClothesListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        output.countList
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        output.getSections[section].title
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        output.countList
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        output.getSections[section].rows.count
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: ClothesTableViewCell.cellReuseIdentifier,
@@ -106,7 +114,7 @@ extension ClothesListViewController: UITableViewDataSource {
         ) as? ClothesTableViewCell else {
             return UITableViewCell()
         }
-        cell.configure(model: output.getCloth(index: indexPath.row))
+        cell.configure(model: output.getSections[indexPath.section].rows[indexPath.row])
         return cell
     }
     

@@ -51,8 +51,8 @@ class ClothesTableViewCell: UITableViewCell {
         imageClothesView.image = nil
     }
 
-    func configure(model: ClothingModel) {
-        ImageLoader.shared.image(hash: model.hashValue, with: model.imageName) { [weak self] hash, image  in
+    func configure(model: ClothesRow) {
+        ImageLoader.shared.image(hash: model.hashValue, with: model.imageUrl) { [weak self] hash, image  in
             guard model.hashValue == hash else {
                 return
             }
@@ -60,7 +60,7 @@ class ClothesTableViewCell: UITableViewCell {
                 self?.imageClothesView.image = image
             }
         }
-        title.text = model.name
+        title.text = model.title
         setNeedsLayout()
     }
 
