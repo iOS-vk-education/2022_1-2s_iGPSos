@@ -32,7 +32,7 @@ extension ClothesListPresenter: ClothesListViewOutput {
                                   imageName: "",
                                   specification: SpecificationModel.init(brand: "",
                                                                          category: "",
-                                                                         size: "")) //data[index].rows
+                                                                         size: ""))
     }
     
     func removeCloth(for ind: Int) {

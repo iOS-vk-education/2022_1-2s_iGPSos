@@ -26,7 +26,7 @@ protocol ClothesListViewOutput: AnyObject {
     func getCloth(index: Int) -> ClothingModel
     func removeCloth(for ind: Int)
     var countList: Int { get }
-    var getSections: [ClothesSection] { get }  // ?
+    var getSections: [ClothesSection] { get }
 }
 
 protocol ClothesListInteractorInput: AnyObject {

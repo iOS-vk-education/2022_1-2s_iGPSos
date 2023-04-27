@@ -54,13 +54,12 @@ extension GetClothesService: GetClothesServiceInput {
                 )
             }.compactMap { $0 }
             
-            let categoryModels: [ClothingModel] = clothes.sorted { $0.specification.category < $1.specification.category }
-            let allCategories: [String] = categoryModels.map { $0.specification.category }
-            let categories: [String] = Array(Set(allCategories))
+            let allCategories: [String] = clothes.map { $0.specification.category }
+            let categories: [String] = Array(Set(allCategories)).sorted { $0 < $1 }
             
             let clothesSections: [ClothesSection] = categories.compactMap { item in
                 var clothesRows: [ClothesRow] = []
-                _ = categoryModels.map {
+                _ = clothes.map {
                     if item == $0.specification.category {
                         let row = ClothesRow.init(id: $0.uuid,
                                                   title: $0.name,
@@ -100,7 +99,7 @@ extension GetClothesService: GetClothesServiceInput {
                 )
             }.compactMap { $0 }
             
-            for clothes in querySnapshot!.documents {
+            for clothes in documents {
                 clothes.reference.delete { err in
                     if let err = err {
                         print("Error removing document: \(err)")
