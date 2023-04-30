@@ -24,6 +24,7 @@ class ClothesTableViewCell: UITableViewCell {
     static let cellReuseIdentifier = "ClothesTableViewCell"
     private let imageClothesView = UIImageView()
     private let title = VerticalAlignLabel()
+    private let subTitle = VerticalAlignLabel()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -51,8 +52,8 @@ class ClothesTableViewCell: UITableViewCell {
         imageClothesView.image = nil
     }
 
-    func configure(model: ClothingModel) {
-        ImageLoader.shared.image(hash: model.hashValue, with: model.imageName) { [weak self] hash, image  in
+    func configure(model: ClothesRow) {
+        ImageLoader.shared.image(hash: model.hashValue, with: model.imageUrl) { [weak self] hash, image  in
             guard model.hashValue == hash else {
                 return
             }
@@ -60,7 +61,8 @@ class ClothesTableViewCell: UITableViewCell {
                 self?.imageClothesView.image = image
             }
         }
-        title.text = model.name
+        title.text = model.title
+        subTitle.text = model.stringSpecification
         setNeedsLayout()
     }
 
@@ -75,20 +77,28 @@ class ClothesTableViewCell: UITableViewCell {
             .marginLeft(Constants.labelLeftMargin)
             .right()
             .top()
-            .bottom()
+            .height(Constants.labelHeightPercent%)
+        subTitle.pin
+            .right(of: imageClothesView)
+            .marginLeft(Constants.labelLeftMargin)
+            .right()
+            .below(of: title)
+            .height(Constants.labelHeightPercent%)
+            .marginTop(Constants.labelmarginTopPercent%)
     }
     
     private func setup() {
         separatorInset = .zero
         accessoryType = .disclosureIndicator
     
-        contentView.addSubviews(imageClothesView, title)
-        title.verticalAlignment = .middle
+        contentView.addSubviews(imageClothesView, title, subTitle)
+        title.verticalAlignment = .bottom
         title.font = FontFamily.Inter.regular.font(size: 14)
+        subTitle.font = FontFamily.Inter.regular.font(size: 14)
+        subTitle.textColor = ColorName.darkGrey.color
         
         imageClothesView.addOverlay()
         imageClothesView.layer.cornerRadius = Constants.imageCornerRadius
         imageClothesView.layer.masksToBounds = true
-        imageClothesView.contentMode = .scaleAspectFit
     }
 }

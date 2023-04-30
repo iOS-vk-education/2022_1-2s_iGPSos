@@ -16,9 +16,11 @@ protocol ClothesCreateModuleOutput: AnyObject {
 }
 
 protocol ClothesCreateViewInput: AnyObject {
+    func configure(with model: ClothesRow?)
 }
 
 protocol ClothesCreateViewOutput: AnyObject {
+    func didLoadView()
     func didTapCreateClothes(model: ClothesModel)
 }
 
@@ -38,5 +40,5 @@ struct ClothesModel {
     let title: String
     let image: UIImage
     let checkWeather: Bool
-    let specification: [String: String]
+    let specification: SpecificationModel
 }

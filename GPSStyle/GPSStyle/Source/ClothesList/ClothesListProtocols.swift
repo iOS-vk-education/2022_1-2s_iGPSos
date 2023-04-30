@@ -26,6 +26,7 @@ protocol ClothesListViewOutput: AnyObject {
     func getCloth(index: Int) -> ClothingModel
     func removeCloth(for ind: Int)
     var countList: Int { get }
+    var getSections: [ClothesSection] { get }
 }
 
 protocol ClothesListInteractorInput: AnyObject {
@@ -34,7 +35,7 @@ protocol ClothesListInteractorInput: AnyObject {
 }
 
 protocol ClothesListInteractorOutput: AnyObject {
-    func clothDidLoad(with array: [ClothingModel])
+    func clothDidLoad(with array: [ClothesSection])
 }
 
 protocol ClothesListRouterInput: AnyObject {
