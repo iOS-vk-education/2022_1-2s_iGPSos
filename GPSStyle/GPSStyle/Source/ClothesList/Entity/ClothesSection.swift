@@ -29,3 +29,8 @@ struct SpecificationModel: Hashable {
     var category: String
     var size: String
 }
+
+struct ClothesSectionPresenter {
+    var title: String
+    var clothers: [ClothesRow]
+}

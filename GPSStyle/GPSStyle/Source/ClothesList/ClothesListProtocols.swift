@@ -24,9 +24,14 @@ protocol ClothesListViewOutput: AnyObject {
     func addButtonDidTap()
     func viewWillAppear()
     func getCloth(index: Int) -> ClothingModel
-    func removeCloth(for ind: Int)
     var countList: Int { get }
     var getSections: [ClothesSection] { get }
+    
+    func getSectionCount() -> Int
+    func getCellCount(in section: Int) -> Int
+    func getTitle(for section: Int) -> String
+    func getCell(at index: IndexPath) -> ClothesRow
+    func removeCell(at index: IndexPath)
 }
 
 protocol ClothesListInteractorInput: AnyObject {
