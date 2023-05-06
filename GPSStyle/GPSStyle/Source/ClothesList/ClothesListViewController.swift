@@ -96,15 +96,15 @@ extension ClothesListViewController: UITableViewDelegate {
 
 extension ClothesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        output.getSections[section].title
+        output.getTitle(for: section)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        output.countList
+        output.getSectionCount()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        output.getSections[section].rows.count
+        output.getCellCount(in: section)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -114,7 +114,7 @@ extension ClothesListViewController: UITableViewDataSource {
         ) as? ClothesTableViewCell else {
             return UITableViewCell()
         }
-        cell.configure(model: output.getSections[indexPath.section].rows[indexPath.row])
+        cell.configure(model: output.getCell(at: indexPath))
         return cell
     }
     
@@ -138,8 +138,8 @@ extension ClothesListViewController: UITableViewDataSource {
         let cancelAction = UIAlertAction(title: "Назад", style: .default, handler: nil)
         let deleteAction = UIAlertAction(title: "Удалить", style: .destructive) { _ in
             DispatchQueue.main.async { [self] in
-                self.output.removeCloth(for: indexPath.row)
-                self.tableView.deleteRows(at: [indexPath], with: .fade)
+                self.output.removeCell(at: indexPath)
+                self.tableView.reloadData()
             }
         }
         alert.addAction(cancelAction)
