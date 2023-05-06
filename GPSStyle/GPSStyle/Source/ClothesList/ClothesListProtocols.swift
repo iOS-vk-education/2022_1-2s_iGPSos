@@ -26,6 +26,7 @@ protocol ClothesListViewOutput: AnyObject {
     func getCloth(index: Int) -> ClothingModel
     var countList: Int { get }
     var getSections: [ClothesSection] { get }
+    func clothDidTap(with index: IndexPath)
     
     func getSectionCount() -> Int
     func getCellCount(in section: Int) -> Int
@@ -45,4 +46,5 @@ protocol ClothesListInteractorOutput: AnyObject {
 
 protocol ClothesListRouterInput: AnyObject {
     func goToAddClothesScreen()
+    func goToAboutCloth(presenter: ClothesListModuleInput)
 }

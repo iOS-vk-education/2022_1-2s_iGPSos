@@ -91,6 +91,11 @@ extension ClothesListPresenter: ClothesListViewOutput {
         
         interactor.deleteClthClothing(for: clothModel)
     }
+    
+    func clothDidTap(with index: IndexPath) {
+        // [art] Open new screen view cloth
+        router.goToAboutCloth(presenter: self)
+    }
 }
 
 extension ClothesListPresenter: ClothesListInteractorOutput {
