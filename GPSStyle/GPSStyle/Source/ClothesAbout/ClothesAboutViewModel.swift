@@ -7,6 +7,5 @@
 
 import Foundation
 
-final class ClothesAboutViewModel: ObservableObject {
-    
+final class ClothesAboutViewModel: ObservableObject {    
 }
