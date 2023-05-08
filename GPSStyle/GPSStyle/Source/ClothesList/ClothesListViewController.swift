@@ -96,11 +96,9 @@ final class ClothesListViewController: UIViewController {
 
 extension ClothesListViewController: ClothesListViewInput {
     func showNoResult() {
-        
     }
     
     func hideNoResult() {
-        
     }
     
     func reloadData() {

@@ -20,7 +20,6 @@ final class ClothesListPresenter {
     private var searchTable: [ClothesSectionSearch] = []
     private var lastSearchText: String?
     
-    
     init(router: ClothesListRouterInput, interactor: ClothesListInteractorInput) {
         self.router = router
         self.interactor = interactor
@@ -39,16 +38,6 @@ extension ClothesListPresenter: ClothesListModuleInput {
 }
 
 extension ClothesListPresenter: ClothesListViewOutput {
-    
-//    func getCloth(index: Int) -> ClothingModel {
-//        return ClothingModel.init(uuid: "",
-//                                  name: "",
-//                                  imageName: "",
-//                                  specification: SpecificationModel.init(brand: "",
-//                                                                         category: "",
-//                                                                         size: ""))
-//    }
-    
     func viewWillAppear() {
         interactor.fetchClothing()
     }
