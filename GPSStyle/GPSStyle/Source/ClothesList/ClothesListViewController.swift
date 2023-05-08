@@ -18,6 +18,7 @@ final class ClothesListViewController: UIViewController {
     }
     private let addButton = UIButton()
     private let tableView = UITableView()
+    private let searchController = UISearchController()
     
     init(output: ClothesListViewOutput) {
         self.output = output
@@ -36,6 +37,9 @@ final class ClothesListViewController: UIViewController {
         setupTitle()
         setupTableView()
         setupButton()
+        setupSearchController()
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +78,14 @@ final class ClothesListViewController: UIViewController {
         title.text = L10n.cloth
         title.font = FontFamily.Inter.medium.font(size: 22)
         navigationItem.titleView = title
+    }
+    
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Поиск..."
+
+        definesPresentationContext = true
     }
     
     @objc
@@ -145,5 +157,17 @@ extension ClothesListViewController: UITableViewDataSource {
         alert.addAction(cancelAction)
         alert.addAction(deleteAction)
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension ClothesListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let text = searchController.searchBar.text {
+            if text.isEmpty {
+
+            } else {
+               
+            }
+        }
     }
 }
