@@ -9,7 +9,7 @@ import Foundation
 
 struct ClothesSection {
     let title: String
-    let rows: [ClothesRow]
+    var rows: [ClothesRow]
 }
 
 struct ClothesRow: Hashable {
@@ -30,7 +30,9 @@ struct SpecificationModel: Hashable {
     var size: String
 }
 
-struct ClothesSectionPresenter {
+struct ClothesSectionSearch: Hashable {
     var title: String
     var clothers: [ClothesRow]
+    var sectionIndex: Int
+    var clothersIndex: [Int]
 }

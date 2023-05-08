@@ -95,6 +95,14 @@ final class ClothesListViewController: UIViewController {
 }
 
 extension ClothesListViewController: ClothesListViewInput {
+    func showNoResult() {
+        
+    }
+    
+    func hideNoResult() {
+        
+    }
+    
     func reloadData() {
         tableView.reloadData()
     }
@@ -162,12 +170,12 @@ extension ClothesListViewController: UITableViewDataSource {
 
 extension ClothesListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
+        if searchController.isActive == false {
+            output.endSearch()
+        }
+        
         if let text = searchController.searchBar.text {
-            if text.isEmpty {
-
-            } else {
-               
-            }
+            output.updateSearchResult(text: text)
         }
     }
 }
