@@ -90,7 +90,7 @@ extension ClothesListViewController: ClothesListViewInput {
 
 extension ClothesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       // output.clothDidTap(with: indexPath)
+        output.clothDidTap(with: indexPath)
     }
 }
 

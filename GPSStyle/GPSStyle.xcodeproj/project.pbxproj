@@ -95,6 +95,8 @@
 		89932F13968B2A87E80E9302 /* Pods_GPSStyle_GPSStyleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3858B91C85D7255540DBEDC /* Pods_GPSStyle_GPSStyleUITests.framework */; };
 		DC0C2D6E291BE1F800702D09 /* AuthenticationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C2D6D291BE1F800702D09 /* AuthenticationModel.swift */; };
 		DC0C2D70291BED7700702D09 /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0C2D6F291BED7700702D09 /* AuthUser.swift */; };
+		DC0FE4012A06C7C500663FA8 /* ClothesAboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0FE4002A06C7C500663FA8 /* ClothesAboutView.swift */; };
+		DC0FE4032A06C7E400663FA8 /* ClothesAboutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0FE4022A06C7E400663FA8 /* ClothesAboutViewModel.swift */; };
 		DC1B7B0929E2F5AC00C26922 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B7B0829E2F5AC00C26922 /* CustomButton.swift */; };
 		DCA223162919937E005D71C8 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA223152919937E005D71C8 /* WelcomeViewController.swift */; };
 		DCA2231829199391005D71C8 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA2231729199391005D71C8 /* CreateAccountViewController.swift */; };
@@ -238,6 +240,8 @@
 		C6D4899FFB6B98C7C3058BF2 /* Pods-GPSStyleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPSStyleTests.debug.xcconfig"; path = "Target Support Files/Pods-GPSStyleTests/Pods-GPSStyleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DC0C2D6D291BE1F800702D09 /* AuthenticationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationModel.swift; sourceTree = "<group>"; };
 		DC0C2D6F291BED7700702D09 /* AuthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
+		DC0FE4002A06C7C500663FA8 /* ClothesAboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesAboutView.swift; sourceTree = "<group>"; };
+		DC0FE4022A06C7E400663FA8 /* ClothesAboutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesAboutViewModel.swift; sourceTree = "<group>"; };
 		DC1B7B0829E2F5AC00C26922 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		DCA223152919937E005D71C8 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		DCA2231729199391005D71C8 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
@@ -323,6 +327,7 @@
 				F5415C9F290D259E0099C278 /* ClothesCreate */,
 				702F8C9429044ECB006B4DF1 /* LooksList */,
 				702F8C8729044EB2006B4DF1 /* Profile */,
+				DC0FE3FD2A06BC0300663FA8 /* ClothesAbout */,
 				702F8C7A29044E69006B4DF1 /* ClothesList */,
 				702F8C6D29044E45006B4DF1 /* Home */,
 				702F8C6A290441A0006B4DF1 /* Assets */,
@@ -661,6 +666,15 @@
 				70F70410292C28BC003382F1 /* CreateLookContainer.swift */,
 			);
 			path = CreateLook;
+			sourceTree = "<group>";
+		};
+		DC0FE3FD2A06BC0300663FA8 /* ClothesAbout */ = {
+			isa = PBXGroup;
+			children = (
+				DC0FE4002A06C7C500663FA8 /* ClothesAboutView.swift */,
+				DC0FE4022A06C7E400663FA8 /* ClothesAboutViewModel.swift */,
+			);
+			path = ClothesAbout;
 			sourceTree = "<group>";
 		};
 		DC1B7B0629E2F56B00C26922 /* CustomComponents */ = {
@@ -1127,6 +1141,7 @@
 				70BB4B3B295651550079170B /* GetLooksService.swift in Sources */,
 				F5415CAB290D29C30099C278 /* ClothesCreateInteractor.swift in Sources */,
 				F557E9E729D5A58E00C77C22 /* u2netp.mlmodel in Sources */,
+				DC0FE4032A06C7E400663FA8 /* ClothesAboutViewModel.swift in Sources */,
 				F5415CAD290D29E40099C278 /* ClothesCreateContainer.swift in Sources */,
 				70BB4B2E2944E2170079170B /* Clothes.swift in Sources */,
 				702F8C9E29044EFC006B4DF1 /* LooksListProtocols.swift in Sources */,
@@ -1135,6 +1150,7 @@
 				702F8CC0290C8C35006B4DF1 /* HomeTableViewCell.swift in Sources */,
 				F5796E2729579D6F00E43877 /* ClothesModel.swift in Sources */,
 				702F8C8229044E97006B4DF1 /* ClothesListRouter.swift in Sources */,
+				DC0FE4012A06C7C500663FA8 /* ClothesAboutView.swift in Sources */,
 				70F70415292C28BC003382F1 /* CreateLookInteractor.swift in Sources */,
 				702F8CC4290C940D006B4DF1 /* VerticalAlignLabel.swift in Sources */,
 				702F8CB7290C85FB006B4DF1 /* CalendarView+Extensions.swift in Sources */,
