@@ -18,6 +18,7 @@ final class ClothesListViewController: UIViewController {
     }
     private let addButton = UIButton()
     private let tableView = UITableView()
+    private let searchController = UISearchController()
     
     init(output: ClothesListViewOutput) {
         self.output = output
@@ -36,6 +37,9 @@ final class ClothesListViewController: UIViewController {
         setupTitle()
         setupTableView()
         setupButton()
+        setupSearchController()
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +80,14 @@ final class ClothesListViewController: UIViewController {
         navigationItem.titleView = title
     }
     
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Поиск..."
+
+        definesPresentationContext = true
+    }
+    
     @objc
     private func addButtonDidTap() {
         output.addButtonDidTap()
@@ -83,6 +95,12 @@ final class ClothesListViewController: UIViewController {
 }
 
 extension ClothesListViewController: ClothesListViewInput {
+    func showNoResult() {
+    }
+    
+    func hideNoResult() {
+    }
+    
     func reloadData() {
         tableView.reloadData()
     }
@@ -145,5 +163,17 @@ extension ClothesListViewController: UITableViewDataSource {
         alert.addAction(cancelAction)
         alert.addAction(deleteAction)
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension ClothesListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if searchController.isActive == false {
+            output.endSearch()
+        }
+        
+        if let text = searchController.searchBar.text {
+            output.updateSearchResult(text: text)
+        }
     }
 }

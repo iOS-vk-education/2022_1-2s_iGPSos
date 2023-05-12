@@ -18,14 +18,14 @@ protocol ClothesListModuleOutput: AnyObject {
 
 protocol ClothesListViewInput: AnyObject {
     func reloadData()
+    func showNoResult()
+    func hideNoResult()
 }
 
 protocol ClothesListViewOutput: AnyObject {
     func addButtonDidTap()
     func viewWillAppear()
-    func getCloth(index: Int) -> ClothingModel
-    var countList: Int { get }
-    var getSections: [ClothesSection] { get }
+    
     func clothDidTap(with index: IndexPath)
     
     func getSectionCount() -> Int
@@ -33,6 +33,9 @@ protocol ClothesListViewOutput: AnyObject {
     func getTitle(for section: Int) -> String
     func getCell(at index: IndexPath) -> ClothesRow
     func removeCell(at index: IndexPath)
+    
+    func endSearch()
+    func updateSearchResult(text searchText: String)
 }
 
 protocol ClothesListInteractorInput: AnyObject {
