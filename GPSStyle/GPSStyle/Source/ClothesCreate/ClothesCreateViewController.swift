@@ -33,7 +33,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
     private let output: ClothesCreateViewOutput
     private var supportConstraint: NSLayoutConstraint?
     private var checkTheWeather: Bool = false
-    private var specification: [String: String] = [:]
+    private var specification: SpecificationModel?
     
     private var pickerUnitClothesBrand = UnitClothesType(name: L10n.brand,
                                                          variants: clothesBrand,
@@ -163,7 +163,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         return button
     }()
     
-    private var cretateClothesButton: CustomButton = CustomButton()
+    private var createClothesButton: CustomButton = CustomButton()
     
     init(output: ClothesCreateViewOutput) {
         self.output = output
@@ -183,9 +183,10 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         setConstraints()
         addTargets()
         setupPickersViews()
+        output.didLoadView()
     }
     
-    func setupViews() {
+    private func setupViews() {
         view.backgroundColor = ColorName.white.color
         view.addSubviews(clothingNameTextField,
                          clothesImageView,
@@ -196,17 +197,17 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
                          clothingColorCategoryLabel,
                          clothingBrandView,
                          clothingBrandLabel,
-                         cretateClothesButton)
+                         createClothesButton)
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
         selectPhotoButton.setTitle(L10n.addPhoto, for: .normal)
         selectPhotoButton.tintColor = ColorName.mainPurple.color
         selectPhotoButton.backgroundColor = ColorName.lightPink.color
         selectPhotoButton.translatesAutoresizingMaskIntoConstraints = false
-        cretateClothesButton.setTitle(L10n.createClothes, for: .normal)
-        cretateClothesButton.translatesAutoresizingMaskIntoConstraints = false
+        createClothesButton.setTitle(L10n.createClothes, for: .normal)
+        createClothesButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func setupPickersViews() {
+    private func setupPickersViews() {
         let recognierSize = UITapGestureRecognizer(target: self, action: #selector(didTapSizeLabel))
         clothingSizeLabel.addGestureRecognizer(recognierSize)
         
@@ -227,7 +228,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
     private func addTargets() {
         selectPhotoButton.addTarget(self, action: #selector(didTapSelectPhoto), for: .touchUpInside)
         checkTheWeatherButton.addTarget(self, action: #selector(didTapCheckWeather), for: .touchUpInside)
-        cretateClothesButton.addTarget(self, action: #selector(didTapCreateClothes), for: .touchUpInside)
+        createClothesButton.addTarget(self, action: #selector(didTapCreateClothes), for: .touchUpInside)
     }
     
     private func didTapSpecificationLabel(unit: UnitClothesType) {
@@ -247,19 +248,30 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         case TypeName.brand:
             clothingBrandLabel.text = model.selectedValue
             clothingBrandLabel.textColor = .black
-            specification[L10n.brand] = model.selectedValue
+            if let value = model.selectedValue {
+                specification?.brand = value
+            }
             pickerUnitClothesBrand = model
         case TypeName.category:
             clothingColorCategoryLabel.text = model.selectedValue
             clothingColorCategoryLabel.textColor = .black
-            specification[L10n.category] = model.selectedValue
+            if let value = model.selectedValue {
+                specification?.category = value
+            }
             pickerUnitClothesCategory = model
         case TypeName.size:
             clothingSizeLabel.text = model.selectedValue
             clothingSizeLabel.textColor = .black
-            specification[L10n.size] = model.selectedValue
+            if let value = model.selectedValue {
+                specification?.size = value
+            }
             pickerUnitClothesSize = model
         }
+    }
+    
+    func configure(with model: ClothesRow?) {
+        title = "OK"
+        // configure
     }
     
     @objc
@@ -288,6 +300,7 @@ final class ClothesCreateViewController: UIViewController, ClothesCreatePickerDe
         else {
             return
         }
+        let specification = SpecificationModel(brand: brand, category: category, size: size)
         output.didTapCreateClothes(model: ClothesModel(title: name,
                                                        image: image,
                                                        checkWeather: checkTheWeather,
@@ -365,10 +378,10 @@ extension ClothesCreateViewController {
             clothingBrandLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.specficationsLabelElementsTrailing),
             clothingBrandLabel.heightAnchor.constraint(equalToConstant: Constants.specficationsElementshHeight),
             
-            cretateClothesButton.topAnchor.constraint(equalTo: clothingBrandLabel.bottomAnchor, constant: Constants.specficationsElementsTop),
-            cretateClothesButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.buttonLeading),
-            cretateClothesButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.buttonTrailing),
-            cretateClothesButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
+            createClothesButton.topAnchor.constraint(equalTo: clothingBrandLabel.bottomAnchor, constant: Constants.specficationsElementsTop),
+            createClothesButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.buttonLeading),
+            createClothesButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Constants.buttonTrailing),
+            createClothesButton.heightAnchor.constraint(equalToConstant: Constants.buttonHeight)
         ] )
     }
     
@@ -436,15 +449,22 @@ extension ClothesCreateViewController: UIImagePickerControllerDelegate, UINaviga
         present(vc, animated: true)
     }
     
+    private func processingImage(_ selectedImage: UIImage) {
+        self.clothesImageView.image = UIImage()
+        DispatchQueue.main.async {
+            let resizeSelectedImage: UIImage = selectedImage.resize()
+            let imageWithoutBackground: UIImage? = resizeSelectedImage.removeBackgroudIfPosible(width: 320, height: 320)
+            self.clothesImageView.image = imageWithoutBackground
+        }
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         picker.dismiss(animated: true, completion: nil)
         guard let selectedImage = info[.editedImage] as? UIImage else {
             return
         }
-        let resizeSelectedImage: UIImage = selectedImage.resize()
-        let imageWithoutBackground: UIImage? = resizeSelectedImage.removeBackgroudIfPosible(width: 320, height: 320)
-        self.clothesImageView.image = imageWithoutBackground
+        processingImage(selectedImage)
         if clothesImageView.image != nil {
             selectPhotoButton.setTitle(L10n.changePhoto, for: .normal)
         } else {

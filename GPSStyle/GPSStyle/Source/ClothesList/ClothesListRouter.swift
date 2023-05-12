@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+import SwiftUI
 
 final class ClothesListRouter {
     weak var viewController: UIViewController?
@@ -14,7 +16,14 @@ final class ClothesListRouter {
 
 extension ClothesListRouter: ClothesListRouterInput {
     func goToAddClothesScreen() {
-        let container = ClothesCreateContainer.assemble(with: ClothesCreateContext())
+        let container = ClothesCreateContainer.assemble(with: ClothesCreateContext(clothesRow: nil))
         viewController?.navigationController?.pushViewController(container.viewController, animated: true)
+    }
+    
+    func goToAboutCloth(presenter: ClothesListModuleInput) {
+        let clothesAboutViewModel = ClothesAboutViewModel()
+        let clothesAboutView = ClothesAboutView(viewModel: clothesAboutViewModel)
+        let hosting = UIHostingController(rootView: clothesAboutView)
+        viewController?.navigationController?.pushViewController(hosting, animated: true)
     }
 }

@@ -18,14 +18,24 @@ protocol ClothesListModuleOutput: AnyObject {
 
 protocol ClothesListViewInput: AnyObject {
     func reloadData()
+    func showNoResult()
+    func hideNoResult()
 }
 
 protocol ClothesListViewOutput: AnyObject {
     func addButtonDidTap()
     func viewWillAppear()
-    func getCloth(index: Int) -> ClothingModel
-    func removeCloth(for ind: Int)
-    var countList: Int { get }
+    
+    func clothDidTap(with index: IndexPath)
+    
+    func getSectionCount() -> Int
+    func getCellCount(in section: Int) -> Int
+    func getTitle(for section: Int) -> String
+    func getCell(at index: IndexPath) -> ClothesRow
+    func removeCell(at index: IndexPath)
+    
+    func endSearch()
+    func updateSearchResult(text searchText: String)
 }
 
 protocol ClothesListInteractorInput: AnyObject {
@@ -34,9 +44,10 @@ protocol ClothesListInteractorInput: AnyObject {
 }
 
 protocol ClothesListInteractorOutput: AnyObject {
-    func clothDidLoad(with array: [ClothingModel])
+    func clothDidLoad(with array: [ClothesSection])
 }
 
 protocol ClothesListRouterInput: AnyObject {
     func goToAddClothesScreen()
+    func goToAboutCloth(presenter: ClothesListModuleInput)
 }

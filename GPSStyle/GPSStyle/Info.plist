@@ -4,6 +4,10 @@
 <dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
+		<key>Privacy - Camera Usage Description</key>
+		<string>Разрешить доступ к камере</string>
+		<key>Privacy - Photo Library Addition</key>
+		<string>Разрешить доступ к галерее</string>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 		<key>UISceneConfigurations</key>
@@ -18,10 +22,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>Privacy - Camera Usage Description</key>
-		<string>Разрешить доступ к камере</string>
-		<key>Privacy - Photo Library Addition</key>
-		<string>Разрешить доступ к галерее</string>
 	</dict>
 </dict>
 </plist>

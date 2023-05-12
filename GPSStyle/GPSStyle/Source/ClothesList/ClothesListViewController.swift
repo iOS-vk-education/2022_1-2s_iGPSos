@@ -18,6 +18,7 @@ final class ClothesListViewController: UIViewController {
     }
     private let addButton = UIButton()
     private let tableView = UITableView()
+    private let searchController = UISearchController()
     
     init(output: ClothesListViewOutput) {
         self.output = output
@@ -36,6 +37,9 @@ final class ClothesListViewController: UIViewController {
         setupTitle()
         setupTableView()
         setupButton()
+        setupSearchController()
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +80,14 @@ final class ClothesListViewController: UIViewController {
         navigationItem.titleView = title
     }
     
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Поиск..."
+
+        definesPresentationContext = true
+    }
+    
     @objc
     private func addButtonDidTap() {
         output.addButtonDidTap()
@@ -83,6 +95,12 @@ final class ClothesListViewController: UIViewController {
 }
 
 extension ClothesListViewController: ClothesListViewInput {
+    func showNoResult() {
+    }
+    
+    func hideNoResult() {
+    }
+    
     func reloadData() {
         tableView.reloadData()
     }
@@ -90,15 +108,23 @@ extension ClothesListViewController: ClothesListViewInput {
 
 extension ClothesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       // output.clothDidTap(with: indexPath)
+        output.clothDidTap(with: indexPath)
     }
 }
 
 extension ClothesListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        output.countList
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        output.getTitle(for: section)
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        output.getSectionCount()
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        output.getCellCount(in: section)
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: ClothesTableViewCell.cellReuseIdentifier,
@@ -106,7 +132,7 @@ extension ClothesListViewController: UITableViewDataSource {
         ) as? ClothesTableViewCell else {
             return UITableViewCell()
         }
-        cell.configure(model: output.getCloth(index: indexPath.row))
+        cell.configure(model: output.getCell(at: indexPath))
         return cell
     }
     
@@ -116,12 +142,38 @@ extension ClothesListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .normal, title: "") { [weak self] (_, _, _) in
-            self?.output.removeCloth(for: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            print("del")
+            DispatchQueue.main.async {
+                self?.showDeleteWarningCloth(for: indexPath)
+            }
         }
         deleteAction.backgroundColor = .white
         deleteAction.image = UIImage(named: "delete")
         return UISwipeActionsConfiguration(actions: [deleteAction])
         }
+    
+    func showDeleteWarningCloth(for indexPath: IndexPath) {
+        let alert = UIAlertController(title: "", message: "Вы уверены, что хотите удалить элемент?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Назад", style: .default, handler: nil)
+        let deleteAction = UIAlertAction(title: "Удалить", style: .destructive) { _ in
+            DispatchQueue.main.async { [self] in
+                self.output.removeCell(at: indexPath)
+                self.tableView.reloadData()
+            }
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
+        present(alert, animated: true, completion: nil)
+    }
+}
+
+extension ClothesListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if searchController.isActive == false {
+            output.endSearch()
+        }
+        
+        if let text = searchController.searchBar.text {
+            output.updateSearchResult(text: text)
+        }
+    }
 }

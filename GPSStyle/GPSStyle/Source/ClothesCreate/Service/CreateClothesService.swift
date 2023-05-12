@@ -39,10 +39,15 @@ extension CreateClothesService: CreateClothesServiceInput {
 
         // Upload the file to the path "images/rivers.jpg"
         let uploadTask = riversRef.putData(data, metadata: nil) { [weak self] (_, _) in
+            var specificationDict = [String: Any]()
+            specificationDict["category"] = model.specification.category
+            specificationDict["brand"] = model.specification.brand
+            specificationDict["size"] = model.specification.size
             var dict = [String: Any]()
+            
             dict["imageName"] = "\(imageName).jpg"
             dict["name"] = model.title
-            dict["specification"] = model.specification
+            dict["specification"] = specificationDict
             dict["checkWeather"] = model.checkWeather
             dict["uuid"] = UUID().uuidString
             dict["userId"] = Auth.auth().currentUser?.uid

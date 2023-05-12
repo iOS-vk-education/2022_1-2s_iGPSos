@@ -27,11 +27,11 @@ extension ClothesListInteractor: ClothesListInteractorInput {
     }
 }
 
-extension ClothesListInteractor: GetClothesServiceOutput {
+extension ClothesListInteractor: GetClothesServiceOutput {   
     func faild() {
     }
     
-    func success(with array: [ClothingModel]) {
+    func success(with array: [ClothesSection]) {
         output?.clothDidLoad(with: array)
     }
 }
