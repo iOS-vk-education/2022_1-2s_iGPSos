@@ -83,8 +83,13 @@ class MainTabBarController: UITabBarController {
         
         tabBar.layer.insertSublayer(roundLayer, at: 0)
         
-        tabBar.itemWidth = width / 7
-        tabBar.itemPositioning = .centered
+        let appearance = UITabBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.stackedItemWidth = width / 7
+        appearance.stackedItemPositioning = .centered
+        tabBar.standardAppearance = appearance
+        tabBar.scrollEdgeAppearance = tabBar.standardAppearance
+
         additionalSafeAreaInsets.bottom = Constants.bottomInsets
     }
 

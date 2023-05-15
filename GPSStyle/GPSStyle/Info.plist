@@ -2,12 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Разрешить доступ к галерее</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Разрешить доступ к камере</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
-		<key>Privacy - Camera Usage Description</key>
-		<string>Разрешить доступ к камере</string>
-		<key>Privacy - Photo Library Addition</key>
-		<string>Разрешить доступ к галерее</string>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 		<key>UISceneConfigurations</key>
