@@ -203,6 +203,10 @@ extension MeetingViewController: UITableViewDelegate, UITableViewDataSource {
         return cell ?? .init()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        MeetingTableViewCell.height()
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let date = date, let time = time else {
             return
