@@ -13,17 +13,39 @@ struct ClothesAboutView: View {
     var body: some View {
         VStack {
             Spacer(minLength: 50)
-            ImageClothesView()
+            viewModel.getImage()
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 194, height: 194)
+                .background(SwiftUI.Color.white)
+                .cornerRadius(24)
+                .shadow(radius: 5)
+            
             HStack(spacing: 10) {
-                SpecificationClothesView(title: "Туфли")
-                SpecificationClothesView(title: "39 EU")
-                SpecificationClothesView(title: "Обувь")
-                SpecificationClothesView(title: "Gucci")
+                SpecificationClothesView(title: viewModel.clothingModel.name)
+                SpecificationClothesView(title: viewModel.clothingModel.specification.size)
+                SpecificationClothesView(title: viewModel.clothingModel.specification.category)
+                SpecificationClothesView(title: viewModel.clothingModel.specification.brand)
             }
             .fixedSize(horizontal: false, vertical: true)
             .padding()
             ButtonEditClothesView()
             Spacer()
+        }
+    }
+}
+
+struct NameCLothesView: View {
+    var title: String
+    
+    var body: some View {
+        VStack {
+            Text(title)
+                .foregroundColor(.black)
+                .frame(width: 250, height: 60)
+                .background(SwiftUI.Color.white)
+                .cornerRadius(14)
+                .shadow(radius: 5)
         }
     }
 }

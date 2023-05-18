@@ -20,8 +20,8 @@ extension ClothesListRouter: ClothesListRouterInput {
         viewController?.navigationController?.pushViewController(container.viewController, animated: true)
     }
     
-    func goToAboutCloth(presenter: ClothesListModuleInput) {
-        let clothesAboutViewModel = ClothesAboutViewModel()
+    func goToAboutCloth(model: ClothingModel) {
+        let clothesAboutViewModel = ClothesAboutViewModel(clothingModel: model)
         let clothesAboutView = ClothesAboutView(viewModel: clothesAboutViewModel)
         let hosting = UIHostingController(rootView: clothesAboutView)
         viewController?.navigationController?.pushViewController(hosting, animated: true)
