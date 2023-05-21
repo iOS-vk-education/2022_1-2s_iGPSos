@@ -35,7 +35,10 @@ public final class ImageCache: ImageCacheType {
             appropriateFor: nil,
             create: false).appendingPathComponent(url) else { return }
         
-        if let data = image?.jpegData(compressionQuality: 0.8) {
+        let resizeSelectedImage: UIImage = image?.resize() ?? UIImage()
+        let imageWithoutBackground: UIImage? = resizeSelectedImage.removeBackgroudIfPosible(width: 320, height: 320)
+        
+        if let data = imageWithoutBackground?.pngData() {
             try? data.write(to: fileCachePath)
         }
     }
