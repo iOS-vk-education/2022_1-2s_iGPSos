@@ -176,7 +176,25 @@ extension ClothesListPresenter: ClothesListViewOutput {
     
     func clothDidTap(with index: IndexPath) {
         // [art] Open new screen view cloth
-        router.goToAboutCloth(presenter: self)
+
+        var tableIndex = index
+        if lastSearchText != nil {
+            tableIndex = IndexPath(row: searchTable[index.section].clothersIndex[index.row],
+                                   section: searchTable[index.section].sectionIndex)
+            searchTable[index.section].clothers.remove(at: index.row)
+            if searchTable[index.section].clothers.count == 0 {
+                searchTable.remove(at: index.section)
+            }
+        }
+        // Создание модели одежды для передачи интерактору
+        let clothCell = tableData[tableIndex.section].rows[tableIndex.row]
+        let clothId = clothCell.id
+        let clothTitle = clothCell.title
+        let clothImage = clothCell.imageUrl
+        let clothSpec = clothCell.specification
+        let clothModel = ClothingModel(uuid: clothId, name: clothTitle, imageName: clothImage, specification: clothSpec)
+        
+        router.goToAboutCloth(model: clothModel)
     }
 }
 

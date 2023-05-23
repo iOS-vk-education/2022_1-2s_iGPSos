@@ -12,18 +12,45 @@ struct ClothesAboutView: View {
     
     var body: some View {
         VStack {
-            Spacer(minLength: 50)
-            ImageClothesView()
+            Spacer(minLength: 25)
+            viewModel.getImage()
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 194, height: 194)
+                .background(SwiftUI.Color.white)
+                .cornerRadius(24)
+                .shadow(color: SwiftUI.Color.gray.opacity(0.2), radius: 2, x: 0, y: 5)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding()
+            
             HStack(spacing: 10) {
-                SpecificationClothesView(title: "Туфли")
-                SpecificationClothesView(title: "39 EU")
-                SpecificationClothesView(title: "Обувь")
-                SpecificationClothesView(title: "Gucci")
+                SpecificationClothesView(title: viewModel.clothingModel.name)
+                SpecificationClothesView(title: viewModel.clothingModel.specification.size)
+            }
+            
+            HStack(spacing: 10) {
+                SpecificationClothesView(title: viewModel.clothingModel.specification.category)
+                SpecificationClothesView(title: viewModel.clothingModel.specification.brand)
             }
             .fixedSize(horizontal: false, vertical: true)
             .padding()
             ButtonEditClothesView()
             Spacer()
+        }
+    }
+}
+
+struct NameCLothesView: View {
+    var title: String
+    
+    var body: some View {
+        VStack {
+            Text(title)
+                .foregroundColor(.black)
+                .frame(width: 250, height: 60)
+                .background(SwiftUI.Color.white)
+                .cornerRadius(14)
+                .shadow(radius: 5)
         }
     }
 }
@@ -35,24 +62,10 @@ struct SpecificationClothesView: View {
         VStack {
             Text(title)
                 .foregroundColor(.black)
-                .frame(width: 60, height: 60)
+                .frame(width: 170, height: 60)
                 .background(SwiftUI.Color.white)
                 .cornerRadius(14)
-                .shadow(radius: 5)
-        }
-    }
-}
-
-struct ImageClothesView: View {
-    var body: some View {
-        VStack {
-            Image("shoes")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 194, height: 194)
-                .background(SwiftUI.Color.white)
-                .cornerRadius(24)
-                .shadow(radius: 5)
+                .shadow(color: SwiftUI.Color.gray.opacity(0.2), radius: 2, x: 0, y: 5)
         }
     }
 }
