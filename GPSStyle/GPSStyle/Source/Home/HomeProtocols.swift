@@ -43,4 +43,5 @@ protocol HomeInteractorOutput: AnyObject {
 
 protocol HomeRouterInput: AnyObject {
     func goToCreateMeeting(presenter: HomeModuleInput)
+    func goToAboutCloth(model: ClothingModel)
 }
