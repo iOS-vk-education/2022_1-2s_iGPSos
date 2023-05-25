@@ -189,10 +189,10 @@ extension Date {
         dayFormatter.dateFormat = "E, dd-MM-yyyy"
         
         let startTimeFormatter = DateFormatter()
-        startTimeFormatter.dateFormat = "hh:mm"
+        startTimeFormatter.dateFormat = "HH:mm"
         
         let endTimeFormatter = DateFormatter()
-        endTimeFormatter.dateFormat = "hh:mm"
+        endTimeFormatter.dateFormat = "HH:mm"
         
         return String(format: "%@ (%@ - %@)",
                       dayFormatter.string(from: dayDate),

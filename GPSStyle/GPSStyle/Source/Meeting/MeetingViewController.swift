@@ -212,7 +212,7 @@ extension MeetingViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
         let startTimeFormatter = DateFormatter()
-        startTimeFormatter.dateFormat = "h:mm a" // TODO: RU!
+        startTimeFormatter.dateFormat = "HH:mm"
         
         addMettingService?.createMeeting(
             date: date,
