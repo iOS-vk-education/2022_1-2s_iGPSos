@@ -11,7 +11,8 @@ protocol AddMeetingServiceInput: AnyObject {
     func createMeeting(
         date: Date,
         title: String,
-        lookId: String
+        lookId: String,
+        repeatEveryWeek: Bool
     )
 }
 
@@ -33,20 +34,42 @@ extension AddMeetingService: AddMeetingServiceInput {
     func createMeeting(
         date: Date,
         title: String,
-        lookId: String
+        lookId: String,
+        repeatEveryWeek: Bool
     ) {
-        var dict = [String: Any]()
-        
-        dict["date"] = date
-        dict["title"] = title
-        dict["uuid"] = UUID().uuidString
-        dict["userId"] = Auth.auth().currentUser?.uid
-        dict["looksId"] = lookId
-        database.collection("meeting").addDocument(data: dict) { [weak self] error in
-            if error != nil {
-                self?.output?.faild()
-            } else {
-                self?.output?.success()
+        if repeatEveryWeek {
+            for i in 0..<4 {
+                var dict = [String: Any]()
+                
+                let repeatedDate = Calendar.current.date(byAdding: .day, value: i * 7, to: date)
+                
+                dict["date"] = repeatedDate
+                dict["title"] = title
+                dict["uuid"] = UUID().uuidString
+                dict["userId"] = Auth.auth().currentUser?.uid
+                dict["looksId"] = lookId
+                database.collection("meeting").addDocument(data: dict) { [weak self] error in
+                    if error != nil {
+                        self?.output?.faild()
+                    } else {
+                        self?.output?.success()
+                    }
+                }
+            }
+        } else {
+            var dict = [String: Any]()
+            
+            dict["date"] = date
+            dict["title"] = title
+            dict["uuid"] = UUID().uuidString
+            dict["userId"] = Auth.auth().currentUser?.uid
+            dict["looksId"] = lookId
+            database.collection("meeting").addDocument(data: dict) { [weak self] error in
+                if error != nil {
+                    self?.output?.faild()
+                } else {
+                    self?.output?.success()
+                }
             }
         }
     }
