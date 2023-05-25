@@ -67,7 +67,7 @@ class LookTableViewCell: UITableViewCell {
     func configure(model: LookModel) {
         title.text = model.name
         size = model.imageName.count
-        countLabel.text = "+\(size - 1)"
+        countLabel.text = "+\(size - 3)"
         countLabel.isHidden = size <= 3
         
         model.imageName.enumerated().forEach { index, imageName in
