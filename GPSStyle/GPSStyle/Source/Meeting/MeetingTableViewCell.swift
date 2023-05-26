@@ -88,4 +88,8 @@ class MeetingTableViewCell: UITableViewCell {
         imageClothView.layer.cornerRadius = Constants.imageCornerRadius
         imageClothView.layer.masksToBounds = true
     }
+    
+    static func height() -> CGFloat {
+        return Constants.imageClothSideSize + Constants.imageClothVerticallyMargin * 2 + Constants.imageMargin
+    }
 }

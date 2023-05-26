@@ -66,7 +66,6 @@ final class LooksListViewController: UIViewController {
                 .marginBottom(Constants.addButtonMarginBottom)
         }
         tableView.pin.all()
-        tableView.contentInset.bottom = Constants.addButtonSideSize + Constants.addButtonMarginBottom
         errorLabel.pin
             .top(view.pin.safeArea.top + Constants.errorButtonTopMargin)
             .horizontally()
@@ -111,6 +110,8 @@ final class LooksListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        tableView.contentInset.top = 4
+        tableView.contentInset.bottom = Constants.addButtonSideSize + Constants.addButtonMarginBottom
         tableView.register(LookTableViewCell.self, forCellReuseIdentifier: LookTableViewCell.cellReuseIdentifier)
     }
     
@@ -165,6 +166,10 @@ extension LooksListViewController: UITableViewDataSource {
         }
         cell.configure(model: output.getLook(index: indexPath.row))
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        LookTableViewCell.height()
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

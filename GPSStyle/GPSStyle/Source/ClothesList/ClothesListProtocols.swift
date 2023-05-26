@@ -49,5 +49,5 @@ protocol ClothesListInteractorOutput: AnyObject {
 
 protocol ClothesListRouterInput: AnyObject {
     func goToAddClothesScreen()
-    func goToAboutCloth(presenter: ClothesListModuleInput)
+    func goToAboutCloth(model: ClothingModel)
 }

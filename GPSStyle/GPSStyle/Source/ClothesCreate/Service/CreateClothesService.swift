@@ -30,12 +30,12 @@ final class CreateClothesService {
 extension CreateClothesService: CreateClothesServiceInput {
     func createClothes(model: ClothesModel) {
         // Data in memory
-        guard let data = model.image.jpegData(compressionQuality: 1.0) else {
+        guard let data = model.image.pngData() else {
             return
         }
         let imageName = UUID().uuidString
         // Create a reference to the file you want to upload
-        let riversRef = storage.child("\(imageName).jpg")
+        let riversRef = storage.child("\(imageName).png")
 
         // Upload the file to the path "images/rivers.jpg"
         let uploadTask = riversRef.putData(data, metadata: nil) { [weak self] (_, _) in
@@ -45,7 +45,7 @@ extension CreateClothesService: CreateClothesServiceInput {
             specificationDict["size"] = model.specification.size
             var dict = [String: Any]()
             
-            dict["imageName"] = "\(imageName).jpg"
+            dict["imageName"] = "\(imageName).png"
             dict["name"] = model.title
             dict["specification"] = specificationDict
             dict["checkWeather"] = model.checkWeather
