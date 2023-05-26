@@ -212,12 +212,13 @@ extension MeetingViewController: UITableViewDelegate, UITableViewDataSource {
             return
         }
         let startTimeFormatter = DateFormatter()
-        startTimeFormatter.dateFormat = "h:mm a"
+        startTimeFormatter.dateFormat = "HH:mm"
         
         addMettingService?.createMeeting(
             date: date,
             title: "Встреча в \( startTimeFormatter.string(from: time))",
-            lookId: models[indexPath.row].uuid
+            lookId: models[indexPath.row].uuid,
+            repeatEveryWeek: repeatEveryWeek
         )
     }
 }
