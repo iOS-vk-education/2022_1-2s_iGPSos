@@ -54,7 +54,16 @@ extension HomePresenter: HomeViewOutput {
     }
     
     func clothDidTap(with index: IndexPath) {
-        // [art] Open new screen view cloth
+        let clothCell = data[index.section].rows[index.row]
+        let clothId = clothCell.id
+        let clothTitle = clothCell.title
+        let clothImage = clothCell.imageUrl
+        let clothSpec = SpecificationModel(brand: clothCell.specification[0].value,
+                                           category: clothCell.specification[1].value,
+                                           size: clothCell.specification[2].value)
+        let clothModel = ClothingModel(uuid: clothId, name: clothTitle, imageName: clothImage, specification: clothSpec)
+        
+        router.goToAboutCloth(model: clothModel)
     }
     
     func dateDidChange(with date: Date) {

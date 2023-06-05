@@ -31,6 +31,7 @@ internal enum Asset {
   internal static let add = ImageAsset(name: "add")
   internal static let checkWeatherOff = ImageAsset(name: "check_weather_off")
   internal static let checkWeatherOn = ImageAsset(name: "check_weather_on")
+  internal static let launchScreen = ImageAsset(name: "launchScreen")
   internal static let logo = ImageAsset(name: "logo")
   internal static let shoes = ImageAsset(name: "shoes")
   internal static let tabClothes = ImageAsset(name: "tab_clothes")

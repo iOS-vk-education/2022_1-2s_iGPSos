@@ -119,4 +119,8 @@ extension CreateLookViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         output.updateIsSelected(index: indexPath.row)
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        output.updateIsSelected(index: indexPath.row)
+    }
 }
